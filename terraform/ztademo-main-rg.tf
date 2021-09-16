@@ -15,7 +15,7 @@ terraform {
 		}
 	}
 	backend "azurerm" {
-    resource_group_name  = "ae700rdeastus2_rg"
+    resource_group_name  = "ae700rd_eastus2_rg"
     storage_account_name = "ae700rdeastus2general"
     container_name       = "tfstates"
     key                  = "ztademo.tfstate"

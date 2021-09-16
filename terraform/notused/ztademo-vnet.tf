@@ -1,5 +1,8 @@
-# CCES - Virtual Networks
-
+#================================================================================
+#
+# 
+# Virtual Networks
+#
 resource "azurerm_virtual_network" "itproductioneastus-vnet" {
 	name = "it_production_eastus-vnet"
 	location = azurerm_resource_group.itproductioneastus-rg.location

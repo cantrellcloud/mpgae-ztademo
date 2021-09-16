@@ -25,3 +25,23 @@ resource "azurerm_virtual_network_gateway_connection" "itproductioneastuscotpa-v
 	use_policy_based_traffic_selectors = false
 	virtual_network_gateway_id = azurerm_virtual_network_gateway.itproductioneastus-vnetgw.id
 }
+
+
+
+
+#================================================================================
+#
+# VPN CONNECTIONS
+
+# vpncon01
+/*module "ztademo_eastus2_cces_cotpa_vpncon" {
+	source = "github.com/cantrellcloud/tfAzureModules/vpncon"
+	#to_provision = local.provision_vpncon01
+	vpncon_name = "ztademo_eastus2_cces_cotpa_vpncon"
+	rg_location = module.ae700rd_ztademo_eastus2_rg.rg_location
+	rg_name = module.ae700rd_ztademo_eastus2_rg.rg_name
+
+	vpncon_localgw_id = module.kea_dcedemo_cces_cotpa_localgw.localgw_id
+	vpncon_shared_key = "RD#v\u002696f7@\u0026FA^vBouxG"
+	vpncon_vnetgw_id = module.ztademo_eastus2_prod_vnetgw.vnetgw_id
+}*/
