@@ -41,8 +41,8 @@ resource "azurerm_local_network_gateway" "itproductioneastuscotpa-localgw" {
 module "kea_dcedemo_cces_cotpa_localgw" {
 	source = "github.com/cantrellcloud/tfAzureModules/localgw"
 	#to_provision = local.provision_localgw01
-	rg_location = module.ae700rd_ztademo_eastus2_rg.rg_location
-	rg_name = module.ae700rd_ztademo_eastus2_rg.rg_name
+	rg_location = module.ztademo_eastus2_dev_rg.rg_location
+	rg_name = module.ztademo_eastus2_dev_rg.rg_name
 	localgw_name = "kea_dcedemo_cces_cotpa_localgw"
 	gateway_address = local.localgw01_gateway_address
 

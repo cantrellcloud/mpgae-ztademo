@@ -5,11 +5,11 @@
 #
 
 # vnet01
-module "ztademo_eastus2_zta_vnet" {
+module "ztademo_eastus2_dev_vnet" {
 	source = "github.com/cantrellcloud/tfAzureModules/vnet"
 	#to_provision = local.provision_vnet01
-	rg_location = module.ae700rd_ztademo_eastus2_rg.rg_location
-	rg_name = module.ae700rd_ztademo_eastus2_rg.rg_name
+	rg_location = module.ztademo_eastus2_dev_rg.rg_location
+	rg_name = module.ztademo_eastus2_dev_rg.rg_name
 	rg_tags = {
 		"ManagementGroup" = "A&E 700 R&D",
 		"Environment" = "Demo",
@@ -20,7 +20,7 @@ module "ztademo_eastus2_zta_vnet" {
 		"Project" = "Zero Trust Demo"
 	}
 
-	vnet_name = "ztademo_eastus2_zta_vnet"
+	vnet_name = "ztademo_eastus2_dev_vnet"
 	vnet_address_space = [
 		"172.16.200.0/27",
 		"172.16.200.32/27",
@@ -39,9 +39,9 @@ module "ztademo_eastus2_zta_vnet" {
 }
 
 #vnet01_outputs
-output "ztademo_eastus2_zta_vnet_id" {
-	value = module.ztademo_eastus2_zta_vnet.vnet_id
+output "ztademo_eastus2_dev_vnet_id" {
+	value = module.ztademo_eastus2_dev_vnet.vnet_id
 }
-output "ztademo_eastus2_zta_vnet_name" {
-	value = module.ztademo_eastus2_zta_vnet.vnet_name
+output "ztademo_eastus2_dev_vnet_name" {
+	value = module.ztademo_eastus2_dev_vnet.vnet_name
 }

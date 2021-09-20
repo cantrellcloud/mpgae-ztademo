@@ -1,7 +1,7 @@
 #================================================================================
 #
 # ZTADEMO
-# Main
+# Main, Resource Groups, and Storage Accounts
 #
 #================================================================================
 #
@@ -48,9 +48,9 @@ locals {
 # RESOURCE GROUPS
 
 # rg01
-module "ae700rd_ztademo_eastus2_rg" {
+module "ztademo_eastus2_dev_rg" {
     source = "github.com/cantrellcloud/tfAzureModules/rg/"
-	rg_name = "ae700rd_ztademo_eastus2_rg"
+	rg_name = "ztademo_eastus2_dev_rg"
 	rg_location = "eastus2"
 	rg_tags = {
 		"ManagementGroup" = "A&E 700 R&D",
@@ -64,17 +64,17 @@ module "ae700rd_ztademo_eastus2_rg" {
 }
 
 	# rg01_outputs
-	output "ae700rd_ztademo_eastus2_rg_name" {
-		value = module.ae700rd_ztademo_eastus2_rg.rg_name
+	output "ztademo_eastus2_dev_rg_name" {
+		value = module.ztademo_eastus2_dev_rg.rg_name
 	}
-	output "ae700rd_ztademo_eastus2_rg_location" {
-		value = module.ae700rd_ztademo_eastus2_rg.rg_location
+	output "ztademo_eastus2_dev_rg_location" {
+		value = module.ztademo_eastus2_dev_rg.rg_location
 	}
 
 # rg02
-module "ae700rd_ztademo_eastus2_appsvcplan_rg" {
+module "ztademo_eastus2_dev_appsvcplan_rg" {
     source = "github.com/cantrellcloud/tfAzureModules/rg/"
-	rg_name = "ae700rd_ztademo_eastus2_appsvcplan_rg"
+	rg_name = "ztademo_eastus2_dev_appsvcplan_rg"
 	rg_location = "eastus2"
 	rg_tags = {
 		"ManagementGroup" = "A&E 700 R&D",
@@ -88,11 +88,35 @@ module "ae700rd_ztademo_eastus2_appsvcplan_rg" {
 }
 
 	# rg02_outputs
-	output "ae700rd_ztademo_eastus2_appsvcplan_rg_name" {
-		value = module.ae700rd_ztademo_eastus2_appsvcplan_rg.rg_name
+	output "ztademo_eastus2_dev_appsvcplan_rg_name" {
+		value = module.ztademo_eastus2_dev_appsvcplan_rg.rg_name
 	}
-	output "ae700rd_ztademo_eastus2_appsvcplan_rg_location" {
-		value = module.ae700rd_ztademo_eastus2_appsvcplan_rg.rg_location
+	output "ztademo_eastus2_dev_appsvcplan_rg_location" {
+		value = module.ztademo_eastus2_dev_appsvcplan_rg.rg_location
+	}
+
+# rg03
+module "ztademo_eastus_dev_rg" {
+    source = "github.com/cantrellcloud/tfAzureModules/rg/"
+	rg_name = "ztademo_eastus_dev_rg"
+	rg_location = "eastus"
+	rg_tags = {
+		"ManagementGroup" = "A&E 700 R&D",
+		"Environment" = "Demo",
+		"AutomatedBy" = "Terraform",
+		"Note1" = "Do not manually change",
+		"POCName" = "ronc@mindpointgroup.com",
+		"POCPhone" = "843.330.6769",
+		"Project" = "Zero Trust Demo"
+	}
+}
+
+	# rg02_outputs
+	output "ztademo_eastus_dev_rg_name" {
+		value = module.ztademo_eastus_dev_rg.rg_name
+	}
+	output "ztademo_eastus_dev_rg_location" {
+		value = module.ztademo_eastus_dev_rg.rg_location
 	}
 
 #================================================================================
@@ -100,11 +124,11 @@ module "ae700rd_ztademo_eastus2_appsvcplan_rg" {
 # STORAGE ACCOUNTS
 
 # storage01
-module "ae700rd_ztademo_eastus2_general_storage" {
+module "ztademo_eastus2_general_storage" {
 	source = "github.com/cantrellcloud/tfAzureModules/storage"
 	#to_provision = local.provision_storage01
-	rg_location = module.ae700rd_ztademo_eastus2_rg.rg_location
-	rg_name = module.ae700rd_ztademo_eastus2_rg.rg_name
+	rg_location = module.ztademo_eastus2_dev_rg.rg_location
+	rg_name = module.ztademo_eastus2_dev_rg.rg_name
 	storage_name = "ztademoeastus2general"
 	account_tier = "Standard"
 	account_replication_type = "GRS"
@@ -122,29 +146,29 @@ module "ae700rd_ztademo_eastus2_general_storage" {
 }
 
 	# storage01_outputs
-	output "ae700rd_ztademo_eastus2_general_storage_id" {
-		value = module.ae700rd_ztademo_eastus2_general_storage.storage_id
+	output "ztademo_eastus2_general_storage_id" {
+		value = module.ztademo_eastus2_general_storage.storage_id
 	}
-	output "ae700rd_ztademo_eastus2_general_storage_name" {
-		value = module.ae700rd_ztademo_eastus2_general_storage.storage_name
+	output "ztademo_eastus2_general_storage_name" {
+		value = module.ztademo_eastus2_general_storage.storage_name
 	}
-	output "ae700rd_ztademo_eastus2_general_storage_pri_location" {
-		value = module.ae700rd_ztademo_eastus2_general_storage.storage_pri_location
+	output "ztademo_eastus2_general_storage_pri_location" {
+		value = module.ztademo_eastus2_general_storage.storage_pri_location
 	}
-	output "ae700rd_ztademo_eastus2_general_storage_sec_location" {
-		value = module.ae700rd_ztademo_eastus2_general_storage.storage_sec_location
+	output "ztademo_eastus2_general_storage_sec_location" {
+		value = module.ztademo_eastus2_general_storage.storage_sec_location
 	}
-	output "ae700rd_ztademo_eastus2_general_storage_pri_blob_endpoint" {
-		value = module.ae700rd_ztademo_eastus2_general_storage.storage_pri_blob_endpoint
+	output "ztademo_eastus2_general_storage_pri_blob_endpoint" {
+		value = module.ztademo_eastus2_general_storage.storage_pri_blob_endpoint
 	}
-	output "ae700rd_ztademo_eastus2_general_storage_sec_blob_endpoint" {
-		value = module.ae700rd_ztademo_eastus2_general_storage.storage_sec_blob_endpoint
+	output "ztademo_eastus2_general_storage_sec_blob_endpoint" {
+		value = module.ztademo_eastus2_general_storage.storage_sec_blob_endpoint
 	}
-	output "ae700rd_ztademo_eastus2_general_storage_pri_access_key" {
-		value = module.ae700rd_ztademo_eastus2_general_storage.storage_pri_access_key
+	output "ztademo_eastus2_general_storage_pri_access_key" {
+		value = module.ztademo_eastus2_general_storage.storage_pri_access_key
 		sensitive = true
 	}
-	output "ae700rd_ztademo_eastus2_general_storage_pri_connect_string" {
-		value = module.ae700rd_ztademo_eastus2_general_storage.storage_pri_connect_string
+	output "ztademo_eastus2_general_storage_pri_connect_string" {
+		value = module.ztademo_eastus2_general_storage.storage_pri_connect_string
 		sensitive = true
 	}
