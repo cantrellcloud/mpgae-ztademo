@@ -43,3 +43,29 @@ output "ztademo_eastus_dev_autoaccount_dsc_primary_access_key" {
 output "ztademo_eastus_dev_autoaccount_dsc_secondary_access_key" {
     value = module.ztademo_eastus_dev_autoaccount.autoaccount_dsc_secondary_access_key
 }
+
+#autoschedule01
+module "ztademo_eastus_dev_autoschedule_shutdown_vm_daily" {
+	source = "github.com/cantrellcloud/tfAzureModules/autoschedule"
+	#to_provision = local.provision_autoschedule_01
+	rg_name = module.ztademo_eastus_dev_rg.rg_name
+
+    autoschedule_autoaccount_name  = module.ztademo_eastus_dev_autoaccount.autoaccount_name
+    autoschedule_name              = "shutdown_vms_daily"
+    autoschedule_frequency         = "Day"
+    autoschedule_interval          = 1
+    autoschedule_timezone          = "America/New_York"
+    autoschedule_start_time        = "2021-09-21T03:30:00Z"
+    autoschedule_expiry_time       = null
+    autoschedule_description       = "Shutdown VMs Each Night"
+    autoschedule_week_days         = null
+    autoschedule_month_days        = null
+}
+
+#autoschedule01_outputs
+output "ztademo_eastus_dev_autoschedule_shutdown_vm_daily_autoschedule_id" {
+   	value = module.ztademo_eastus_dev_autoschedule_shutdown_vm_daily.autoschedule_id
+}
+output "ztademo_eastus_dev_autoschedule_shutdown_vm_daily_autoschedule_name" {
+   	value = module.ztademo_eastus_dev_autoschedule_shutdown_vm_daily.autoschedule_name
+}

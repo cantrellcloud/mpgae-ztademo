@@ -27,11 +27,6 @@ terraform {
 # PROVIDERS
 
 provider "azurerm" {
-	/*client_id 		= var.azure_app_id
-	client_secret 	= var.azure_password
-	tenant_id 		= var.azure_tenant_id
-	subscription_id = var.azure_subscription_id
-	environment 	= "public" */
 	features {}
 }
 
