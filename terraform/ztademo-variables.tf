@@ -1,23 +1,23 @@
 #================================================================================
 #
 # ZTADEMO
-# Variables
+# Terraform Authentication Variables
 #
 #================================================================================
 #
 variable "azure_app_id" {
     type = string
-    default = "1e47941b-f0a1-4ebd-b6a5-7365b9a08faa"
+    default = null
 }
 variable "azure_password" {
     type = string
-    default = "Nh37Q~c2ulLw9_bDOJCG1ESd1X-HoE4iOWKZF" 
+    default = null
 }
 variable "azure_tenant_id" {
     type = string
-    default = "8d806912-9a5e-4519-8e3c-21edc19db062"
+    default = null
 }
 variable "azure_subscription_id" {
     type = string
-    default = "919946d0-8cae-4e2d-9430-e33602bddf9c"
+    default = null
 }
