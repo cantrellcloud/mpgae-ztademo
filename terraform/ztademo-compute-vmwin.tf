@@ -14,7 +14,7 @@ module "ztademo_eastus2_dev_ztadevdc01_vmwin" {
 	rg_location = module.ztademo_eastus2_dev_rg.rg_location
 	rg_name = module.ztademo_eastus2_dev_rg.rg_name
 	rg_tags = {
-		"ManagementGroup" = "MPG A&E",
+		"ManagementGroup" = "MPG A&E EastUS2",
 		"Environment" = "Demo",
 		"AutomatedBy" = "Terraform",
 		"Note1" = "Do not manually change",
@@ -171,7 +171,7 @@ module "ztademo_eastus2_dev_ztadevwks01_vmwin" {
 	rg_location = module.ztademo_eastus2_dev_rg.rg_location
 	rg_name = module.ztademo_eastus2_dev_rg.rg_name
 	rg_tags = {
-		"ManagementGroup" = "MPG A&E",
+		"ManagementGroup" = "MPG A&E EastUS2",
 		"Environment" = "Demo",
 		"AutomatedBy" = "Terraform",
 		"Note1" = "Do not manually change",
@@ -280,7 +280,7 @@ module "ztademo_eastus2_dev_ztadevjpc01_vmwin" {
 	rg_location = module.ztademo_eastus2_dev_rg.rg_location
 	rg_name = module.ztademo_eastus2_dev_rg.rg_name
 	rg_tags = {
-		"ManagementGroup" = "MPG A&E",
+		"ManagementGroup" = "MPG A&E EastUS2",
 		"Environment" = "Demo",
 		"AutomatedBy" = "Terraform",
 		"Note1" = "Do not manually change",
@@ -389,7 +389,7 @@ module "ztademo_eastus2_dev_ztadevncc01_vmwin" {
 	rg_location = module.ztademo_eastus2_dev_rg.rg_location
 	rg_name = module.ztademo_eastus2_dev_rg.rg_name
 	rg_tags = {
-		"ManagementGroup" = "MPG A&E",
+		"ManagementGroup" = "MPG A&E EastUS2",
 		"Environment" = "Demo",
 		"AutomatedBy" = "Terraform",
 		"Note1" = "Do not manually change",
@@ -498,7 +498,7 @@ module "ztademo_eastus2_dev_ztadevsp01_vmwin" {
 	rg_location = module.ztademo_eastus2_dev_rg.rg_location
 	rg_name = module.ztademo_eastus2_dev_rg.rg_name
 	rg_tags = {
-		"ManagementGroup" = "MPG A&E",
+		"ManagementGroup" = "MPG A&E EastUS2",
 		"Environment" = "Demo",
 		"AutomatedBy" = "Terraform",
 		"Note1" = "Do not manually change",
@@ -607,7 +607,7 @@ module "ztademo_eastus2_dev_ztadevex01_vmwin" {
 	rg_location = module.ztademo_eastus2_dev_rg.rg_location
 	rg_name = module.ztademo_eastus2_dev_rg.rg_name
 	rg_tags = {
-		"ManagementGroup" = "MPG A&E",
+		"ManagementGroup" = "MPG A&E EastUS2",
 		"Environment" = "Demo",
 		"AutomatedBy" = "Terraform",
 		"Note1" = "Do not manually change",
@@ -764,7 +764,7 @@ module "ztademo_eastus2_dev_ztadevdc02_vmwin" {
 	rg_location = module.ztademo_eastus2_dev_rg.rg_location
 	rg_name = module.ztademo_eastus2_dev_rg.rg_name
 	rg_tags = {
-		"ManagementGroup" = "MPG A&E",
+		"ManagementGroup" = "MPG A&E EastUS2",
 		"Environment" = "Demo",
 		"AutomatedBy" = "Terraform",
 		"Note1" = "Do not manually change",

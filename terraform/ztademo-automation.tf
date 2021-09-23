@@ -12,7 +12,7 @@ module "ztademo_eastus_dev_autoaccount" {
 	rg_location = module.ztademo_eastus_dev_rg.rg_location
 	rg_name = module.ztademo_eastus_dev_rg.rg_name
 	rg_tags = {
-		"ManagementGroup" = "MPG A&E",
+		"ManagementGroup" = "MPG A&E EastUS",
 		"Environment" = "Demo",
 		"AutomatedBy" = "Terraform",
 		"Note1" = "Do not manually change",

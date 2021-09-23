@@ -14,7 +14,7 @@ module "ztademo_eastus2_dev_ztadevnix01_vmnix" {
 	rg_location = module.ztademo_eastus2_dev_rg.rg_location
 	rg_name = module.ztademo_eastus2_dev_rg.rg_name
 	rg_tags = {
-		"ManagementGroup" = "MPG A&E",
+		"ManagementGroup" = "MPG A&E EastUS2",
 		"Environment" = "Demo",
 		"AutomatedBy" = "Terraform",
 		"Note1" = "Do not manually change",
@@ -124,7 +124,7 @@ module "ztademo_eastus2_dev_ztadevspl01_vmnix" {
 	rg_location = module.ztademo_eastus2_dev_rg.rg_location
 	rg_name = module.ztademo_eastus2_dev_rg.rg_name
 	rg_tags = {
-		"ManagementGroup" = "MPG A&E",
+		"ManagementGroup" = "MPG A&E EastUS2",
 		"Environment" = "Demo",
 		"AutomatedBy" = "Terraform",
 		"Note1" = "Do not manually change",
