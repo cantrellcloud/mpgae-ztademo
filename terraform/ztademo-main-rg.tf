@@ -15,8 +15,8 @@ terraform {
 		}
 	}
 	backend "azurerm" {
-    resource_group_name  = "mpgae_eastus2_rg"
-    storage_account_name = "mpgaeeastus2general"
+    resource_group_name  = "mpgae_eastus2_prod_rg"
+    storage_account_name = "mpgaeeastus2prodgeneral"
     container_name       = "tfstates"
     key                  = "ztademo.tfstate"
   }
@@ -119,12 +119,12 @@ module "ztademo_eastus_dev_rg" {
 # STORAGE ACCOUNTS
 
 # storage01
-module "ztademo_eastus2_general_storage" {
+module "ztademo_eastus2_dev_general_storage" {
 	source = "github.com/cantrellcloud/tfAzureModules/storage"
 	#to_provision = local.provision_storage01
 	rg_location = module.ztademo_eastus2_dev_rg.rg_location
 	rg_name = module.ztademo_eastus2_dev_rg.rg_name
-	storage_name = "ztademoeastus2general"
+	storage_name = "ztademoeastus2devgeneral"
 	account_tier = "Standard"
 	account_replication_type = "GRS"
 	enable_https_traffic_only = true
@@ -141,40 +141,40 @@ module "ztademo_eastus2_general_storage" {
 }
 
 	# storage01_outputs
-	output "ztademo_eastus2_general_storage_id" {
-		value = module.ztademo_eastus2_general_storage.storage_id
+	output "ztademo_eastus2_dev_general_storage_id" {
+		value = module.ztademo_eastus2_dev_general_storage.storage_id
 	}
-	output "ztademo_eastus2_general_storage_name" {
-		value = module.ztademo_eastus2_general_storage.storage_name
+	output "ztademo_eastus2_dev_general_storage_name" {
+		value = module.ztademo_eastus2_dev_general_storage.storage_name
 	}
-	output "ztademo_eastus2_general_storage_pri_location" {
-		value = module.ztademo_eastus2_general_storage.storage_pri_location
+	output "ztademo_eastus2_dev_general_storage_pri_location" {
+		value = module.ztademo_eastus2_dev_general_storage.storage_pri_location
 	}
-	output "ztademo_eastus2_general_storage_sec_location" {
-		value = module.ztademo_eastus2_general_storage.storage_sec_location
+	output "ztademo_eastus2_dev_general_storage_sec_location" {
+		value = module.ztademo_eastus2_dev_general_storage.storage_sec_location
 	}
-	output "ztademo_eastus2_general_storage_pri_blob_endpoint" {
-		value = module.ztademo_eastus2_general_storage.storage_pri_blob_endpoint
+	output "ztademo_eastus2_dev_general_storage_pri_blob_endpoint" {
+		value = module.ztademo_eastus2_dev_general_storage.storage_pri_blob_endpoint
 	}
-	output "ztademo_eastus2_general_storage_sec_blob_endpoint" {
-		value = module.ztademo_eastus2_general_storage.storage_sec_blob_endpoint
+	output "ztademo_eastus2_dev_general_storage_sec_blob_endpoint" {
+		value = module.ztademo_eastus2_dev_general_storage.storage_sec_blob_endpoint
 	}
-	output "ztademo_eastus2_general_storage_pri_access_key" {
-		value = module.ztademo_eastus2_general_storage.storage_pri_access_key
+	output "ztademo_eastus2_dev_general_storage_pri_access_key" {
+		value = module.ztademo_eastus2_dev_general_storage.storage_pri_access_key
 		sensitive = true
 	}
-	output "ztademo_eastus2_general_storage_pri_connect_string" {
-		value = module.ztademo_eastus2_general_storage.storage_pri_connect_string
+	output "ztademo_eastus2_dev_general_storage_pri_connect_string" {
+		value = module.ztademo_eastus2_dev_general_storage.storage_pri_connect_string
 		sensitive = true
 	}
 
 # storage02
-module "ztademo_eastus2_loganalytics_storage" {
+module "ztademo_eastus2_dev_logs_storage" {
 	source = "github.com/cantrellcloud/tfAzureModules/storage"
 	#to_provision = local.provision_storage01
 	rg_location = module.ztademo_eastus2_dev_rg.rg_location
 	rg_name = module.ztademo_eastus2_dev_rg.rg_name
-	storage_name = "ztademoeastus2loganalytics"
+	storage_name = "ztademoeastus2devlogs"
 	account_tier = "Standard"
 	account_replication_type = "GRS"
 	enable_https_traffic_only = true
@@ -191,29 +191,29 @@ module "ztademo_eastus2_loganalytics_storage" {
 }
 
 	# storage02_outputs
-	output "ztademo_eastus2_loganalytics_storage_id" {
-		value = module.ztademo_eastus2_loganalytics_storage.storage_id
+	output "ztademo_eastus2_dev_logs_storage_id" {
+		value = module.ztademo_eastus2_dev_logs_storage.storage_id
 	}
-	output "ztademo_eastus2_loganalytics_storage_name" {
-		value = module.ztademo_eastus2_loganalytics_storage.storage_name
+	output "ztademo_eastus2_dev_logs_storage_name" {
+		value = module.ztademo_eastus2_dev_logs_storage.storage_name
 	}
-	output "ztademo_eastus2_loganalytics_storage_pri_location" {
-		value = module.ztademo_eastus2_loganalytics_storage.storage_pri_location
+	output "ztademo_eastus2_dev_logs_storage_pri_location" {
+		value = module.ztademo_eastus2_dev_logs_storage.storage_pri_location
 	}
-	output "ztademo_eastus2_loganalytics_storage_sec_location" {
-		value = module.ztademo_eastus2_loganalytics_storage.storage_sec_location
+	output "ztademo_eastus2_dev_logs_storage_sec_location" {
+		value = module.ztademo_eastus2_dev_logs_storage.storage_sec_location
 	}
-	output "ztademo_eastus2_loganalytics_storage_pri_blob_endpoint" {
-		value = module.ztademo_eastus2_loganalytics_storage.storage_pri_blob_endpoint
+	output "ztademo_eastus2_dev_logs_storage_pri_blob_endpoint" {
+		value = module.ztademo_eastus2_dev_logs_storage.storage_pri_blob_endpoint
 	}
-	output "ztademo_eastus2_loganalytics_storage_sec_blob_endpoint" {
-		value = module.ztademo_eastus2_loganalytics_storage.storage_sec_blob_endpoint
+	output "ztademo_eastus2_dev_logs_storage_sec_blob_endpoint" {
+		value = module.ztademo_eastus2_dev_logs_storage.storage_sec_blob_endpoint
 	}
-	output "ztademo_eastus2_loganalytics_storage_pri_access_key" {
-		value = module.ztademo_eastus2_loganalytics_storage.storage_pri_access_key
+	output "ztademo_eastus2_dev_logs_storage_pri_access_key" {
+		value = module.ztademo_eastus2_dev_logs_storage.storage_pri_access_key
 		sensitive = true
 	}
-	output "ztademo_eastus2_loganalytics_storage_pri_connect_string" {
-		value = module.ztademo_eastus2_loganalytics_storage.storage_pri_connect_string
+	output "ztademo_eastus2_dev_logs_storage_pri_connect_string" {
+		value = module.ztademo_eastus2_dev_logs_storage.storage_pri_connect_string
 		sensitive = true
 	}
