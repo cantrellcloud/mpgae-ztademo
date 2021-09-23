@@ -1,12 +1,12 @@
 #================================================================================
 #
 # ZTADEMO
-# COMPUTE-VMNIX.TF
+# Compute - Linux
 #
 #================================================================================
 #
 # LINUX VIRTUAL MACHINES, NETWORK INTERFACES, and PUBLIC IPs
-
+#
 # vmnix01
 module "ztademo_eastus2_dev_ztadevnix01_vmnix" {
 	source = "github.com/cantrellcloud/tfAzureModules/vmnix"
@@ -14,7 +14,7 @@ module "ztademo_eastus2_dev_ztadevnix01_vmnix" {
 	rg_location = module.ztademo_eastus2_dev_rg.rg_location
 	rg_name = module.ztademo_eastus2_dev_rg.rg_name
 	rg_tags = {
-		"ManagementGroup" = "A&E 700 R&D",
+		"ManagementGroup" = "MPG A&E",
 		"Environment" = "Demo",
 		"AutomatedBy" = "Terraform",
 		"Note1" = "Do not manually change",
@@ -124,7 +124,7 @@ module "ztademo_eastus2_dev_ztadevspl01_vmnix" {
 	rg_location = module.ztademo_eastus2_dev_rg.rg_location
 	rg_name = module.ztademo_eastus2_dev_rg.rg_name
 	rg_tags = {
-		"ManagementGroup" = "A&E 700 R&D",
+		"ManagementGroup" = "MPG A&E",
 		"Environment" = "Demo",
 		"AutomatedBy" = "Terraform",
 		"Note1" = "Do not manually change",

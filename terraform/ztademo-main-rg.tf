@@ -15,8 +15,8 @@ terraform {
 		}
 	}
 	backend "azurerm" {
-    resource_group_name  = "ae700rd_eastus2_rg"
-    storage_account_name = "ae700rdeastus2general"
+    resource_group_name  = "mpgae_eastus2_rg"
+    storage_account_name = "mpgaeeastus2general"
     container_name       = "tfstates"
     key                  = "ztademo.tfstate"
   }
@@ -48,7 +48,7 @@ module "ztademo_eastus2_dev_rg" {
 	rg_name = "ztademo_eastus2_dev_rg"
 	rg_location = "eastus2"
 	rg_tags = {
-		"ManagementGroup" = "A&E 700 R&D",
+		"ManagementGroup" = "MPG A&E",
 		"Environment" = "Demo",
 		"AutomatedBy" = "Terraform",
 		"Note1" = "Do not manually change",
@@ -72,7 +72,7 @@ module "ztademo_eastus2_dev_appsvcplan_rg" {
 	rg_name = "ztademo_eastus2_dev_appsvcplan_rg"
 	rg_location = "eastus2"
 	rg_tags = {
-		"ManagementGroup" = "A&E 700 R&D",
+		"ManagementGroup" = "MPG A&E",
 		"Environment" = "Demo",
 		"AutomatedBy" = "Terraform",
 		"Note1" = "Do not manually change",
@@ -96,7 +96,7 @@ module "ztademo_eastus_dev_rg" {
 	rg_name = "ztademo_eastus_dev_rg"
 	rg_location = "eastus"
 	rg_tags = {
-		"ManagementGroup" = "A&E 700 R&D",
+		"ManagementGroup" = "MPG A&E",
 		"Environment" = "Demo",
 		"AutomatedBy" = "Terraform",
 		"Note1" = "Do not manually change",
@@ -130,7 +130,7 @@ module "ztademo_eastus2_general_storage" {
 	enable_https_traffic_only = true
 	allow_blob_public_access = true
 	rg_tags = {
-		"ManagementGroup" = "A&E 700 R&D",
+		"ManagementGroup" = "MPG A&E",
 		"Environment" = "Demo",
 		"AutomatedBy" = "Terraform",
 		"Note1" = "Do not manually change",
@@ -165,5 +165,55 @@ module "ztademo_eastus2_general_storage" {
 	}
 	output "ztademo_eastus2_general_storage_pri_connect_string" {
 		value = module.ztademo_eastus2_general_storage.storage_pri_connect_string
+		sensitive = true
+	}
+
+# storage02
+module "ztademo_eastus2_loganalytics_storage" {
+	source = "github.com/cantrellcloud/tfAzureModules/storage"
+	#to_provision = local.provision_storage01
+	rg_location = module.ztademo_eastus2_dev_rg.rg_location
+	rg_name = module.ztademo_eastus2_dev_rg.rg_name
+	storage_name = "ztademoeastus2loganalytics"
+	account_tier = "Standard"
+	account_replication_type = "GRS"
+	enable_https_traffic_only = true
+	allow_blob_public_access = true
+	rg_tags = {
+		"ManagementGroup" = "MPG A&E",
+		"Environment" = "Demo",
+		"AutomatedBy" = "Terraform",
+		"Note1" = "Do not manually change",
+		"POCName" = "ronc@mindpointgroup.com",
+		"POCPhone" = "843.330.6769",
+		"Project" = "Zero Trust Demo"
+	}
+}
+
+	# storage02_outputs
+	output "ztademo_eastus2_loganalytics_storage_id" {
+		value = module.ztademo_eastus2_loganalytics_storage.storage_id
+	}
+	output "ztademo_eastus2_loganalytics_storage_name" {
+		value = module.ztademo_eastus2_loganalytics_storage.storage_name
+	}
+	output "ztademo_eastus2_loganalytics_storage_pri_location" {
+		value = module.ztademo_eastus2_loganalytics_storage.storage_pri_location
+	}
+	output "ztademo_eastus2_loganalytics_storage_sec_location" {
+		value = module.ztademo_eastus2_loganalytics_storage.storage_sec_location
+	}
+	output "ztademo_eastus2_loganalytics_storage_pri_blob_endpoint" {
+		value = module.ztademo_eastus2_loganalytics_storage.storage_pri_blob_endpoint
+	}
+	output "ztademo_eastus2_loganalytics_storage_sec_blob_endpoint" {
+		value = module.ztademo_eastus2_loganalytics_storage.storage_sec_blob_endpoint
+	}
+	output "ztademo_eastus2_loganalytics_storage_pri_access_key" {
+		value = module.ztademo_eastus2_loganalytics_storage.storage_pri_access_key
+		sensitive = true
+	}
+	output "ztademo_eastus2_loganalytics_storage_pri_connect_string" {
+		value = module.ztademo_eastus2_loganalytics_storage.storage_pri_connect_string
 		sensitive = true
 	}

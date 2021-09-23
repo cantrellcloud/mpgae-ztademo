@@ -1,8 +1,12 @@
 #================================================================================
+#
 # ZTADEMO
+# Network Security
+#
+#================================================================================
+#
 # NETWORK SECURITY GROUPS, RULES, and ASSOCIATIONS
 #
-
 # nsg01
 module "ztademo_eastus2_dev_prod_subnet_nsg" {
 	source            = "github.com/cantrellcloud/tfAzureModules/nsg"

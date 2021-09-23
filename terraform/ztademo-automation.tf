@@ -3,7 +3,8 @@
 # ZTADEMO
 # Automation
 #
-
+#================================================================================
+#
 # autoaccount
 module "ztademo_eastus_dev_autoaccount" {
 	source = "github.com/cantrellcloud/tfAzureModules/autoaccount"
@@ -11,7 +12,7 @@ module "ztademo_eastus_dev_autoaccount" {
 	rg_location = module.ztademo_eastus_dev_rg.rg_location
 	rg_name = module.ztademo_eastus_dev_rg.rg_name
 	rg_tags = {
-		"ManagementGroup" = "A&E 700 R&D",
+		"ManagementGroup" = "MPG A&E",
 		"Environment" = "Demo",
 		"AutomatedBy" = "Terraform",
 		"Note1" = "Do not manually change",
