@@ -263,6 +263,7 @@ module "ztademo_eastus2_dev_prod_subnet_nsg" {
 		#security_rule_destination_address_prefix = ""
 		security_rule_destination_address_prefixes = [
 			"172.16.200.6",
+			"172.16.200.7",
 			"172.16.200.25",
 			"172.16.200.30",
 			"172.16.200.40",

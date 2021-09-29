@@ -24,7 +24,7 @@ module "ztademo_eastus2_dev_ztadevnix01_vmnix" {
 	}
 
 	vmnix_name = "ztadev-nix01"
-    size                  = "Standard_D4s_v3"
+    size                  = "Standard_D2s_v3"
     admin_username        = "adminlocal"
     admin_password        = "Password#1Password#1"
 
@@ -116,6 +116,114 @@ module "ztademo_eastus2_dev_ztadevnix01_vmnix" {
 	}
 
 # vmnix02
+module "ztademo_eastus2_dev_ztadevnix02_vmnix" {
+	source = "github.com/cantrellcloud/tfAzureModules/vmnix"
+	#to_provision = local.provision_vmnix02
+	rg_location = module.ztademo_eastus2_dev_rg.rg_location
+	rg_name = module.ztademo_eastus2_dev_rg.rg_name
+	rg_tags = {
+		"ManagementGroup" = "MPG A&E EastUS2",
+		"Environment" = "Demo",
+		"AutomatedBy" = "Terraform",
+		"Note1" = "Do not manually change",
+		"POCName" = "ronc@mindpointgroup.com",
+		"POCPhone" = "843.330.6769",
+		"Project" = "Zero Trust Demo"
+	}
+
+	vmnix_name = "ztadev-nix02"
+    size                  = "Standard_D2s_v3"
+    admin_username        = "adminlocal"
+    admin_password        = "Password#1Password#1"
+
+    computer_name         = "ztadev-nix02"
+    network_interface_ids = [
+        module.ztademo_eastus2_dev_ztadevnix02_netinf.netinf_id,
+    ]
+
+    os_disk_caching              = "ReadWrite"
+    os_disk_storage_account_type = "Standard_LRS"
+
+    source_image_reference_publisher = "Canonical"
+    source_image_reference_offer     = "0001-com-ubuntu-server-focal"
+    source_image_reference_sku       = "20_04-lts-gen2"
+    #version   = "latest"
+}
+
+    # ztadevnix02_publicip
+    module "ztademo_eastus2_dev_ztadevnix02_publicip" {
+        source            = "github.com/cantrellcloud/tfAzureModules/publicip"
+        #to_provision     = local.provision_ztadevnix02_publicip
+        rg_location       = module.ztademo_eastus2_dev_rg.rg_location
+        rg_name           = module.ztademo_eastus2_dev_rg.rg_name
+        publicip_name     = "ztademo_eastus2_dev_ztadevnix02_publicip"
+        allocation_method = "Static"
+        sku               = "Standard"
+        domain_name_label = "ztadev-nix02"
+    }
+
+    # ztadevnix02_netinf
+    module "ztademo_eastus2_dev_ztadevnix02_netinf" {
+        source = "github.com/cantrellcloud/tfAzureModules/netinf"
+        #to_provision = local.provision_ztadevnix02_netinf
+        rg_location = module.ztademo_eastus2_dev_rg.rg_location
+        rg_name = module.ztademo_eastus2_dev_rg.rg_name
+        netinf_name = "ztadevnix02_netinf"
+
+        ip_configuration_name                          = "ipconfig01"
+        ip_configuration_private_ip_address_version    = "IPv4"
+        ip_configuration_subnet_id                     = module.ztademo_eastus2_dev_prod_subnet.subnet_id
+        ip_configuration_private_ip_address_allocation = "Static"
+        ip_configuration_private_ip_address            = "172.16.200.7"
+        ip_configuration_public_ip_address_id          = module.ztademo_eastus2_dev_ztadevnix02_publicip.publicip_id
+}
+
+    # ztadevnix02_outputs
+    output "ztademo_eastus2_dev_ztadevnix02_vmnix_id" {
+        value = module.ztademo_eastus2_dev_ztadevnix02_vmnix.vmnix_id
+    }
+    output "ztademo_eastus2_dev_ztadevnix02_vmnix_name" {
+        value = module.ztademo_eastus2_dev_ztadevnix02_vmnix.vmnix_name
+    }
+    output "ztademo_eastus2_dev_ztadevnix02_vmnix_computer_name" {
+        value = module.ztademo_eastus2_dev_ztadevnix02_vmnix.vmnix_computer_name
+    }
+    output "ztademo_eastus2_dev_ztadevnix02_vmnix_private_ip_address" {
+        value = module.ztademo_eastus2_dev_ztadevnix02_vmnix.vmnix_private_ip_address
+    }
+    output "ztademo_eastus2_dev_ztadevnix02_vmnix_virtual_machine_id" {
+        value = module.ztademo_eastus2_dev_ztadevnix02_vmnix.vmnix_virtual_machine_id
+    }
+    output "ztademo_eastus2_dev_ztadevnix02_vmnix_public_ip_address" {
+        value = module.ztademo_eastus2_dev_ztadevnix02_vmnix.vmnix_public_ip_address
+    }
+
+    #ztadevnix02_publicip
+    output "ztademo_eastus2_dev_ztadevnix02_publicip_id" {
+        value = module.ztademo_eastus2_dev_ztadevnix02_publicip.publicip_id
+    }
+    output "ztademo_eastus2_dev_ztadevnix02_publicip_name" {
+        value = module.ztademo_eastus2_dev_ztadevnix02_publicip.publicip_name
+    }
+    output "ztademo_eastus2_dev_ztadevnix02_publicip_domain_name_label" {
+        value = module.ztademo_eastus2_dev_ztadevnix02_publicip.publicip_domain_name_label
+    }
+
+	# ztadevnix02_netinf_outputs
+	output "ztademo_eastus2_dev_ztadevnix02_netinf_id" {
+		value = module.ztademo_eastus2_dev_ztadevnix02_netinf.netinf_id
+	}
+	output "ztademo_eastus2_dev_ztadevnix02_netinf_name" {
+		value = module.ztademo_eastus2_dev_ztadevnix02_netinf.netinf_name
+	}
+	output "ztademo_eastus2_dev_ztadevnix02_netinf_private_ip_address" {
+		value = module.ztademo_eastus2_dev_ztadevnix02_netinf.netinf_private_ip_address
+	}
+	output "ztademo_eastus2_dev_ztadevnix02_netinf_virtual_machine_id" {
+		value = module.ztademo_eastus2_dev_ztadevnix02_netinf.netinf_virtual_machine_id
+	}
+
+# vmnix03
 # ** ZTA Demo Splunk Server  **
 # **      Do not delete      **
 module "ztademo_eastus2_dev_ztadevspl01_vmnix" {
@@ -273,110 +381,3 @@ module "ztademo_eastus2_dev_ztadevspl01_vmnix" {
 		value = module.ztademo_eastus2_dev_ztadevspl01_data01_datadiskattach.datadiskattach_id
 	}
 
-# vmnix03
-module "ztademo_eastus2_dev_ztadevnix03_vmnix" {
-	source = "github.com/cantrellcloud/tfAzureModules/vmnix"
-	#to_provision = local.provision_vmnix03
-	rg_location = module.ztademo_eastus2_dev_rg.rg_location
-	rg_name = module.ztademo_eastus2_dev_rg.rg_name
-	rg_tags = {
-		"ManagementGroup" = "MPG A&E EastUS2",
-		"Environment" = "Demo",
-		"AutomatedBy" = "Terraform",
-		"Note1" = "Do not manually change",
-		"POCName" = "ronc@mindpointgroup.com",
-		"POCPhone" = "843.330.6769",
-		"Project" = "Zero Trust Demo"
-	}
-
-	vmnix_name = "ztadev-nix03"
-    size                  = "Standard_D4s_v3"
-    admin_username        = "adminlocal"
-    admin_password        = "Password#1Password#1"
-
-    computer_name         = "ztadev-nix03"
-    network_interface_ids = [
-        module.ztademo_eastus2_dev_ztadevnix03_netinf.netinf_id,
-    ]
-
-    os_disk_caching              = "ReadWrite"
-    os_disk_storage_account_type = "Standard_LRS"
-
-    source_image_reference_publisher = "Canonical"
-    source_image_reference_offer     = "0001-com-ubuntu-server-focal"
-    source_image_reference_sku       = "20_04-lts-gen2"
-    #version   = "latest"
-}
-
-    # ztadevnix03_publicip
-    module "ztademo_eastus2_dev_ztadevnix03_publicip" {
-        source            = "github.com/cantrellcloud/tfAzureModules/publicip"
-        #to_provision     = local.provision_ztadevnix03_publicip
-        rg_location       = module.ztademo_eastus2_dev_rg.rg_location
-        rg_name           = module.ztademo_eastus2_dev_rg.rg_name
-        publicip_name     = "ztademo_eastus2_dev_ztadevnix03_publicip"
-        allocation_method = "Static"
-        sku               = "Standard"
-        domain_name_label = "ztadev-nix03"
-    }
-
-    # ztadevnix03_netinf
-    module "ztademo_eastus2_dev_ztadevnix03_netinf" {
-        source = "github.com/cantrellcloud/tfAzureModules/netinf"
-        #to_provision = local.provision_ztadevnix03_netinf
-        rg_location = module.ztademo_eastus2_dev_rg.rg_location
-        rg_name = module.ztademo_eastus2_dev_rg.rg_name
-        netinf_name = "ztadevnix03_netinf"
-
-        ip_configuration_name                          = "ipconfig01"
-        ip_configuration_private_ip_address_version    = "IPv4"
-        ip_configuration_subnet_id                     = module.ztademo_eastus2_dev_prod_subnet.subnet_id
-        ip_configuration_private_ip_address_allocation = "Static"
-        ip_configuration_private_ip_address            = "172.16.200.29"
-        ip_configuration_public_ip_address_id          = module.ztademo_eastus2_dev_ztadevnix03_publicip.publicip_id
-}
-
-    # ztadevnix03_outputs
-    output "ztademo_eastus2_dev_ztadevnix03_vmnix_id" {
-        value = module.ztademo_eastus2_dev_ztadevnix03_vmnix.vmnix_id
-    }
-    output "ztademo_eastus2_dev_ztadevnix03_vmnix_name" {
-        value = module.ztademo_eastus2_dev_ztadevnix03_vmnix.vmnix_name
-    }
-    output "ztademo_eastus2_dev_ztadevnix03_vmnix_computer_name" {
-        value = module.ztademo_eastus2_dev_ztadevnix03_vmnix.vmnix_computer_name
-    }
-    output "ztademo_eastus2_dev_ztadevnix03_vmnix_private_ip_address" {
-        value = module.ztademo_eastus2_dev_ztadevnix03_vmnix.vmnix_private_ip_address
-    }
-    output "ztademo_eastus2_dev_ztadevnix03_vmnix_virtual_machine_id" {
-        value = module.ztademo_eastus2_dev_ztadevnix03_vmnix.vmnix_virtual_machine_id
-    }
-    output "ztademo_eastus2_dev_ztadevnix03_vmnix_public_ip_address" {
-        value = module.ztademo_eastus2_dev_ztadevnix03_vmnix.vmnix_public_ip_address
-    }
-
-    #ztadevnix03_publicip
-    output "ztademo_eastus2_dev_ztadevnix03_publicip_id" {
-        value = module.ztademo_eastus2_dev_ztadevnix03_publicip.publicip_id
-    }
-    output "ztademo_eastus2_dev_ztadevnix03_publicip_name" {
-        value = module.ztademo_eastus2_dev_ztadevnix03_publicip.publicip_name
-    }
-    output "ztademo_eastus2_dev_ztadevnix03_publicip_domain_name_label" {
-        value = module.ztademo_eastus2_dev_ztadevnix03_publicip.publicip_domain_name_label
-    }
-
-	# ztadevnix03_netinf_outputs
-	output "ztademo_eastus2_dev_ztadevnix03_netinf_id" {
-		value = module.ztademo_eastus2_dev_ztadevnix03_netinf.netinf_id
-	}
-	output "ztademo_eastus2_dev_ztadevnix03_netinf_name" {
-		value = module.ztademo_eastus2_dev_ztadevnix03_netinf.netinf_name
-	}
-	output "ztademo_eastus2_dev_ztadevnix03_netinf_private_ip_address" {
-		value = module.ztademo_eastus2_dev_ztadevnix03_netinf.netinf_private_ip_address
-	}
-	output "ztademo_eastus2_dev_ztadevnix03_netinf_virtual_machine_id" {
-		value = module.ztademo_eastus2_dev_ztadevnix03_netinf.netinf_virtual_machine_id
-	}
