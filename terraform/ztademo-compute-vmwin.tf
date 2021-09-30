@@ -56,11 +56,11 @@ module "ztademo_eastus2_dev_ztadevdc01_vmwin" {
         ip_configuration_subnet_id                     = module.ztademo_eastus2_dev_prod_subnet.subnet_id
         ip_configuration_private_ip_address_allocation = "Static"
         ip_configuration_private_ip_address            = "172.16.200.11"
-        ip_configuration_public_ip_address_id          = module.ztademo_eastus2_dev_ztadevdc01_publicip.publicip_id
+        ip_configuration_public_ip_address_id          = null # module.ztademo_eastus2_dev_ztadevdc01_publicip.publicip_id
     }
 
     # ztadevdc01_publicip
-    module "ztademo_eastus2_dev_ztadevdc01_publicip" {
+/*    module "ztademo_eastus2_dev_ztadevdc01_publicip" {
         source            = "github.com/cantrellcloud/tfAzureModules/publicip"
         #to_provision     = local.provision_ztadevdc01_publicip
         rg_location       = module.ztademo_eastus2_dev_rg.rg_location
@@ -70,7 +70,7 @@ module "ztademo_eastus2_dev_ztadevdc01_vmwin" {
         sku               = "Standard"
         domain_name_label = "ztadev-dc01"
     }
-
+*/
     # ztadevdc01_manageddisk
     module "ztademo_eastus2_dev_ztadevdc01_sysvol_manageddisk" {
         source = "github.com/cantrellcloud/tfAzureModules/manageddisk"
@@ -127,7 +127,7 @@ module "ztademo_eastus2_dev_ztadevdc01_vmwin" {
     }
 
 	#ztadevdc01_publicip_outputs
-    output "ztademo_eastus2_dev_ztadevdc01_publicip_id" {
+/*    output "ztademo_eastus2_dev_ztadevdc01_publicip_id" {
         value = module.ztademo_eastus2_dev_ztadevdc01_publicip.publicip_id
     }
     output "ztademo_eastus2_dev_ztadevdc01_publicip_name" {
@@ -136,7 +136,7 @@ module "ztademo_eastus2_dev_ztadevdc01_vmwin" {
     output "ztademo_eastus2_dev_ztadevdc01_publicip_domain_name_label" {
         value = module.ztademo_eastus2_dev_ztadevdc01_publicip.publicip_domain_name_label
     }
-
+*/
 	# ztadevdc01_netinf_outputs
 	output "ztademo_eastus2_dev_ztadevdc01_netinf_id" {
 		value = module.ztademo_eastus2_dev_ztadevdc01_netinf.netinf_id
@@ -201,7 +201,7 @@ module "ztademo_eastus2_dev_ztadevwks01_vmwin" {
 }
 
     # ztadevwks01_publicip
-    module "ztademo_eastus2_dev_ztadevwks01_publicip" {
+/*    module "ztademo_eastus2_dev_ztadevwks01_publicip" {
         source            = "github.com/cantrellcloud/tfAzureModules/publicip"
         #to_provision     = local.provision_ztadevwks01_publicip
         rg_location       = module.ztademo_eastus2_dev_rg.rg_location
@@ -211,7 +211,7 @@ module "ztademo_eastus2_dev_ztadevwks01_vmwin" {
         sku               = "Standard"
         domain_name_label = "ztadev-wks01"
     }
-
+*/
     # ztadevwks01_netinf
     module "ztademo_eastus2_dev_ztadevwks01_netinf" {
         source = "github.com/cantrellcloud/tfAzureModules/netinf"
@@ -225,7 +225,7 @@ module "ztademo_eastus2_dev_ztadevwks01_vmwin" {
         ip_configuration_subnet_id                     = module.ztademo_eastus2_dev_prod_subnet.subnet_id
         ip_configuration_private_ip_address_allocation = "Static"
         ip_configuration_private_ip_address            = "172.16.200.5"
-        ip_configuration_public_ip_address_id          = module.ztademo_eastus2_dev_ztadevwks01_publicip.publicip_id
+        ip_configuration_public_ip_address_id          = null # module.ztademo_eastus2_dev_ztadevwks01_publicip.publicip_id
 }
 
     # ztadevwks01_outputs
@@ -249,7 +249,7 @@ module "ztademo_eastus2_dev_ztadevwks01_vmwin" {
     }
 
 	#ztadevwks01_publicip_outputs
-    output "ztademo_eastus2_dev_ztadevwks01_publicip_id" {
+/*    output "ztademo_eastus2_dev_ztadevwks01_publicip_id" {
         value = module.ztademo_eastus2_dev_ztadevwks01_publicip.publicip_id
     }
     output "ztademo_eastus2_dev_ztadevwks01_publicip_name" {
@@ -258,7 +258,7 @@ module "ztademo_eastus2_dev_ztadevwks01_vmwin" {
     output "ztademo_eastus2_dev_ztadevwks01_publicip_domain_name_label" {
         value = module.ztademo_eastus2_dev_ztadevwks01_publicip.publicip_domain_name_label
     }
-
+*/
     # ztadevwks01_netinf_outputs
 	output "ztademo_eastus2_dev_ztadevwks01_netinf_id" {
 		value = module.ztademo_eastus2_dev_ztadevwks01_netinf.netinf_id
@@ -310,7 +310,7 @@ module "ztademo_eastus2_dev_ztadevjpc01_vmwin" {
 }
 
     # ztadevajpc01_publicip
-    module "ztademo_eastus2_dev_ztadevjpc01_publicip" {
+/*    module "ztademo_eastus2_dev_ztadevjpc01_publicip" {
         source            = "github.com/cantrellcloud/tfAzureModules/publicip"
         #to_provision     = local.provision_ztadevjpc01_publicip
         rg_location       = module.ztademo_eastus2_dev_rg.rg_location
@@ -320,7 +320,7 @@ module "ztademo_eastus2_dev_ztadevjpc01_vmwin" {
         sku               = "Standard"
         domain_name_label = "ztadev-jpc01"
     }
-
+*/
    # ztadevjpc01_netinf
     module "ztademo_eastus2_dev_ztadevjpc01_netinf" {
         source = "github.com/cantrellcloud/tfAzureModules/netinf"
@@ -334,7 +334,7 @@ module "ztademo_eastus2_dev_ztadevjpc01_vmwin" {
         ip_configuration_subnet_id                     = module.ztademo_eastus2_dev_prod_subnet.subnet_id
         ip_configuration_private_ip_address_allocation = "Static"
         ip_configuration_private_ip_address            = "172.16.200.22"
-        ip_configuration_public_ip_address_id          = module.ztademo_eastus2_dev_ztadevjpc01_publicip.publicip_id
+        ip_configuration_public_ip_address_id          = null # module.ztademo_eastus2_dev_ztadevjpc01_publicip.publicip_id
 }
 
     # ztadevjpc01_outputs
@@ -358,7 +358,7 @@ module "ztademo_eastus2_dev_ztadevjpc01_vmwin" {
     }
 
 	#ztadevjpc01_publicip_outputs
-    output "ztademo_eastus2_dev_ztadevjpc01_publicip_id" {
+/*    output "ztademo_eastus2_dev_ztadevjpc01_publicip_id" {
         value = module.ztademo_eastus2_dev_ztadevjpc01_publicip.publicip_id
     }
     output "ztademo_eastus2_dev_ztadevjpc01_publicip_name" {
@@ -367,7 +367,7 @@ module "ztademo_eastus2_dev_ztadevjpc01_vmwin" {
     output "ztademo_eastus2_dev_ztadevjpc01_publicip_domain_name_label" {
         value = module.ztademo_eastus2_dev_ztadevjpc01_publicip.publicip_domain_name_label
     }
-
+*/
     # ztadevjpc01_netinf_outputs
 	output "ztademo_eastus2_dev_ztadevjpc01_netinf_id" {
 		value = module.ztademo_eastus2_dev_ztadevjpc01_netinf.netinf_id
@@ -419,7 +419,7 @@ module "ztademo_eastus2_dev_ztadevncc01_vmwin" {
 }
 
     # ztadevancc01_publicip
-    module "ztademo_eastus2_dev_ztadevncc01_publicip" {
+/*    module "ztademo_eastus2_dev_ztadevncc01_publicip" {
         source            = "github.com/cantrellcloud/tfAzureModules/publicip"
         #to_provision     = local.provision_ztadevncc01_publicip
         rg_location       = module.ztademo_eastus2_dev_rg.rg_location
@@ -429,7 +429,7 @@ module "ztademo_eastus2_dev_ztadevncc01_vmwin" {
         sku               = "Standard"
         domain_name_label = "ztadev-ncc01"
     }
-
+*/
     # ztadevncc01_netinf
     module "ztademo_eastus2_dev_ztadevncc01_netinf" {
         source = "github.com/cantrellcloud/tfAzureModules/netinf"
@@ -443,7 +443,7 @@ module "ztademo_eastus2_dev_ztadevncc01_vmwin" {
         ip_configuration_subnet_id                     = module.ztademo_eastus2_dev_prod_subnet.subnet_id
         ip_configuration_private_ip_address_allocation = "Static"
         ip_configuration_private_ip_address            = "172.16.200.20"
-        ip_configuration_public_ip_address_id          = module.ztademo_eastus2_dev_ztadevncc01_publicip.publicip_id
+        ip_configuration_public_ip_address_id          = null # module.ztademo_eastus2_dev_ztadevncc01_publicip.publicip_id
 }
 
     # ztadevncc01_outputs
@@ -467,7 +467,7 @@ module "ztademo_eastus2_dev_ztadevncc01_vmwin" {
     }
 
     #ztadevncc01_publicip_outputs
-    output "ztademo_eastus2_dev_ztadevncc01_publicip_id" {
+/*    output "ztademo_eastus2_dev_ztadevncc01_publicip_id" {
         value = module.ztademo_eastus2_dev_ztadevncc01_publicip.publicip_id
     }
     output "ztademo_eastus2_dev_ztadevncc01_publicip_name" {
@@ -476,7 +476,7 @@ module "ztademo_eastus2_dev_ztadevncc01_vmwin" {
     output "ztademo_eastus2_dev_ztadevncc01_publicip_domain_name_label" {
         value = module.ztademo_eastus2_dev_ztadevncc01_publicip.publicip_domain_name_label
     }
-
+*/
 	# ztadevncc01_netinf_outputs
 	output "ztademo_eastus2_dev_ztadevncc01_netinf_id" {
 		value = module.ztademo_eastus2_dev_ztadevncc01_netinf.netinf_id
@@ -528,7 +528,7 @@ module "ztademo_eastus2_dev_ztadevsp01_vmwin" {
 }
 
     # ztadevasp01_publicip
-    module "ztademo_eastus2_dev_ztadevsp01_publicip" {
+/*    module "ztademo_eastus2_dev_ztadevsp01_publicip" {
         source            = "github.com/cantrellcloud/tfAzureModules/publicip"
         #to_provision     = local.provision_ztadevsp01_publicip
         rg_location       = module.ztademo_eastus2_dev_rg.rg_location
@@ -538,7 +538,7 @@ module "ztademo_eastus2_dev_ztadevsp01_vmwin" {
         sku               = "Standard"
         domain_name_label = "ztadev-sp01"
     }
-
+*/
     # ztadevsp01_netinf
     module "ztademo_eastus2_dev_ztadevsp01_netinf" {
         source = "github.com/cantrellcloud/tfAzureModules/netinf"
@@ -552,7 +552,7 @@ module "ztademo_eastus2_dev_ztadevsp01_vmwin" {
         ip_configuration_subnet_id                     = module.ztademo_eastus2_dev_prod_subnet.subnet_id
         ip_configuration_private_ip_address_allocation = "Static"
         ip_configuration_private_ip_address            = "172.16.200.23"
-        ip_configuration_public_ip_address_id          = module.ztademo_eastus2_dev_ztadevsp01_publicip.publicip_id
+        ip_configuration_public_ip_address_id          = null # module.ztademo_eastus2_dev_ztadevsp01_publicip.publicip_id
 }
 
     # ztadevsp01_outputs
@@ -576,7 +576,7 @@ module "ztademo_eastus2_dev_ztadevsp01_vmwin" {
     }
 
     #ztadevsp01_publicip_outputs
-    output "ztademo_eastus2_dev_ztadevsp01_publicip_id" {
+/*    output "ztademo_eastus2_dev_ztadevsp01_publicip_id" {
         value = module.ztademo_eastus2_dev_ztadevsp01_publicip.publicip_id
     }
     output "ztademo_eastus2_dev_ztadevsp01_publicip_name" {
@@ -585,7 +585,7 @@ module "ztademo_eastus2_dev_ztadevsp01_vmwin" {
     output "ztademo_eastus2_dev_ztadevsp01_publicip_domain_name_label" {
         value = module.ztademo_eastus2_dev_ztadevsp01_publicip.publicip_domain_name_label
     }
-
+*/
 	# ztadevsp01_netinf_outputs
 	output "ztademo_eastus2_dev_ztadevsp01_netinf_id" {
 		value = module.ztademo_eastus2_dev_ztadevsp01_netinf.netinf_id
@@ -637,7 +637,7 @@ module "ztademo_eastus2_dev_ztadevex01_vmwin" {
 }
 
     # ztadevaex01_publicip
-    module "ztademo_eastus2_dev_ztadevex01_publicip" {
+/*    module "ztademo_eastus2_dev_ztadevex01_publicip" {
         source            = "github.com/cantrellcloud/tfAzureModules/publicip"
         #to_provision     = local.provision_ztadevex01_publicip
         rg_location       = module.ztademo_eastus2_dev_rg.rg_location
@@ -647,7 +647,7 @@ module "ztademo_eastus2_dev_ztadevex01_vmwin" {
         sku               = "Standard"
         domain_name_label = "ztadev-ex01"
     }
-
+*/
     # ztadevex01_netinf
     module "ztademo_eastus2_dev_ztadevex01_netinf" {
         source = "github.com/cantrellcloud/tfAzureModules/netinf"
@@ -661,7 +661,7 @@ module "ztademo_eastus2_dev_ztadevex01_vmwin" {
         ip_configuration_subnet_id                     = module.ztademo_eastus2_dev_prod_subnet.subnet_id
         ip_configuration_private_ip_address_allocation = "Static"
         ip_configuration_private_ip_address            = "172.16.200.24"
-        ip_configuration_public_ip_address_id          = module.ztademo_eastus2_dev_ztadevex01_publicip.publicip_id
+        ip_configuration_public_ip_address_id          = null # module.ztademo_eastus2_dev_ztadevex01_publicip.publicip_id
 }
 
     # ztadevex01_manageddisk
@@ -720,7 +720,7 @@ module "ztademo_eastus2_dev_ztadevex01_vmwin" {
     }
 
     #ztadevex01_publicip_outputs
-    output "ztademo_eastus2_dev_ztadevex01_publicip_id" {
+/*    output "ztademo_eastus2_dev_ztadevex01_publicip_id" {
         value = module.ztademo_eastus2_dev_ztadevex01_publicip.publicip_id
     }
     output "ztademo_eastus2_dev_ztadevex01_publicip_name" {
@@ -729,7 +729,7 @@ module "ztademo_eastus2_dev_ztadevex01_vmwin" {
     output "ztademo_eastus2_dev_ztadevex01_publicip_domain_name_label" {
         value = module.ztademo_eastus2_dev_ztadevex01_publicip.publicip_domain_name_label
     }
-
+*/
 	# ztadevex01_netinf_outputs
 	output "ztademo_eastus2_dev_ztadevex01_netinf_id" {
 		value = module.ztademo_eastus2_dev_ztadevex01_netinf.netinf_id
@@ -806,11 +806,11 @@ module "ztademo_eastus2_dev_ztadevdc02_vmwin" {
         ip_configuration_subnet_id                     = module.ztademo_eastus2_dev_prod_subnet.subnet_id
         ip_configuration_private_ip_address_allocation = "Static"
         ip_configuration_private_ip_address            = "172.16.200.12"
-        ip_configuration_public_ip_address_id          = module.ztademo_eastus2_dev_ztadevdc02_publicip.publicip_id
+        ip_configuration_public_ip_address_id          = null # module.ztademo_eastus2_dev_ztadevdc02_publicip.publicip_id
     }
 
     # ztdemodc02_publicip
-    module "ztademo_eastus2_dev_ztadevdc02_publicip" {
+/*    module "ztademo_eastus2_dev_ztadevdc02_publicip" {
         source            = "github.com/cantrellcloud/tfAzureModules/publicip"
         #to_provision     = local.provision_ztdemodc02_publicip
         rg_location       = module.ztademo_eastus2_dev_rg.rg_location
@@ -820,7 +820,7 @@ module "ztademo_eastus2_dev_ztadevdc02_vmwin" {
         sku               = "Standard"
         domain_name_label = "ztadev-dc02"
     }
-
+*/
     # ztadevdc02_manageddisk
     module "ztademo_eastus2_dev_ztadevdc02_sysvol_manageddisk" {
         source = "github.com/cantrellcloud/tfAzureModules/manageddisk"
@@ -877,7 +877,7 @@ module "ztademo_eastus2_dev_ztadevdc02_vmwin" {
     }
 
 	#ztdemodc02_publicip_outputs
-    output "ztademo_eastus2_dev_ztadevdc02_publicip_id" {
+/*    output "ztademo_eastus2_dev_ztadevdc02_publicip_id" {
         value = module.ztademo_eastus2_dev_ztadevdc02_publicip.publicip_id
     }
     output "ztademo_eastus2_dev_ztadevdc02_publicip_name" {
@@ -886,7 +886,7 @@ module "ztademo_eastus2_dev_ztadevdc02_vmwin" {
     output "ztademo_eastus2_dev_ztadevdc02_publicip_domain_name_label" {
         value = module.ztademo_eastus2_dev_ztadevdc02_publicip.publicip_domain_name_label
     }
-
+*/
 	# ztdemodc02_netinf_outputs
 	output "ztademo_eastus2_dev_ztadevdc02_netinf_id" {
 		value = module.ztademo_eastus2_dev_ztadevdc02_netinf.netinf_id
