@@ -913,3 +913,222 @@ module "ztademo_eastus2_dev_ztadevdc02_vmwin" {
     output "ztademo_eastus2_dev_ztadevdc02_sysvol_datadiskattach_id" {
 		value = module.ztademo_eastus2_dev_ztadevdc02_sysvol_datadiskattach.datadiskattach_id
 	}
+
+# vmwin08
+module "ztademo_eastus_dev_ztadevwks08_vmwin" {
+	source = "github.com/cantrellcloud/tfAzureModules/vmwin"
+	#to_provision = local.provision_vmwin08
+	rg_location = module.ztademo_eastus_dev_rg.rg_location
+	rg_name = module.ztademo_eastus_dev_rg.rg_name
+	rg_tags = {
+		"ManagementGroup" = "MPG A&E eastus",
+		"Environment" = "Demo",
+		"AutomatedBy" = "Terraform",
+		"Note1" = "Do not manually change",
+		"POCName" = "ronc@mindpointgroup.com",
+		"POCPhone" = "843.330.6769",
+		"Project" = "Zero Trust Demo"
+	}
+
+	vmwin_name = "ztadev-wks08"
+    size                  = "Standard_D2s_v3"
+    admin_username        = "adminlocal"
+    admin_password        = "Password#1Password#1"
+
+    computer_name         = "ztadev-wks08"
+    license_type          = "Windows_Client"
+    network_interface_ids = [
+        module.ztademo_eastus_dev_ztadevwks08_netinf.netinf_id,
+    ]
+
+    os_disk_caching              = "ReadWrite"
+    os_disk_storage_account_type = "Standard_LRS"
+
+    source_image_reference_publisher = "MicrosoftWindowsDesktop"
+    source_image_reference_offer     = "Windows-10"
+    source_image_reference_sku       = "20h2-pro-g2"
+    #version   = "latest"
+}
+
+    # ztadevwks08_publicip
+/*    module "ztademo_eastus_dev_ztadevwks08_publicip" {
+        source            = "github.com/cantrellcloud/tfAzureModules/publicip"
+        #to_provision     = local.provision_ztadevwks08_publicip
+        rg_location       = module.ztademo_eastus_dev_rg.rg_location
+        rg_name           = module.ztademo_eastus_dev_rg.rg_name
+        publicip_name     = "ztademo_eastus_dev_ztadevwks08_publicip"
+        allocation_method = "Static"
+        sku               = "Standard"
+        domain_name_label = "ztadev-wks08"
+    }
+*/
+    # ztadevwks08_netinf
+    module "ztademo_eastus_dev_ztadevwks08_netinf" {
+        source = "github.com/cantrellcloud/tfAzureModules/netinf"
+        #to_provision = local.provision_ztadevwks08_netinf
+        rg_location = module.ztademo_eastus_dev_rg.rg_location
+        rg_name = module.ztademo_eastus_dev_rg.rg_name
+        netinf_name = "ztadevwks08_netinf"
+
+        ip_configuration_name                          = "ipconfig01"
+        ip_configuration_private_ip_address_version    = "IPv4"
+        ip_configuration_subnet_id                     = module.ztademo_eastus_dev_prod_subnet.subnet_id
+        ip_configuration_private_ip_address_allocation = "Static"
+        ip_configuration_private_ip_address            = "172.16.204.5"
+        ip_configuration_public_ip_address_id          = null # module.ztademo_eastus_dev_ztadevwks08_publicip.publicip_id
+}
+
+    # ztadevwks08_outputs
+    output "ztademo_eastus_dev_ztadevwks08_vmwin_id" {
+        value = module.ztademo_eastus_dev_ztadevwks08_vmwin.vmwin_id
+    }
+    output "ztademo_eastus_dev_ztadevwks08_vmwin_name" {
+        value = module.ztademo_eastus_dev_ztadevwks08_vmwin.vmwin_name
+    }
+    output "ztademo_eastus_dev_ztadevwks08_vmwin_computer_name" {
+        value = module.ztademo_eastus_dev_ztadevwks08_vmwin.vmwin_computer_name
+    }
+    output "ztademo_eastus_dev_ztadevwks08_vmwin_private_ip_address" {
+        value = module.ztademo_eastus_dev_ztadevwks08_vmwin.vmwin_private_ip_address
+    }
+    output "ztademo_eastus_dev_ztadevwks08_vmwin_virtual_machine_id" {
+        value = module.ztademo_eastus_dev_ztadevwks08_vmwin.vmwin_virtual_machine_id
+    }
+    output "ztademo_eastus_dev_ztadevwks08_vmwin_public_ip_address" {
+        value = module.ztademo_eastus_dev_ztadevwks08_vmwin.vmwin_public_ip_address
+    }
+
+	#ztadevwks08_publicip_outputs
+/*    output "ztademo_eastus_dev_ztadevwks08_publicip_id" {
+        value = module.ztademo_eastus_dev_ztadevwks08_publicip.publicip_id
+    }
+    output "ztademo_eastus_dev_ztadevwks08_publicip_name" {
+        value = module.ztademo_eastus_dev_ztadevwks08_publicip.publicip_name
+    }
+    output "ztademo_eastus_dev_ztadevwks08_publicip_domain_name_label" {
+        value = module.ztademo_eastus_dev_ztadevwks08_publicip.publicip_domain_name_label
+    }
+*/
+    # ztadevwks08_netinf_outputs
+	output "ztademo_eastus_dev_ztadevwks08_netinf_id" {
+		value = module.ztademo_eastus_dev_ztadevwks08_netinf.netinf_id
+	}
+	output "ztademo_eastus_dev_ztadevwks08_netinf_name" {
+		value = module.ztademo_eastus_dev_ztadevwks08_netinf.netinf_name
+	}
+	output "ztademo_eastus_dev_ztadevwks08_netinf_private_ip_address" {
+		value = module.ztademo_eastus_dev_ztadevwks08_netinf.netinf_private_ip_address
+	}
+	output "ztademo_eastus_dev_ztadevwks08_netinf_virtual_machine_id" {
+		value = module.ztademo_eastus_dev_ztadevwks08_netinf.netinf_virtual_machine_id
+	}
+
+# vmwin09
+module "ztademo_eastus2_dev_ztadevwks09_vmwin" {
+	source = "github.com/cantrellcloud/tfAzureModules/vmwin"
+	#to_provision = local.provision_vmwin09
+	rg_location = module.ztademo_eastus2_dev_rg.rg_location
+	rg_name = module.ztademo_eastus2_dev_rg.rg_name
+	rg_tags = {
+		"ManagementGroup" = "MPG A&E eastus2",
+		"Environment" = "Demo",
+		"AutomatedBy" = "Terraform",
+		"Note1" = "Do not manually change",
+		"POCName" = "ronc@mindpointgroup.com",
+		"POCPhone" = "843.330.6769",
+		"Project" = "Zero Trust Demo"
+	}
+
+	vmwin_name = "ztadev-wks09"
+    size                  = "Standard_D2s_v3"
+    admin_username        = "adminlocal"
+    admin_password        = "Password#1Password#1"
+
+    computer_name         = "ztadev-wks09"
+    license_type          = "Windows_Client"
+    network_interface_ids = [
+        module.ztademo_eastus2_dev_ztadevwks09_netinf.netinf_id,
+    ]
+
+    os_disk_caching              = "ReadWrite"
+    os_disk_storage_account_type = "Standard_LRS"
+
+    source_image_reference_publisher = "MicrosoftWindowsDesktop"
+    source_image_reference_offer     = "Windows-10"
+    source_image_reference_sku       = "20h2-pro-g2"
+    #version   = "latest"
+}
+
+    # ztadevwks09_publicip
+/*    module "ztademo_eastus2_dev_ztadevwks09_publicip" {
+        source            = "github.com/cantrellcloud/tfAzureModules/publicip"
+        #to_provision     = local.provision_ztadevwks09_publicip
+        rg_location       = module.ztademo_eastus2_dev_rg.rg_location
+        rg_name           = module.ztademo_eastus2_dev_rg.rg_name
+        publicip_name     = "ztademo_eastus2_dev_ztadevwks09_publicip"
+        allocation_method = "Static"
+        sku               = "Standard"
+        domain_name_label = "ztadev-wks09"
+    }
+*/
+    # ztadevwks09_netinf
+    module "ztademo_eastus2_dev_ztadevwks09_netinf" {
+        source = "github.com/cantrellcloud/tfAzureModules/netinf"
+        #to_provision = local.provision_ztadevwks09_netinf
+        rg_location = module.ztademo_eastus2_dev_rg.rg_location
+        rg_name = module.ztademo_eastus2_dev_rg.rg_name
+        netinf_name = "ztadevwks09_netinf"
+
+        ip_configuration_name                          = "ipconfig01"
+        ip_configuration_private_ip_address_version    = "IPv4"
+        ip_configuration_subnet_id                     = module.ztademo_eastus2_dev_02_prod_subnet.subnet_id
+        ip_configuration_private_ip_address_allocation = "Static"
+        ip_configuration_private_ip_address            = "172.16.208.5"
+        ip_configuration_public_ip_address_id          = null # module.ztademo_eastus2_dev_ztadevwks09_publicip.publicip_id
+}
+
+    # ztadevwks09_outputs
+    output "ztademo_eastus2_dev_ztadevwks09_vmwin_id" {
+        value = module.ztademo_eastus2_dev_ztadevwks09_vmwin.vmwin_id
+    }
+    output "ztademo_eastus2_dev_ztadevwks09_vmwin_name" {
+        value = module.ztademo_eastus2_dev_ztadevwks09_vmwin.vmwin_name
+    }
+    output "ztademo_eastus2_dev_ztadevwks09_vmwin_computer_name" {
+        value = module.ztademo_eastus2_dev_ztadevwks09_vmwin.vmwin_computer_name
+    }
+    output "ztademo_eastus2_dev_ztadevwks09_vmwin_private_ip_address" {
+        value = module.ztademo_eastus2_dev_ztadevwks09_vmwin.vmwin_private_ip_address
+    }
+    output "ztademo_eastus2_dev_ztadevwks09_vmwin_virtual_machine_id" {
+        value = module.ztademo_eastus2_dev_ztadevwks09_vmwin.vmwin_virtual_machine_id
+    }
+    output "ztademo_eastus2_dev_ztadevwks09_vmwin_public_ip_address" {
+        value = module.ztademo_eastus2_dev_ztadevwks09_vmwin.vmwin_public_ip_address
+    }
+
+	#ztadevwks09_publicip_outputs
+/*    output "ztademo_eastus2_dev_ztadevwks09_publicip_id" {
+        value = module.ztademo_eastus2_dev_ztadevwks09_publicip.publicip_id
+    }
+    output "ztademo_eastus2_dev_ztadevwks09_publicip_name" {
+        value = module.ztademo_eastus2_dev_ztadevwks09_publicip.publicip_name
+    }
+    output "ztademo_eastus2_dev_ztadevwks09_publicip_domain_name_label" {
+        value = module.ztademo_eastus2_dev_ztadevwks09_publicip.publicip_domain_name_label
+    }
+*/
+    # ztadevwks09_netinf_outputs
+	output "ztademo_eastus2_dev_ztadevwks09_netinf_id" {
+		value = module.ztademo_eastus2_dev_ztadevwks09_netinf.netinf_id
+	}
+	output "ztademo_eastus2_dev_ztadevwks09_netinf_name" {
+		value = module.ztademo_eastus2_dev_ztadevwks09_netinf.netinf_name
+	}
+	output "ztademo_eastus2_dev_ztadevwks09_netinf_private_ip_address" {
+		value = module.ztademo_eastus2_dev_ztadevwks09_netinf.netinf_private_ip_address
+	}
+	output "ztademo_eastus2_dev_ztadevwks09_netinf_virtual_machine_id" {
+		value = module.ztademo_eastus2_dev_ztadevwks09_netinf.netinf_virtual_machine_id
+	}
+
