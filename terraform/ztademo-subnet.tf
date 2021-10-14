@@ -100,7 +100,7 @@ module "ztademo_eastus_dev_prod_subnet" {
 	rg_name = module.ztademo_eastus_dev_rg.rg_name
 	subnet_name = "ztademo_eastus_dev_prod_subnet"
 	vnet_name = module.ztademo_eastus_dev_vnet.vnet_name
-	subnet_prefixes = ["172.16.204.0/27"]
+	subnet_prefixes = ["172.16.202.0/27"]
 }
 	#subnet11
 		output "ztademo_eastus_dev_prod_subnet_id" {
@@ -117,7 +117,7 @@ module "ztademo_eastus_dev_subnetgw_subnet" {
 	rg_name = module.ztademo_eastus_dev_rg.rg_name
 	subnet_name = "GatewaySubnet"
 	vnet_name = module.ztademo_eastus_dev_vnet.vnet_name
-	subnet_prefixes = ["172.16.204.248/29"]
+	subnet_prefixes = ["172.16.202.248/29"]
 }
 
 		#subnet12
@@ -135,7 +135,7 @@ module "ztademo_eastus_dev_ztcontroller_subnet" {
 	rg_name = module.ztademo_eastus_dev_rg.rg_name
 	subnet_name = "ztademo_eastus_dev_ztcontroller_subnet"
 	vnet_name = module.ztademo_eastus_dev_vnet.vnet_name
-	subnet_prefixes = ["172.16.204.32/27"]
+	subnet_prefixes = ["172.16.202.32/27"]
 }
 
 		#subnet13
@@ -153,7 +153,7 @@ module "ztademo_eastus_dev_edge_subnet" {
 	rg_name = module.ztademo_eastus_dev_rg.rg_name
 	subnet_name = "ztademo_eastus_dev_edge_subnet"
 	vnet_name = module.ztademo_eastus_dev_vnet.vnet_name
-	subnet_prefixes = ["172.16.204.64/27"]
+	subnet_prefixes = ["172.16.202.64/27"]
 }
 		#subnet14
 		output "ztademo_eastus_dev_edge_subnet_id" {
@@ -164,105 +164,106 @@ module "ztademo_eastus_dev_edge_subnet" {
 		}
 
 # subnet15
-module "ztademo_eastus_azure_bastion_02_subnet" {
+module "ztademo_eastus_azure_bastion_subnet" {
 	source = "github.com/cantrellcloud/tfAzureModules/subnet"
 	#to_provision = local.provision_subnet15
 	rg_name = module.ztademo_eastus_dev_rg.rg_name
 	subnet_name = "AzureBastionSubnet"
 	vnet_name = module.ztademo_eastus_dev_vnet.vnet_name
-	subnet_prefixes = ["172.16.204.96/27"]
+	subnet_prefixes = ["172.16.202.96/27"]
 }
 		#subnet15
-		output "ztademo_eastus_azure_bastion_02_subnet_id" {
-			value = module.ztademo_eastus_azure_bastion_02_subnet.subnet_id
+		output "ztademo_eastus_azure_bastion_subnet_id" {
+			value = module.ztademo_eastus_azure_bastion_subnet.subnet_id
 		}
-		output "ztademo_eastus_azure_bastion_02_subnet_name" {
-			value = module.ztademo_eastus_azure_bastion_02_subnet.subnet_name
+		output "ztademo_eastus_azure_bastion_subnet_name" {
+			value = module.ztademo_eastus_azure_bastion_subnet.subnet_name
 		}
 
-# subnet21
-module "ztademo_eastus2_dev_02_prod_subnet" {
+
+# subnet31
+module "ztademo_westus2_dev_prod_subnet" {
 	source = "github.com/cantrellcloud/tfAzureModules/subnet"
-	#to_provision = local.provision_subnet21
-	rg_name = module.ztademo_eastus2_dev_rg.rg_name
-	subnet_name = "ztademo_eastus2_dev_02_prod_subnet"
-	vnet_name = module.ztademo_eastus2_dev_02_vnet.vnet_name
-	subnet_prefixes = ["172.16.208.0/27"]
+	#to_provision = local.provision_subnet31
+	rg_name = module.ztademo_westus2_dev_rg.rg_name
+	subnet_name = "ztademo_westus2_dev_prod_subnet"
+	vnet_name = module.ztademo_westus2_dev_vnet.vnet_name
+	subnet_prefixes = ["172.16.206.0/27"]
 }
-	#subnet21
-		output "ztademo_eastus2_dev_02_prod_subnet_id" {
-			value = module.ztademo_eastus2_dev_02_prod_subnet.subnet_id
+	#subnet31
+		output "ztademo_westus2_dev_prod_subnet_id" {
+			value = module.ztademo_westus2_dev_prod_subnet.subnet_id
 		}
-		output "ztademo_eastus2_dev_02_prod_subnet_name" {
-			value = module.ztademo_eastus2_dev_02_prod_subnet.subnet_name
+		output "ztademo_westus2_dev_prod_subnet_name" {
+			value = module.ztademo_westus2_dev_prod_subnet.subnet_name
 		}
 
-# subnet22
-module "ztademo_eastus2_dev_02_subnetgw_subnet" {
+# subnet32
+module "ztademo_westus2_dev_subnetgw_subnet" {
 	source = "github.com/cantrellcloud/tfAzureModules/subnet"
-	#to_provision = local.provision_subnet22
-	rg_name = module.ztademo_eastus2_dev_rg.rg_name
+	#to_provision = local.provision_subnet32
+	rg_name = module.ztademo_westus2_dev_rg.rg_name
 	subnet_name = "GatewaySubnet"
-	vnet_name = module.ztademo_eastus2_dev_02_vnet.vnet_name
-	subnet_prefixes = ["172.16.208.248/29"]
+	vnet_name = module.ztademo_westus2_dev_vnet.vnet_name
+	subnet_prefixes = ["172.16.206.248/29"]
 }
 
-		#subnet22
-		output "ztademo_eastus2_dev_02_subnetgw_subnet_id" {
-			value = module.ztademo_eastus2_dev_02_subnetgw_subnet.subnet_id
+		#subnet32
+		output "ztademo_westus2_dev_subnetgw_subnet_id" {
+			value = module.ztademo_westus2_dev_subnetgw_subnet.subnet_id
 		}
-		output "ztademo_eastus2_dev_02_subnetgw_subnet_name" {
-			value = module.ztademo_eastus2_dev_02_subnetgw_subnet.subnet_name
+		output "ztademo_westus2_dev_subnetgw_subnet_name" {
+			value = module.ztademo_westus2_dev_subnetgw_subnet.subnet_name
 		}
 
-# subnet23
-module "ztademo_eastus2_dev_02_ztcontroller_subnet" {
+# subnet33
+module "ztademo_westus2_dev_ztcontroller_subnet" {
 	source = "github.com/cantrellcloud/tfAzureModules/subnet"
-	#to_provision = local.provision_subnet23
-	rg_name = module.ztademo_eastus2_dev_rg.rg_name
-	subnet_name = "ztademo_eastus2_dev_ztcontroller_subnet"
-	vnet_name = module.ztademo_eastus2_dev_02_vnet.vnet_name
-	subnet_prefixes = ["172.16.208.32/27"]
+	#to_provision = local.provision_subnet33
+	rg_name = module.ztademo_westus2_dev_rg.rg_name
+	subnet_name = "ztademo_westus2_dev_ztcontroller_subnet"
+	vnet_name = module.ztademo_westus2_dev_vnet.vnet_name
+	subnet_prefixes = ["172.16.206.32/27"]
 }
 
-		#subnet23
-		output "ztademo_eastus2_dev_02_ztcontroller_subnet_id" {
-			value = module.ztademo_eastus2_dev_02_ztcontroller_subnet.subnet_id
+		#subnet33
+		output "ztademo_westus2_dev_ztcontroller_subnet_id" {
+			value = module.ztademo_westus2_dev_ztcontroller_subnet.subnet_id
 		}
-		output "ztademo_eastus2_dev_02_ztcontroller_subnet_name" {
-			value = module.ztademo_eastus2_dev_02_ztcontroller_subnet.subnet_name
+		output "ztademo_westus2_dev_ztcontroller_subnet_name" {
+			value = module.ztademo_westus2_dev_ztcontroller_subnet.subnet_name
 		}
 
-# subnet24
-module "ztademo_eastus2_dev_02_edge_subnet" {
+# subnet34
+module "ztademo_westus2_dev_edge_subnet" {
 	source = "github.com/cantrellcloud/tfAzureModules/subnet"
-	#to_provision = local.provision_subnet24
+	#to_provision = local.provision_subnet34
 	rg_name = module.ztademo_eastus2_dev_rg.rg_name
 	subnet_name = "ztademo_eastus2_dev_edge_subnet"
-	vnet_name = module.ztademo_eastus2_dev_02_vnet.vnet_name
-	subnet_prefixes = ["172.16.208.64/27"]
+	vnet_name = module.ztademo_westus2_dev_vnet.vnet_name
+	subnet_prefixes = ["172.16.206.64/27"]
 }
-		#subnet24
-		output "ztademo_eastus2_dev_02_edge_subnet_id" {
-			value = module.ztademo_eastus2_dev_02_edge_subnet.subnet_id
+		#subnet34
+		output "ztademo_westus2_dev_edge_subnet_id" {
+			value = module.ztademo_westus2_dev_edge_subnet.subnet_id
 		}
-		output "ztademo_eastus2_dev_02_edge_subnet_name" {
-			value = module.ztademo_eastus2_dev_02_edge_subnet.subnet_name
+		output "ztademo_westus2_dev_edge_subnet_name" {
+			value = module.ztademo_westus2_dev_edge_subnet.subnet_name
 		}
 
-# subnet25
-module "ztademo_eastus2_azure_bastion_03_subnet" {
+# subnet35
+module "ztademo_westus2_azure_bastion_subnet" {
 	source = "github.com/cantrellcloud/tfAzureModules/subnet"
-	#to_provision = local.provision_subnet25
-	rg_name = module.ztademo_eastus2_dev_rg.rg_name
+	#to_provision = local.provision_subnet35
+	rg_name = module.ztademo_westus2_dev_rg.rg_name
 	subnet_name = "AzureBastionSubnet"
-	vnet_name = module.ztademo_eastus2_dev_02_vnet.vnet_name
-	subnet_prefixes = ["172.16.208.96/27"]
+	vnet_name = module.ztademo_westus2_dev_vnet.vnet_name
+	subnet_prefixes = ["172.16.206.96/27"]
 }
-		#subnet25
-		output "ztademo_eastus2_azure_bastion_03_subnet_id" {
-			value = module.ztademo_eastus2_azure_bastion_03_subnet.subnet_id
+		#subnet35
+		output "ztademo_westus2_azure_bastion_subnet_id" {
+			value = module.ztademo_westus2_azure_bastion_subnet.subnet_id
 		}
-		output "ztademo_eastus2_azure_bastion_03_subnet_name" {
-			value = module.ztademo_eastus2_azure_bastion_03_subnet.subnet_name
+		output "ztademo_westus2_azure_bastion_subnet_name" {
+			value = module.ztademo_westus2_azure_bastion_subnet.subnet_name
 		}

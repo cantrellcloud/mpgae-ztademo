@@ -49,6 +49,16 @@ module "ztademo_eastus2_dev_ztadevdc01_vmwin" {
         #to_provision = local.provision_ztadevdc01_netinf
         rg_location = module.ztademo_eastus2_dev_rg.rg_location
         rg_name = module.ztademo_eastus2_dev_rg.rg_name
+    	rg_tags = {
+	    	"ManagementGroup" = "MPG A&E EastUS2",
+		    "Environment" = "Demo",
+    		"AutomatedBy" = "Terraform",
+	    	"Note1" = "Do not manually change",
+		    "POCName" = "ronc@mindpointgroup.com",
+    		"POCPhone" = "843.330.6769",
+		    "Project" = "Zero Trust Demo"
+	    }
+
         netinf_name = "ztadevdc01_netinf"
 
         ip_configuration_name                          = "ipconfig01"
@@ -164,6 +174,8 @@ module "ztademo_eastus2_dev_ztadevdc01_vmwin" {
 		value = module.ztademo_eastus2_dev_ztadevdc01_sysvol_datadiskattach.datadiskattach_id
 	}
 
+#########################################################################################
+
 # vmwin02
 module "ztademo_eastus2_dev_ztadevwks01_vmwin" {
 	source = "github.com/cantrellcloud/tfAzureModules/vmwin"
@@ -218,6 +230,16 @@ module "ztademo_eastus2_dev_ztadevwks01_vmwin" {
         #to_provision = local.provision_ztadevwks01_netinf
         rg_location = module.ztademo_eastus2_dev_rg.rg_location
         rg_name = module.ztademo_eastus2_dev_rg.rg_name
+    	rg_tags = {
+	    	"ManagementGroup" = "MPG A&E EastUS2",
+		    "Environment" = "Demo",
+    		"AutomatedBy" = "Terraform",
+	    	"Note1" = "Do not manually change",
+		    "POCName" = "ronc@mindpointgroup.com",
+    		"POCPhone" = "843.330.6769",
+		    "Project" = "Zero Trust Demo"
+	    }
+
         netinf_name = "ztadevwks01_netinf"
 
         ip_configuration_name                          = "ipconfig01"
@@ -273,6 +295,8 @@ module "ztademo_eastus2_dev_ztadevwks01_vmwin" {
 		value = module.ztademo_eastus2_dev_ztadevwks01_netinf.netinf_virtual_machine_id
 	}
 
+#########################################################################################
+
 # vmwin03
 module "ztademo_eastus2_dev_ztadevjpc01_vmwin" {
 	source = "github.com/cantrellcloud/tfAzureModules/vmwin"
@@ -327,6 +351,16 @@ module "ztademo_eastus2_dev_ztadevjpc01_vmwin" {
         #to_provision = local.provision_ztadevjpc01_netinf
         rg_location = module.ztademo_eastus2_dev_rg.rg_location
         rg_name = module.ztademo_eastus2_dev_rg.rg_name
+    	rg_tags = {
+	    	"ManagementGroup" = "MPG A&E EastUS2",
+		    "Environment" = "Demo",
+    		"AutomatedBy" = "Terraform",
+	    	"Note1" = "Do not manually change",
+		    "POCName" = "ronc@mindpointgroup.com",
+    		"POCPhone" = "843.330.6769",
+		    "Project" = "Zero Trust Demo"
+	    }
+
         netinf_name = "ztadevjpc01_netinf"
 
         ip_configuration_name                          = "ipconfig01"
@@ -382,6 +416,8 @@ module "ztademo_eastus2_dev_ztadevjpc01_vmwin" {
 		value = module.ztademo_eastus2_dev_ztadevjpc01_netinf.netinf_virtual_machine_id
 	}
 
+#########################################################################################
+
 # vmwin04
 module "ztademo_eastus2_dev_ztadevncc01_vmwin" {
 	source = "github.com/cantrellcloud/tfAzureModules/vmwin"
@@ -436,6 +472,16 @@ module "ztademo_eastus2_dev_ztadevncc01_vmwin" {
         #to_provision = local.provision_ztadevncc01_netinf
         rg_location = module.ztademo_eastus2_dev_rg.rg_location
         rg_name = module.ztademo_eastus2_dev_rg.rg_name
+    	rg_tags = {
+	    	"ManagementGroup" = "MPG A&E EastUS2",
+		    "Environment" = "Demo",
+    		"AutomatedBy" = "Terraform",
+	    	"Note1" = "Do not manually change",
+		    "POCName" = "ronc@mindpointgroup.com",
+    		"POCPhone" = "843.330.6769",
+		    "Project" = "Zero Trust Demo"
+	    }
+
         netinf_name = "ztadevncc01_netinf"
 
         ip_configuration_name                          = "ipconfig01"
@@ -491,6 +537,8 @@ module "ztademo_eastus2_dev_ztadevncc01_vmwin" {
 		value = module.ztademo_eastus2_dev_ztadevncc01_netinf.netinf_virtual_machine_id
 	}
 
+#########################################################################################
+
 # vmwin05
 module "ztademo_eastus2_dev_ztadevsp01_vmwin" {
 	source = "github.com/cantrellcloud/tfAzureModules/vmwin"
@@ -545,6 +593,16 @@ module "ztademo_eastus2_dev_ztadevsp01_vmwin" {
         #to_provision = local.provision_ztadevsp01_netinf
         rg_location = module.ztademo_eastus2_dev_rg.rg_location
         rg_name = module.ztademo_eastus2_dev_rg.rg_name
+    	rg_tags = {
+	    	"ManagementGroup" = "MPG A&E EastUS2",
+		    "Environment" = "Demo",
+    		"AutomatedBy" = "Terraform",
+	    	"Note1" = "Do not manually change",
+		    "POCName" = "ronc@mindpointgroup.com",
+    		"POCPhone" = "843.330.6769",
+		    "Project" = "Zero Trust Demo"
+	    }
+
         netinf_name = "ztadevsp01_netinf"
 
         ip_configuration_name                          = "ipconfig01"
@@ -600,6 +658,8 @@ module "ztademo_eastus2_dev_ztadevsp01_vmwin" {
 		value = module.ztademo_eastus2_dev_ztadevsp01_netinf.netinf_virtual_machine_id
 	}
 
+#########################################################################################
+
 # vmwin06
 module "ztademo_eastus2_dev_ztadevex01_vmwin" {
 	source = "github.com/cantrellcloud/tfAzureModules/vmwin"
@@ -654,6 +714,16 @@ module "ztademo_eastus2_dev_ztadevex01_vmwin" {
         #to_provision = local.provision_ztadevex01_netinf
         rg_location = module.ztademo_eastus2_dev_rg.rg_location
         rg_name = module.ztademo_eastus2_dev_rg.rg_name
+    	rg_tags = {
+	    	"ManagementGroup" = "MPG A&E EastUS2",
+		    "Environment" = "Demo",
+    		"AutomatedBy" = "Terraform",
+	    	"Note1" = "Do not manually change",
+		    "POCName" = "ronc@mindpointgroup.com",
+    		"POCPhone" = "843.330.6769",
+		    "Project" = "Zero Trust Demo"
+	    }
+
         netinf_name = "ztadevex01_netinf"
 
         ip_configuration_name                          = "ipconfig01"
@@ -757,6 +827,8 @@ module "ztademo_eastus2_dev_ztadevex01_vmwin" {
 		value = module.ztademo_eastus2_dev_ztadevex01_mbdatabase_datadiskattach.datadiskattach_id
 	}
 
+#########################################################################################
+
 # vmwin07
 module "ztademo_eastus2_dev_ztadevdc02_vmwin" {
 	source = "github.com/cantrellcloud/tfAzureModules/vmwin"
@@ -799,6 +871,16 @@ module "ztademo_eastus2_dev_ztadevdc02_vmwin" {
         #to_provision = local.provision_ztdemodc02_netinf
         rg_location = module.ztademo_eastus2_dev_rg.rg_location
         rg_name = module.ztademo_eastus2_dev_rg.rg_name
+    	rg_tags = {
+	    	"ManagementGroup" = "MPG A&E EastUS2",
+		    "Environment" = "Demo",
+    		"AutomatedBy" = "Terraform",
+	    	"Note1" = "Do not manually change",
+		    "POCName" = "ronc@mindpointgroup.com",
+    		"POCPhone" = "843.330.6769",
+		    "Project" = "Zero Trust Demo"
+	    }
+
         netinf_name = "ztdemodc02_netinf"
 
         ip_configuration_name                          = "ipconfig01"
@@ -914,6 +996,8 @@ module "ztademo_eastus2_dev_ztadevdc02_vmwin" {
 		value = module.ztademo_eastus2_dev_ztadevdc02_sysvol_datadiskattach.datadiskattach_id
 	}
 
+#########################################################################################
+
 # vmwin08
 module "ztademo_eastus_dev_ztadevwks08_vmwin" {
 	source = "github.com/cantrellcloud/tfAzureModules/vmwin"
@@ -968,6 +1052,16 @@ module "ztademo_eastus_dev_ztadevwks08_vmwin" {
         #to_provision = local.provision_ztadevwks08_netinf
         rg_location = module.ztademo_eastus_dev_rg.rg_location
         rg_name = module.ztademo_eastus_dev_rg.rg_name
+    	rg_tags = {
+	    	"ManagementGroup" = "MPG A&E EastUS2",
+		    "Environment" = "Demo",
+    		"AutomatedBy" = "Terraform",
+	    	"Note1" = "Do not manually change",
+		    "POCName" = "ronc@mindpointgroup.com",
+    		"POCPhone" = "843.330.6769",
+		    "Project" = "Zero Trust Demo"
+	    }
+
         netinf_name = "ztadevwks08_netinf"
 
         ip_configuration_name                          = "ipconfig01"
@@ -1023,14 +1117,16 @@ module "ztademo_eastus_dev_ztadevwks08_vmwin" {
 		value = module.ztademo_eastus_dev_ztadevwks08_netinf.netinf_virtual_machine_id
 	}
 
+#########################################################################################
+
 # vmwin09
-module "ztademo_eastus2_dev_ztadevwks09_vmwin" {
+module "ztademo_westus_dev_ztadevwks09_vmwin" {
 	source = "github.com/cantrellcloud/tfAzureModules/vmwin"
 	#to_provision = local.provision_vmwin09
-	rg_location = module.ztademo_eastus2_dev_rg.rg_location
-	rg_name = module.ztademo_eastus2_dev_rg.rg_name
+	rg_location = module.ztademo_westus_dev_rg.rg_location
+	rg_name = module.ztademo_westus_dev_rg.rg_name
 	rg_tags = {
-		"ManagementGroup" = "MPG A&E eastus2",
+		"ManagementGroup" = "MPG A&E WestUS",
 		"Environment" = "Demo",
 		"AutomatedBy" = "Terraform",
 		"Note1" = "Do not manually change",
@@ -1047,7 +1143,7 @@ module "ztademo_eastus2_dev_ztadevwks09_vmwin" {
     computer_name         = "ztadev-wks09"
     license_type          = "Windows_Client"
     network_interface_ids = [
-        module.ztademo_eastus2_dev_ztadevwks09_netinf.netinf_id,
+        module.ztademo_westus_dev_ztadevwks09_netinf.netinf_id,
     ]
 
     os_disk_caching              = "ReadWrite"
@@ -1059,76 +1155,210 @@ module "ztademo_eastus2_dev_ztadevwks09_vmwin" {
     #version   = "latest"
 }
 
+/*
     # ztadevwks09_publicip
-/*    module "ztademo_eastus2_dev_ztadevwks09_publicip" {
+    module "ztademo_westus_dev_ztadevwks09_publicip" {
         source            = "github.com/cantrellcloud/tfAzureModules/publicip"
         #to_provision     = local.provision_ztadevwks09_publicip
-        rg_location       = module.ztademo_eastus2_dev_rg.rg_location
-        rg_name           = module.ztademo_eastus2_dev_rg.rg_name
-        publicip_name     = "ztademo_eastus2_dev_ztadevwks09_publicip"
+        rg_location       = module.ztademo_westus_dev_rg.rg_location
+        rg_name           = module.ztademo_westus_dev_rg.rg_name
+        publicip_name     = "ztademo_westus_dev_ztadevwks09_publicip"
         allocation_method = "Static"
         sku               = "Standard"
         domain_name_label = "ztadev-wks09"
     }
 */
+
     # ztadevwks09_netinf
-    module "ztademo_eastus2_dev_ztadevwks09_netinf" {
+    module "ztademo_westus_dev_ztadevwks09_netinf" {
         source = "github.com/cantrellcloud/tfAzureModules/netinf"
         #to_provision = local.provision_ztadevwks09_netinf
-        rg_location = module.ztademo_eastus2_dev_rg.rg_location
-        rg_name = module.ztademo_eastus2_dev_rg.rg_name
+        rg_location = module.ztademo_westus_dev_rg.rg_location
+        rg_name = module.ztademo_westus_dev_rg.rg_name
+    	rg_tags = {
+	    	"ManagementGroup" = "MPG A&E WestUS",
+		    "Environment" = "Demo",
+    		"AutomatedBy" = "Terraform",
+	    	"Note1" = "Do not manually change",
+		    "POCName" = "ronc@mindpointgroup.com",
+    		"POCPhone" = "843.330.6769",
+		    "Project" = "Zero Trust Demo"
+	    }
+
         netinf_name = "ztadevwks09_netinf"
 
         ip_configuration_name                          = "ipconfig01"
         ip_configuration_private_ip_address_version    = "IPv4"
-        ip_configuration_subnet_id                     = module.ztademo_eastus2_dev_02_prod_subnet.subnet_id
+        ip_configuration_subnet_id                     = module.ztademo_westus_prod_subnet.subnet_id
         ip_configuration_private_ip_address_allocation = "Static"
         ip_configuration_private_ip_address            = "172.16.208.5"
-        ip_configuration_public_ip_address_id          = null # module.ztademo_eastus2_dev_ztadevwks09_publicip.publicip_id
+        ip_configuration_public_ip_address_id          = null # module.ztademo_westus_dev_ztadevwks09_publicip.publicip_id
 }
 
     # ztadevwks09_outputs
-    output "ztademo_eastus2_dev_ztadevwks09_vmwin_id" {
-        value = module.ztademo_eastus2_dev_ztadevwks09_vmwin.vmwin_id
+    output "ztademo_westus_dev_ztadevwks09_vmwin_id" {
+        value = module.ztademo_westus_dev_ztadevwks09_vmwin.vmwin_id
     }
-    output "ztademo_eastus2_dev_ztadevwks09_vmwin_name" {
-        value = module.ztademo_eastus2_dev_ztadevwks09_vmwin.vmwin_name
+    output "ztademo_westus_dev_ztadevwks09_vmwin_name" {
+        value = module.ztademo_westus_dev_ztadevwks09_vmwin.vmwin_name
     }
-    output "ztademo_eastus2_dev_ztadevwks09_vmwin_computer_name" {
-        value = module.ztademo_eastus2_dev_ztadevwks09_vmwin.vmwin_computer_name
+    output "ztademo_westus_dev_ztadevwks09_vmwin_computer_name" {
+        value = module.ztademo_westus_dev_ztadevwks09_vmwin.vmwin_computer_name
     }
-    output "ztademo_eastus2_dev_ztadevwks09_vmwin_private_ip_address" {
-        value = module.ztademo_eastus2_dev_ztadevwks09_vmwin.vmwin_private_ip_address
+    output "ztademo_westus_dev_ztadevwks09_vmwin_private_ip_address" {
+        value = module.ztademo_westus_dev_ztadevwks09_vmwin.vmwin_private_ip_address
     }
-    output "ztademo_eastus2_dev_ztadevwks09_vmwin_virtual_machine_id" {
-        value = module.ztademo_eastus2_dev_ztadevwks09_vmwin.vmwin_virtual_machine_id
+    output "ztademo_westus_dev_ztadevwks09_vmwin_virtual_machine_id" {
+        value = module.ztademo_westus_dev_ztadevwks09_vmwin.vmwin_virtual_machine_id
     }
-    output "ztademo_eastus2_dev_ztadevwks09_vmwin_public_ip_address" {
-        value = module.ztademo_eastus2_dev_ztadevwks09_vmwin.vmwin_public_ip_address
+    output "ztademo_westus_dev_ztadevwks09_vmwin_public_ip_address" {
+        value = module.ztademo_westus_dev_ztadevwks09_vmwin.vmwin_public_ip_address
     }
 
 	#ztadevwks09_publicip_outputs
-/*    output "ztademo_eastus2_dev_ztadevwks09_publicip_id" {
-        value = module.ztademo_eastus2_dev_ztadevwks09_publicip.publicip_id
+/*    output "ztademo_westus_dev_ztadevwks09_publicip_id" {
+        value = module.ztademo_westus_dev_ztadevwks09_publicip.publicip_id
     }
-    output "ztademo_eastus2_dev_ztadevwks09_publicip_name" {
-        value = module.ztademo_eastus2_dev_ztadevwks09_publicip.publicip_name
+    output "ztademo_westus_dev_ztadevwks09_publicip_name" {
+        value = module.ztademo_westus_dev_ztadevwks09_publicip.publicip_name
     }
-    output "ztademo_eastus2_dev_ztadevwks09_publicip_domain_name_label" {
-        value = module.ztademo_eastus2_dev_ztadevwks09_publicip.publicip_domain_name_label
+    output "ztademo_westus_dev_ztadevwks09_publicip_domain_name_label" {
+        value = module.ztademo_westus_dev_ztadevwks09_publicip.publicip_domain_name_label
     }
 */
     # ztadevwks09_netinf_outputs
-	output "ztademo_eastus2_dev_ztadevwks09_netinf_id" {
-		value = module.ztademo_eastus2_dev_ztadevwks09_netinf.netinf_id
+	output "ztademo_westus_dev_ztadevwks09_netinf_id" {
+		value = module.ztademo_westus_dev_ztadevwks09_netinf.netinf_id
 	}
-	output "ztademo_eastus2_dev_ztadevwks09_netinf_name" {
-		value = module.ztademo_eastus2_dev_ztadevwks09_netinf.netinf_name
+	output "ztademo_westus_dev_ztadevwks09_netinf_name" {
+		value = module.ztademo_westus_dev_ztadevwks09_netinf.netinf_name
 	}
-	output "ztademo_eastus2_dev_ztadevwks09_netinf_private_ip_address" {
-		value = module.ztademo_eastus2_dev_ztadevwks09_netinf.netinf_private_ip_address
+	output "ztademo_westus_dev_ztadevwks09_netinf_private_ip_address" {
+		value = module.ztademo_westus_dev_ztadevwks09_netinf.netinf_private_ip_address
 	}
-	output "ztademo_eastus2_dev_ztadevwks09_netinf_virtual_machine_id" {
-		value = module.ztademo_eastus2_dev_ztadevwks09_netinf.netinf_virtual_machine_id
+	output "ztademo_westus_dev_ztadevwks09_netinf_virtual_machine_id" {
+		value = module.ztademo_westus_dev_ztadevwks09_netinf.netinf_virtual_machine_id
 	}
 
+#########################################################################################
+
+# vmwin10
+module "ztademo_westus2_dev_ztadevwks10_vmwin" {
+	source = "github.com/cantrellcloud/tfAzureModules/vmwin"
+	#to_provision = local.provision_vmwin10
+	rg_location = module.ztademo_westus2_dev_rg.rg_location
+	rg_name = module.ztademo_westus2_dev_rg.rg_name
+	rg_tags = {
+		"ManagementGroup" = "MPG A&E WestUS2",
+		"Environment" = "Demo",
+		"AutomatedBy" = "Terraform",
+		"Note1" = "Do not manually change",
+		"POCName" = "ronc@mindpointgroup.com",
+		"POCPhone" = "843.330.6769",
+		"Project" = "Zero Trust Demo"
+	}
+
+	vmwin_name = "ztadev-wks10"
+    size                  = "Standard_D2s_v3"
+    admin_username        = "adminlocal"
+    admin_password        = "Password#1Password#1"
+
+    computer_name         = "ztadev-wks10"
+    license_type          = "Windows_Client"
+    network_interface_ids = [
+        module.ztademo_westus2_dev_ztadevwks10_netinf.netinf_id,
+    ]
+
+    os_disk_caching              = "ReadWrite"
+    os_disk_storage_account_type = "Standard_LRS"
+
+    source_image_reference_publisher = "MicrosoftWindowsDesktop"
+    source_image_reference_offer     = "Windows-10"
+    source_image_reference_sku       = "20h2-pro-g2"
+    #version   = "latest"
+}
+
+/*
+    # ztadevwks10_publicip
+    module "ztademo_westus2_dev_ztadevwks10_publicip" {
+        source            = "github.com/cantrellcloud/tfAzureModules/publicip"
+        #to_provision     = local.provision_ztadevwks10_publicip
+        rg_location       = module.ztademo_westus2_dev_rg.rg_location
+        rg_name           = module.ztademo_westus2_dev_rg.rg_name
+        publicip_name     = "ztademo_westus2_dev_ztadevwks10_publicip"
+        allocation_method = "Static"
+        sku               = "Standard"
+        domain_name_label = "ztadev-wks10"
+    }
+*/
+    # ztadevwks10_netinf
+    module "ztademo_westus2_dev_ztadevwks10_netinf" {
+        source = "github.com/cantrellcloud/tfAzureModules/netinf"
+        #to_provision = local.provision_ztadevwks10_netinf
+        rg_location = module.ztademo_westus2_dev_rg.rg_location
+        rg_name = module.ztademo_westus2_dev_rg.rg_name
+    	rg_tags = {
+	    	"ManagementGroup" = "MPG A&E EastUS2",
+		    "Environment" = "Demo",
+    		"AutomatedBy" = "Terraform",
+	    	"Note1" = "Do not manually change",
+		    "POCName" = "ronc@mindpointgroup.com",
+    		"POCPhone" = "843.330.6769",
+		    "Project" = "Zero Trust Demo"
+	    }
+
+        netinf_name = "ztadevwks10_netinf"
+
+        ip_configuration_name                          = "ipconfig01"
+        ip_configuration_private_ip_address_version    = "IPv4"
+        ip_configuration_subnet_id                     = module.ztademo_westus2_dev_prod_subnet.subnet_id
+        ip_configuration_private_ip_address_allocation = "Static"
+        ip_configuration_private_ip_address            = "172.16.206.5"
+        ip_configuration_public_ip_address_id          = null # module.ztademo_westus2_dev_ztadevwks10_publicip.publicip_id
+}
+
+    # ztadevwks10_outputs
+    output "ztademo_westus2_dev_ztadevwks10_vmwin_id" {
+        value = module.ztademo_westus2_dev_ztadevwks10_vmwin.vmwin_id
+    }
+    output "ztademo_westus2_dev_ztadevwks10_vmwin_name" {
+        value = module.ztademo_westus2_dev_ztadevwks10_vmwin.vmwin_name
+    }
+    output "ztademo_westus2_dev_ztadevwks10_vmwin_computer_name" {
+        value = module.ztademo_westus2_dev_ztadevwks10_vmwin.vmwin_computer_name
+    }
+    output "ztademo_westus2_dev_ztadevwks10_vmwin_private_ip_address" {
+        value = module.ztademo_westus2_dev_ztadevwks10_vmwin.vmwin_private_ip_address
+    }
+    output "ztademo_westus2_dev_ztadevwks10_vmwin_virtual_machine_id" {
+        value = module.ztademo_westus2_dev_ztadevwks10_vmwin.vmwin_virtual_machine_id
+    }
+    output "ztademo_westus2_dev_ztadevwks10_vmwin_public_ip_address" {
+        value = module.ztademo_westus2_dev_ztadevwks10_vmwin.vmwin_public_ip_address
+    }
+
+	#ztadevwks10_publicip_outputs
+/*    output "ztademo_westus2_dev_ztadevwks10_publicip_id" {
+        value = module.ztademo_westus2_dev_ztadevwks10_publicip.publicip_id
+    }
+    output "ztademo_westus2_dev_ztadevwks10_publicip_name" {
+        value = module.ztademo_westus2_dev_ztadevwks10_publicip.publicip_name
+    }
+    output "ztademo_westus2_dev_ztadevwks10_publicip_domain_name_label" {
+        value = module.ztademo_westus2_dev_ztadevwks10_publicip.publicip_domain_name_label
+    }
+*/
+
+    # ztadevwks10_netinf_outputs
+	output "ztademo_westus2_dev_ztadevwks10_netinf_id" {
+		value = module.ztademo_westus2_dev_ztadevwks10_netinf.netinf_id
+	}
+	output "ztademo_westus2_dev_ztadevwks10_netinf_name" {
+		value = module.ztademo_westus2_dev_ztadevwks10_netinf.netinf_name
+	}
+	output "ztademo_westus2_dev_ztadevwks10_netinf_private_ip_address" {
+		value = module.ztademo_westus2_dev_ztadevwks10_netinf.netinf_private_ip_address
+	}
+	output "ztademo_westus2_dev_ztadevwks10_netinf_virtual_machine_id" {
+		value = module.ztademo_westus2_dev_ztadevwks10_netinf.netinf_virtual_machine_id
+	}

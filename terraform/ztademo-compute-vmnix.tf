@@ -60,6 +60,16 @@ module "ztademo_eastus2_dev_ztadevnix01_vmnix" {
         #to_provision = local.provision_ztadevnix01_netinf
         rg_location = module.ztademo_eastus2_dev_rg.rg_location
         rg_name = module.ztademo_eastus2_dev_rg.rg_name
+    	rg_tags = {
+	    	"ManagementGroup" = "MPG A&E EastUS2",
+		    "Environment" = "Demo",
+    		"AutomatedBy" = "Terraform",
+	    	"Note1" = "Do not manually change",
+		    "POCName" = "ronc@mindpointgroup.com",
+    		"POCPhone" = "843.330.6769",
+		    "Project" = "Zero Trust Demo"
+	    }
+
         netinf_name = "ztadevnix01_netinf"
 
         ip_configuration_name                          = "ipconfig01"
@@ -168,6 +178,16 @@ module "ztademo_eastus2_dev_ztadevnix02_vmnix" {
         #to_provision = local.provision_ztadevnix02_netinf
         rg_location = module.ztademo_eastus2_dev_rg.rg_location
         rg_name = module.ztademo_eastus2_dev_rg.rg_name
+    	rg_tags = {
+	    	"ManagementGroup" = "MPG A&E EastUS2",
+		    "Environment" = "Demo",
+    		"AutomatedBy" = "Terraform",
+	    	"Note1" = "Do not manually change",
+		    "POCName" = "ronc@mindpointgroup.com",
+    		"POCPhone" = "843.330.6769",
+		    "Project" = "Zero Trust Demo"
+	    }
+
         netinf_name = "ztadevnix02_netinf"
 
         ip_configuration_name                          = "ipconfig01"
@@ -278,6 +298,16 @@ module "ztademo_eastus2_dev_ztadevspl01_vmnix" {
         #to_provision = local.provision_ztademospl01_netinf
         rg_location = module.ztademo_eastus2_dev_rg.rg_location
         rg_name = module.ztademo_eastus2_dev_rg.rg_name
+    	rg_tags = {
+	    	"ManagementGroup" = "MPG A&E EastUS2",
+		    "Environment" = "Demo",
+    		"AutomatedBy" = "Terraform",
+	    	"Note1" = "Do not manually change",
+		    "POCName" = "ronc@mindpointgroup.com",
+    		"POCPhone" = "843.330.6769",
+		    "Project" = "Zero Trust Demo"
+	    }
+
         netinf_name = "ztadevspl01_netinf"
 
         ip_configuration_name                          = "ipconfig01"

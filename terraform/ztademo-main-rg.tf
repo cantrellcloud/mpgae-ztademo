@@ -114,12 +114,60 @@ module "ztademo_eastus_dev_rg" {
 	}
 }
 
-	# rg02_outputs
+	# rg03_outputs
 	output "ztademo_eastus_dev_rg_name" {
 		value = module.ztademo_eastus_dev_rg.rg_name
 	}
 	output "ztademo_eastus_dev_rg_location" {
 		value = module.ztademo_eastus_dev_rg.rg_location
+	}
+
+# rg04
+module "ztademo_westus_dev_rg" {
+    source = "github.com/cantrellcloud/tfAzureModules/rg/"
+	rg_name = "ztademo_westus_dev_rg"
+	rg_location = "westus"
+	rg_tags = {
+		"ManagementGroup" = "MPG A&E westus2",
+		"Environment" = "Demo",
+		"AutomatedBy" = "Terraform",
+		"Note1" = "Do not manually change",
+		"POCName" = "ronc@mindpointgroup.com",
+		"POCPhone" = "843.330.6769",
+		"Project" = "Zero Trust Demo"
+	}
+}
+
+	# rg04_outputs
+	output "ztademo_westus_dev_rg_name" {
+		value = module.ztademo_westus_dev_rg.rg_name
+	}
+	output "ztademo_westus_dev_rg_location" {
+		value = module.ztademo_westus_dev_rg.rg_location
+	}
+
+# rg05
+module "ztademo_westus2_dev_rg" {
+    source = "github.com/cantrellcloud/tfAzureModules/rg/"
+	rg_name = "ztademo_westus2_dev_rg"
+	rg_location = "westus2"
+	rg_tags = {
+		"ManagementGroup" = "MPG A&E westus22",
+		"Environment" = "Demo",
+		"AutomatedBy" = "Terraform",
+		"Note1" = "Do not manually change",
+		"POCName" = "ronc@mindpointgroup.com",
+		"POCPhone" = "843.330.6769",
+		"Project" = "Zero Trust Demo"
+	}
+}
+
+	# rg05_outputs
+	output "ztademo_westus2_dev_rg_name" {
+		value = module.ztademo_westus2_dev_rg.rg_name
+	}
+	output "ztademo_westus2_dev_rg_location" {
+		value = module.ztademo_westus2_dev_rg.rg_location
 	}
 
 #================================================================================
