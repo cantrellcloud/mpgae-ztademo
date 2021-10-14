@@ -267,3 +267,90 @@ module "ztademo_westus2_azure_bastion_subnet" {
 		output "ztademo_westus2_azure_bastion_subnet_name" {
 			value = module.ztademo_westus2_azure_bastion_subnet.subnet_name
 		}
+
+# subnet41
+module "ztademo_westus_dev_prod_subnet" {
+	source = "github.com/cantrellcloud/tfAzureModules/subnet"
+	#to_provision = local.provision_subnet41
+	rg_name = module.ztademo_westus_dev_rg.rg_name
+	subnet_name = "ztademo_westus_dev_prod_subnet"
+	vnet_name = module.ztademo_westus_dev_vnet.vnet_name
+	subnet_prefixes = ["172.16.206.0/27"]
+}
+	#subnet41
+		output "ztademo_westus_dev_prod_subnet_id" {
+			value = module.ztademo_westus_dev_prod_subnet.subnet_id
+		}
+		output "ztademo_westus_dev_prod_subnet_name" {
+			value = module.ztademo_westus_dev_prod_subnet.subnet_name
+		}
+
+# subnet42
+module "ztademo_westus_dev_subnetgw_subnet" {
+	source = "github.com/cantrellcloud/tfAzureModules/subnet"
+	#to_provision = local.provision_subnet42
+	rg_name = module.ztademo_westus_dev_rg.rg_name
+	subnet_name = "GatewaySubnet"
+	vnet_name = module.ztademo_westus_dev_vnet.vnet_name
+	subnet_prefixes = ["172.16.206.248/29"]
+}
+
+		#subnet42
+		output "ztademo_westus_dev_subnetgw_subnet_id" {
+			value = module.ztademo_westus_dev_subnetgw_subnet.subnet_id
+		}
+		output "ztademo_westus_dev_subnetgw_subnet_name" {
+			value = module.ztademo_westus_dev_subnetgw_subnet.subnet_name
+		}
+
+# subnet43
+module "ztademo_westus_dev_ztcontroller_subnet" {
+	source = "github.com/cantrellcloud/tfAzureModules/subnet"
+	#to_provision = local.provision_subnet43
+	rg_name = module.ztademo_westus_dev_rg.rg_name
+	subnet_name = "ztademo_westus_dev_ztcontroller_subnet"
+	vnet_name = module.ztademo_westus_dev_vnet.vnet_name
+	subnet_prefixes = ["172.16.206.32/27"]
+}
+
+		#subnet43
+		output "ztademo_westus_dev_ztcontroller_subnet_id" {
+			value = module.ztademo_westus_dev_ztcontroller_subnet.subnet_id
+		}
+		output "ztademo_westus_dev_ztcontroller_subnet_name" {
+			value = module.ztademo_westus_dev_ztcontroller_subnet.subnet_name
+		}
+
+# subnet44
+module "ztademo_westus_dev_edge_subnet" {
+	source = "github.com/cantrellcloud/tfAzureModules/subnet"
+	#to_provision = local.provision_subnet44
+	rg_name = module.ztademo_eastus2_dev_rg.rg_name
+	subnet_name = "ztademo_eastus2_dev_edge_subnet"
+	vnet_name = module.ztademo_westus_dev_vnet.vnet_name
+	subnet_prefixes = ["172.16.206.64/27"]
+}
+		#subnet44
+		output "ztademo_westus_dev_edge_subnet_id" {
+			value = module.ztademo_westus_dev_edge_subnet.subnet_id
+		}
+		output "ztademo_westus_dev_edge_subnet_name" {
+			value = module.ztademo_westus_dev_edge_subnet.subnet_name
+		}
+
+# subnet45
+module "ztademo_westus_azure_bastion_subnet" {
+	source = "github.com/cantrellcloud/tfAzureModules/subnet"
+	#to_provision = local.provision_subnet45
+	rg_name = module.ztademo_westus_dev_rg.rg_name
+	subnet_name = "AzureBastionSubnet"
+	vnet_name = module.ztademo_westus_dev_vnet.vnet_name
+	subnet_prefixes = ["172.16.206.96/27"]
+}
+		#subnet45
+		output "ztademo_westus_azure_bastion_subnet_id" {
+			value = module.ztademo_westus_azure_bastion_subnet.subnet_id
+		}
+		output "ztademo_westus_azure_bastion_subnet_name" {
+			value = module.ztademo_westus_azure_bastion_subnet.subnet_name
+		}

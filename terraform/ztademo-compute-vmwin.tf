@@ -1189,7 +1189,7 @@ module "ztademo_westus_dev_ztadevwks09_vmwin" {
 
         ip_configuration_name                          = "ipconfig01"
         ip_configuration_private_ip_address_version    = "IPv4"
-        ip_configuration_subnet_id                     = module.ztademo_westus_prod_subnet.subnet_id
+        ip_configuration_subnet_id                     = module.ztademo_westus_dev_prod_subnet.subnet_id
         ip_configuration_private_ip_address_allocation = "Static"
         ip_configuration_private_ip_address            = "172.16.208.5"
         ip_configuration_public_ip_address_id          = null # module.ztademo_westus_dev_ztadevwks09_publicip.publicip_id
