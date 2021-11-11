@@ -185,6 +185,7 @@ module "ztademo_eastus2_dev_general_storage" {
 	account_replication_type = "GRS"
 	enable_https_traffic_only = true
 	allow_blob_public_access = true
+	access_tier = "hot"
 	rg_tags = {
 		"ManagementGroup" = "MPG A&E EastUS2",
 		"Environment" = "Demo",
@@ -235,6 +236,7 @@ module "ztademo_eastus_dev_logs_storage" {
 	account_replication_type = "GRS"
 	enable_https_traffic_only = true
 	allow_blob_public_access = true
+	access_tier = "hot"
 	rg_tags = {
 		"ManagementGroup" = "MPG A&E EastUS",
 		"Environment" = "Demo",
