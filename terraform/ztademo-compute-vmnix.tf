@@ -9,7 +9,7 @@
 #
 # vmnix01
 module "ztademo_eastus2_dev_ztadevnix01_vmnix" {
-	source = "github.com/cantrellcloud/tfAzureModules/vmnix"
+	source = "github.com/cantrellcloud/tfaz-vmnix"
 	#to_provision = local.provision_vmnix01
 	rg_location = module.ztademo_eastus2_dev_rg.rg_location
 	rg_name = module.ztademo_eastus2_dev_rg.rg_name
@@ -44,7 +44,7 @@ module "ztademo_eastus2_dev_ztadevnix01_vmnix" {
 
     # ztadevnix01_publicip
 /*    module "ztademo_eastus2_dev_ztadevnix01_publicip" {
-        source            = "github.com/cantrellcloud/tfAzureModules/publicip"
+        source            = "github.com/cantrellcloud/tfaz-publicip"
         #to_provision     = local.provision_ztadevnix01_publicip
         rg_location       = module.ztademo_eastus2_dev_rg.rg_location
         rg_name           = module.ztademo_eastus2_dev_rg.rg_name
@@ -56,7 +56,7 @@ module "ztademo_eastus2_dev_ztadevnix01_vmnix" {
 */
     # ztadevnix01_netinf
     module "ztademo_eastus2_dev_ztadevnix01_netinf" {
-        source = "github.com/cantrellcloud/tfAzureModules/netinf"
+        source = "github.com/cantrellcloud/tfaz-netinf"
         #to_provision = local.provision_ztadevnix01_netinf
         rg_location = module.ztademo_eastus2_dev_rg.rg_location
         rg_name = module.ztademo_eastus2_dev_rg.rg_name
@@ -127,7 +127,7 @@ module "ztademo_eastus2_dev_ztadevnix01_vmnix" {
 
 # vmnix02
 module "ztademo_eastus2_dev_ztadevnix02_vmnix" {
-	source = "github.com/cantrellcloud/tfAzureModules/vmnix"
+	source = "github.com/cantrellcloud/tfaz-vmnix"
 	#to_provision = local.provision_vmnix02
 	rg_location = module.ztademo_eastus2_dev_rg.rg_location
 	rg_name = module.ztademo_eastus2_dev_rg.rg_name
@@ -162,7 +162,7 @@ module "ztademo_eastus2_dev_ztadevnix02_vmnix" {
 
     # ztadevnix02_publicip
 /*    module "ztademo_eastus2_dev_ztadevnix02_publicip" {
-        source            = "github.com/cantrellcloud/tfAzureModules/publicip"
+        source            = "github.com/cantrellcloud/tfaz-publicip"
         #to_provision     = local.provision_ztadevnix02_publicip
         rg_location       = module.ztademo_eastus2_dev_rg.rg_location
         rg_name           = module.ztademo_eastus2_dev_rg.rg_name
@@ -174,7 +174,7 @@ module "ztademo_eastus2_dev_ztadevnix02_vmnix" {
 */
     # ztadevnix02_netinf
     module "ztademo_eastus2_dev_ztadevnix02_netinf" {
-        source = "github.com/cantrellcloud/tfAzureModules/netinf"
+        source = "github.com/cantrellcloud/tfaz-netinf"
         #to_provision = local.provision_ztadevnix02_netinf
         rg_location = module.ztademo_eastus2_dev_rg.rg_location
         rg_name = module.ztademo_eastus2_dev_rg.rg_name
@@ -247,7 +247,7 @@ module "ztademo_eastus2_dev_ztadevnix02_vmnix" {
 # ** ZTA Demo Splunk Server  **
 # **      Do not delete      **
 module "ztademo_eastus2_dev_ztadevspl01_vmnix" {
-	source = "github.com/cantrellcloud/tfAzureModules/vmnix"
+	source = "github.com/cantrellcloud/tfaz-vmnix"
 	#to_provision = local.provision_vmnix02
 	rg_location = module.ztademo_eastus2_dev_rg.rg_location
 	rg_name = module.ztademo_eastus2_dev_rg.rg_name
@@ -282,7 +282,7 @@ module "ztademo_eastus2_dev_ztadevspl01_vmnix" {
 
     # ztademospl01_publicip
 /*    module "ztademo_eastus2_dev_ztadevspl01_publicip" {
-        source            = "github.com/cantrellcloud/tfAzureModules/publicip"
+        source            = "github.com/cantrellcloud/tfaz-publicip"
         #to_provision     = local.provision_ztademospl01_publicip
         rg_location       = module.ztademo_eastus2_dev_rg.rg_location
         rg_name           = module.ztademo_eastus2_dev_rg.rg_name
@@ -294,7 +294,7 @@ module "ztademo_eastus2_dev_ztadevspl01_vmnix" {
 */
     # ztademospl01_netinf
     module "ztademo_eastus2_dev_ztadevspl01_netinf" {
-        source = "github.com/cantrellcloud/tfAzureModules/netinf"
+        source = "github.com/cantrellcloud/tfaz-netinf"
         #to_provision = local.provision_ztademospl01_netinf
         rg_location = module.ztademo_eastus2_dev_rg.rg_location
         rg_name = module.ztademo_eastus2_dev_rg.rg_name
@@ -320,7 +320,7 @@ module "ztademo_eastus2_dev_ztadevspl01_vmnix" {
 
     # ztadevspl01_manageddisk
     module "ztademo_eastus2_dev_ztadevspl01_data01_manageddisk" {
-        source = "github.com/cantrellcloud/tfAzureModules/manageddisk"
+        source = "github.com/cantrellcloud/tfaz-manageddisk"
         #to_provision = local.provision_ztadevspl01_manageddisk
         rg_location = module.ztademo_eastus2_dev_rg.rg_location
         rg_name = module.ztademo_eastus2_dev_rg.rg_name
@@ -343,7 +343,7 @@ module "ztademo_eastus2_dev_ztadevspl01_vmnix" {
 
     #ztadevspl01_datadiskattach
     module "ztademo_eastus2_dev_ztadevspl01_data01_datadiskattach" {
-        source = "github.com/cantrellcloud/tfAzureModules/datadiskattach"
+        source = "github.com/cantrellcloud/tfaz-datadiskattach"
         #to_provision = local.provision_ztadevspl01_data01_datadiskattach
         managed_disk_id = module.ztademo_eastus2_dev_ztadevspl01_data01_manageddisk.manageddisk_id
         virtual_machine_id = module.ztademo_eastus2_dev_ztadevspl01_vmnix.vmnix_id

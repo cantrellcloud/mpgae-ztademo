@@ -19,7 +19,7 @@
 
 # appsvcplan01
 module "ztademo_eastus2_dev_appsvcplan" {
-	source = "github.com/cantrellcloud/tfAzureModules/appsvcplan"
+	source = "github.com/cantrellcloud/tfaz-appsvcplan"
 	#to_provision = local.provision_appsvcplan01
 	rg_location = module.ztademo_eastus2_dev_appsvcplan_rg.rg_location
 	rg_name = module.ztademo_eastus2_dev_appsvcplan_rg.rg_name
@@ -52,7 +52,7 @@ module "ztademo_eastus2_dev_appsvcplan" {
 /*
     #ztaappsvc01
     module "ztademo_eastus2_dev_appsvcplan_ztaappsvc01_appsvc" {
-        source = "github.com/cantrellcloud/tfAzureModules/appsvc"
+        source = "github.com/cantrellcloud/tfaz-appsvc"
         #to_provision = local.provision_ztaappsvc01
         rg_location = module.ztademo_eastus2_dev_appsvcplan_rg.rg_location
         rg_name = module.ztademo_eastus2_dev_appsvcplan_rg.rg_name
@@ -109,7 +109,7 @@ module "ztademo_eastus2_dev_appsvcplan" {
 
     #ztaappsvc02
     module "ztademo_eastus2_dev_appsvcplan_ztaappsvc02_appsvc" {
-        source = "github.com/cantrellcloud/tfAzureModules/appsvc"
+        source = "github.com/cantrellcloud/tfaz-appsvc"
         #to_provision = local.provision_ztaappsvc02
         rg_location = module.ztademo_eastus2_dev_appsvcplan_rg.rg_location
         rg_name = module.ztademo_eastus2_dev_appsvcplan_rg.rg_name

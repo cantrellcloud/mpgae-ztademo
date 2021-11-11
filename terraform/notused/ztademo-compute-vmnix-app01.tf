@@ -10,7 +10,7 @@
 
 # vmnix01
 module "kea_dcedemo_eastus_jidcjtoapp01_vmnix" {
-	source = "github.com/cantrellcloud/tfAzureModules/vmnix"
+	source = "github.com/cantrellcloud/tfaz-vmnix"
 	#to_provision = local.provision_vmnix01
 	rg_location = module.kea_dcedemo_eastus_rg.rg_location
 	rg_name = module.kea_dcedemo_eastus_rg.rg_name
@@ -36,7 +36,7 @@ module "kea_dcedemo_eastus_jidcjtoapp01_vmnix" {
 
     # jidcjtoapp01_publicip
     module "kea_dcedemo_eastus_jidcjtoapp01_publicip" {
-        source            = "github.com/cantrellcloud/tfAzureModules/publicip"
+        source            = "github.com/cantrellcloud/tfaz-publicip"
         #to_provision     = local.provision_jidcjtoapp01_publicip
         rg_location       = module.kea_dcedemo_eastus_rg.rg_location
         rg_name           = module.kea_dcedemo_eastus_rg.rg_name
@@ -48,7 +48,7 @@ module "kea_dcedemo_eastus_jidcjtoapp01_vmnix" {
 
     # jidcjtoapp01_netinf
     module "kea_dcedemo_eastus_jidcjtoapp01_netinf" {
-        source = "github.com/cantrellcloud/tfAzureModules/netinf"
+        source = "github.com/cantrellcloud/tfaz-netinf"
         #to_provision = local.provision_jidcjtoapp01_netinf
         rg_location = module.kea_dcedemo_eastus_rg.rg_location
         rg_name = module.kea_dcedemo_eastus_rg.rg_name

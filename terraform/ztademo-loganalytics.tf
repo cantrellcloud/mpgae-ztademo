@@ -7,7 +7,7 @@
 #
 # loganalyticswrkspc
 module "ztademo_eastus_dev_loganalyticswrkspc" {
-	source = "github.com/cantrellcloud/tfAzureModules/loganalyticswrkspc"
+	source = "github.com/cantrellcloud/tfaz-loganalyticswrkspc"
 	#to_provision = local.provision_loganalyticswrkspc
 	rg_location = module.ztademo_eastus_dev_rg.rg_location
 	rg_name = module.ztademo_eastus_dev_rg.rg_name

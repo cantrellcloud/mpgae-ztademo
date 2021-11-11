@@ -9,7 +9,7 @@
 #
 # bastion01
 module "ztademo_eastus2_dev_ztadev_bast01_bastion" {
-	source = "github.com/cantrellcloud/tfAzureModules/bastions"
+	source = "github.com/cantrellcloud/tfaz-bastions"
 	#to_provision = local.provision_bastion01
 	rg_location = module.ztademo_eastus2_dev_rg.rg_location
 	rg_name = module.ztademo_eastus2_dev_rg.rg_name
@@ -31,7 +31,7 @@ module "ztademo_eastus2_dev_ztadev_bast01_bastion" {
 
     # ztadev_bast01_publicip
     module "ztademo_eastus2_dev_ztadev_bast01_publicip" {
-        source            = "github.com/cantrellcloud/tfAzureModules/publicip"
+        source            = "github.com/cantrellcloud/tfaz-publicip"
         #to_provision     = local.provision_ztadev_bast01_publicip
         rg_location       = module.ztademo_eastus2_dev_rg.rg_location
         rg_name           = module.ztademo_eastus2_dev_rg.rg_name

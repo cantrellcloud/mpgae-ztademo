@@ -52,7 +52,7 @@ locals {
 
 # rg01
 module "ztademo_eastus2_dev_rg" {
-    source = "github.com/cantrellcloud/tfAzureModules/rg/"
+    source = "github.com/cantrellcloud/tfaz-rg/"
 	rg_name = "ztademo_eastus2_dev_rg"
 	rg_location = "eastus2"
 	rg_tags = {
@@ -76,7 +76,7 @@ module "ztademo_eastus2_dev_rg" {
 
 # rg02
 module "ztademo_eastus2_dev_appsvcplan_rg" {
-    source = "github.com/cantrellcloud/tfAzureModules/rg/"
+    source = "github.com/cantrellcloud/tfaz-rg/"
 	rg_name = "ztademo_eastus2_dev_appsvcplan_rg"
 	rg_location = "eastus2"
 	rg_tags = {
@@ -100,7 +100,7 @@ module "ztademo_eastus2_dev_appsvcplan_rg" {
 
 # rg03
 module "ztademo_eastus_dev_rg" {
-    source = "github.com/cantrellcloud/tfAzureModules/rg/"
+    source = "github.com/cantrellcloud/tfaz-rg/"
 	rg_name = "ztademo_eastus_dev_rg"
 	rg_location = "eastus"
 	rg_tags = {
@@ -124,7 +124,7 @@ module "ztademo_eastus_dev_rg" {
 
 # rg04
 module "ztademo_westus_dev_rg" {
-    source = "github.com/cantrellcloud/tfAzureModules/rg/"
+    source = "github.com/cantrellcloud/tfaz-rg/"
 	rg_name = "ztademo_westus_dev_rg"
 	rg_location = "westus"
 	rg_tags = {
@@ -148,7 +148,7 @@ module "ztademo_westus_dev_rg" {
 
 # rg05
 module "ztademo_westus2_dev_rg" {
-    source = "github.com/cantrellcloud/tfAzureModules/rg/"
+    source = "github.com/cantrellcloud/tfaz-rg/"
 	rg_name = "ztademo_westus2_dev_rg"
 	rg_location = "westus2"
 	rg_tags = {
@@ -176,7 +176,7 @@ module "ztademo_westus2_dev_rg" {
 
 # storage01
 module "ztademo_eastus2_dev_general_storage" {
-	source = "github.com/cantrellcloud/tfAzureModules/storage"
+	source = "github.com/cantrellcloud/tfaz-storage"
 	#to_provision = local.provision_storage01
 	rg_location = module.ztademo_eastus2_dev_rg.rg_location
 	rg_name = module.ztademo_eastus2_dev_rg.rg_name
@@ -226,7 +226,7 @@ module "ztademo_eastus2_dev_general_storage" {
 
 # storage02
 module "ztademo_eastus_dev_logs_storage" {
-	source = "github.com/cantrellcloud/tfAzureModules/storage"
+	source = "github.com/cantrellcloud/tfaz-storage"
 	#to_provision = local.provision_storage01
 	rg_location = module.ztademo_eastus_dev_rg.rg_location
 	rg_name = module.ztademo_eastus_dev_rg.rg_name

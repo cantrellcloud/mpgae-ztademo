@@ -7,7 +7,7 @@
 #
 # autoaccount
 module "ztademo_eastus_dev_autoaccount" {
-	source = "github.com/cantrellcloud/tfAzureModules/autoaccount"
+	source = "github.com/cantrellcloud/tfaz-autoaccount"
 	#to_provision = local.provision_autoaccount
 	rg_location = module.ztademo_eastus_dev_rg.rg_location
 	rg_name = module.ztademo_eastus_dev_rg.rg_name
@@ -47,7 +47,7 @@ output "ztademo_eastus_dev_autoaccount_dsc_secondary_access_key" {
 
 #autoschedule01
 module "ztademo_eastus_dev_autoschedule_shutdown_vm_daily" {
-	source = "github.com/cantrellcloud/tfAzureModules/autoschedule"
+	source = "github.com/cantrellcloud/tfaz-autoschedule"
 	#to_provision = local.provision_autoschedule_01
 	rg_name = module.ztademo_eastus_dev_rg.rg_name
 

@@ -35,7 +35,7 @@ resource "azurerm_virtual_network_gateway_connection" "itproductioneastuscotpa-v
 
 # vpncon01
 /*module "ztademo_eastus2_cces_cotpa_vpncon" {
-	source = "github.com/cantrellcloud/tfAzureModules/vpncon"
+	source = "github.com/cantrellcloud/tfaz-vpncon"
 	#to_provision = local.provision_vpncon01
 	vpncon_name = "ztademo_eastus2_cces_cotpa_vpncon"
 	rg_location = module.ztademo_eastus2_dev_rg.rg_location

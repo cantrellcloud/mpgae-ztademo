@@ -8,7 +8,7 @@
 #
 # subnet01
 module "ztademo_eastus2_dev_prod_subnet" {
-	source = "github.com/cantrellcloud/tfAzureModules/subnet"
+	source = "github.com/cantrellcloud/tfaz-subnet"
 	#to_provision = local.provision_subnet01
 	rg_name = module.ztademo_eastus2_dev_rg.rg_name
 	subnet_name = "ztademo_eastus2_dev_prod_subnet"
@@ -25,7 +25,7 @@ module "ztademo_eastus2_dev_prod_subnet" {
 
 # subnet02
 module "ztademo_eastus2_dev_subnetgw_subnet" {
-	source = "github.com/cantrellcloud/tfAzureModules/subnet"
+	source = "github.com/cantrellcloud/tfaz-subnet"
 	#to_provision = local.provision_subnet02
 	rg_name = module.ztademo_eastus2_dev_rg.rg_name
 	subnet_name = "GatewaySubnet"
@@ -43,7 +43,7 @@ module "ztademo_eastus2_dev_subnetgw_subnet" {
 
 # subnet03
 module "ztademo_eastus2_dev_ztcontroller_subnet" {
-	source = "github.com/cantrellcloud/tfAzureModules/subnet"
+	source = "github.com/cantrellcloud/tfaz-subnet"
 	#to_provision = local.provision_subnet03
 	rg_name = module.ztademo_eastus2_dev_rg.rg_name
 	subnet_name = "ztademo_eastus2_dev_ztcontroller_subnet"
@@ -61,7 +61,7 @@ module "ztademo_eastus2_dev_ztcontroller_subnet" {
 
 # subnet04
 module "ztademo_eastus2_dev_edge_subnet" {
-	source = "github.com/cantrellcloud/tfAzureModules/subnet"
+	source = "github.com/cantrellcloud/tfaz-subnet"
 	#to_provision = local.provision_subnet04
 	rg_name = module.ztademo_eastus2_dev_rg.rg_name
 	subnet_name = "ztademo_eastus2_dev_edge_subnet"
@@ -78,7 +78,7 @@ module "ztademo_eastus2_dev_edge_subnet" {
 
 # subnet05
 module "ztademo_eastus2_azure_bastion_subnet" {
-	source = "github.com/cantrellcloud/tfAzureModules/subnet"
+	source = "github.com/cantrellcloud/tfaz-subnet"
 	#to_provision = local.provision_subnet05
 	rg_name = module.ztademo_eastus2_dev_rg.rg_name
 	subnet_name = "AzureBastionSubnet"
@@ -95,7 +95,7 @@ module "ztademo_eastus2_azure_bastion_subnet" {
 
 # subnet11
 module "ztademo_eastus_dev_prod_subnet" {
-	source = "github.com/cantrellcloud/tfAzureModules/subnet"
+	source = "github.com/cantrellcloud/tfaz-subnet"
 	#to_provision = local.provision_subnet11
 	rg_name = module.ztademo_eastus_dev_rg.rg_name
 	subnet_name = "ztademo_eastus_dev_prod_subnet"
@@ -112,7 +112,7 @@ module "ztademo_eastus_dev_prod_subnet" {
 
 # subnet12
 module "ztademo_eastus_dev_subnetgw_subnet" {
-	source = "github.com/cantrellcloud/tfAzureModules/subnet"
+	source = "github.com/cantrellcloud/tfaz-subnet"
 	#to_provision = local.provision_subnet12
 	rg_name = module.ztademo_eastus_dev_rg.rg_name
 	subnet_name = "GatewaySubnet"
@@ -130,7 +130,7 @@ module "ztademo_eastus_dev_subnetgw_subnet" {
 
 # subnet13
 module "ztademo_eastus_dev_ztcontroller_subnet" {
-	source = "github.com/cantrellcloud/tfAzureModules/subnet"
+	source = "github.com/cantrellcloud/tfaz-subnet"
 	#to_provision = local.provision_subnet13
 	rg_name = module.ztademo_eastus_dev_rg.rg_name
 	subnet_name = "ztademo_eastus_dev_ztcontroller_subnet"
@@ -148,7 +148,7 @@ module "ztademo_eastus_dev_ztcontroller_subnet" {
 
 # subnet14
 module "ztademo_eastus_dev_edge_subnet" {
-	source = "github.com/cantrellcloud/tfAzureModules/subnet"
+	source = "github.com/cantrellcloud/tfaz-subnet"
 	#to_provision = local.provision_subnet14
 	rg_name = module.ztademo_eastus_dev_rg.rg_name
 	subnet_name = "ztademo_eastus_dev_edge_subnet"
@@ -165,7 +165,7 @@ module "ztademo_eastus_dev_edge_subnet" {
 
 # subnet15
 module "ztademo_eastus_azure_bastion_subnet" {
-	source = "github.com/cantrellcloud/tfAzureModules/subnet"
+	source = "github.com/cantrellcloud/tfaz-subnet"
 	#to_provision = local.provision_subnet15
 	rg_name = module.ztademo_eastus_dev_rg.rg_name
 	subnet_name = "AzureBastionSubnet"
@@ -183,7 +183,7 @@ module "ztademo_eastus_azure_bastion_subnet" {
 
 # subnet31
 module "ztademo_westus2_dev_prod_subnet" {
-	source = "github.com/cantrellcloud/tfAzureModules/subnet"
+	source = "github.com/cantrellcloud/tfaz-subnet"
 	#to_provision = local.provision_subnet31
 	rg_name = module.ztademo_westus2_dev_rg.rg_name
 	subnet_name = "ztademo_westus2_dev_prod_subnet"
@@ -200,7 +200,7 @@ module "ztademo_westus2_dev_prod_subnet" {
 
 # subnet32
 module "ztademo_westus2_dev_subnetgw_subnet" {
-	source = "github.com/cantrellcloud/tfAzureModules/subnet"
+	source = "github.com/cantrellcloud/tfaz-subnet"
 	#to_provision = local.provision_subnet32
 	rg_name = module.ztademo_westus2_dev_rg.rg_name
 	subnet_name = "GatewaySubnet"
@@ -218,7 +218,7 @@ module "ztademo_westus2_dev_subnetgw_subnet" {
 
 # subnet33
 module "ztademo_westus2_dev_ztcontroller_subnet" {
-	source = "github.com/cantrellcloud/tfAzureModules/subnet"
+	source = "github.com/cantrellcloud/tfaz-subnet"
 	#to_provision = local.provision_subnet33
 	rg_name = module.ztademo_westus2_dev_rg.rg_name
 	subnet_name = "ztademo_westus2_dev_ztcontroller_subnet"
@@ -236,7 +236,7 @@ module "ztademo_westus2_dev_ztcontroller_subnet" {
 
 # subnet34
 module "ztademo_westus2_dev_edge_subnet" {
-	source = "github.com/cantrellcloud/tfAzureModules/subnet"
+	source = "github.com/cantrellcloud/tfaz-subnet"
 	#to_provision = local.provision_subnet34
 	rg_name = module.ztademo_westus2_dev_rg.rg_name
 	subnet_name = "ztademo_westus2_dev_edge_subnet"
@@ -253,7 +253,7 @@ module "ztademo_westus2_dev_edge_subnet" {
 
 # subnet35
 module "ztademo_westus2_azure_bastion_subnet" {
-	source = "github.com/cantrellcloud/tfAzureModules/subnet"
+	source = "github.com/cantrellcloud/tfaz-subnet"
 	#to_provision = local.provision_subnet35
 	rg_name = module.ztademo_westus2_dev_rg.rg_name
 	subnet_name = "AzureBastionSubnet"
@@ -270,7 +270,7 @@ module "ztademo_westus2_azure_bastion_subnet" {
 
 # subnet41
 module "ztademo_westus_dev_prod_subnet" {
-	source = "github.com/cantrellcloud/tfAzureModules/subnet"
+	source = "github.com/cantrellcloud/tfaz-subnet"
 	#to_provision = local.provision_subnet41
 	rg_name = module.ztademo_westus_dev_rg.rg_name
 	subnet_name = "ztademo_westus_dev_prod_subnet"
@@ -287,7 +287,7 @@ module "ztademo_westus_dev_prod_subnet" {
 
 # subnet42
 module "ztademo_westus_dev_subnetgw_subnet" {
-	source = "github.com/cantrellcloud/tfAzureModules/subnet"
+	source = "github.com/cantrellcloud/tfaz-subnet"
 	#to_provision = local.provision_subnet42
 	rg_name = module.ztademo_westus_dev_rg.rg_name
 	subnet_name = "GatewaySubnet"
@@ -305,7 +305,7 @@ module "ztademo_westus_dev_subnetgw_subnet" {
 
 # subnet43
 module "ztademo_westus_dev_ztcontroller_subnet" {
-	source = "github.com/cantrellcloud/tfAzureModules/subnet"
+	source = "github.com/cantrellcloud/tfaz-subnet"
 	#to_provision = local.provision_subnet43
 	rg_name = module.ztademo_westus_dev_rg.rg_name
 	subnet_name = "ztademo_westus_dev_ztcontroller_subnet"
@@ -323,7 +323,7 @@ module "ztademo_westus_dev_ztcontroller_subnet" {
 
 # subnet44
 module "ztademo_westus_dev_edge_subnet" {
-	source = "github.com/cantrellcloud/tfAzureModules/subnet"
+	source = "github.com/cantrellcloud/tfaz-subnet"
 	#to_provision = local.provision_subnet44
 	rg_name = module.ztademo_westus_dev_rg.rg_name
 	subnet_name = "ztademo_westus_dev_edge_subnet"
@@ -340,7 +340,7 @@ module "ztademo_westus_dev_edge_subnet" {
 
 # subnet45
 module "ztademo_westus_azure_bastion_subnet" {
-	source = "github.com/cantrellcloud/tfAzureModules/subnet"
+	source = "github.com/cantrellcloud/tfaz-subnet"
 	#to_provision = local.provision_subnet45
 	rg_name = module.ztademo_westus_dev_rg.rg_name
 	subnet_name = "AzureBastionSubnet"
