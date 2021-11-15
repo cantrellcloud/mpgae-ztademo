@@ -25,7 +25,7 @@ module "ztademo_eastus2_dev_ztadev_bast01_bastion" {
 
 	bastions_name = "ztadev-bast01"
     ip_configuration_name                 = "ztadev_bast01_ip"
-    ip_configuration_subnet_id            = module.ztademo_eastus2_azure_bastion_subnet.subnet_id
+    ip_configuration_subnet_id            = module.ztademo_eastus2_dev_azure_bastion_subnet.subnet_id
     ip_configuration_public_ip_address_id = module.ztademo_eastus2_dev_ztadev_bast01_publicip.publicip_id
 }
 

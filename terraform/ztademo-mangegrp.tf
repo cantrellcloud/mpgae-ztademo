@@ -6,14 +6,14 @@
 #================================================================================
 #
 data "azurerm_subscription" "mpgae" {
-	subscription_id = "919946d0-8cae-4e2d-9430-e33602bddf9c"
+	subscription_id = "e881dd00-1c8f-4a37-a621-1172a91700b5"
 }
 
 resource "azurerm_management_group" "mpgae_mgtgrp" {
 	display_name = "MPG A&E"
 	name = "mpgae_mgtgrp"
 	subscription_ids = [
-		"919946d0-8cae-4e2d-9430-e33602bddf9c",
+		"e881dd00-1c8f-4a37-a621-1172a91700b5",
 	]
 }
 

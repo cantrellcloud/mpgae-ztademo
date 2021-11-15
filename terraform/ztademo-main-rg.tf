@@ -18,7 +18,7 @@ terraform {
     resource_group_name  = "mpgae_eastus2_prod_rg"
     storage_account_name = "mpgaeeastus2prodgeneral"
     container_name       = "tfstates"
-    key                  = "ztademo.tfstate"
+    key                  = "ztademo.dev.tfstate"
 	tenant_id            = "5889ef41-a0dc-46e1-9f62-a1ecdcc5e8c1"
 	subscription_id      = "919946d0-8cae-4e2d-9430-e33602bddf9c"
   }
@@ -31,11 +31,10 @@ terraform {
 provider "azurerm" {
 	features {}
 
-/*	client_id 		= "0ac0af1f-f1b1-4197-86ae-a62aa1087bc9"
-	client_secret 	= "52221cd7-890f-43db-974c-f3ec0462f3b4"
-	tenant_id 		= "5889ef41-a0dc-46e1-9f62-a1ecdcc5e8c1"
-	subscription_id = "919946d0-8cae-4e2d-9430-e33602bddf9c"
-*/
+	client_id 		= "5a62ed24-8d52-4895-a5a9-5e3b953447d6"
+	client_secret 	= "rEZETjwgJjAhv735%FNtL!8!4"
+	tenant_id 		= "bd2bd7e2-575d-41db-85f6-b4343ae968ac"
+	subscription_id = "e881dd00-1c8f-4a37-a621-1172a91700b5"
 }
 
 #================================================================================
