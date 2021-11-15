@@ -49,7 +49,6 @@ module "ztademo_eastus2_dev_appsvcplan" {
         value = module.ztademo_eastus2_dev_appsvcplan.appsvcplan_maximum_number_of_workers
     }
 
-/*
     #ztaappsvc01
     module "ztademo_eastus2_dev_appsvcplan_ztaappsvc01_appsvc" {
         source = "github.com/cantrellcloud/tfaz-appsvc"
@@ -162,5 +161,3 @@ module "ztademo_eastus2_dev_appsvcplan" {
         output "ztademo_eastus2_dev_appsvcplan_ztaappsvc02_appsvc_identity" {
             value = module.ztademo_eastus2_dev_appsvcplan_ztaappsvc02_appsvc.appsvc_identity
         }
-
-*/
