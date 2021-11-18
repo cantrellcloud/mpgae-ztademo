@@ -1,2 +1,2 @@
-# mpg-ae700-rd
- MindPoint Group A&E 700 R&D
+# mpgae-ztademo
+ MindPoint Group A&E 700 R&D - ZTA Demo
