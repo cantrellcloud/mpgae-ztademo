@@ -56,7 +56,7 @@ module "ztademo_eastus_dev_autoschedule_shutdown_vm_daily" {
     autoschedule_frequency         = "Day"
     autoschedule_interval          = 1
     autoschedule_timezone          = "America/New_York"
-    autoschedule_start_time        = "2021-09-24T03:30:00Z"
+    autoschedule_start_time        = "2021-11-24T03:30:00Z"
     autoschedule_expiry_time       = null
     autoschedule_description       = "Shutdown VMs Each Night"
     autoschedule_week_days         = null
