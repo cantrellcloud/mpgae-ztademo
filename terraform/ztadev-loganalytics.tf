@@ -1,19 +1,19 @@
 #================================================================================
 #
-# ZTADEMO
+# ZTADEV
 # Log Analytics
 #
 #================================================================================
 #
 # loganalyticswrkspc
-module "ztademo_eastus_dev_loganalyticswrkspc" {
+module "ztadev_eastus_dev_loganalyticswrkspc" {
 	source = "github.com/cantrellcloud/tfaz-loganalyticswrkspc"
 	#to_provision = local.provision_loganalyticswrkspc
-	rg_location = module.ztademo_eastus_dev_rg.rg_location
-	rg_name = module.ztademo_eastus_dev_rg.rg_name
+	rg_location = module.ztadev_eastus_dev_rg.rg_location
+	rg_name = module.ztadev_eastus_dev_rg.rg_name
 	rg_tags = {
 		"ManagementGroup" = "MPG A&E EastUS",
-		"Environment" = "Demo",
+		"Environment" = "Dev",
 		"AutomatedBy" = "Terraform",
 		"Note1" = "Do not manually change",
 		"POCName" = "ronc@mindpointgroup.com",
@@ -21,7 +21,7 @@ module "ztademo_eastus_dev_loganalyticswrkspc" {
 		"Project" = "Zero Trust Demo"
 	}
 
-	loganalyticswrkspc_name = "ztademo-eastus-dev-loganalyticswrkspc"
+	loganalyticswrkspc_name = "ztadev-eastus-dev-loganalyticswrkspc"
 	loganalyticswrkspc_sku                               = "PerGB2018"
 	loganalyticswrkspc_retention_in_days                 = 30
 	loganalyticswrkspc_daily_quota_gb                    = null
@@ -31,20 +31,20 @@ module "ztademo_eastus_dev_loganalyticswrkspc" {
 }
 
 #loganalyticswrkspc_outputs
-output "ztademo_eastus_dev_loganalyticswrkspc_id" {
-	value = module.ztademo_eastus_dev_loganalyticswrkspc.loganalyticswrkspc_id
+output "ztadev_eastus_dev_loganalyticswrkspc_id" {
+	value = module.ztadev_eastus_dev_loganalyticswrkspc.loganalyticswrkspc_id
 }
-output "ztademo_eastus_dev_loganalyticswrkspc_name" {
-	value = module.ztademo_eastus_dev_loganalyticswrkspc.loganalyticswrkspc_name
+output "ztadev_eastus_dev_loganalyticswrkspc_name" {
+	value = module.ztadev_eastus_dev_loganalyticswrkspc.loganalyticswrkspc_name
 }
-output "ztademo_eastus_dev_loganalyticswrkspc_primary_shared_key" {
-    value = module.ztademo_eastus_dev_loganalyticswrkspc.loganalyticswrkspc_primary_shared_key
+output "ztadev_eastus_dev_loganalyticswrkspc_primary_shared_key" {
+    value = module.ztadev_eastus_dev_loganalyticswrkspc.loganalyticswrkspc_primary_shared_key
 	sensitive = true
 }
-output "ztademo_eastus_dev_loganalyticswrkspc_secondary_shared_key" {
-    value = module.ztademo_eastus_dev_loganalyticswrkspc.loganalyticswrkspc_secondary_shared_key
+output "ztadev_eastus_dev_loganalyticswrkspc_secondary_shared_key" {
+    value = module.ztadev_eastus_dev_loganalyticswrkspc.loganalyticswrkspc_secondary_shared_key
 	sensitive = true
 }
-output "ztademo_eastus_dev_loganalyticswrkspc_workspace_id" {
-    value = module.ztademo_eastus_dev_loganalyticswrkspc.loganalyticswrkspc_workspace_id
+output "ztadev_eastus_dev_loganalyticswrkspc_workspace_id" {
+    value = module.ztadev_eastus_dev_loganalyticswrkspc.loganalyticswrkspc_workspace_id
 }

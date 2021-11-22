@@ -1,44 +1,46 @@
-# CCES - Virtual Network Gateways
+#================================================================================
+#
+# VPN GATEWAY
 
-resource "azurerm_virtual_network_gateway" "itproductioneastus-vnetgw" {
-	name = "it_production_eastus-vnetgw"
-	location = azurerm_resource_group.itproductioneastus-rg.location
-	resource_group_name = azurerm_resource_group.itproductioneastus-rg.name
-	tags = {
-		ManagementGroup = "IT"
-		Location = "EastUS"
-		Environment = "Production"
-		ManagedBy = "Terraform"
+# vpngw01
+module "ztadev_eastus2_dev_vnetgw" {
+	source                = "github.com/cantrellcloud/tfaz-vnetgw"
+    rg_location           = module.ztadev_eastus2_dev_rg.rg_location
+    rg_name               = module.ztadev_eastus2_dev_rg.rg_name
+	rg_tags               = {
+		"ManagementGroup" = "MPG A&E EastUS2",
+		"Environment"     = "Dev",
+		"AutomatedBy"     = "Terraform",
+		"Note1"           = "Do not manually change",
+		"POCName"         = "ronc@mindpointgroup.com",
+		"POCPhone"        = "843.330.6769",
+		"Project"         = "Zero Trust Demo"
 	}
-	active_active = false
-	bgp_settings {
-		asn = 65515
-		peer_weight = 0
-		peering_address = "172.16.59.254"
-	}
-	default_local_network_gateway_id = null
-	enable_bgp = false
-	generation = "Generation1"
-	ip_configuration {
-		name = "default"
-		private_ip_address_allocation = "Dynamic"
-		public_ip_address_id = azurerm_public_ip.itproductioneastus-ip.id
-		subnet_id = azurerm_subnet.GatewaySubneteastus-subnet.id
-	}
-	private_ip_address_enabled = false
-	sku = "Standard"
-	type = "Vpn"
-	vpn_client_configuration {
-		address_space = [
-			"172.16.58.0/26"
+
+	vnetgw_name                             = "ztadev_eastus2_dev_vnetgw"
+	vnetgw_type                             = "Vpn"
+	vnetgw_vpn_type                         = "RouteBased"
+	vnetgw_active_active                    = false
+	vnetgw_enable_bgp                       = false
+	vnetgw_sku                              = "VpnGw1"
+
+	#ip_configuration
+		vnetgw_ip_configuration_name                          = "default"
+		vnetgw_ip_configuration_public_ip_address_id          = module.ztadev_eastus2_dev_vnetgw_publicip.publicip_id
+		vnetgw_ip_configuration_private_ip_address_allocation = "Dynamic"
+		vnetgw_ip_configuration_subnet_id                     = module.ztadev_eastus2_dev_subnetgw_subnet.subnet_id
+
+	#vpn_client_configuration
+		vnetgw_vpn_client_configuration_address_space = [
+			"172.16.200.240/29"
 		]
-		vpn_client_protocols = [
+		vnetgw_vpn_client_configuration_vpn_client_protocols = [
 			"SSTP",
 			"IKEv2"
 		]
-		root_certificate {
-		name = "COCLOUD-ROOTCantrell_Cloud_Certificate_Authority"
-		public_cert_data = <<EOF
+		#root_certificate
+		vnetgw_root_certificate_name = "COCLOUD-ROOTCantrell_Cloud_Certificate_Authority"
+		vnetgw_root_certificate_public_cert_data = <<EOF
 			MIIFozCCA4ugAwIBAgIQNT4uU0uFz5BIhqwB6xoGnTANBgkqhkiG9w0BAQsFADAv
 			MS0wKwYDVQQDEyRDYW50cmVsbCBDbG91ZCBDZXJ0aWZpY2F0ZSBBdXRob3JpdHkw
 			HhcNMjAwNTA5MDUwNDMxWhcNNDAwNTA5MDUxNDMwWjAvMS0wKwYDVQQDEyRDYW50
@@ -71,11 +73,10 @@ resource "azurerm_virtual_network_gateway" "itproductioneastus-vnetgw" {
 			vo/u8zX3lfwZ9oLU9KYLHkTYmCFgSGbB4K+KdODnl+9xCg1hU/L9J6gZ852wbGqt
 			q4APpksHhg==
 		EOF
-		}
 
-		root_certificate {
-		name = "COCLOUD-SUBCA01Cantrell_Cloud_Issuing_Certificate_Authority"
-		public_cert_data = <<EOF
+		#root_certificate 
+		/*vnetgw_root_certificate_name = "COCLOUD-SUBCA01Cantrell_Cloud_Issuing_Certificate_Authority"
+		vnetgw_root_certificate_public_cert_data = <<EOF
 			MIIG2jCCBMKgAwIBAgITUAAAAAJIfok5jdWaHgAAAAAAAjANBgkqhkiG9w0BAQsF
 			ADAvMS0wKwYDVQQDEyRDYW50cmVsbCBDbG91ZCBDZXJ0aWZpY2F0ZSBBdXRob3Jp
 			dHkwHhcNMjAwNTA5MDU1MjA0WhcNMzAwNTA5MDYwMjA0WjBuMRUwEwYKCZImiZPy
@@ -114,7 +115,18 @@ resource "azurerm_virtual_network_gateway" "itproductioneastus-vnetgw" {
 			1LH/nb6wv/3Aeb/1eP/MQo5rClyl14v8VaMSsqMN1KX61OAOV2Y+CKNy2SFloQq3
 			19/v8gaG3N9mtGslz7oLWKz6BuW6t/ugOIQgOn5I
 		EOF
-		}
- 	}
-	vpn_type = "RouteBased"
+*/
+	#bgp_settings
+		vnetgw_bgp_settings_asn = 65515
+		vnetgw_bgp_settings_peer_weight = 0
+		vnetgw_bgp_settings_peering_addresses = "172.16.200.254"
+		 
 }
+
+# vnetgw01_outputs
+    output "ztadev_eastus2_dev_vnetgw_id" {
+        value = module.ztadev_eastus2_dev_vnetgw.vnetgw_id
+    }
+    output "ztadev_eastus2_dev_vnetgw_name" {
+        value = module.ztadev_eastus2_dev_vnetgw.vnetgw_name
+    }
