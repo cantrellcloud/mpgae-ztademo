@@ -49,10 +49,20 @@ module "ztadev_eastus2_dev_ztadevapp01_vmnix" {
         #to_provision     = local.provision_ztadevapp01_publicip
         rg_location       = module.ztadev_eastus2_dev_rg.rg_location
         rg_name           = module.ztadev_eastus2_dev_rg.rg_name
-        publicip_name     = "ztadev_eastus2_dev_ztadevapp01_publicip"
-        allocation_method = "Static"
-        sku               = "Standard"
-        domain_name_label = "ztadev-app01"
+        rg_tags = {
+            "ManagementGroup" = "MPG A&E EastUS2",
+            "Environment" = "Dev",
+            "AutomatedBy" = "Terraform",
+            "Note1" = "Do not manually change",
+            "POCName" = "ronc@mindpointgroup.com",
+            "POCPhone" = "843.330.6769",
+            "Project" = "Zero Trust Demo"
+        }
+
+        publicip_name              = "ztadev_eastus2_dev_ztadevapp01_publicip"
+        publicip_allocation_method = "Static"
+        publicip_sku               = "Standard"
+        publicip_domain_name_label = "ztadev-app01"
     }
 
     # ztadevapp01_netinf

@@ -193,6 +193,7 @@ module "ztadev_eastus2_dev_general_storage" {
 		"POCName" = "ronc@mindpointgroup.com",
 		"POCPhone" = "843.330.6769",
 		"Project" = "Zero Trust Demo"
+		"ms-resource-usage" = "azure-cloud-shell"
 	}
 }
 
