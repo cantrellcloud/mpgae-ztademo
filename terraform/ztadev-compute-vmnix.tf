@@ -192,9 +192,9 @@ module "ztadev_eastus2_dev_ztadevnix02_vmnix" {
 
         ip_configuration_name                          = "ipconfig01"
         ip_configuration_private_ip_address_version    = "IPv4"
-        ip_configuration_subnet_id                     = module.ztadev_eastus2_dev_prod_subnet.subnet_id
+        ip_configuration_subnet_id                     = module.ztadev_eastus2_dev_web_subnet.subnet_id
         ip_configuration_private_ip_address_allocation = "Static"
-        ip_configuration_private_ip_address            = "172.16.200.7"
+        ip_configuration_private_ip_address            = "172.16.200.41"
         ip_configuration_public_ip_address_id          = null # module.ztadev_eastus2_dev_ztadevnix02_publicip.publicip_id
 }
 
@@ -410,4 +410,3 @@ module "ztadev_eastus2_dev_ztadevspl01_vmnix" {
     output "ztadev_eastus2_dev_ztadevspl01_data01_datadiskattach_id" {
 		value = module.ztadev_eastus2_dev_ztadevspl01_data01_datadiskattach.datadiskattach_id
 	}
-

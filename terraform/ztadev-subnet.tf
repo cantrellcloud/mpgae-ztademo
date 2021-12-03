@@ -42,21 +42,21 @@ module "ztadev_eastus2_dev_subnetgw_subnet" {
 		}
 
 # subnet03
-module "ztadev_eastus2_dev_ztcontroller_subnet" {
+module "ztadev_eastus2_dev_web_subnet" {
 	source = "github.com/cantrellcloud/tfaz-subnet"
 	#to_provision = local.provision_subnet03
 	rg_name = module.ztadev_eastus2_dev_rg.rg_name
-	subnet_name = "ztadev_eastus2_dev_ztcontroller_subnet"
+	subnet_name = "ztadev_eastus2_dev_web_subnet"
 	vnet_name = module.ztadev_eastus2_dev_vnet.vnet_name
 	subnet_prefixes = ["172.16.200.32/27"]
 }
 
 		#subnet03
-		output "ztadev_eastus2_dev_ztcontroller_subnet_id" {
-			value = module.ztadev_eastus2_dev_ztcontroller_subnet.subnet_id
+		output "ztadev_eastus2_dev_web_subnet_id" {
+			value = module.ztadev_eastus2_dev_web_subnet.subnet_id
 		}
-		output "ztadev_eastus2_dev_ztcontroller_subnet_name" {
-			value = module.ztadev_eastus2_dev_ztcontroller_subnet.subnet_name
+		output "ztadev_eastus2_dev_web_subnet_name" {
+			value = module.ztadev_eastus2_dev_web_subnet.subnet_name
 		}
 
 # subnet04
@@ -129,22 +129,22 @@ module "ztadev_eastus_dev_subnetgw_subnet" {
 		}
 
 # subnet13
-module "ztadev_eastus_dev_ztcontroller_subnet" {
+/*module "ztadev_eastus_dev_web_subnet" {
 	source = "github.com/cantrellcloud/tfaz-subnet"
 	#to_provision = local.provision_subnet13
 	rg_name = module.ztadev_eastus_dev_rg.rg_name
-	subnet_name = "ztadev_eastus_dev_ztcontroller_subnet"
+	subnet_name = "ztadev_eastus_dev_web_subnet"
 	vnet_name = module.ztadev_eastus_dev_vnet.vnet_name
 	subnet_prefixes = ["172.16.202.32/27"]
 }
 
 		#subnet13
-		output "ztadev_eastus_dev_ztcontroller_subnet_id" {
-			value = module.ztadev_eastus_dev_ztcontroller_subnet.subnet_id
+		output "ztadev_eastus_dev_web_subnet_id" {
+			value = module.ztadev_eastus_dev_web_subnet.subnet_id
 		}
-		output "ztadev_eastus_dev_ztcontroller_subnet_name" {
-			value = module.ztadev_eastus_dev_ztcontroller_subnet.subnet_name
-		}
+		output "ztadev_eastus_dev_web_subnet_name" {
+			value = module.ztadev_eastus_dev_web_subnet.subnet_name
+		}*/
 
 # subnet14
 module "ztadev_eastus_dev_edge_subnet" {
@@ -217,21 +217,21 @@ module "ztadev_westus2_dev_subnetgw_subnet" {
 		}
 
 # subnet33
-module "ztadev_westus2_dev_ztcontroller_subnet" {
+module "ztadev_westus2_dev_web_subnet" {
 	source = "github.com/cantrellcloud/tfaz-subnet"
 	#to_provision = local.provision_subnet33
 	rg_name = module.ztadev_westus2_dev_rg.rg_name
-	subnet_name = "ztadev_westus2_dev_ztcontroller_subnet"
+	subnet_name = "ztadev_westus2_dev_web_subnet"
 	vnet_name = module.ztadev_westus2_dev_vnet.vnet_name
 	subnet_prefixes = ["172.16.206.32/27"]
 }
 
 		#subnet33
-		output "ztadev_westus2_dev_ztcontroller_subnet_id" {
-			value = module.ztadev_westus2_dev_ztcontroller_subnet.subnet_id
+		output "ztadev_westus2_dev_web_subnet_id" {
+			value = module.ztadev_westus2_dev_web_subnet.subnet_id
 		}
-		output "ztadev_westus2_dev_ztcontroller_subnet_name" {
-			value = module.ztadev_westus2_dev_ztcontroller_subnet.subnet_name
+		output "ztadev_westus2_dev_web_subnet_name" {
+			value = module.ztadev_westus2_dev_web_subnet.subnet_name
 		}
 
 # subnet34
@@ -304,21 +304,21 @@ module "ztadev_westus_dev_subnetgw_subnet" {
 		}
 
 # subnet43
-module "ztadev_westus_dev_ztcontroller_subnet" {
+module "ztadev_westus_dev_web_subnet" {
 	source = "github.com/cantrellcloud/tfaz-subnet"
 	#to_provision = local.provision_subnet43
 	rg_name = module.ztadev_westus_dev_rg.rg_name
-	subnet_name = "ztadev_westus_dev_ztcontroller_subnet"
+	subnet_name = "ztadev_westus_dev_web_subnet"
 	vnet_name = module.ztadev_westus_dev_vnet.vnet_name
 	subnet_prefixes = ["172.16.204.32/27"]
 }
 
 		#subnet43
-		output "ztadev_westus_dev_ztcontroller_subnet_id" {
-			value = module.ztadev_westus_dev_ztcontroller_subnet.subnet_id
+		output "ztadev_westus_dev_web_subnet_id" {
+			value = module.ztadev_westus_dev_web_subnet.subnet_id
 		}
-		output "ztadev_westus_dev_ztcontroller_subnet_name" {
-			value = module.ztadev_westus_dev_ztcontroller_subnet.subnet_name
+		output "ztadev_westus_dev_web_subnet_name" {
+			value = module.ztadev_westus_dev_web_subnet.subnet_name
 		}
 
 # subnet44
