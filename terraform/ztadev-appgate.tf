@@ -334,6 +334,41 @@ module "ztadev_eastus2_dev_appgate_prod_subnet_nsg" {
 			value = module.ztadev_eastus2_dev_appgate_prod_subnet_nsg_nsr_port_22.nsr_id
 		}
 
+	# nsr01-04
+	module "ztadev_eastus2_dev_appgate_prod_subnet_nsg_nsr_port_8443" {
+		source            = "github.com/cantrellcloud/tfaz-nsr"
+		#to_provision     = local.provision_nsr01-04
+		nsr_name = "Port_8443"
+		rg_name = module.ztadev_eastus2_dev_appgate_rg.rg_name
+		network_security_group_name = module.ztadev_eastus2_dev_appgate_prod_subnet_nsg.nsg_name
+
+		# security rule
+		security_rule_access = "Allow"
+		security_rule_description = "Allow TCP8443"
+		#security_rule_destination_address_prefix = "*"
+		security_rule_destination_address_prefixes = [
+			"172.16.201.4"
+		]
+		security_rule_destination_application_security_group_ids = []
+		security_rule_destination_port_range = "8443"
+		#security_rule_destination_port_ranges = []
+		security_rule_direction = "Inbound"
+		security_rule_priority = 104
+		security_rule_protocol = "TCP"
+		#security_rule_source_address_prefix = "*"
+		security_rule_source_address_prefixes = [
+			"144.129.196.130"
+		]
+		security_rule_source_application_security_group_ids = []
+		security_rule_source_port_range = "*"
+		#security_rule_source_port_ranges = []
+	}
+
+		# nsr01-04_outputs
+		output "ztadev_eastus2_dev_appgate_prod_subnet_nsg_nsr_port_8443_id" {
+			value = module.ztadev_eastus2_dev_appgate_prod_subnet_nsg_nsr_port_8443.nsr_id
+		}
+
 # appgate_nsg02
 module "ztadev_eastus2_dev_appgate_web_subnet_nsg" {
 	source            = "github.com/cantrellcloud/tfaz-nsg"
