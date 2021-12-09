@@ -554,7 +554,7 @@ module "jtodev_eastus2_dev_jtodevweb01_vmwin" {
         ip_configuration_subnet_id                     = module.jtodev_eastus2_dev_web_subnet.subnet_id
         ip_configuration_private_ip_address_allocation = "Static"
         ip_configuration_private_ip_address            = "172.16.200.42"
-        ip_configuration_public_ip_address_id          = module.jtodev_eastus2_dev_appgate_web_publicip.publicip_id
+        ip_configuration_public_ip_address_id          = null #module.jtodev_eastus2_dev_appgate_web_publicip.publicip_id
 }
 
     # jtodevweb01_outputs
