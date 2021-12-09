@@ -396,7 +396,8 @@ module "ztadev_eastus2_dev_ztadevsubca01_vmwin" {
 	}
 
 #########################################################################################
-
+#
+/*
 # ztadevwks01
 module "ztadev_eastus2_dev_ztadevwks01_vmwin" {
 	source = "github.com/cantrellcloud/tfaz-vmwin"
@@ -873,18 +874,6 @@ module "ztadev_eastus_dev_ztadevwks08_vmwin" {
     #version   = "latest"
 }
 
-    # ztadevwks08_publicip
-/*    module "ztadev_eastus_dev_ztadevwks08_publicip" {
-        source            = "github.com/cantrellcloud/tfaz-publicip"
-        #to_provision     = local.provision_ztadevwks08_publicip
-        rg_location       = module.ztadev_eastus_dev_rg.rg_location
-        rg_name           = module.ztadev_eastus_dev_rg.rg_name
-        publicip_name     = "ztadev_eastus_dev_ztadevwks08_publicip"
-        allocation_method = "Static"
-        sku               = "Standard"
-        domain_name_label = "ztadev-wks08"
-    }
-*/
     # ztadevwks08_netinf
     module "ztadev_eastus_dev_ztadevwks08_netinf" {
         source = "github.com/cantrellcloud/tfaz-netinf"
@@ -931,17 +920,6 @@ module "ztadev_eastus_dev_ztadevwks08_vmwin" {
         value = module.ztadev_eastus_dev_ztadevwks08_vmwin.vmwin_public_ip_address
     }
 
-	#ztadevwks08_publicip_outputs
-/*    output "ztadev_eastus_dev_ztadevwks08_publicip_id" {
-        value = module.ztadev_eastus_dev_ztadevwks08_publicip.publicip_id
-    }
-    output "ztadev_eastus_dev_ztadevwks08_publicip_name" {
-        value = module.ztadev_eastus_dev_ztadevwks08_publicip.publicip_name
-    }
-    output "ztadev_eastus_dev_ztadevwks08_publicip_domain_name_label" {
-        value = module.ztadev_eastus_dev_ztadevwks08_publicip.publicip_domain_name_label
-    }
-*/
     # ztadevwks08_netinf_outputs
 	output "ztadev_eastus_dev_ztadevwks08_netinf_id" {
 		value = module.ztadev_eastus_dev_ztadevwks08_netinf.netinf_id
@@ -994,20 +972,6 @@ module "ztadev_westus_dev_ztadevwks09_vmwin" {
     #version   = "latest"
 }
 
-/*
-    # ztadevwks09_publicip
-    module "ztadev_westus_dev_ztadevwks09_publicip" {
-        source            = "github.com/cantrellcloud/tfaz-publicip"
-        #to_provision     = local.provision_ztadevwks09_publicip
-        rg_location       = module.ztadev_westus_dev_rg.rg_location
-        rg_name           = module.ztadev_westus_dev_rg.rg_name
-        publicip_name     = "ztadev_westus_dev_ztadevwks09_publicip"
-        allocation_method = "Static"
-        sku               = "Standard"
-        domain_name_label = "ztadev-wks09"
-    }
-*/
-
     # ztadevwks09_netinf
     module "ztadev_westus_dev_ztadevwks09_netinf" {
         source = "github.com/cantrellcloud/tfaz-netinf"
@@ -1054,17 +1018,6 @@ module "ztadev_westus_dev_ztadevwks09_vmwin" {
         value = module.ztadev_westus_dev_ztadevwks09_vmwin.vmwin_public_ip_address
     }
 
-	#ztadevwks09_publicip_outputs
-/*    output "ztadev_westus_dev_ztadevwks09_publicip_id" {
-        value = module.ztadev_westus_dev_ztadevwks09_publicip.publicip_id
-    }
-    output "ztadev_westus_dev_ztadevwks09_publicip_name" {
-        value = module.ztadev_westus_dev_ztadevwks09_publicip.publicip_name
-    }
-    output "ztadev_westus_dev_ztadevwks09_publicip_domain_name_label" {
-        value = module.ztadev_westus_dev_ztadevwks09_publicip.publicip_domain_name_label
-    }
-*/
     # ztadevwks09_netinf_outputs
 	output "ztadev_westus_dev_ztadevwks09_netinf_id" {
 		value = module.ztadev_westus_dev_ztadevwks09_netinf.netinf_id
@@ -1116,20 +1069,6 @@ module "ztadev_westus2_dev_ztadevwks10_vmwin" {
     source_image_reference_sku       = "20h2-pro-g2"
     #version   = "latest"
 }
-
-/*
-    # ztadevwks10_publicip
-    module "ztadev_westus2_dev_ztadevwks10_publicip" {
-        source            = "github.com/cantrellcloud/tfaz-publicip"
-        #to_provision     = local.provision_ztadevwks10_publicip
-        rg_location       = module.ztadev_westus2_dev_rg.rg_location
-        rg_name           = module.ztadev_westus2_dev_rg.rg_name
-        publicip_name     = "ztadev_westus2_dev_ztadevwks10_publicip"
-        allocation_method = "Static"
-        sku               = "Standard"
-        domain_name_label = "ztadev-wks10"
-    }
-*/
     # ztadevwks10_netinf
     module "ztadev_westus2_dev_ztadevwks10_netinf" {
         source = "github.com/cantrellcloud/tfaz-netinf"
@@ -1176,18 +1115,6 @@ module "ztadev_westus2_dev_ztadevwks10_vmwin" {
         value = module.ztadev_westus2_dev_ztadevwks10_vmwin.vmwin_public_ip_address
     }
 
-	#ztadevwks10_publicip_outputs
-/*    output "ztadev_westus2_dev_ztadevwks10_publicip_id" {
-        value = module.ztadev_westus2_dev_ztadevwks10_publicip.publicip_id
-    }
-    output "ztadev_westus2_dev_ztadevwks10_publicip_name" {
-        value = module.ztadev_westus2_dev_ztadevwks10_publicip.publicip_name
-    }
-    output "ztadev_westus2_dev_ztadevwks10_publicip_domain_name_label" {
-        value = module.ztadev_westus2_dev_ztadevwks10_publicip.publicip_domain_name_label
-    }
-*/
-
     # ztadevwks10_netinf_outputs
 	output "ztadev_westus2_dev_ztadevwks10_netinf_id" {
 		value = module.ztadev_westus2_dev_ztadevwks10_netinf.netinf_id
@@ -1201,6 +1128,6 @@ module "ztadev_westus2_dev_ztadevwks10_vmwin" {
 	output "ztadev_westus2_dev_ztadevwks10_netinf_virtual_machine_id" {
 		value = module.ztadev_westus2_dev_ztadevwks10_netinf.netinf_virtual_machine_id
 	}
-
+*/
 
 #########################################################################################
