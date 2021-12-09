@@ -7,15 +7,15 @@
 #
 # WINDOWS VIRTUAL MACHINES, NETWORK INTERFACES, and PUBLIC IPs
 #
-# ztadevdc01
-module "ztadev_eastus2_dev_ztadevdc01_vmwin" {
+# jtodevdc01
+module "jtodev_eastus2_dev_jtodevdc01_vmwin" {
 	source = "github.com/cantrellcloud/tfaz-vmwin"
 	#to_provision = local.provision_vmwin01
-	rg_location = module.ztadev_eastus2_dev_rg.rg_location
-	rg_name = module.ztadev_eastus2_dev_rg.rg_name
+	rg_location = module.jtodev_eastus2_dev_rg.rg_location
+	rg_name = module.jtodev_eastus2_dev_rg.rg_name
 	rg_tags = {
-		"ManagementGroup" = "MPG A&E EastUS2",
-		"Environment" = "Dev",
+        "Management Group" = "MPG A&E EastUS2",
+		"Environment" = "JTODev",
 		"AutomatedBy" = "Terraform",
 		"Note1" = "Do not manually change",
 		"POCName" = "ronc@mindpointgroup.com",
@@ -23,15 +23,15 @@ module "ztadev_eastus2_dev_ztadevdc01_vmwin" {
 		"Project" = "Zero Trust Demo"
 	}
 
-	vmwin_name = "ztadev-dc01"
+	vmwin_name = "jtodev-dc01"
     size                  = "Standard_D2s_v3"
     admin_username        = "adminlocal"
     admin_password        = "Password#1Password#1"
 
-    computer_name         = "ztadev-dc01"
+    computer_name         = "jtodev-dc01"
     license_type          = "Windows_Server"
     network_interface_ids = [
-        module.ztadev_eastus2_dev_ztadevdc01_netinf.netinf_id,
+        module.jtodev_eastus2_dev_jtodevdc01_netinf.netinf_id,
     ]
 
     os_disk_caching              = "ReadWrite"
@@ -43,15 +43,15 @@ module "ztadev_eastus2_dev_ztadevdc01_vmwin" {
     #version   = "latest"
 }
 
-    # ztadevdc01_netinf
-    module "ztadev_eastus2_dev_ztadevdc01_netinf" {
+    # jtodevdc01_netinf
+    module "jtodev_eastus2_dev_jtodevdc01_netinf" {
         source = "github.com/cantrellcloud/tfaz-netinf"
-        #to_provision = local.provision_ztadevdc01_netinf
-        rg_location = module.ztadev_eastus2_dev_rg.rg_location
-        rg_name = module.ztadev_eastus2_dev_rg.rg_name
+        #to_provision = local.provision_jtodevdc01_netinf
+        rg_location = module.jtodev_eastus2_dev_rg.rg_location
+        rg_name = module.jtodev_eastus2_dev_rg.rg_name
     	rg_tags = {
 	    	"ManagementGroup" = "MPG A&E EastUS2",
-		    "Environment" = "Dev",
+		    "Environment" = "JTODev",
     		"AutomatedBy" = "Terraform",
 	    	"Note1" = "Do not manually change",
 		    "POCName" = "ronc@mindpointgroup.com",
@@ -59,23 +59,23 @@ module "ztadev_eastus2_dev_ztadevdc01_vmwin" {
 		    "Project" = "Zero Trust Demo"
 	    }
 
-        netinf_name = "ztadevdc01_netinf"
+        netinf_name = "jtodevdc01_netinf"
 
         ip_configuration_name                          = "ipconfig01"
         ip_configuration_private_ip_address_version    = "IPv4"
-        ip_configuration_subnet_id                     = module.ztadev_eastus2_dev_prod_subnet.subnet_id
+        ip_configuration_subnet_id                     = module.jtodev_eastus2_dev_prod_subnet.subnet_id
         ip_configuration_private_ip_address_allocation = "Static"
         ip_configuration_private_ip_address            = "172.16.200.11"
-        ip_configuration_public_ip_address_id          = null # module.ztadev_eastus2_dev_ztadevdc01_publicip.publicip_id
+        ip_configuration_public_ip_address_id          = null # module.jtodev_eastus2_dev_jtodevdc01_publicip.publicip_id
     }
 
-    # ztadevdc01_manageddisk
-    module "ztadev_eastus2_dev_ztadevdc01_sysvol_manageddisk" {
+    # jtodevdc01_manageddisk
+    module "jtodev_eastus2_dev_jtodevdc01_sysvol_manageddisk" {
         source = "github.com/cantrellcloud/tfaz-manageddisk"
-        #to_provision = local.provision_ztadevdc01_manageddisk
-        rg_location = module.ztadev_eastus2_dev_rg.rg_location
-        rg_name = module.ztadev_eastus2_dev_rg.rg_name
-        manageddisk_name = "ztadevdc01_sysvol_manageddisk"
+        #to_provision = local.provision_jtodevdc01_manageddisk
+        rg_location = module.jtodev_eastus2_dev_rg.rg_location
+        rg_name = module.jtodev_eastus2_dev_rg.rg_name
+        manageddisk_name = "jtodevdc01_sysvol_manageddisk"
 
         storage_account_type   = "Standard_LRS"
         create_option          = "Empty"
@@ -92,76 +92,76 @@ module "ztadev_eastus2_dev_ztadevdc01_vmwin" {
         #zones                  = 
     }
 
-    #ztadevdc01_datadiskattach
-    module "ztadev_eastus2_dev_ztadevdc01_sysvol_datadiskattach" {
+    #jtodevdc01_datadiskattach
+    module "jtodev_eastus2_dev_jtodevdc01_sysvol_datadiskattach" {
         source = "github.com/cantrellcloud/tfaz-datadiskattach"
-        #to_provision = local.provision_ztadevdc01_sysvol_datadiskattach
-        managed_disk_id = module.ztadev_eastus2_dev_ztadevdc01_sysvol_manageddisk.manageddisk_id
-        virtual_machine_id = module.ztadev_eastus2_dev_ztadevdc01_vmwin.vmwin_id
+        #to_provision = local.provision_jtodevdc01_sysvol_datadiskattach
+        managed_disk_id = module.jtodev_eastus2_dev_jtodevdc01_sysvol_manageddisk.manageddisk_id
+        virtual_machine_id = module.jtodev_eastus2_dev_jtodevdc01_vmwin.vmwin_id
         lun = 10
         caching = "ReadWrite"
         create_option   = "Attach"
         write_accelerator_enabled = "false"
     }
 
-    # ztadevdc01_outputs
-    output "ztadev_eastus2_dev_ztadevdc01_vmwin_id" {
-        value = module.ztadev_eastus2_dev_ztadevdc01_vmwin.vmwin_id
+    # jtodevdc01_outputs
+    output "jtodev_eastus2_dev_jtodevdc01_vmwin_id" {
+        value = module.jtodev_eastus2_dev_jtodevdc01_vmwin.vmwin_id
     }
-    output "ztadev_eastus2_dev_ztadevdc01_vmwin_name" {
-        value = module.ztadev_eastus2_dev_ztadevdc01_vmwin.vmwin_name
+    output "jtodev_eastus2_dev_jtodevdc01_vmwin_name" {
+        value = module.jtodev_eastus2_dev_jtodevdc01_vmwin.vmwin_name
     }
-    output "ztadev_eastus2_dev_ztadevdc01_vmwin_computer_name" {
-        value = module.ztadev_eastus2_dev_ztadevdc01_vmwin.vmwin_computer_name
+    output "jtodev_eastus2_dev_jtodevdc01_vmwin_computer_name" {
+        value = module.jtodev_eastus2_dev_jtodevdc01_vmwin.vmwin_computer_name
     }
-    output "ztadev_eastus2_dev_ztadevdc01_vmwin_private_ip_address" {
-        value = module.ztadev_eastus2_dev_ztadevdc01_vmwin.vmwin_private_ip_address
+    output "jtodev_eastus2_dev_jtodevdc01_vmwin_private_ip_address" {
+        value = module.jtodev_eastus2_dev_jtodevdc01_vmwin.vmwin_private_ip_address
     }
-    output "ztadev_eastus2_dev_ztadevdc01_vmwin_virtual_machine_id" {
-        value = module.ztadev_eastus2_dev_ztadevdc01_vmwin.vmwin_virtual_machine_id
+    output "jtodev_eastus2_dev_jtodevdc01_vmwin_virtual_machine_id" {
+        value = module.jtodev_eastus2_dev_jtodevdc01_vmwin.vmwin_virtual_machine_id
     }
-    output "ztadev_eastus2_dev_ztadevdc01_vmwin_public_ip_address" {
-        value = module.ztadev_eastus2_dev_ztadevdc01_vmwin.vmwin_public_ip_address
+    output "jtodev_eastus2_dev_jtodevdc01_vmwin_public_ip_address" {
+        value = module.jtodev_eastus2_dev_jtodevdc01_vmwin.vmwin_public_ip_address
     }
 
-	# ztadevdc01_netinf_outputs
-	output "ztadev_eastus2_dev_ztadevdc01_netinf_id" {
-		value = module.ztadev_eastus2_dev_ztadevdc01_netinf.netinf_id
+	# jtodevdc01_netinf_outputs
+	output "jtodev_eastus2_dev_jtodevdc01_netinf_id" {
+		value = module.jtodev_eastus2_dev_jtodevdc01_netinf.netinf_id
 	}
-	output "ztadev_eastus2_dev_ztadevdc01_netinf_name" {
-		value = module.ztadev_eastus2_dev_ztadevdc01_netinf.netinf_name
+	output "jtodev_eastus2_dev_jtodevdc01_netinf_name" {
+		value = module.jtodev_eastus2_dev_jtodevdc01_netinf.netinf_name
 	}
-	output "ztadev_eastus2_dev_ztadevdc01_netinf_private_ip_address" {
-		value = module.ztadev_eastus2_dev_ztadevdc01_netinf.netinf_private_ip_address
+	output "jtodev_eastus2_dev_jtodevdc01_netinf_private_ip_address" {
+		value = module.jtodev_eastus2_dev_jtodevdc01_netinf.netinf_private_ip_address
 	}
-	output "ztadev_eastus2_dev_ztadevdc01_netinf_virtual_machine_id" {
-		value = module.ztadev_eastus2_dev_ztadevdc01_netinf.netinf_virtual_machine_id
-	}
-
-    # ztadevdc01_manageddisk_outputs
-	output "ztadev_eastus2_dev_ztadevdc01_sysvol_manageddisk_id" {
-		value = module.ztadev_eastus2_dev_ztadevdc01_sysvol_manageddisk.manageddisk_id
-	}
-	output "ztadev_eastus2_dev_ztadevdc01_sysvol_manageddisk_name" {
-		value = module.ztadev_eastus2_dev_ztadevdc01_sysvol_manageddisk.manageddisk_name
+	output "jtodev_eastus2_dev_jtodevdc01_netinf_virtual_machine_id" {
+		value = module.jtodev_eastus2_dev_jtodevdc01_netinf.netinf_virtual_machine_id
 	}
 
-	# ztadevdc01_datadiskattach_outputs
-    output "ztadev_eastus2_dev_ztadevdc01_sysvol_datadiskattach_id" {
-		value = module.ztadev_eastus2_dev_ztadevdc01_sysvol_datadiskattach.datadiskattach_id
+    # jtodevdc01_manageddisk_outputs
+	output "jtodev_eastus2_dev_jtodevdc01_sysvol_manageddisk_id" {
+		value = module.jtodev_eastus2_dev_jtodevdc01_sysvol_manageddisk.manageddisk_id
+	}
+	output "jtodev_eastus2_dev_jtodevdc01_sysvol_manageddisk_name" {
+		value = module.jtodev_eastus2_dev_jtodevdc01_sysvol_manageddisk.manageddisk_name
+	}
+
+	# jtodevdc01_datadiskattach_outputs
+    output "jtodev_eastus2_dev_jtodevdc01_sysvol_datadiskattach_id" {
+		value = module.jtodev_eastus2_dev_jtodevdc01_sysvol_datadiskattach.datadiskattach_id
 	}
 
 #########################################################################################
 
-# ztadevdc02
-module "ztadev_eastus2_dev_ztadevdc02_vmwin" {
+# jtodevdc02
+module "jtodev_eastus2_dev_jtodevdc02_vmwin" {
 	source = "github.com/cantrellcloud/tfaz-vmwin"
 	#to_provision = local.provision_vmwin01
-	rg_location = module.ztadev_eastus2_dev_rg.rg_location
-	rg_name = module.ztadev_eastus2_dev_rg.rg_name
+	rg_location = module.jtodev_eastus2_dev_rg.rg_location
+	rg_name = module.jtodev_eastus2_dev_rg.rg_name
 	rg_tags = {
 		"ManagementGroup" = "MPG A&E EastUS2",
-		"Environment" = "Dev",
+		"Environment" = "JTODev",
 		"AutomatedBy" = "Terraform",
 		"Note1" = "Do not manually change",
 		"POCName" = "ronc@mindpointgroup.com",
@@ -169,15 +169,15 @@ module "ztadev_eastus2_dev_ztadevdc02_vmwin" {
 		"Project" = "Zero Trust Demo"
 	}
 
-	vmwin_name = "ztadev-dc02"
+	vmwin_name = "jtodev-dc02"
     size                  = "Standard_D2s_v3"
     admin_username        = "adminlocal"
     admin_password        = "Password#1Password#1"
 
-    computer_name         = "ztadev-dc02"
+    computer_name         = "jtodev-dc02"
     license_type          = "Windows_Server"
     network_interface_ids = [
-        module.ztadev_eastus2_dev_ztadevdc02_netinf.netinf_id,
+        module.jtodev_eastus2_dev_jtodevdc02_netinf.netinf_id,
     ]
 
     os_disk_caching              = "ReadWrite"
@@ -189,15 +189,15 @@ module "ztadev_eastus2_dev_ztadevdc02_vmwin" {
     #version   = "latest"
 }
 
-    # ztadevdc02_netinf
-    module "ztadev_eastus2_dev_ztadevdc02_netinf" {
+    # jtodevdc02_netinf
+    module "jtodev_eastus2_dev_jtodevdc02_netinf" {
         source = "github.com/cantrellcloud/tfaz-netinf"
-        #to_provision = local.provision_ztadevdc02_netinf
-        rg_location = module.ztadev_eastus2_dev_rg.rg_location
-        rg_name = module.ztadev_eastus2_dev_rg.rg_name
+        #to_provision = local.provision_jtodevdc02_netinf
+        rg_location = module.jtodev_eastus2_dev_rg.rg_location
+        rg_name = module.jtodev_eastus2_dev_rg.rg_name
     	rg_tags = {
 	    	"ManagementGroup" = "MPG A&E EastUS2",
-		    "Environment" = "Dev",
+		    "Environment" = "JTODev",
     		"AutomatedBy" = "Terraform",
 	    	"Note1" = "Do not manually change",
 		    "POCName" = "ronc@mindpointgroup.com",
@@ -205,23 +205,23 @@ module "ztadev_eastus2_dev_ztadevdc02_vmwin" {
 		    "Project" = "Zero Trust Demo"
 	    }
 
-        netinf_name = "ztadevdc02_netinf"
+        netinf_name = "jtodevdc02_netinf"
 
         ip_configuration_name                          = "ipconfig01"
         ip_configuration_private_ip_address_version    = "IPv4"
-        ip_configuration_subnet_id                     = module.ztadev_eastus2_dev_prod_subnet.subnet_id
+        ip_configuration_subnet_id                     = module.jtodev_eastus2_dev_prod_subnet.subnet_id
         ip_configuration_private_ip_address_allocation = "Static"
         ip_configuration_private_ip_address            = "172.16.200.12"
-        ip_configuration_public_ip_address_id          = null # module.ztadev_eastus2_dev_ztadevdc02_publicip.publicip_id
+        ip_configuration_public_ip_address_id          = null # module.jtodev_eastus2_dev_jtodevdc02_publicip.publicip_id
     }
 
-    # ztadevdc02_manageddisk
-    module "ztadev_eastus2_dev_ztadevdc02_sysvol_manageddisk" {
+    # jtodevdc02_manageddisk
+    module "jtodev_eastus2_dev_jtodevdc02_sysvol_manageddisk" {
         source = "github.com/cantrellcloud/tfaz-manageddisk"
-        #to_provision = local.provision_ztadevdc02_manageddisk
-        rg_location = module.ztadev_eastus2_dev_rg.rg_location
-        rg_name = module.ztadev_eastus2_dev_rg.rg_name
-        manageddisk_name = "ztadevdc02_sysvol_manageddisk"
+        #to_provision = local.provision_jtodevdc02_manageddisk
+        rg_location = module.jtodev_eastus2_dev_rg.rg_location
+        rg_name = module.jtodev_eastus2_dev_rg.rg_name
+        manageddisk_name = "jtodevdc02_sysvol_manageddisk"
 
         storage_account_type   = "Standard_LRS"
         create_option          = "Empty"
@@ -238,76 +238,76 @@ module "ztadev_eastus2_dev_ztadevdc02_vmwin" {
         #zones                  = 
     }
 
-    #ztadevdc02_datadiskattach
-    module "ztadev_eastus2_dev_ztadevdc02_sysvol_datadiskattach" {
+    #jtodevdc02_datadiskattach
+    module "jtodev_eastus2_dev_jtodevdc02_sysvol_datadiskattach" {
         source = "github.com/cantrellcloud/tfaz-datadiskattach"
-        #to_provision = local.provision_ztadevdc02_sysvol_datadiskattach
-        managed_disk_id = module.ztadev_eastus2_dev_ztadevdc02_sysvol_manageddisk.manageddisk_id
-        virtual_machine_id = module.ztadev_eastus2_dev_ztadevdc02_vmwin.vmwin_id
+        #to_provision = local.provision_jtodevdc02_sysvol_datadiskattach
+        managed_disk_id = module.jtodev_eastus2_dev_jtodevdc02_sysvol_manageddisk.manageddisk_id
+        virtual_machine_id = module.jtodev_eastus2_dev_jtodevdc02_vmwin.vmwin_id
         lun = 10
         caching = "ReadWrite"
         create_option   = "Attach"
         write_accelerator_enabled = "false"
     }
 
-    # ztadevdc02_outputs
-    output "ztadev_eastus2_dev_ztadevdc02_vmwin_id" {
-        value = module.ztadev_eastus2_dev_ztadevdc02_vmwin.vmwin_id
+    # jtodevdc02_outputs
+    output "jtodev_eastus2_dev_jtodevdc02_vmwin_id" {
+        value = module.jtodev_eastus2_dev_jtodevdc02_vmwin.vmwin_id
     }
-    output "ztadev_eastus2_dev_ztadevdc02_vmwin_name" {
-        value = module.ztadev_eastus2_dev_ztadevdc02_vmwin.vmwin_name
+    output "jtodev_eastus2_dev_jtodevdc02_vmwin_name" {
+        value = module.jtodev_eastus2_dev_jtodevdc02_vmwin.vmwin_name
     }
-    output "ztadev_eastus2_dev_ztadevdc02_vmwin_computer_name" {
-        value = module.ztadev_eastus2_dev_ztadevdc02_vmwin.vmwin_computer_name
+    output "jtodev_eastus2_dev_jtodevdc02_vmwin_computer_name" {
+        value = module.jtodev_eastus2_dev_jtodevdc02_vmwin.vmwin_computer_name
     }
-    output "ztadev_eastus2_dev_ztadevdc02_vmwin_private_ip_address" {
-        value = module.ztadev_eastus2_dev_ztadevdc02_vmwin.vmwin_private_ip_address
+    output "jtodev_eastus2_dev_jtodevdc02_vmwin_private_ip_address" {
+        value = module.jtodev_eastus2_dev_jtodevdc02_vmwin.vmwin_private_ip_address
     }
-    output "ztadev_eastus2_dev_ztadevdc02_vmwin_virtual_machine_id" {
-        value = module.ztadev_eastus2_dev_ztadevdc02_vmwin.vmwin_virtual_machine_id
+    output "jtodev_eastus2_dev_jtodevdc02_vmwin_virtual_machine_id" {
+        value = module.jtodev_eastus2_dev_jtodevdc02_vmwin.vmwin_virtual_machine_id
     }
-    output "ztadev_eastus2_dev_ztadevdc02_vmwin_public_ip_address" {
-        value = module.ztadev_eastus2_dev_ztadevdc02_vmwin.vmwin_public_ip_address
+    output "jtodev_eastus2_dev_jtodevdc02_vmwin_public_ip_address" {
+        value = module.jtodev_eastus2_dev_jtodevdc02_vmwin.vmwin_public_ip_address
     }
 
-	# ztadevdc02_netinf_outputs
-	output "ztadev_eastus2_dev_ztadevdc02_netinf_id" {
-		value = module.ztadev_eastus2_dev_ztadevdc02_netinf.netinf_id
+	# jtodevdc02_netinf_outputs
+	output "jtodev_eastus2_dev_jtodevdc02_netinf_id" {
+		value = module.jtodev_eastus2_dev_jtodevdc02_netinf.netinf_id
 	}
-	output "ztadev_eastus2_dev_ztadevdc02_netinf_name" {
-		value = module.ztadev_eastus2_dev_ztadevdc02_netinf.netinf_name
+	output "jtodev_eastus2_dev_jtodevdc02_netinf_name" {
+		value = module.jtodev_eastus2_dev_jtodevdc02_netinf.netinf_name
 	}
-	output "ztadev_eastus2_dev_ztadevdc02_netinf_private_ip_address" {
-		value = module.ztadev_eastus2_dev_ztadevdc02_netinf.netinf_private_ip_address
+	output "jtodev_eastus2_dev_jtodevdc02_netinf_private_ip_address" {
+		value = module.jtodev_eastus2_dev_jtodevdc02_netinf.netinf_private_ip_address
 	}
-	output "ztadev_eastus2_dev_ztadevdc02_netinf_virtual_machine_id" {
-		value = module.ztadev_eastus2_dev_ztadevdc02_netinf.netinf_virtual_machine_id
-	}
-
-	# ztadevdc02_manageddisk_outputs
-	output "ztadev_eastus2_dev_ztadevdc02_sysvol_manageddisk_id" {
-		value = module.ztadev_eastus2_dev_ztadevdc02_sysvol_manageddisk.manageddisk_id
-	}
-	output "ztadev_eastus2_dev_ztadevdc02_sysvol_manageddisk_name" {
-		value = module.ztadev_eastus2_dev_ztadevdc02_sysvol_manageddisk.manageddisk_name
+	output "jtodev_eastus2_dev_jtodevdc02_netinf_virtual_machine_id" {
+		value = module.jtodev_eastus2_dev_jtodevdc02_netinf.netinf_virtual_machine_id
 	}
 
-	# ztadevdc02_datadiskattach_outputs
-    output "ztadev_eastus2_dev_ztadevdc02_sysvol_datadiskattach_id" {
-		value = module.ztadev_eastus2_dev_ztadevdc02_sysvol_datadiskattach.datadiskattach_id
+	# jtodevdc02_manageddisk_outputs
+	output "jtodev_eastus2_dev_jtodevdc02_sysvol_manageddisk_id" {
+		value = module.jtodev_eastus2_dev_jtodevdc02_sysvol_manageddisk.manageddisk_id
+	}
+	output "jtodev_eastus2_dev_jtodevdc02_sysvol_manageddisk_name" {
+		value = module.jtodev_eastus2_dev_jtodevdc02_sysvol_manageddisk.manageddisk_name
+	}
+
+	# jtodevdc02_datadiskattach_outputs
+    output "jtodev_eastus2_dev_jtodevdc02_sysvol_datadiskattach_id" {
+		value = module.jtodev_eastus2_dev_jtodevdc02_sysvol_datadiskattach.datadiskattach_id
 	}
 
 #########################################################################################
 
-# ztadevsubca01
-module "ztadev_eastus2_dev_ztadevsubca01_vmwin" {
+# jtodevsubca01
+module "jtodev_eastus2_dev_jtodevsubca01_vmwin" {
 	source = "github.com/cantrellcloud/tfaz-vmwin"
 	#to_provision = local.provision_vmwin03
-	rg_location = module.ztadev_eastus2_dev_rg.rg_location
-	rg_name = module.ztadev_eastus2_dev_rg.rg_name
+	rg_location = module.jtodev_eastus2_dev_rg.rg_location
+	rg_name = module.jtodev_eastus2_dev_rg.rg_name
 	rg_tags = {
 		"ManagementGroup" = "MPG A&E EastUS2",
-		"Environment" = "Dev",
+		"Environment" = "JTODev",
 		"AutomatedBy" = "Terraform",
 		"Note1" = "Do not manually change",
 		"POCName" = "ronc@mindpointgroup.com",
@@ -315,15 +315,15 @@ module "ztadev_eastus2_dev_ztadevsubca01_vmwin" {
 		"Project" = "Zero Trust Demo"
 	}
 
-	vmwin_name = "ztadev-subca01"
+	vmwin_name = "jtodev-subca01"
     size                  = "Standard_D2s_v3"
     admin_username        = "adminlocal"
     admin_password        = "Password#1Password#1"
 
-    computer_name         = "ztadev-subca01"
+    computer_name         = "jtodev-subca01"
     license_type          = "Windows_Server"
     network_interface_ids = [
-        module.ztadev_eastus2_dev_ztadevsubca01_netinf.netinf_id,
+        module.jtodev_eastus2_dev_jtodevsubca01_netinf.netinf_id,
     ]
 
     os_disk_caching              = "ReadWrite"
@@ -335,15 +335,15 @@ module "ztadev_eastus2_dev_ztadevsubca01_vmwin" {
     #version   = "latest"
 }
 
-   # ztadevsubca01_netinf
-    module "ztadev_eastus2_dev_ztadevsubca01_netinf" {
+   # jtodevsubca01_netinf
+    module "jtodev_eastus2_dev_jtodevsubca01_netinf" {
         source = "github.com/cantrellcloud/tfaz-netinf"
-        #to_provision = local.provision_ztadevsubca01_netinf
-        rg_location = module.ztadev_eastus2_dev_rg.rg_location
-        rg_name = module.ztadev_eastus2_dev_rg.rg_name
+        #to_provision = local.provision_jtodevsubca01_netinf
+        rg_location = module.jtodev_eastus2_dev_rg.rg_location
+        rg_name = module.jtodev_eastus2_dev_rg.rg_name
     	rg_tags = {
 	    	"ManagementGroup" = "MPG A&E EastUS2",
-		    "Environment" = "Dev",
+		    "Environment" = "JTODev",
     		"AutomatedBy" = "Terraform",
 	    	"Note1" = "Do not manually change",
 		    "POCName" = "ronc@mindpointgroup.com",
@@ -351,61 +351,61 @@ module "ztadev_eastus2_dev_ztadevsubca01_vmwin" {
 		    "Project" = "Zero Trust Demo"
 	    }
 
-        netinf_name = "ztadevsubca01_netinf"
+        netinf_name = "jtodevsubca01_netinf"
 
         ip_configuration_name                          = "ipconfig01"
         ip_configuration_private_ip_address_version    = "IPv4"
-        ip_configuration_subnet_id                     = module.ztadev_eastus2_dev_prod_subnet.subnet_id
+        ip_configuration_subnet_id                     = module.jtodev_eastus2_dev_prod_subnet.subnet_id
         ip_configuration_private_ip_address_allocation = "Static"
         ip_configuration_private_ip_address            = "172.16.200.10"
-        ip_configuration_public_ip_address_id          = null # module.ztadev_eastus2_dev_ztadevsubca01_publicip.publicip_id
+        ip_configuration_public_ip_address_id          = null # module.jtodev_eastus2_dev_jtodevsubca01_publicip.publicip_id
 }
 
-    # ztadevsubca01_outputs
-    output "ztadev_eastus2_dev_ztadevsubca01_vmwin_id" {
-        value = module.ztadev_eastus2_dev_ztadevsubca01_vmwin.vmwin_id
+    # jtodevsubca01_outputs
+    output "jtodev_eastus2_dev_jtodevsubca01_vmwin_id" {
+        value = module.jtodev_eastus2_dev_jtodevsubca01_vmwin.vmwin_id
     }
-    output "ztadev_eastus2_dev_ztadevsubca01_vmwin_name" {
-        value = module.ztadev_eastus2_dev_ztadevsubca01_vmwin.vmwin_name
+    output "jtodev_eastus2_dev_jtodevsubca01_vmwin_name" {
+        value = module.jtodev_eastus2_dev_jtodevsubca01_vmwin.vmwin_name
     }
-    output "ztadev_eastus2_dev_ztadevsubca01_vmwin_computer_name" {
-        value = module.ztadev_eastus2_dev_ztadevsubca01_vmwin.vmwin_computer_name
+    output "jtodev_eastus2_dev_jtodevsubca01_vmwin_computer_name" {
+        value = module.jtodev_eastus2_dev_jtodevsubca01_vmwin.vmwin_computer_name
     }
-    output "ztadev_eastus2_dev_ztadevsubca01_vmwin_private_ip_address" {
-        value = module.ztadev_eastus2_dev_ztadevsubca01_vmwin.vmwin_private_ip_address
+    output "jtodev_eastus2_dev_jtodevsubca01_vmwin_private_ip_address" {
+        value = module.jtodev_eastus2_dev_jtodevsubca01_vmwin.vmwin_private_ip_address
     }
-    output "ztadev_eastus2_dev_ztadevsubca01_vmwin_virtual_machine_id" {
-        value = module.ztadev_eastus2_dev_ztadevsubca01_vmwin.vmwin_virtual_machine_id
+    output "jtodev_eastus2_dev_jtodevsubca01_vmwin_virtual_machine_id" {
+        value = module.jtodev_eastus2_dev_jtodevsubca01_vmwin.vmwin_virtual_machine_id
     }
-    output "ztadev_eastus2_dev_ztadevsubca01_vmwin_public_ip_address" {
-        value = module.ztadev_eastus2_dev_ztadevsubca01_vmwin.vmwin_public_ip_address
+    output "jtodev_eastus2_dev_jtodevsubca01_vmwin_public_ip_address" {
+        value = module.jtodev_eastus2_dev_jtodevsubca01_vmwin.vmwin_public_ip_address
     }
 
-    # ztadevsubca01_netinf_outputs
-	output "ztadev_eastus2_dev_ztadevsubca01_netinf_id" {
-		value = module.ztadev_eastus2_dev_ztadevsubca01_netinf.netinf_id
+    # jtodevsubca01_netinf_outputs
+	output "jtodev_eastus2_dev_jtodevsubca01_netinf_id" {
+		value = module.jtodev_eastus2_dev_jtodevsubca01_netinf.netinf_id
 	}
-	output "ztadev_eastus2_dev_ztadevsubca01_netinf_name" {
-		value = module.ztadev_eastus2_dev_ztadevsubca01_netinf.netinf_name
+	output "jtodev_eastus2_dev_jtodevsubca01_netinf_name" {
+		value = module.jtodev_eastus2_dev_jtodevsubca01_netinf.netinf_name
 	}
-	output "ztadev_eastus2_dev_ztadevsubca01_netinf_private_ip_address" {
-		value = module.ztadev_eastus2_dev_ztadevsubca01_netinf.netinf_private_ip_address
+	output "jtodev_eastus2_dev_jtodevsubca01_netinf_private_ip_address" {
+		value = module.jtodev_eastus2_dev_jtodevsubca01_netinf.netinf_private_ip_address
 	}
-	output "ztadev_eastus2_dev_ztadevsubca01_netinf_virtual_machine_id" {
-		value = module.ztadev_eastus2_dev_ztadevsubca01_netinf.netinf_virtual_machine_id
+	output "jtodev_eastus2_dev_jtodevsubca01_netinf_virtual_machine_id" {
+		value = module.jtodev_eastus2_dev_jtodevsubca01_netinf.netinf_virtual_machine_id
 	}
 
 #########################################################################################
 
-# ztadevwks01
-module "ztadev_eastus2_dev_ztadevwks01_vmwin" {
+# jtodevwks01
+module "jtodev_eastus2_dev_jtodevwks01_vmwin" {
 	source = "github.com/cantrellcloud/tfaz-vmwin"
 	#to_provision = local.provision_vmwin02
-	rg_location = module.ztadev_eastus2_dev_rg.rg_location
-	rg_name = module.ztadev_eastus2_dev_rg.rg_name
+	rg_location = module.jtodev_eastus2_dev_rg.rg_location
+	rg_name = module.jtodev_eastus2_dev_rg.rg_name
 	rg_tags = {
 		"ManagementGroup" = "MPG A&E EastUS2",
-		"Environment" = "Dev",
+		"Environment" = "JTODev",
 		"AutomatedBy" = "Terraform",
 		"Note1" = "Do not manually change",
 		"POCName" = "ronc@mindpointgroup.com",
@@ -413,15 +413,15 @@ module "ztadev_eastus2_dev_ztadevwks01_vmwin" {
 		"Project" = "Zero Trust Demo"
 	}
 
-	vmwin_name = "ztadev-wks01"
+	vmwin_name = "jtodev-wks01"
     size                  = "Standard_D2s_v3"
     admin_username        = "adminlocal"
     admin_password        = "Password#1Password#1"
 
-    computer_name         = "ztadev-wks01"
+    computer_name         = "jtodev-wks01"
     license_type          = "Windows_Client"
     network_interface_ids = [
-        module.ztadev_eastus2_dev_ztadevwks01_netinf.netinf_id,
+        module.jtodev_eastus2_dev_jtodevwks01_netinf.netinf_id,
     ]
 
     os_disk_caching              = "ReadWrite"
@@ -433,15 +433,15 @@ module "ztadev_eastus2_dev_ztadevwks01_vmwin" {
     #version   = "latest"
 }
 
-    # ztadevwks01_netinf
-    module "ztadev_eastus2_dev_ztadevwks01_netinf" {
+    # jtodevwks01_netinf
+    module "jtodev_eastus2_dev_jtodevwks01_netinf" {
         source = "github.com/cantrellcloud/tfaz-netinf"
-        #to_provision = local.provision_ztadevwks01_netinf
-        rg_location = module.ztadev_eastus2_dev_rg.rg_location
-        rg_name = module.ztadev_eastus2_dev_rg.rg_name
+        #to_provision = local.provision_jtodevwks01_netinf
+        rg_location = module.jtodev_eastus2_dev_rg.rg_location
+        rg_name = module.jtodev_eastus2_dev_rg.rg_name
     	rg_tags = {
 	    	"ManagementGroup" = "MPG A&E EastUS2",
-		    "Environment" = "Dev",
+		    "Environment" = "JTODev",
     		"AutomatedBy" = "Terraform",
 	    	"Note1" = "Do not manually change",
 		    "POCName" = "ronc@mindpointgroup.com",
@@ -449,61 +449,61 @@ module "ztadev_eastus2_dev_ztadevwks01_vmwin" {
 		    "Project" = "Zero Trust Demo"
 	    }
 
-        netinf_name = "ztadevwks01_netinf"
+        netinf_name = "jtodevwks01_netinf"
 
         ip_configuration_name                          = "ipconfig01"
         ip_configuration_private_ip_address_version    = "IPv4"
-        ip_configuration_subnet_id                     = module.ztadev_eastus2_dev_prod_subnet.subnet_id
+        ip_configuration_subnet_id                     = module.jtodev_eastus2_dev_prod_subnet.subnet_id
         ip_configuration_private_ip_address_allocation = "Static"
         ip_configuration_private_ip_address            = "172.16.200.5"
-        ip_configuration_public_ip_address_id          = null # module.ztadev_eastus2_dev_ztadevwks01_publicip.publicip_id
+        ip_configuration_public_ip_address_id          = null # module.jtodev_eastus2_dev_jtodevwks01_publicip.publicip_id
 }
 
-    # ztadevwks01_outputs
-    output "ztadev_eastus2_dev_ztadevwks01_vmwin_id" {
-        value = module.ztadev_eastus2_dev_ztadevwks01_vmwin.vmwin_id
+    # jtodevwks01_outputs
+    output "jtodev_eastus2_dev_jtodevwks01_vmwin_id" {
+        value = module.jtodev_eastus2_dev_jtodevwks01_vmwin.vmwin_id
     }
-    output "ztadev_eastus2_dev_ztadevwks01_vmwin_name" {
-        value = module.ztadev_eastus2_dev_ztadevwks01_vmwin.vmwin_name
+    output "jtodev_eastus2_dev_jtodevwks01_vmwin_name" {
+        value = module.jtodev_eastus2_dev_jtodevwks01_vmwin.vmwin_name
     }
-    output "ztadev_eastus2_dev_ztadevwks01_vmwin_computer_name" {
-        value = module.ztadev_eastus2_dev_ztadevwks01_vmwin.vmwin_computer_name
+    output "jtodev_eastus2_dev_jtodevwks01_vmwin_computer_name" {
+        value = module.jtodev_eastus2_dev_jtodevwks01_vmwin.vmwin_computer_name
     }
-    output "ztadev_eastus2_dev_ztadevwks01_vmwin_private_ip_address" {
-        value = module.ztadev_eastus2_dev_ztadevwks01_vmwin.vmwin_private_ip_address
+    output "jtodev_eastus2_dev_jtodevwks01_vmwin_private_ip_address" {
+        value = module.jtodev_eastus2_dev_jtodevwks01_vmwin.vmwin_private_ip_address
     }
-    output "ztadev_eastus2_dev_ztadevwks01_vmwin_virtual_machine_id" {
-        value = module.ztadev_eastus2_dev_ztadevwks01_vmwin.vmwin_virtual_machine_id
+    output "jtodev_eastus2_dev_jtodevwks01_vmwin_virtual_machine_id" {
+        value = module.jtodev_eastus2_dev_jtodevwks01_vmwin.vmwin_virtual_machine_id
     }
-    output "ztadev_eastus2_dev_ztadevwks01_vmwin_public_ip_address" {
-        value = module.ztadev_eastus2_dev_ztadevwks01_vmwin.vmwin_public_ip_address
+    output "jtodev_eastus2_dev_jtodevwks01_vmwin_public_ip_address" {
+        value = module.jtodev_eastus2_dev_jtodevwks01_vmwin.vmwin_public_ip_address
     }
 
-    # ztadevwks01_netinf_outputs
-	output "ztadev_eastus2_dev_ztadevwks01_netinf_id" {
-		value = module.ztadev_eastus2_dev_ztadevwks01_netinf.netinf_id
+    # jtodevwks01_netinf_outputs
+	output "jtodev_eastus2_dev_jtodevwks01_netinf_id" {
+		value = module.jtodev_eastus2_dev_jtodevwks01_netinf.netinf_id
 	}
-	output "ztadev_eastus2_dev_ztadevwks01_netinf_name" {
-		value = module.ztadev_eastus2_dev_ztadevwks01_netinf.netinf_name
+	output "jtodev_eastus2_dev_jtodevwks01_netinf_name" {
+		value = module.jtodev_eastus2_dev_jtodevwks01_netinf.netinf_name
 	}
-	output "ztadev_eastus2_dev_ztadevwks01_netinf_private_ip_address" {
-		value = module.ztadev_eastus2_dev_ztadevwks01_netinf.netinf_private_ip_address
+	output "jtodev_eastus2_dev_jtodevwks01_netinf_private_ip_address" {
+		value = module.jtodev_eastus2_dev_jtodevwks01_netinf.netinf_private_ip_address
 	}
-	output "ztadev_eastus2_dev_ztadevwks01_netinf_virtual_machine_id" {
-		value = module.ztadev_eastus2_dev_ztadevwks01_netinf.netinf_virtual_machine_id
+	output "jtodev_eastus2_dev_jtodevwks01_netinf_virtual_machine_id" {
+		value = module.jtodev_eastus2_dev_jtodevwks01_netinf.netinf_virtual_machine_id
 	}
 
 #########################################################################################
 
-# ztadevweb01
-module "ztadev_eastus2_dev_ztadevweb01_vmwin" {
+# jtodevweb01
+module "jtodev_eastus2_dev_jtodevweb01_vmwin" {
 	source = "github.com/cantrellcloud/tfaz-vmwin"
 	#to_provision = local.provision_vmwin03
-	rg_location = module.ztadev_eastus2_dev_rg.rg_location
-	rg_name = module.ztadev_eastus2_dev_rg.rg_name
+	rg_location = module.jtodev_eastus2_dev_rg.rg_location
+	rg_name = module.jtodev_eastus2_dev_rg.rg_name
 	rg_tags = {
 		"ManagementGroup" = "MPG A&E EastUS2",
-		"Environment" = "Dev",
+		"Environment" = "JTODev",
 		"AutomatedBy" = "Terraform",
 		"Note1" = "Do not manually change",
 		"POCName" = "ronc@mindpointgroup.com",
@@ -511,15 +511,15 @@ module "ztadev_eastus2_dev_ztadevweb01_vmwin" {
 		"Project" = "Zero Trust Demo"
 	}
 
-	vmwin_name = "ztadev-web01"
+	vmwin_name = "jtodev-web01"
     size                  = "Standard_D2s_v3"
     admin_username        = "adminlocal"
     admin_password        = "Password#1Password#1"
 
-    computer_name         = "ztadev-web01"
+    computer_name         = "jtodev-web01"
     license_type          = "Windows_Server"
     network_interface_ids = [
-        module.ztadev_eastus2_dev_ztadevweb01_netinf.netinf_id,
+        module.jtodev_eastus2_dev_jtodevweb01_netinf.netinf_id,
     ]
 
     os_disk_caching              = "ReadWrite"
@@ -531,15 +531,15 @@ module "ztadev_eastus2_dev_ztadevweb01_vmwin" {
     #version   = "latest"
 }
 
-   # ztadevweb01_netinf
-    module "ztadev_eastus2_dev_ztadevweb01_netinf" {
+   # jtodevweb01_netinf
+    module "jtodev_eastus2_dev_jtodevweb01_netinf" {
         source = "github.com/cantrellcloud/tfaz-netinf"
-        #to_provision = local.provision_ztadevweb01_netinf
-        rg_location = module.ztadev_eastus2_dev_rg.rg_location
-        rg_name = module.ztadev_eastus2_dev_rg.rg_name
+        #to_provision = local.provision_jtodevweb01_netinf
+        rg_location = module.jtodev_eastus2_dev_rg.rg_location
+        rg_name = module.jtodev_eastus2_dev_rg.rg_name
     	rg_tags = {
 	    	"ManagementGroup" = "MPG A&E EastUS2",
-		    "Environment" = "Dev",
+		    "Environment" = "JTODev",
     		"AutomatedBy" = "Terraform",
 	    	"Note1" = "Do not manually change",
 		    "POCName" = "ronc@mindpointgroup.com",
@@ -547,61 +547,61 @@ module "ztadev_eastus2_dev_ztadevweb01_vmwin" {
 		    "Project" = "Zero Trust Demo"
 	    }
 
-        netinf_name = "ztadevweb01_netinf"
+        netinf_name = "jtodevweb01_netinf"
 
         ip_configuration_name                          = "ipconfig01"
         ip_configuration_private_ip_address_version    = "IPv4"
-        ip_configuration_subnet_id                     = module.ztadev_eastus2_dev_web_subnet.subnet_id
+        ip_configuration_subnet_id                     = module.jtodev_eastus2_dev_web_subnet.subnet_id
         ip_configuration_private_ip_address_allocation = "Static"
         ip_configuration_private_ip_address            = "172.16.200.42"
-        ip_configuration_public_ip_address_id          = module.ztadev_eastus2_dev_appgate_web_publicip.publicip_id
+        ip_configuration_public_ip_address_id          = module.jtodev_eastus2_dev_appgate_web_publicip.publicip_id
 }
 
-    # ztadevweb01_outputs
-    output "ztadev_eastus2_dev_ztadevweb01_vmwin_id" {
-        value = module.ztadev_eastus2_dev_ztadevweb01_vmwin.vmwin_id
+    # jtodevweb01_outputs
+    output "jtodev_eastus2_dev_jtodevweb01_vmwin_id" {
+        value = module.jtodev_eastus2_dev_jtodevweb01_vmwin.vmwin_id
     }
-    output "ztadev_eastus2_dev_ztadevweb01_vmwin_name" {
-        value = module.ztadev_eastus2_dev_ztadevweb01_vmwin.vmwin_name
+    output "jtodev_eastus2_dev_jtodevweb01_vmwin_name" {
+        value = module.jtodev_eastus2_dev_jtodevweb01_vmwin.vmwin_name
     }
-    output "ztadev_eastus2_dev_ztadevweb01_vmwin_computer_name" {
-        value = module.ztadev_eastus2_dev_ztadevweb01_vmwin.vmwin_computer_name
+    output "jtodev_eastus2_dev_jtodevweb01_vmwin_computer_name" {
+        value = module.jtodev_eastus2_dev_jtodevweb01_vmwin.vmwin_computer_name
     }
-    output "ztadev_eastus2_dev_ztadevweb01_vmwin_private_ip_address" {
-        value = module.ztadev_eastus2_dev_ztadevweb01_vmwin.vmwin_private_ip_address
+    output "jtodev_eastus2_dev_jtodevweb01_vmwin_private_ip_address" {
+        value = module.jtodev_eastus2_dev_jtodevweb01_vmwin.vmwin_private_ip_address
     }
-    output "ztadev_eastus2_dev_ztadevweb01_vmwin_virtual_machine_id" {
-        value = module.ztadev_eastus2_dev_ztadevweb01_vmwin.vmwin_virtual_machine_id
+    output "jtodev_eastus2_dev_jtodevweb01_vmwin_virtual_machine_id" {
+        value = module.jtodev_eastus2_dev_jtodevweb01_vmwin.vmwin_virtual_machine_id
     }
-    output "ztadev_eastus2_dev_ztadevweb01_vmwin_public_ip_address" {
-        value = module.ztadev_eastus2_dev_ztadevweb01_vmwin.vmwin_public_ip_address
+    output "jtodev_eastus2_dev_jtodevweb01_vmwin_public_ip_address" {
+        value = module.jtodev_eastus2_dev_jtodevweb01_vmwin.vmwin_public_ip_address
     }
 
-    # ztadevweb01_netinf_outputs
-	output "ztadev_eastus2_dev_ztadevweb01_netinf_id" {
-		value = module.ztadev_eastus2_dev_ztadevweb01_netinf.netinf_id
+    # jtodevweb01_netinf_outputs
+	output "jtodev_eastus2_dev_jtodevweb01_netinf_id" {
+		value = module.jtodev_eastus2_dev_jtodevweb01_netinf.netinf_id
 	}
-	output "ztadev_eastus2_dev_ztadevweb01_netinf_name" {
-		value = module.ztadev_eastus2_dev_ztadevweb01_netinf.netinf_name
+	output "jtodev_eastus2_dev_jtodevweb01_netinf_name" {
+		value = module.jtodev_eastus2_dev_jtodevweb01_netinf.netinf_name
 	}
-	output "ztadev_eastus2_dev_ztadevweb01_netinf_private_ip_address" {
-		value = module.ztadev_eastus2_dev_ztadevweb01_netinf.netinf_private_ip_address
+	output "jtodev_eastus2_dev_jtodevweb01_netinf_private_ip_address" {
+		value = module.jtodev_eastus2_dev_jtodevweb01_netinf.netinf_private_ip_address
 	}
-	output "ztadev_eastus2_dev_ztadevweb01_netinf_virtual_machine_id" {
-		value = module.ztadev_eastus2_dev_ztadevweb01_netinf.netinf_virtual_machine_id
+	output "jtodev_eastus2_dev_jtodevweb01_netinf_virtual_machine_id" {
+		value = module.jtodev_eastus2_dev_jtodevweb01_netinf.netinf_virtual_machine_id
 	}
 
 #########################################################################################
 
-# ztadevsp01
-module "ztadev_eastus2_dev_ztadevsp01_vmwin" {
+# jtodevsp01
+module "jtodev_eastus2_dev_jtodevsp01_vmwin" {
 	source = "github.com/cantrellcloud/tfaz-vmwin"
 	#to_provision = local.provision_vmwin05
-	rg_location = module.ztadev_eastus2_dev_rg.rg_location
-	rg_name = module.ztadev_eastus2_dev_rg.rg_name
+	rg_location = module.jtodev_eastus2_dev_rg.rg_location
+	rg_name = module.jtodev_eastus2_dev_rg.rg_name
 	rg_tags = {
 		"ManagementGroup" = "MPG A&E EastUS2",
-		"Environment" = "Dev",
+		"Environment" = "JTODev",
 		"AutomatedBy" = "Terraform",
 		"Note1" = "Do not manually change",
 		"POCName" = "ronc@mindpointgroup.com",
@@ -609,15 +609,15 @@ module "ztadev_eastus2_dev_ztadevsp01_vmwin" {
 		"Project" = "Zero Trust Demo"
 	}
 
-	vmwin_name = "ztadev-sp01"
+	vmwin_name = "jtodev-sp01"
     size                  = "Standard_D4s_v3"
     admin_username        = "adminlocal"
     admin_password        = "Password#1Password#1"
 
-    computer_name         = "ztadev-sp01"
+    computer_name         = "jtodev-sp01"
     license_type          = "Windows_Server"
     network_interface_ids = [
-        module.ztadev_eastus2_dev_ztadevsp01_netinf.netinf_id,
+        module.jtodev_eastus2_dev_jtodevsp01_netinf.netinf_id,
     ]
 
     os_disk_caching              = "ReadWrite"
@@ -629,15 +629,15 @@ module "ztadev_eastus2_dev_ztadevsp01_vmwin" {
     #version   = "latest"
 }
 
-    # ztadevsp01_netinf
-    module "ztadev_eastus2_dev_ztadevsp01_netinf" {
+    # jtodevsp01_netinf
+    module "jtodev_eastus2_dev_jtodevsp01_netinf" {
         source = "github.com/cantrellcloud/tfaz-netinf"
-        #to_provision = local.provision_ztadevsp01_netinf
-        rg_location = module.ztadev_eastus2_dev_rg.rg_location
-        rg_name = module.ztadev_eastus2_dev_rg.rg_name
+        #to_provision = local.provision_jtodevsp01_netinf
+        rg_location = module.jtodev_eastus2_dev_rg.rg_location
+        rg_name = module.jtodev_eastus2_dev_rg.rg_name
     	rg_tags = {
 	    	"ManagementGroup" = "MPG A&E EastUS2",
-		    "Environment" = "Dev",
+		    "Environment" = "JTODev",
     		"AutomatedBy" = "Terraform",
 	    	"Note1" = "Do not manually change",
 		    "POCName" = "ronc@mindpointgroup.com",
@@ -645,61 +645,61 @@ module "ztadev_eastus2_dev_ztadevsp01_vmwin" {
 		    "Project" = "Zero Trust Demo"
 	    }
 
-        netinf_name = "ztadevsp01_netinf"
+        netinf_name = "jtodevsp01_netinf"
 
         ip_configuration_name                          = "ipconfig01"
         ip_configuration_private_ip_address_version    = "IPv4"
-        ip_configuration_subnet_id                     = module.ztadev_eastus2_dev_prod_subnet.subnet_id
+        ip_configuration_subnet_id                     = module.jtodev_eastus2_dev_prod_subnet.subnet_id
         ip_configuration_private_ip_address_allocation = "Static"
         ip_configuration_private_ip_address            = "172.16.200.23"
-        ip_configuration_public_ip_address_id          = null # module.ztadev_eastus2_dev_ztadevsp01_publicip.publicip_id
+        ip_configuration_public_ip_address_id          = null # module.jtodev_eastus2_dev_jtodevsp01_publicip.publicip_id
 }
 
-    # ztadevsp01_outputs
-    output "ztadev_eastus2_dev_ztadevsp01_vmwin_id" {
-        value = module.ztadev_eastus2_dev_ztadevsp01_vmwin.vmwin_id
+    # jtodevsp01_outputs
+    output "jtodev_eastus2_dev_jtodevsp01_vmwin_id" {
+        value = module.jtodev_eastus2_dev_jtodevsp01_vmwin.vmwin_id
     }
-    output "ztadev_eastus2_dev_ztadevsp01_vmwin_name" {
-        value = module.ztadev_eastus2_dev_ztadevsp01_vmwin.vmwin_name
+    output "jtodev_eastus2_dev_jtodevsp01_vmwin_name" {
+        value = module.jtodev_eastus2_dev_jtodevsp01_vmwin.vmwin_name
     }
-    output "ztadev_eastus2_dev_ztadevsp01_vmwin_computer_name" {
-        value = module.ztadev_eastus2_dev_ztadevsp01_vmwin.vmwin_computer_name
+    output "jtodev_eastus2_dev_jtodevsp01_vmwin_computer_name" {
+        value = module.jtodev_eastus2_dev_jtodevsp01_vmwin.vmwin_computer_name
     }
-    output "ztadev_eastus2_dev_ztadevsp01_vmwin_private_ip_address" {
-        value = module.ztadev_eastus2_dev_ztadevsp01_vmwin.vmwin_private_ip_address
+    output "jtodev_eastus2_dev_jtodevsp01_vmwin_private_ip_address" {
+        value = module.jtodev_eastus2_dev_jtodevsp01_vmwin.vmwin_private_ip_address
     }
-    output "ztadev_eastus2_dev_ztadevsp01_vmwin_virtual_machine_id" {
-        value = module.ztadev_eastus2_dev_ztadevsp01_vmwin.vmwin_virtual_machine_id
+    output "jtodev_eastus2_dev_jtodevsp01_vmwin_virtual_machine_id" {
+        value = module.jtodev_eastus2_dev_jtodevsp01_vmwin.vmwin_virtual_machine_id
     }
-    output "ztadev_eastus2_dev_ztadevsp01_vmwin_public_ip_address" {
-        value = module.ztadev_eastus2_dev_ztadevsp01_vmwin.vmwin_public_ip_address
+    output "jtodev_eastus2_dev_jtodevsp01_vmwin_public_ip_address" {
+        value = module.jtodev_eastus2_dev_jtodevsp01_vmwin.vmwin_public_ip_address
     }
 
-	# ztadevsp01_netinf_outputs
-	output "ztadev_eastus2_dev_ztadevsp01_netinf_id" {
-		value = module.ztadev_eastus2_dev_ztadevsp01_netinf.netinf_id
+	# jtodevsp01_netinf_outputs
+	output "jtodev_eastus2_dev_jtodevsp01_netinf_id" {
+		value = module.jtodev_eastus2_dev_jtodevsp01_netinf.netinf_id
 	}
-	output "ztadev_eastus2_dev_ztadevsp01_netinf_name" {
-		value = module.ztadev_eastus2_dev_ztadevsp01_netinf.netinf_name
+	output "jtodev_eastus2_dev_jtodevsp01_netinf_name" {
+		value = module.jtodev_eastus2_dev_jtodevsp01_netinf.netinf_name
 	}
-	output "ztadev_eastus2_dev_ztadevsp01_netinf_private_ip_address" {
-		value = module.ztadev_eastus2_dev_ztadevsp01_netinf.netinf_private_ip_address
+	output "jtodev_eastus2_dev_jtodevsp01_netinf_private_ip_address" {
+		value = module.jtodev_eastus2_dev_jtodevsp01_netinf.netinf_private_ip_address
 	}
-	output "ztadev_eastus2_dev_ztadevsp01_netinf_virtual_machine_id" {
-		value = module.ztadev_eastus2_dev_ztadevsp01_netinf.netinf_virtual_machine_id
+	output "jtodev_eastus2_dev_jtodevsp01_netinf_virtual_machine_id" {
+		value = module.jtodev_eastus2_dev_jtodevsp01_netinf.netinf_virtual_machine_id
 	}
 
 #########################################################################################
 
-# ztadevex01
-module "ztadev_eastus2_dev_ztadevex01_vmwin" {
+# jtodevex01
+module "jtodev_eastus2_dev_jtodevex01_vmwin" {
 	source = "github.com/cantrellcloud/tfaz-vmwin"
 	#to_provision = local.provision_vmwin06
-	rg_location = module.ztadev_eastus2_dev_rg.rg_location
-	rg_name = module.ztadev_eastus2_dev_rg.rg_name
+	rg_location = module.jtodev_eastus2_dev_rg.rg_location
+	rg_name = module.jtodev_eastus2_dev_rg.rg_name
 	rg_tags = {
 		"ManagementGroup" = "MPG A&E EastUS2",
-		"Environment" = "Dev",
+		"Environment" = "JTODev",
 		"AutomatedBy" = "Terraform",
 		"Note1" = "Do not manually change",
 		"POCName" = "ronc@mindpointgroup.com",
@@ -707,15 +707,15 @@ module "ztadev_eastus2_dev_ztadevex01_vmwin" {
 		"Project" = "Zero Trust Demo"
 	}
 
-	vmwin_name = "ztadev-ex01"
+	vmwin_name = "jtodev-ex01"
     size                  = "Standard_D4s_v3"
     admin_username        = "adminlocal"
     admin_password        = "Password#1Password#1"
 
-    computer_name         = "ztadev-ex01"
+    computer_name         = "jtodev-ex01"
     license_type          = "Windows_Server"
     network_interface_ids = [
-        module.ztadev_eastus2_dev_ztadevex01_netinf.netinf_id,
+        module.jtodev_eastus2_dev_jtodevex01_netinf.netinf_id,
     ]
 
     os_disk_caching              = "ReadWrite"
@@ -727,15 +727,15 @@ module "ztadev_eastus2_dev_ztadevex01_vmwin" {
     #version   = "latest"
 }
 
-    # ztadevex01_netinf
-    module "ztadev_eastus2_dev_ztadevex01_netinf" {
+    # jtodevex01_netinf
+    module "jtodev_eastus2_dev_jtodevex01_netinf" {
         source = "github.com/cantrellcloud/tfaz-netinf"
-        #to_provision = local.provision_ztadevex01_netinf
-        rg_location = module.ztadev_eastus2_dev_rg.rg_location
-        rg_name = module.ztadev_eastus2_dev_rg.rg_name
+        #to_provision = local.provision_jtodevex01_netinf
+        rg_location = module.jtodev_eastus2_dev_rg.rg_location
+        rg_name = module.jtodev_eastus2_dev_rg.rg_name
     	rg_tags = {
 	    	"ManagementGroup" = "MPG A&E EastUS2",
-		    "Environment" = "Dev",
+		    "Environment" = "JTODev",
     		"AutomatedBy" = "Terraform",
 	    	"Note1" = "Do not manually change",
 		    "POCName" = "ronc@mindpointgroup.com",
@@ -743,23 +743,23 @@ module "ztadev_eastus2_dev_ztadevex01_vmwin" {
 		    "Project" = "Zero Trust Demo"
 	    }
 
-        netinf_name = "ztadevex01_netinf"
+        netinf_name = "jtodevex01_netinf"
 
         ip_configuration_name                          = "ipconfig01"
         ip_configuration_private_ip_address_version    = "IPv4"
-        ip_configuration_subnet_id                     = module.ztadev_eastus2_dev_prod_subnet.subnet_id
+        ip_configuration_subnet_id                     = module.jtodev_eastus2_dev_prod_subnet.subnet_id
         ip_configuration_private_ip_address_allocation = "Static"
         ip_configuration_private_ip_address            = "172.16.200.24"
-        ip_configuration_public_ip_address_id          = null # module.ztadev_eastus2_dev_ztadevex01_publicip.publicip_id
+        ip_configuration_public_ip_address_id          = null # module.jtodev_eastus2_dev_jtodevex01_publicip.publicip_id
 }
 
-    # ztadevex01_manageddisk
-    module "ztadev_eastus2_dev_ztadevex01_mbdatabase_manageddisk" {
+    # jtodevex01_manageddisk
+    module "jtodev_eastus2_dev_jtodevex01_mbdatabase_manageddisk" {
         source = "github.com/cantrellcloud/tfaz-manageddisk"
-        #to_provision = local.provision_ztadevex01_manageddisk
-        rg_location = module.ztadev_eastus2_dev_rg.rg_location
-        rg_name = module.ztadev_eastus2_dev_rg.rg_name
-        manageddisk_name = "ztadevex01_mbdatabase_manageddisk"
+        #to_provision = local.provision_jtodevex01_manageddisk
+        rg_location = module.jtodev_eastus2_dev_rg.rg_location
+        rg_name = module.jtodev_eastus2_dev_rg.rg_name
+        manageddisk_name = "jtodevex01_mbdatabase_manageddisk"
 
         storage_account_type   = "Standard_LRS"
         create_option          = "Empty"
@@ -776,76 +776,76 @@ module "ztadev_eastus2_dev_ztadevex01_vmwin" {
         #zones                  = 
     }
 
-    #ztadevex01_datadiskattach
-    module "ztadev_eastus2_dev_ztadevex01_mbdatabase_datadiskattach" {
+    #jtodevex01_datadiskattach
+    module "jtodev_eastus2_dev_jtodevex01_mbdatabase_datadiskattach" {
         source = "github.com/cantrellcloud/tfaz-datadiskattach"
-        #to_provision = local.provision_ztadevex01_mbdatabase_datadiskattach
-        managed_disk_id = module.ztadev_eastus2_dev_ztadevex01_mbdatabase_manageddisk.manageddisk_id
-        virtual_machine_id = module.ztadev_eastus2_dev_ztadevex01_vmwin.vmwin_id
+        #to_provision = local.provision_jtodevex01_mbdatabase_datadiskattach
+        managed_disk_id = module.jtodev_eastus2_dev_jtodevex01_mbdatabase_manageddisk.manageddisk_id
+        virtual_machine_id = module.jtodev_eastus2_dev_jtodevex01_vmwin.vmwin_id
         lun = 10
         caching = "ReadWrite"
         create_option   = "Attach"
         write_accelerator_enabled = "false"
     }
 
-    # ztadevex01_outputs
-    output "ztadev_eastus2_dev_ztadevex01_vmwin_id" {
-        value = module.ztadev_eastus2_dev_ztadevex01_vmwin.vmwin_id
+    # jtodevex01_outputs
+    output "jtodev_eastus2_dev_jtodevex01_vmwin_id" {
+        value = module.jtodev_eastus2_dev_jtodevex01_vmwin.vmwin_id
     }
-    output "ztadev_eastus2_dev_ztadevex01_vmwin_name" {
-        value = module.ztadev_eastus2_dev_ztadevex01_vmwin.vmwin_name
+    output "jtodev_eastus2_dev_jtodevex01_vmwin_name" {
+        value = module.jtodev_eastus2_dev_jtodevex01_vmwin.vmwin_name
     }
-    output "ztadev_eastus2_dev_ztadevex01_vmwin_computer_name" {
-        value = module.ztadev_eastus2_dev_ztadevex01_vmwin.vmwin_computer_name
+    output "jtodev_eastus2_dev_jtodevex01_vmwin_computer_name" {
+        value = module.jtodev_eastus2_dev_jtodevex01_vmwin.vmwin_computer_name
     }
-    output "ztadev_eastus2_dev_ztadevex01_vmwin_private_ip_address" {
-        value = module.ztadev_eastus2_dev_ztadevex01_vmwin.vmwin_private_ip_address
+    output "jtodev_eastus2_dev_jtodevex01_vmwin_private_ip_address" {
+        value = module.jtodev_eastus2_dev_jtodevex01_vmwin.vmwin_private_ip_address
     }
-    output "ztadev_eastus2_dev_ztadevex01_vmwin_virtual_machine_id" {
-        value = module.ztadev_eastus2_dev_ztadevex01_vmwin.vmwin_virtual_machine_id
+    output "jtodev_eastus2_dev_jtodevex01_vmwin_virtual_machine_id" {
+        value = module.jtodev_eastus2_dev_jtodevex01_vmwin.vmwin_virtual_machine_id
     }
-    output "ztadev_eastus2_dev_ztadevex01_vmwin_public_ip_address" {
-        value = module.ztadev_eastus2_dev_ztadevex01_vmwin.vmwin_public_ip_address
+    output "jtodev_eastus2_dev_jtodevex01_vmwin_public_ip_address" {
+        value = module.jtodev_eastus2_dev_jtodevex01_vmwin.vmwin_public_ip_address
     }
 
-	# ztadevex01_netinf_outputs
-	output "ztadev_eastus2_dev_ztadevex01_netinf_id" {
-		value = module.ztadev_eastus2_dev_ztadevex01_netinf.netinf_id
+	# jtodevex01_netinf_outputs
+	output "jtodev_eastus2_dev_jtodevex01_netinf_id" {
+		value = module.jtodev_eastus2_dev_jtodevex01_netinf.netinf_id
 	}
-	output "ztadev_eastus2_dev_ztadevex01_netinf_name" {
-		value = module.ztadev_eastus2_dev_ztadevex01_netinf.netinf_name
+	output "jtodev_eastus2_dev_jtodevex01_netinf_name" {
+		value = module.jtodev_eastus2_dev_jtodevex01_netinf.netinf_name
 	}
-	output "ztadev_eastus2_dev_ztadevex01_netinf_private_ip_address" {
-		value = module.ztadev_eastus2_dev_ztadevex01_netinf.netinf_private_ip_address
+	output "jtodev_eastus2_dev_jtodevex01_netinf_private_ip_address" {
+		value = module.jtodev_eastus2_dev_jtodevex01_netinf.netinf_private_ip_address
 	}
-	output "ztadev_eastus2_dev_ztadevex01_netinf_virtual_machine_id" {
-		value = module.ztadev_eastus2_dev_ztadevex01_netinf.netinf_virtual_machine_id
-	}
-
-	# ztadevex01_manageddisk_outputs
-	output "ztadev_eastus2_dev_ztadevex01_mbdatabase_manageddisk_id" {
-		value = module.ztadev_eastus2_dev_ztadevex01_mbdatabase_manageddisk.manageddisk_id
-	}
-	output "ztadev_eastus2_dev_ztadevex01_mbdatabase_manageddisk_name" {
-		value = module.ztadev_eastus2_dev_ztadevex01_mbdatabase_manageddisk.manageddisk_name
+	output "jtodev_eastus2_dev_jtodevex01_netinf_virtual_machine_id" {
+		value = module.jtodev_eastus2_dev_jtodevex01_netinf.netinf_virtual_machine_id
 	}
 
-	# ztadevex01_datadiskattach_outputs
-    output "ztadev_eastus2_dev_ztadevex01_mbdatabase_datadiskattach_id" {
-		value = module.ztadev_eastus2_dev_ztadevex01_mbdatabase_datadiskattach.datadiskattach_id
+	# jtodevex01_manageddisk_outputs
+	output "jtodev_eastus2_dev_jtodevex01_mbdatabase_manageddisk_id" {
+		value = module.jtodev_eastus2_dev_jtodevex01_mbdatabase_manageddisk.manageddisk_id
+	}
+	output "jtodev_eastus2_dev_jtodevex01_mbdatabase_manageddisk_name" {
+		value = module.jtodev_eastus2_dev_jtodevex01_mbdatabase_manageddisk.manageddisk_name
+	}
+
+	# jtodevex01_datadiskattach_outputs
+    output "jtodev_eastus2_dev_jtodevex01_mbdatabase_datadiskattach_id" {
+		value = module.jtodev_eastus2_dev_jtodevex01_mbdatabase_datadiskattach.datadiskattach_id
 	}
 
 #########################################################################################
 
-# ztadevwks08
-module "ztadev_eastus_dev_ztadevwks08_vmwin" {
+# jtodevwks08
+module "jtodev_eastus_dev_jtodevwks08_vmwin" {
 	source = "github.com/cantrellcloud/tfaz-vmwin"
 	#to_provision = local.provision_vmwin08
-	rg_location = module.ztadev_eastus_dev_rg.rg_location
-	rg_name = module.ztadev_eastus_dev_rg.rg_name
+	rg_location = module.jtodev_eastus_dev_rg.rg_location
+	rg_name = module.jtodev_eastus_dev_rg.rg_name
 	rg_tags = {
 		"ManagementGroup" = "MPG A&E eastus",
-		"Environment" = "Dev",
+		"Environment" = "JTODev",
 		"AutomatedBy" = "Terraform",
 		"Note1" = "Do not manually change",
 		"POCName" = "ronc@mindpointgroup.com",
@@ -853,15 +853,15 @@ module "ztadev_eastus_dev_ztadevwks08_vmwin" {
 		"Project" = "Zero Trust Demo"
 	}
 
-	vmwin_name = "ztadev-wks08"
+	vmwin_name = "jtodev-wks08"
     size                  = "Standard_D2s_v3"
     admin_username        = "adminlocal"
     admin_password        = "Password#1Password#1"
 
-    computer_name         = "ztadev-wks08"
+    computer_name         = "jtodev-wks08"
     license_type          = "Windows_Client"
     network_interface_ids = [
-        module.ztadev_eastus_dev_ztadevwks08_netinf.netinf_id,
+        module.jtodev_eastus_dev_jtodevwks08_netinf.netinf_id,
     ]
 
     os_disk_caching              = "ReadWrite"
@@ -873,27 +873,27 @@ module "ztadev_eastus_dev_ztadevwks08_vmwin" {
     #version   = "latest"
 }
 
-    # ztadevwks08_publicip
-/*    module "ztadev_eastus_dev_ztadevwks08_publicip" {
+    # jtodevwks08_publicip
+/*    module "jtodev_eastus_dev_jtodevwks08_publicip" {
         source            = "github.com/cantrellcloud/tfaz-publicip"
-        #to_provision     = local.provision_ztadevwks08_publicip
-        rg_location       = module.ztadev_eastus_dev_rg.rg_location
-        rg_name           = module.ztadev_eastus_dev_rg.rg_name
-        publicip_name     = "ztadev_eastus_dev_ztadevwks08_publicip"
+        #to_provision     = local.provision_jtodevwks08_publicip
+        rg_location       = module.jtodev_eastus_dev_rg.rg_location
+        rg_name           = module.jtodev_eastus_dev_rg.rg_name
+        publicip_name     = "jtodev_eastus_dev_jtodevwks08_publicip"
         allocation_method = "Static"
         sku               = "Standard"
-        domain_name_label = "ztadev-wks08"
+        domain_name_label = "jtodev-wks08"
     }
 */
-    # ztadevwks08_netinf
-    module "ztadev_eastus_dev_ztadevwks08_netinf" {
+    # jtodevwks08_netinf
+    module "jtodev_eastus_dev_jtodevwks08_netinf" {
         source = "github.com/cantrellcloud/tfaz-netinf"
-        #to_provision = local.provision_ztadevwks08_netinf
-        rg_location = module.ztadev_eastus_dev_rg.rg_location
-        rg_name = module.ztadev_eastus_dev_rg.rg_name
+        #to_provision = local.provision_jtodevwks08_netinf
+        rg_location = module.jtodev_eastus_dev_rg.rg_location
+        rg_name = module.jtodev_eastus_dev_rg.rg_name
     	rg_tags = {
 	    	"ManagementGroup" = "MPG A&E EastUS2",
-		    "Environment" = "Dev",
+		    "Environment" = "JTODev",
     		"AutomatedBy" = "Terraform",
 	    	"Note1" = "Do not manually change",
 		    "POCName" = "ronc@mindpointgroup.com",
@@ -901,72 +901,72 @@ module "ztadev_eastus_dev_ztadevwks08_vmwin" {
 		    "Project" = "Zero Trust Demo"
 	    }
 
-        netinf_name = "ztadevwks08_netinf"
+        netinf_name = "jtodevwks08_netinf"
 
         ip_configuration_name                          = "ipconfig01"
         ip_configuration_private_ip_address_version    = "IPv4"
-        ip_configuration_subnet_id                     = module.ztadev_eastus_dev_prod_subnet.subnet_id
+        ip_configuration_subnet_id                     = module.jtodev_eastus_dev_prod_subnet.subnet_id
         ip_configuration_private_ip_address_allocation = "Static"
         ip_configuration_private_ip_address            = "172.16.202.5"
-        ip_configuration_public_ip_address_id          = null # module.ztadev_eastus_dev_ztadevwks08_publicip.publicip_id
+        ip_configuration_public_ip_address_id          = null # module.jtodev_eastus_dev_jtodevwks08_publicip.publicip_id
 }
 
-    # ztadevwks08_outputs
-    output "ztadev_eastus_dev_ztadevwks08_vmwin_id" {
-        value = module.ztadev_eastus_dev_ztadevwks08_vmwin.vmwin_id
+    # jtodevwks08_outputs
+    output "jtodev_eastus_dev_jtodevwks08_vmwin_id" {
+        value = module.jtodev_eastus_dev_jtodevwks08_vmwin.vmwin_id
     }
-    output "ztadev_eastus_dev_ztadevwks08_vmwin_name" {
-        value = module.ztadev_eastus_dev_ztadevwks08_vmwin.vmwin_name
+    output "jtodev_eastus_dev_jtodevwks08_vmwin_name" {
+        value = module.jtodev_eastus_dev_jtodevwks08_vmwin.vmwin_name
     }
-    output "ztadev_eastus_dev_ztadevwks08_vmwin_computer_name" {
-        value = module.ztadev_eastus_dev_ztadevwks08_vmwin.vmwin_computer_name
+    output "jtodev_eastus_dev_jtodevwks08_vmwin_computer_name" {
+        value = module.jtodev_eastus_dev_jtodevwks08_vmwin.vmwin_computer_name
     }
-    output "ztadev_eastus_dev_ztadevwks08_vmwin_private_ip_address" {
-        value = module.ztadev_eastus_dev_ztadevwks08_vmwin.vmwin_private_ip_address
+    output "jtodev_eastus_dev_jtodevwks08_vmwin_private_ip_address" {
+        value = module.jtodev_eastus_dev_jtodevwks08_vmwin.vmwin_private_ip_address
     }
-    output "ztadev_eastus_dev_ztadevwks08_vmwin_virtual_machine_id" {
-        value = module.ztadev_eastus_dev_ztadevwks08_vmwin.vmwin_virtual_machine_id
+    output "jtodev_eastus_dev_jtodevwks08_vmwin_virtual_machine_id" {
+        value = module.jtodev_eastus_dev_jtodevwks08_vmwin.vmwin_virtual_machine_id
     }
-    output "ztadev_eastus_dev_ztadevwks08_vmwin_public_ip_address" {
-        value = module.ztadev_eastus_dev_ztadevwks08_vmwin.vmwin_public_ip_address
+    output "jtodev_eastus_dev_jtodevwks08_vmwin_public_ip_address" {
+        value = module.jtodev_eastus_dev_jtodevwks08_vmwin.vmwin_public_ip_address
     }
 
-	#ztadevwks08_publicip_outputs
-/*    output "ztadev_eastus_dev_ztadevwks08_publicip_id" {
-        value = module.ztadev_eastus_dev_ztadevwks08_publicip.publicip_id
+	#jtodevwks08_publicip_outputs
+/*    output "jtodev_eastus_dev_jtodevwks08_publicip_id" {
+        value = module.jtodev_eastus_dev_jtodevwks08_publicip.publicip_id
     }
-    output "ztadev_eastus_dev_ztadevwks08_publicip_name" {
-        value = module.ztadev_eastus_dev_ztadevwks08_publicip.publicip_name
+    output "jtodev_eastus_dev_jtodevwks08_publicip_name" {
+        value = module.jtodev_eastus_dev_jtodevwks08_publicip.publicip_name
     }
-    output "ztadev_eastus_dev_ztadevwks08_publicip_domain_name_label" {
-        value = module.ztadev_eastus_dev_ztadevwks08_publicip.publicip_domain_name_label
+    output "jtodev_eastus_dev_jtodevwks08_publicip_domain_name_label" {
+        value = module.jtodev_eastus_dev_jtodevwks08_publicip.publicip_domain_name_label
     }
 */
-    # ztadevwks08_netinf_outputs
-	output "ztadev_eastus_dev_ztadevwks08_netinf_id" {
-		value = module.ztadev_eastus_dev_ztadevwks08_netinf.netinf_id
+    # jtodevwks08_netinf_outputs
+	output "jtodev_eastus_dev_jtodevwks08_netinf_id" {
+		value = module.jtodev_eastus_dev_jtodevwks08_netinf.netinf_id
 	}
-	output "ztadev_eastus_dev_ztadevwks08_netinf_name" {
-		value = module.ztadev_eastus_dev_ztadevwks08_netinf.netinf_name
+	output "jtodev_eastus_dev_jtodevwks08_netinf_name" {
+		value = module.jtodev_eastus_dev_jtodevwks08_netinf.netinf_name
 	}
-	output "ztadev_eastus_dev_ztadevwks08_netinf_private_ip_address" {
-		value = module.ztadev_eastus_dev_ztadevwks08_netinf.netinf_private_ip_address
+	output "jtodev_eastus_dev_jtodevwks08_netinf_private_ip_address" {
+		value = module.jtodev_eastus_dev_jtodevwks08_netinf.netinf_private_ip_address
 	}
-	output "ztadev_eastus_dev_ztadevwks08_netinf_virtual_machine_id" {
-		value = module.ztadev_eastus_dev_ztadevwks08_netinf.netinf_virtual_machine_id
+	output "jtodev_eastus_dev_jtodevwks08_netinf_virtual_machine_id" {
+		value = module.jtodev_eastus_dev_jtodevwks08_netinf.netinf_virtual_machine_id
 	}
 
 #########################################################################################
 
-# ztadevwks09
-module "ztadev_westus_dev_ztadevwks09_vmwin" {
+# jtodevwks09
+module "jtodev_westus_dev_jtodevwks09_vmwin" {
 	source = "github.com/cantrellcloud/tfaz-vmwin"
 	#to_provision = local.provision_vmwin09
-	rg_location = module.ztadev_westus_dev_rg.rg_location
-	rg_name = module.ztadev_westus_dev_rg.rg_name
+	rg_location = module.jtodev_westus_dev_rg.rg_location
+	rg_name = module.jtodev_westus_dev_rg.rg_name
 	rg_tags = {
 		"ManagementGroup" = "MPG A&E WestUS",
-		"Environment" = "Dev",
+		"Environment" = "JTODev",
 		"AutomatedBy" = "Terraform",
 		"Note1" = "Do not manually change",
 		"POCName" = "ronc@mindpointgroup.com",
@@ -974,15 +974,15 @@ module "ztadev_westus_dev_ztadevwks09_vmwin" {
 		"Project" = "Zero Trust Demo"
 	}
 
-	vmwin_name = "ztadev-wks09"
+	vmwin_name = "jtodev-wks09"
     size                  = "Standard_D2s_v3"
     admin_username        = "adminlocal"
     admin_password        = "Password#1Password#1"
 
-    computer_name         = "ztadev-wks09"
+    computer_name         = "jtodev-wks09"
     license_type          = "Windows_Client"
     network_interface_ids = [
-        module.ztadev_westus_dev_ztadevwks09_netinf.netinf_id,
+        module.jtodev_westus_dev_jtodevwks09_netinf.netinf_id,
     ]
 
     os_disk_caching              = "ReadWrite"
@@ -995,28 +995,28 @@ module "ztadev_westus_dev_ztadevwks09_vmwin" {
 }
 
 /*
-    # ztadevwks09_publicip
-    module "ztadev_westus_dev_ztadevwks09_publicip" {
+    # jtodevwks09_publicip
+    module "jtodev_westus_dev_jtodevwks09_publicip" {
         source            = "github.com/cantrellcloud/tfaz-publicip"
-        #to_provision     = local.provision_ztadevwks09_publicip
-        rg_location       = module.ztadev_westus_dev_rg.rg_location
-        rg_name           = module.ztadev_westus_dev_rg.rg_name
-        publicip_name     = "ztadev_westus_dev_ztadevwks09_publicip"
+        #to_provision     = local.provision_jtodevwks09_publicip
+        rg_location       = module.jtodev_westus_dev_rg.rg_location
+        rg_name           = module.jtodev_westus_dev_rg.rg_name
+        publicip_name     = "jtodev_westus_dev_jtodevwks09_publicip"
         allocation_method = "Static"
         sku               = "Standard"
-        domain_name_label = "ztadev-wks09"
+        domain_name_label = "jtodev-wks09"
     }
 */
 
-    # ztadevwks09_netinf
-    module "ztadev_westus_dev_ztadevwks09_netinf" {
+    # jtodevwks09_netinf
+    module "jtodev_westus_dev_jtodevwks09_netinf" {
         source = "github.com/cantrellcloud/tfaz-netinf"
-        #to_provision = local.provision_ztadevwks09_netinf
-        rg_location = module.ztadev_westus_dev_rg.rg_location
-        rg_name = module.ztadev_westus_dev_rg.rg_name
+        #to_provision = local.provision_jtodevwks09_netinf
+        rg_location = module.jtodev_westus_dev_rg.rg_location
+        rg_name = module.jtodev_westus_dev_rg.rg_name
     	rg_tags = {
 	    	"ManagementGroup" = "MPG A&E WestUS",
-		    "Environment" = "Dev",
+		    "Environment" = "JTODev",
     		"AutomatedBy" = "Terraform",
 	    	"Note1" = "Do not manually change",
 		    "POCName" = "ronc@mindpointgroup.com",
@@ -1024,72 +1024,72 @@ module "ztadev_westus_dev_ztadevwks09_vmwin" {
 		    "Project" = "Zero Trust Demo"
 	    }
 
-        netinf_name = "ztadevwks09_netinf"
+        netinf_name = "jtodevwks09_netinf"
 
         ip_configuration_name                          = "ipconfig01"
         ip_configuration_private_ip_address_version    = "IPv4"
-        ip_configuration_subnet_id                     = module.ztadev_westus_dev_prod_subnet.subnet_id
+        ip_configuration_subnet_id                     = module.jtodev_westus_dev_prod_subnet.subnet_id
         ip_configuration_private_ip_address_allocation = "Static"
         ip_configuration_private_ip_address            = "172.16.204.5"
-        ip_configuration_public_ip_address_id          = null # module.ztadev_westus_dev_ztadevwks09_publicip.publicip_id
+        ip_configuration_public_ip_address_id          = null # module.jtodev_westus_dev_jtodevwks09_publicip.publicip_id
 }
 
-    # ztadevwks09_outputs
-    output "ztadev_westus_dev_ztadevwks09_vmwin_id" {
-        value = module.ztadev_westus_dev_ztadevwks09_vmwin.vmwin_id
+    # jtodevwks09_outputs
+    output "jtodev_westus_dev_jtodevwks09_vmwin_id" {
+        value = module.jtodev_westus_dev_jtodevwks09_vmwin.vmwin_id
     }
-    output "ztadev_westus_dev_ztadevwks09_vmwin_name" {
-        value = module.ztadev_westus_dev_ztadevwks09_vmwin.vmwin_name
+    output "jtodev_westus_dev_jtodevwks09_vmwin_name" {
+        value = module.jtodev_westus_dev_jtodevwks09_vmwin.vmwin_name
     }
-    output "ztadev_westus_dev_ztadevwks09_vmwin_computer_name" {
-        value = module.ztadev_westus_dev_ztadevwks09_vmwin.vmwin_computer_name
+    output "jtodev_westus_dev_jtodevwks09_vmwin_computer_name" {
+        value = module.jtodev_westus_dev_jtodevwks09_vmwin.vmwin_computer_name
     }
-    output "ztadev_westus_dev_ztadevwks09_vmwin_private_ip_address" {
-        value = module.ztadev_westus_dev_ztadevwks09_vmwin.vmwin_private_ip_address
+    output "jtodev_westus_dev_jtodevwks09_vmwin_private_ip_address" {
+        value = module.jtodev_westus_dev_jtodevwks09_vmwin.vmwin_private_ip_address
     }
-    output "ztadev_westus_dev_ztadevwks09_vmwin_virtual_machine_id" {
-        value = module.ztadev_westus_dev_ztadevwks09_vmwin.vmwin_virtual_machine_id
+    output "jtodev_westus_dev_jtodevwks09_vmwin_virtual_machine_id" {
+        value = module.jtodev_westus_dev_jtodevwks09_vmwin.vmwin_virtual_machine_id
     }
-    output "ztadev_westus_dev_ztadevwks09_vmwin_public_ip_address" {
-        value = module.ztadev_westus_dev_ztadevwks09_vmwin.vmwin_public_ip_address
+    output "jtodev_westus_dev_jtodevwks09_vmwin_public_ip_address" {
+        value = module.jtodev_westus_dev_jtodevwks09_vmwin.vmwin_public_ip_address
     }
 
-	#ztadevwks09_publicip_outputs
-/*    output "ztadev_westus_dev_ztadevwks09_publicip_id" {
-        value = module.ztadev_westus_dev_ztadevwks09_publicip.publicip_id
+	#jtodevwks09_publicip_outputs
+/*    output "jtodev_westus_dev_jtodevwks09_publicip_id" {
+        value = module.jtodev_westus_dev_jtodevwks09_publicip.publicip_id
     }
-    output "ztadev_westus_dev_ztadevwks09_publicip_name" {
-        value = module.ztadev_westus_dev_ztadevwks09_publicip.publicip_name
+    output "jtodev_westus_dev_jtodevwks09_publicip_name" {
+        value = module.jtodev_westus_dev_jtodevwks09_publicip.publicip_name
     }
-    output "ztadev_westus_dev_ztadevwks09_publicip_domain_name_label" {
-        value = module.ztadev_westus_dev_ztadevwks09_publicip.publicip_domain_name_label
+    output "jtodev_westus_dev_jtodevwks09_publicip_domain_name_label" {
+        value = module.jtodev_westus_dev_jtodevwks09_publicip.publicip_domain_name_label
     }
 */
-    # ztadevwks09_netinf_outputs
-	output "ztadev_westus_dev_ztadevwks09_netinf_id" {
-		value = module.ztadev_westus_dev_ztadevwks09_netinf.netinf_id
+    # jtodevwks09_netinf_outputs
+	output "jtodev_westus_dev_jtodevwks09_netinf_id" {
+		value = module.jtodev_westus_dev_jtodevwks09_netinf.netinf_id
 	}
-	output "ztadev_westus_dev_ztadevwks09_netinf_name" {
-		value = module.ztadev_westus_dev_ztadevwks09_netinf.netinf_name
+	output "jtodev_westus_dev_jtodevwks09_netinf_name" {
+		value = module.jtodev_westus_dev_jtodevwks09_netinf.netinf_name
 	}
-	output "ztadev_westus_dev_ztadevwks09_netinf_private_ip_address" {
-		value = module.ztadev_westus_dev_ztadevwks09_netinf.netinf_private_ip_address
+	output "jtodev_westus_dev_jtodevwks09_netinf_private_ip_address" {
+		value = module.jtodev_westus_dev_jtodevwks09_netinf.netinf_private_ip_address
 	}
-	output "ztadev_westus_dev_ztadevwks09_netinf_virtual_machine_id" {
-		value = module.ztadev_westus_dev_ztadevwks09_netinf.netinf_virtual_machine_id
+	output "jtodev_westus_dev_jtodevwks09_netinf_virtual_machine_id" {
+		value = module.jtodev_westus_dev_jtodevwks09_netinf.netinf_virtual_machine_id
 	}
 
 #########################################################################################
 
-# ztadevwks10
-module "ztadev_westus2_dev_ztadevwks10_vmwin" {
+# jtodevwks10
+module "jtodev_westus2_dev_jtodevwks10_vmwin" {
 	source = "github.com/cantrellcloud/tfaz-vmwin"
 	#to_provision = local.provision_vmwin10
-	rg_location = module.ztadev_westus2_dev_rg.rg_location
-	rg_name = module.ztadev_westus2_dev_rg.rg_name
+	rg_location = module.jtodev_westus2_dev_rg.rg_location
+	rg_name = module.jtodev_westus2_dev_rg.rg_name
 	rg_tags = {
 		"ManagementGroup" = "MPG A&E WestUS2",
-		"Environment" = "Dev",
+		"Environment" = "JTODev",
 		"AutomatedBy" = "Terraform",
 		"Note1" = "Do not manually change",
 		"POCName" = "ronc@mindpointgroup.com",
@@ -1097,15 +1097,15 @@ module "ztadev_westus2_dev_ztadevwks10_vmwin" {
 		"Project" = "Zero Trust Demo"
 	}
 
-	vmwin_name = "ztadev-wks10"
+	vmwin_name = "jtodev-wks10"
     size                  = "Standard_D2s_v3"
     admin_username        = "adminlocal"
     admin_password        = "Password#1Password#1"
 
-    computer_name         = "ztadev-wks10"
+    computer_name         = "jtodev-wks10"
     license_type          = "Windows_Client"
     network_interface_ids = [
-        module.ztadev_westus2_dev_ztadevwks10_netinf.netinf_id,
+        module.jtodev_westus2_dev_jtodevwks10_netinf.netinf_id,
     ]
 
     os_disk_caching              = "ReadWrite"
@@ -1118,27 +1118,27 @@ module "ztadev_westus2_dev_ztadevwks10_vmwin" {
 }
 
 /*
-    # ztadevwks10_publicip
-    module "ztadev_westus2_dev_ztadevwks10_publicip" {
+    # jtodevwks10_publicip
+    module "jtodev_westus2_dev_jtodevwks10_publicip" {
         source            = "github.com/cantrellcloud/tfaz-publicip"
-        #to_provision     = local.provision_ztadevwks10_publicip
-        rg_location       = module.ztadev_westus2_dev_rg.rg_location
-        rg_name           = module.ztadev_westus2_dev_rg.rg_name
-        publicip_name     = "ztadev_westus2_dev_ztadevwks10_publicip"
+        #to_provision     = local.provision_jtodevwks10_publicip
+        rg_location       = module.jtodev_westus2_dev_rg.rg_location
+        rg_name           = module.jtodev_westus2_dev_rg.rg_name
+        publicip_name     = "jtodev_westus2_dev_jtodevwks10_publicip"
         allocation_method = "Static"
         sku               = "Standard"
-        domain_name_label = "ztadev-wks10"
+        domain_name_label = "jtodev-wks10"
     }
 */
-    # ztadevwks10_netinf
-    module "ztadev_westus2_dev_ztadevwks10_netinf" {
+    # jtodevwks10_netinf
+    module "jtodev_westus2_dev_jtodevwks10_netinf" {
         source = "github.com/cantrellcloud/tfaz-netinf"
-        #to_provision = local.provision_ztadevwks10_netinf
-        rg_location = module.ztadev_westus2_dev_rg.rg_location
-        rg_name = module.ztadev_westus2_dev_rg.rg_name
+        #to_provision = local.provision_jtodevwks10_netinf
+        rg_location = module.jtodev_westus2_dev_rg.rg_location
+        rg_name = module.jtodev_westus2_dev_rg.rg_name
     	rg_tags = {
 	    	"ManagementGroup" = "MPG A&E EastUS2",
-		    "Environment" = "Dev",
+		    "Environment" = "JTODev",
     		"AutomatedBy" = "Terraform",
 	    	"Note1" = "Do not manually change",
 		    "POCName" = "ronc@mindpointgroup.com",
@@ -1146,60 +1146,60 @@ module "ztadev_westus2_dev_ztadevwks10_vmwin" {
 		    "Project" = "Zero Trust Demo"
 	    }
 
-        netinf_name = "ztadevwks10_netinf"
+        netinf_name = "jtodevwks10_netinf"
 
         ip_configuration_name                          = "ipconfig01"
         ip_configuration_private_ip_address_version    = "IPv4"
-        ip_configuration_subnet_id                     = module.ztadev_westus2_dev_prod_subnet.subnet_id
+        ip_configuration_subnet_id                     = module.jtodev_westus2_dev_prod_subnet.subnet_id
         ip_configuration_private_ip_address_allocation = "Static"
         ip_configuration_private_ip_address            = "172.16.206.5"
-        ip_configuration_public_ip_address_id          = null # module.ztadev_westus2_dev_ztadevwks10_publicip.publicip_id
+        ip_configuration_public_ip_address_id          = null # module.jtodev_westus2_dev_jtodevwks10_publicip.publicip_id
 }
 
-    # ztadevwks10_outputs
-    output "ztadev_westus2_dev_ztadevwks10_vmwin_id" {
-        value = module.ztadev_westus2_dev_ztadevwks10_vmwin.vmwin_id
+    # jtodevwks10_outputs
+    output "jtodev_westus2_dev_jtodevwks10_vmwin_id" {
+        value = module.jtodev_westus2_dev_jtodevwks10_vmwin.vmwin_id
     }
-    output "ztadev_westus2_dev_ztadevwks10_vmwin_name" {
-        value = module.ztadev_westus2_dev_ztadevwks10_vmwin.vmwin_name
+    output "jtodev_westus2_dev_jtodevwks10_vmwin_name" {
+        value = module.jtodev_westus2_dev_jtodevwks10_vmwin.vmwin_name
     }
-    output "ztadev_westus2_dev_ztadevwks10_vmwin_computer_name" {
-        value = module.ztadev_westus2_dev_ztadevwks10_vmwin.vmwin_computer_name
+    output "jtodev_westus2_dev_jtodevwks10_vmwin_computer_name" {
+        value = module.jtodev_westus2_dev_jtodevwks10_vmwin.vmwin_computer_name
     }
-    output "ztadev_westus2_dev_ztadevwks10_vmwin_private_ip_address" {
-        value = module.ztadev_westus2_dev_ztadevwks10_vmwin.vmwin_private_ip_address
+    output "jtodev_westus2_dev_jtodevwks10_vmwin_private_ip_address" {
+        value = module.jtodev_westus2_dev_jtodevwks10_vmwin.vmwin_private_ip_address
     }
-    output "ztadev_westus2_dev_ztadevwks10_vmwin_virtual_machine_id" {
-        value = module.ztadev_westus2_dev_ztadevwks10_vmwin.vmwin_virtual_machine_id
+    output "jtodev_westus2_dev_jtodevwks10_vmwin_virtual_machine_id" {
+        value = module.jtodev_westus2_dev_jtodevwks10_vmwin.vmwin_virtual_machine_id
     }
-    output "ztadev_westus2_dev_ztadevwks10_vmwin_public_ip_address" {
-        value = module.ztadev_westus2_dev_ztadevwks10_vmwin.vmwin_public_ip_address
+    output "jtodev_westus2_dev_jtodevwks10_vmwin_public_ip_address" {
+        value = module.jtodev_westus2_dev_jtodevwks10_vmwin.vmwin_public_ip_address
     }
 
-	#ztadevwks10_publicip_outputs
-/*    output "ztadev_westus2_dev_ztadevwks10_publicip_id" {
-        value = module.ztadev_westus2_dev_ztadevwks10_publicip.publicip_id
+	#jtodevwks10_publicip_outputs
+/*    output "jtodev_westus2_dev_jtodevwks10_publicip_id" {
+        value = module.jtodev_westus2_dev_jtodevwks10_publicip.publicip_id
     }
-    output "ztadev_westus2_dev_ztadevwks10_publicip_name" {
-        value = module.ztadev_westus2_dev_ztadevwks10_publicip.publicip_name
+    output "jtodev_westus2_dev_jtodevwks10_publicip_name" {
+        value = module.jtodev_westus2_dev_jtodevwks10_publicip.publicip_name
     }
-    output "ztadev_westus2_dev_ztadevwks10_publicip_domain_name_label" {
-        value = module.ztadev_westus2_dev_ztadevwks10_publicip.publicip_domain_name_label
+    output "jtodev_westus2_dev_jtodevwks10_publicip_domain_name_label" {
+        value = module.jtodev_westus2_dev_jtodevwks10_publicip.publicip_domain_name_label
     }
 */
 
-    # ztadevwks10_netinf_outputs
-	output "ztadev_westus2_dev_ztadevwks10_netinf_id" {
-		value = module.ztadev_westus2_dev_ztadevwks10_netinf.netinf_id
+    # jtodevwks10_netinf_outputs
+	output "jtodev_westus2_dev_jtodevwks10_netinf_id" {
+		value = module.jtodev_westus2_dev_jtodevwks10_netinf.netinf_id
 	}
-	output "ztadev_westus2_dev_ztadevwks10_netinf_name" {
-		value = module.ztadev_westus2_dev_ztadevwks10_netinf.netinf_name
+	output "jtodev_westus2_dev_jtodevwks10_netinf_name" {
+		value = module.jtodev_westus2_dev_jtodevwks10_netinf.netinf_name
 	}
-	output "ztadev_westus2_dev_ztadevwks10_netinf_private_ip_address" {
-		value = module.ztadev_westus2_dev_ztadevwks10_netinf.netinf_private_ip_address
+	output "jtodev_westus2_dev_jtodevwks10_netinf_private_ip_address" {
+		value = module.jtodev_westus2_dev_jtodevwks10_netinf.netinf_private_ip_address
 	}
-	output "ztadev_westus2_dev_ztadevwks10_netinf_virtual_machine_id" {
-		value = module.ztadev_westus2_dev_ztadevwks10_netinf.netinf_virtual_machine_id
+	output "jtodev_westus2_dev_jtodevwks10_netinf_virtual_machine_id" {
+		value = module.jtodev_westus2_dev_jtodevwks10_netinf.netinf_virtual_machine_id
 	}
 
 

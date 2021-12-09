@@ -3,10 +3,10 @@
 # VPN GATEWAY
 
 # vpngw01
-module "ztadev_eastus2_dev_vnetgw" {
+module "jtodev_eastus2_dev_vnetgw" {
 	source                = "github.com/cantrellcloud/tfaz-vnetgw"
-    rg_location           = module.ztadev_eastus2_dev_rg.rg_location
-    rg_name               = module.ztadev_eastus2_dev_rg.rg_name
+    rg_location           = module.jtodev_eastus2_dev_rg.rg_location
+    rg_name               = module.jtodev_eastus2_dev_rg.rg_name
 	rg_tags               = {
 		"ManagementGroup" = "MPG A&E EastUS2",
 		"Environment"     = "Dev",
@@ -17,7 +17,7 @@ module "ztadev_eastus2_dev_vnetgw" {
 		"Project"         = "Zero Trust Demo"
 	}
 
-	vnetgw_name                             = "ztadev_eastus2_dev_vnetgw"
+	vnetgw_name                             = "jtodev_eastus2_dev_vnetgw"
 	vnetgw_type                             = "Vpn"
 	vnetgw_vpn_type                         = "RouteBased"
 	vnetgw_active_active                    = false
@@ -26,9 +26,9 @@ module "ztadev_eastus2_dev_vnetgw" {
 
 	#ip_configuration
 		vnetgw_ip_configuration_name                          = "default"
-		vnetgw_ip_configuration_public_ip_address_id          = module.ztadev_eastus2_dev_vnetgw_publicip.publicip_id
+		vnetgw_ip_configuration_public_ip_address_id          = module.jtodev_eastus2_dev_vnetgw_publicip.publicip_id
 		vnetgw_ip_configuration_private_ip_address_allocation = "Dynamic"
-		vnetgw_ip_configuration_subnet_id                     = module.ztadev_eastus2_dev_subnetgw_subnet.subnet_id
+		vnetgw_ip_configuration_subnet_id                     = module.jtodev_eastus2_dev_subnetgw_subnet.subnet_id
 
 	#vpn_client_configuration
 		vnetgw_vpn_client_configuration_address_space = [
@@ -124,9 +124,9 @@ module "ztadev_eastus2_dev_vnetgw" {
 }
 
 # vnetgw01_outputs
-    output "ztadev_eastus2_dev_vnetgw_id" {
-        value = module.ztadev_eastus2_dev_vnetgw.vnetgw_id
+    output "jtodev_eastus2_dev_vnetgw_id" {
+        value = module.jtodev_eastus2_dev_vnetgw.vnetgw_id
     }
-    output "ztadev_eastus2_dev_vnetgw_name" {
-        value = module.ztadev_eastus2_dev_vnetgw.vnetgw_name
+    output "jtodev_eastus2_dev_vnetgw_name" {
+        value = module.jtodev_eastus2_dev_vnetgw.vnetgw_name
     }
