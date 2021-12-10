@@ -373,7 +373,7 @@ module "jtodev_eastus2_dev_appgate_prod_subnet_nsg" {
 		security_rule_description = "Allow TCP8443"
 		#security_rule_destination_address_prefix = "*"
 		security_rule_destination_address_prefixes = [
-			"172.16.201.5"
+			"172.16.201.4"
 		]
 		security_rule_destination_application_security_group_ids = []
 		security_rule_destination_port_range = "8443"
