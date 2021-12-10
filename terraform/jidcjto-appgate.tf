@@ -75,7 +75,33 @@ output "jtodev_eastus2_dev_appgate_vnet_id" {
 output "jtodev_eastus2_dev_appgate_vnet_name" {
 	value = module.jtodev_eastus2_dev_appgate_vnet.vnet_name
 }
+/*
+#peer01a
+module "jtodev_eastus2_dev2eastus2_dev_appgate_vnet_peer" {
+	source = "github.com/cantrellcloud/tfaz-peer"
+	#to_provision = local.provision_peer01
+	rg_name = module.jtodev_eastus2_dev_rg.rg_name
+	peer_name = "eastus2_dev2eastus2_dev_appgate_peer"
+	from_vnet_name = module.jtodev_eastus2_dev_vnet.vnet_name
+	to_vnet_id = module.jtodev_eastus2_dev_appgate_vnet.vnet_id
+	peer_allow_virtual_network_access = true
+	peer_allow_forwarded_traffic = true
+	peer_allow_gateway_transit = false
+}
 
+#peer01b
+module "jtodev_eastus2_dev_appgate2eastus2_dev_vnet_peer" {
+	source = "github.com/cantrellcloud/tfaz-peer"
+	#to_provision = local.provision_peer01
+	rg_name = module.jtodev_eastus2_dev_appgate_rg.rg_name
+	peer_name = "eastus2_devappgate2eastus2_dev_peer"
+	from_vnet_name =  module.jtodev_eastus2_dev_appgate_vnet.vnet_name
+	to_vnet_id = module.jtodev_eastus2_dev_vnet.vnet_id
+	peer_allow_virtual_network_access = true
+	peer_allow_forwarded_traffic = true
+	peer_allow_gateway_transit = false
+}
+*/
 #--------------------------------------------------------------------------------
 #
 # Network Subnets
@@ -347,7 +373,7 @@ module "jtodev_eastus2_dev_appgate_prod_subnet_nsg" {
 		security_rule_description = "Allow TCP8443"
 		#security_rule_destination_address_prefix = "*"
 		security_rule_destination_address_prefixes = [
-			"172.16.201.4"
+			"172.16.201.5"
 		]
 		security_rule_destination_application_security_group_ids = []
 		security_rule_destination_port_range = "8443"
