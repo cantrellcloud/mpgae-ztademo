@@ -75,7 +75,7 @@ output "jtodev_eastus2_dev_appgate_vnet_id" {
 output "jtodev_eastus2_dev_appgate_vnet_name" {
 	value = module.jtodev_eastus2_dev_appgate_vnet.vnet_name
 }
-/*
+
 #peer01a
 module "jtodev_eastus2_dev2eastus2_dev_appgate_vnet_peer" {
 	source = "github.com/cantrellcloud/tfaz-peer"
@@ -101,26 +101,26 @@ module "jtodev_eastus2_dev_appgate2eastus2_dev_vnet_peer" {
 	peer_allow_forwarded_traffic = true
 	peer_allow_gateway_transit = false
 }
-*/
+
 #--------------------------------------------------------------------------------
 #
 # Network Subnets
 #
 # subnet01
-module "jtodev_eastus2_dev_appgate_prod_subnet" {
+module "jtodev_eastus2_dev_appgate_ctrl_subnet" {
 	source = "github.com/cantrellcloud/tfaz-subnet"
 	#to_provision = local.provision_subnet01
 	rg_name = module.jtodev_eastus2_dev_appgate_rg.rg_name
-	subnet_name = "jtodev_eastus2_dev_appgate_prod_subnet"
+	subnet_name = "jtodev_eastus2_dev_appgate_ctrl_subnet"
 	vnet_name = module.jtodev_eastus2_dev_appgate_vnet.vnet_name
 	subnet_prefixes = ["172.16.201.0/27"]
 }
 	#subnet01
-		output "jtodev_eastus2_dev_appgate_prod_subnet_id" {
-			value = module.jtodev_eastus2_dev_appgate_prod_subnet.subnet_id
+		output "jtodev_eastus2_dev_appgate_ctrl_subnet_id" {
+			value = module.jtodev_eastus2_dev_appgate_ctrl_subnet.subnet_id
 		}
-		output "jtodev_eastus2_dev_appgate_prod_subnet_name" {
-			value = module.jtodev_eastus2_dev_appgate_prod_subnet.subnet_name
+		output "jtodev_eastus2_dev_appgate_ctrl_subnet_name" {
+			value = module.jtodev_eastus2_dev_appgate_ctrl_subnet.subnet_name
 		}
 
 #--------------------------------------------------------------------------------
@@ -146,41 +146,21 @@ module "jtodev_eastus2_dev_appgate_subnetgw_subnet" {
 #--------------------------------------------------------------------------------
 #
 # subnet03
-module "jtodev_eastus2_dev_appgate_edge_subnet" {
+module "jtodev_eastus2_dev_appgate_gw01_subnet" {
 	source = "github.com/cantrellcloud/tfaz-subnet"
 	#to_provision = local.provision_subnet03
 	rg_name = module.jtodev_eastus2_dev_appgate_rg.rg_name
-	subnet_name = "jtodev_eastus2_dev_appgate_edge_subnet"
-	vnet_name = module.jtodev_eastus2_dev_appgate_vnet.vnet_name
-	subnet_prefixes = ["172.16.201.64/27"]
-}
-
-		#subnet03
-		output "jtodev_eastus2_dev_appgate_edge_subnet_id" {
-			value = module.jtodev_eastus2_dev_appgate_edge_subnet.subnet_id
-		}
-		output "jtodev_eastus2_dev_appgate_edge_subnet_name" {
-			value = module.jtodev_eastus2_dev_appgate_edge_subnet.subnet_name
-		}
-
-#--------------------------------------------------------------------------------
-#
-# subnet04
-module "jtodev_eastus2_dev_appgate_web_subnet" {
-	source = "github.com/cantrellcloud/tfaz-subnet"
-	#to_provision = local.provision_subnet04
-	rg_name = module.jtodev_eastus2_dev_appgate_rg.rg_name
-	subnet_name = "jtodev_eastus2_dev_appgate_web_subnet"
+	subnet_name = "jtodev_eastus2_dev_appgate_gw01_subnet"
 	vnet_name = module.jtodev_eastus2_dev_appgate_vnet.vnet_name
 	subnet_prefixes = ["172.16.201.32/27"]
 }
 
-		#subnet04
-		output "jtodev_eastus2_dev_appgate_web_subnet_id" {
-			value = module.jtodev_eastus2_dev_appgate_web_subnet.subnet_id
+		#subnet03
+		output "jtodev_eastus2_dev_appgate_gw01_subnet_id" {
+			value = module.jtodev_eastus2_dev_appgate_gw01_subnet.subnet_id
 		}
-		output "jtodev_eastus2_dev_appgate_web_subnet_name" {
-			value = module.jtodev_eastus2_dev_appgate_web_subnet.subnet_name
+		output "jtodev_eastus2_dev_appgate_gw01_subnet_name" {
+			value = module.jtodev_eastus2_dev_appgate_gw01_subnet.subnet_name
 		}
 
 #================================================================================
@@ -192,102 +172,36 @@ module "jtodev_eastus2_dev_appgate_web_subnet" {
 # NETWORK SECURITY GROUPS, RULES, and ASSOCIATIONS
 #
 # appgate_nsg01
-module "jtodev_eastus2_dev_appgate_prod_subnet_nsg" {
+module "jtodev_eastus2_dev_appgate_ctrl_subnet_nsg" {
 	source            = "github.com/cantrellcloud/tfaz-nsg"
 	#to_provision     = local.provision_appgate_nsg01
 	rg_location       = module.jtodev_eastus2_dev_appgate_rg.rg_location
 	rg_name           = module.jtodev_eastus2_dev_appgate_rg.rg_name
-	nsg_name          = "jtodev_eastus2_dev_appgate_prod_subnet_nsg"
+	nsg_name          = "jtodev_eastus2_dev_appgate_ctrl_subnet_nsg"
 
 }
 
 	# appgate_nsg01_outputs
-	output "jtodev_eastus2_dev_appgate_prod_subnet_nsg_id" {
-		value = module.jtodev_eastus2_dev_appgate_prod_subnet_nsg.nsg_id
+	output "jtodev_eastus2_dev_appgate_ctrl_subnet_nsg_id" {
+		value = module.jtodev_eastus2_dev_appgate_ctrl_subnet_nsg.nsg_id
 	}
-	output "jtodev_eastus2_dev_appgate_prod_subnet_nsg_name" {
-		value = module.jtodev_eastus2_dev_appgate_prod_subnet_nsg.nsg_name
+	output "jtodev_eastus2_dev_appgate_ctrl_subnet_nsg_name" {
+		value = module.jtodev_eastus2_dev_appgate_ctrl_subnet_nsg.nsg_name
 	}
 
 	# nsgassoc01
-	resource "azurerm_subnet_network_security_group_association" "jtodev_eastus2_dev_appgate_prod_subnet_nsgassoc" {
-		subnet_id = module.jtodev_eastus2_dev_appgate_prod_subnet.subnet_id
-		network_security_group_id = module.jtodev_eastus2_dev_appgate_prod_subnet_nsg.nsg_id
+	resource "azurerm_subnet_network_security_group_association" "jtodev_eastus2_dev_appgate_ctrl_subnet_nsgassoc" {
+		subnet_id = module.jtodev_eastus2_dev_appgate_ctrl_subnet.subnet_id
+		network_security_group_id = module.jtodev_eastus2_dev_appgate_ctrl_subnet_nsg.nsg_id
 	}
-
-	# nsr01-00
-	module "jtodev_eastus2_dev_appgate_prod_subnet_nsg_nsr_allow_icmp" {
-		source            = "github.com/cantrellcloud/tfaz-nsr"
-		#to_provision     = local.provision_nsr01-00
-		nsr_name = "Allow_ICMP"
-		rg_name = module.jtodev_eastus2_dev_appgate_rg.rg_name
-		network_security_group_name = module.jtodev_eastus2_dev_appgate_prod_subnet_nsg.nsg_name
-
-		# security rule
-		security_rule_access = "Allow"
-		security_rule_description = "Allow ICMP"
-		security_rule_destination_address_prefix = "*"
-		#security_rule_destination_address_prefixes = []
-		security_rule_destination_application_security_group_ids = []
-		security_rule_destination_port_range = "*"
-		#security_rule_destination_port_ranges = []
-		security_rule_direction = "Inbound"
-		security_rule_priority = 100
-		security_rule_protocol = "ICMP"
-		#security_rule_source_address_prefix = ""
-		security_rule_source_address_prefixes = [
-			"144.129.196.130"
-		]
-		security_rule_source_application_security_group_ids = []
-		security_rule_source_port_range = "*"
-		#security_rule_source_port_ranges = []
-	}
-
-		# nsr01-00_outputs
-		output "jtodev_eastus2_dev_appgate_prod_subnet_nsg_nsr_allow_icmp_id" {
-			value = module.jtodev_eastus2_dev_appgate_prod_subnet_nsg_nsr_allow_icmp.nsr_id
-		}
-
-	# nsr01-01
-	module "jtodev_eastus2_dev_appgate_prod_subnet_nsg_nsr_port_3389" {
-		source            = "github.com/cantrellcloud/tfaz-nsr"
-		#to_provision     = local.provision_nsr01-01
-		nsr_name = "Port_3389"
-		rg_name = module.jtodev_eastus2_dev_appgate_rg.rg_name
-		network_security_group_name = module.jtodev_eastus2_dev_appgate_prod_subnet_nsg.nsg_name
-
-		# security rule
-		security_rule_access = "Allow"
-		security_rule_description = "Allow TCP3389"
-		security_rule_destination_address_prefix = "*"
-		#security_rule_destination_address_prefixes = []
-		security_rule_destination_application_security_group_ids = []
-		security_rule_destination_port_range = "3389"
-		#security_rule_destination_port_ranges = []
-		security_rule_direction = "Inbound"
-		security_rule_priority = 101
-		security_rule_protocol = "TCP"
-		#security_rule_source_address_prefix = ""
-		security_rule_source_address_prefixes = [
-			"144.129.196.130"
-		]
-		security_rule_source_application_security_group_ids = []
-		security_rule_source_port_range = "*"
-		#security_rule_source_port_ranges = []
-	}
-
-		# nsr01-01_outputs
-		output "jtodev_eastus2_dev_appgate_prod_subnet_nsg_nsr_port_3389_id" {
-			value = module.jtodev_eastus2_dev_appgate_prod_subnet_nsg_nsr_port_3389.nsr_id
-		}
 
 	# nsr01-02
-	module "jtodev_eastus2_dev_appgate_prod_subnet_nsg_nsr_port_443" {
+	module "jtodev_eastus2_dev_appgate_ctrl_subnet_nsg_nsr_port_443" {
 		source            = "github.com/cantrellcloud/tfaz-nsr"
 		#to_provision     = local.provision_nsr01-02
 		nsr_name = "Port_443"
 		rg_name = module.jtodev_eastus2_dev_appgate_rg.rg_name
-		network_security_group_name = module.jtodev_eastus2_dev_appgate_prod_subnet_nsg.nsg_name
+		network_security_group_name = module.jtodev_eastus2_dev_appgate_ctrl_subnet_nsg.nsg_name
 
 		# security rule
 		security_rule_access = "Allow"
@@ -314,184 +228,41 @@ module "jtodev_eastus2_dev_appgate_prod_subnet_nsg" {
 	}
 
 		# nsr01-02_outputs
-		output "jtodev_eastus2_dev_appgate_prod_subnet_nsg_nsr_port_443_id" {
-			value = module.jtodev_eastus2_dev_appgate_prod_subnet_nsg_nsr_port_443.nsr_id
-		}
-
-	# nsr01-03
-	module "jtodev_eastus2_dev_appgate_prod_subnet_nsg_nsr_port_22" {
-		source            = "github.com/cantrellcloud/tfaz-nsr"
-		#to_provision     = local.provision_nsr01-03
-		nsr_name = "Port_22"
-		rg_name = module.jtodev_eastus2_dev_appgate_rg.rg_name
-		network_security_group_name = module.jtodev_eastus2_dev_appgate_prod_subnet_nsg.nsg_name
-
-		# security rule
-		security_rule_access = "Allow"
-		security_rule_description = "Allow TCP22"
-		security_rule_destination_address_prefix = "*"
-		/*security_rule_destination_address_prefixes = [
-			"172.16.200.6",
-			"172.16.200.7",
-			"172.16.200.25",
-			"172.16.200.30",
-			"172.16.200.40",
-			"172.16.200.41",
-			"172.16.200.42",
-			"172.16.200.43"
-		]*/
-		security_rule_destination_application_security_group_ids = []
-		security_rule_destination_port_range = "22"
-		#security_rule_destination_port_ranges = []
-		security_rule_direction = "Inbound"
-		security_rule_priority = 103
-		security_rule_protocol = "TCP"
-		#security_rule_source_address_prefix = ""
-		security_rule_source_address_prefixes = [
-			"144.129.196.130"
-		]
-		security_rule_source_application_security_group_ids = []
-		security_rule_source_port_range = "*"
-		#security_rule_source_port_ranges = []
-	}
-
-		# nsr01-03_outputs
-		output "jtodev_eastus2_dev_appgate_prod_subnet_nsg_nsr_port_22_id" {
-			value = module.jtodev_eastus2_dev_appgate_prod_subnet_nsg_nsr_port_22.nsr_id
-		}
-
-	# nsr01-04
-	module "jtodev_eastus2_dev_appgate_prod_subnet_nsg_nsr_port_8443" {
-		source            = "github.com/cantrellcloud/tfaz-nsr"
-		#to_provision     = local.provision_nsr01-04
-		nsr_name = "Port_8443"
-		rg_name = module.jtodev_eastus2_dev_appgate_rg.rg_name
-		network_security_group_name = module.jtodev_eastus2_dev_appgate_prod_subnet_nsg.nsg_name
-
-		# security rule
-		security_rule_access = "Allow"
-		security_rule_description = "Allow TCP8443"
-		#security_rule_destination_address_prefix = "*"
-		security_rule_destination_address_prefixes = [
-			"172.16.201.4"
-		]
-		security_rule_destination_application_security_group_ids = []
-		security_rule_destination_port_range = "8443"
-		#security_rule_destination_port_ranges = []
-		security_rule_direction = "Inbound"
-		security_rule_priority = 104
-		security_rule_protocol = "TCP"
-		#security_rule_source_address_prefix = "*"
-		security_rule_source_address_prefixes = [
-			"144.129.196.130"
-		]
-		security_rule_source_application_security_group_ids = []
-		security_rule_source_port_range = "*"
-		#security_rule_source_port_ranges = []
-	}
-
-		# nsr01-04_outputs
-		output "jtodev_eastus2_dev_appgate_prod_subnet_nsg_nsr_port_8443_id" {
-			value = module.jtodev_eastus2_dev_appgate_prod_subnet_nsg_nsr_port_8443.nsr_id
+		output "jtodev_eastus2_dev_appgate_ctrl_subnet_nsg_nsr_port_443_id" {
+			value = module.jtodev_eastus2_dev_appgate_ctrl_subnet_nsg_nsr_port_443.nsr_id
 		}
 
 # appgate_nsg02
-module "jtodev_eastus2_dev_appgate_web_subnet_nsg" {
+module "jtodev_eastus2_dev_appgate_gw01_subnet_nsg" {
 	source            = "github.com/cantrellcloud/tfaz-nsg"
 	#to_provision     = local.provision_appgate_nsg02
 	rg_location       = module.jtodev_eastus2_dev_appgate_rg.rg_location
 	rg_name           = module.jtodev_eastus2_dev_appgate_rg.rg_name
-	nsg_name          = "jtodev_eastus2_dev_appgate_web_subnet_nsg"
+	nsg_name          = "jtodev_eastus2_dev_appgate_gw01_subnet_nsg"
 
 }
 
 	# appgate_nsg02_outputs
-	output "jtodev_eastus2_dev_appgate_web_subnet_nsg_id" {
-		value = module.jtodev_eastus2_dev_appgate_web_subnet_nsg.nsg_id
+	output "jtodev_eastus2_dev_appgate_gw01_subnet_nsg_id" {
+		value = module.jtodev_eastus2_dev_appgate_gw01_subnet_nsg.nsg_id
 	}
-	output "jtodev_eastus2_dev_appgate_web_subnet_nsg_name" {
-		value = module.jtodev_eastus2_dev_appgate_web_subnet_nsg.nsg_name
+	output "jtodev_eastus2_dev_appgate_gw01_subnet_nsg_name" {
+		value = module.jtodev_eastus2_dev_appgate_gw01_subnet_nsg.nsg_name
 	}
 
 	# nsgassoc02
-	resource "azurerm_subnet_network_security_group_association" "jtodev_eastus2_dev_appgate_web_subnet_nsgassoc" {
-		subnet_id = module.jtodev_eastus2_dev_appgate_web_subnet.subnet_id
-		network_security_group_id = module.jtodev_eastus2_dev_appgate_web_subnet_nsg.nsg_id
+	resource "azurerm_subnet_network_security_group_association" "jtodev_eastus2_dev_appgate_gw01_subnet_nsgassoc" {
+		subnet_id = module.jtodev_eastus2_dev_appgate_gw01_subnet.subnet_id
+		network_security_group_id = module.jtodev_eastus2_dev_appgate_gw01_subnet_nsg.nsg_id
 	}
-
-	# nsr02-00
-	module "jtodev_eastus2_dev_appgate_web_subnet_nsg_nsr_allow_icmp" {
-		source            = "github.com/cantrellcloud/tfaz-nsr"
-		#to_provision     = local.provision_nsr02-00
-		nsr_name = "Allow_ICMP"
-		rg_name = module.jtodev_eastus2_dev_appgate_rg.rg_name
-		network_security_group_name = module.jtodev_eastus2_dev_appgate_web_subnet_nsg.nsg_name
-
-		# security rule
-		security_rule_access = "Allow"
-		security_rule_description = "Allow ICMP"
-		security_rule_destination_address_prefix = "*"
-		#security_rule_destination_address_prefixes = []
-		security_rule_destination_application_security_group_ids = []
-		security_rule_destination_port_range = "*"
-		#security_rule_destination_port_ranges = []
-		security_rule_direction = "Inbound"
-		security_rule_priority = 100
-		security_rule_protocol = "ICMP"
-		#security_rule_source_address_prefix = ""
-		security_rule_source_address_prefixes = [
-			"144.129.196.130"
-		]
-		security_rule_source_application_security_group_ids = []
-		security_rule_source_port_range = "*"
-		#security_rule_source_port_ranges = []
-	}
-
-		# nsr02-00_outputs
-		output "jtodev_eastus2_dev_appgate_web_subnet_nsg_nsr_allow_icmp_id" {
-			value = module.jtodev_eastus2_dev_appgate_web_subnet_nsg_nsr_allow_icmp.nsr_id
-		}
-
-	# nsr02-01
-	module "jtodev_eastus2_dev_appgate_web_subnet_nsg_nsr_port_3389" {
-		source            = "github.com/cantrellcloud/tfaz-nsr"
-		#to_provision     = local.provision_nsr02-01
-		nsr_name = "Port_3389"
-		rg_name = module.jtodev_eastus2_dev_appgate_rg.rg_name
-		network_security_group_name = module.jtodev_eastus2_dev_appgate_web_subnet_nsg.nsg_name
-
-		# security rule
-		security_rule_access = "Allow"
-		security_rule_description = "Allow TCP3389"
-		security_rule_destination_address_prefix = "*"
-		#security_rule_destination_address_prefixes = []
-		security_rule_destination_application_security_group_ids = []
-		security_rule_destination_port_range = "3389"
-		#security_rule_destination_port_ranges = []
-		security_rule_direction = "Inbound"
-		security_rule_priority = 101
-		security_rule_protocol = "TCP"
-		#security_rule_source_address_prefix = ""
-		security_rule_source_address_prefixes = [
-			"144.129.196.130"
-		]
-		security_rule_source_application_security_group_ids = []
-		security_rule_source_port_range = "*"
-		#security_rule_source_port_ranges = []
-	}
-
-		# nsr02-01_outputs
-		output "jtodev_eastus2_dev_appgate_web_subnet_nsg_nsr_port_3389_id" {
-			value = module.jtodev_eastus2_dev_appgate_web_subnet_nsg_nsr_port_3389.nsr_id
-		}
 
 	# nsr02-02
-	module "jtodev_eastus2_dev_appgate_web_subnet_nsg_nsr_port_443" {
+	module "jtodev_eastus2_dev_appgate_gw01_subnet_nsg_nsr_port_443" {
 		source            = "github.com/cantrellcloud/tfaz-nsr"
 		#to_provision     = local.provision_nsr02-02
 		nsr_name = "Port_443"
 		rg_name = module.jtodev_eastus2_dev_appgate_rg.rg_name
-		network_security_group_name = module.jtodev_eastus2_dev_appgate_web_subnet_nsg.nsg_name
+		network_security_group_name = module.jtodev_eastus2_dev_appgate_gw01_subnet_nsg.nsg_name
 
 		# security rule
 		security_rule_access = "Allow"
@@ -518,227 +289,16 @@ module "jtodev_eastus2_dev_appgate_web_subnet_nsg" {
 	}
 
 		# nsr02-02_outputs
-		output "jtodev_eastus2_dev_appgate_web_subnet_nsg_nsr_port_443_id" {
-			value = module.jtodev_eastus2_dev_appgate_web_subnet_nsg_nsr_port_443.nsr_id
-		}
-
-	# nsr02-03
-	module "jtodev_eastus2_dev_appgate_web_subnet_nsg_nsr_port_22" {
-		source            = "github.com/cantrellcloud/tfaz-nsr"
-		#to_provision     = local.provision_nsr02-03
-		nsr_name = "Port_22"
-		rg_name = module.jtodev_eastus2_dev_appgate_rg.rg_name
-		network_security_group_name = module.jtodev_eastus2_dev_appgate_web_subnet_nsg.nsg_name
-
-		# security rule
-		security_rule_access = "Allow"
-		security_rule_description = "Allow TCP22"
-		security_rule_destination_address_prefix = "*"
-		/*security_rule_destination_address_prefixes = [
-			"172.16.200.6",
-			"172.16.200.7",
-			"172.16.200.25",
-			"172.16.200.30",
-			"172.16.200.40",
-			"172.16.200.41",
-			"172.16.200.42",
-			"172.16.200.43"
-		]*/
-		security_rule_destination_application_security_group_ids = []
-		security_rule_destination_port_range = "22"
-		#security_rule_destination_port_ranges = []
-		security_rule_direction = "Inbound"
-		security_rule_priority = 103
-		security_rule_protocol = "TCP"
-		#security_rule_source_address_prefix = ""
-		security_rule_source_address_prefixes = [
-			"144.129.196.130"
-		]
-		security_rule_source_application_security_group_ids = []
-		security_rule_source_port_range = "*"
-		#security_rule_source_port_ranges = []
-	}
-
-		# nsr02-03_outputs
-		output "jtodev_eastus2_dev_appgate_web_subnet_nsg_nsr_port_22_id" {
-			value = module.jtodev_eastus2_dev_appgate_web_subnet_nsg_nsr_port_22.nsr_id
-		}
-
-# appgate_nsg03
-module "jtodev_eastus2_dev_appgate_edge_subnet_nsg" {
-	source            = "github.com/cantrellcloud/tfaz-nsg"
-	#to_provision     = local.provision_appgate_nsg03
-	rg_location       = module.jtodev_eastus2_dev_appgate_rg.rg_location
-	rg_name           = module.jtodev_eastus2_dev_appgate_rg.rg_name
-	nsg_name          = "jtodev_eastus2_dev_appgate_edge_subnet_nsg"
-
-}
-
-	# appgate_nsg03_outputs
-	output "jtodev_eastus2_dev_appgate_edge_subnet_nsg_id" {
-		value = module.jtodev_eastus2_dev_appgate_edge_subnet_nsg.nsg_id
-	}
-	output "jtodev_eastus2_dev_appgate_edge_subnet_nsg_name" {
-		value = module.jtodev_eastus2_dev_appgate_edge_subnet_nsg.nsg_name
-	}
-
-	# nsgassoc03
-	resource "azurerm_subnet_network_security_group_association" "jtodev_eastus2_dev_appgate_edge_subnet_nsgassoc" {
-		subnet_id = module.jtodev_eastus2_dev_appgate_edge_subnet.subnet_id
-		network_security_group_id = module.jtodev_eastus2_dev_appgate_edge_subnet_nsg.nsg_id
-	}
-
-	# nsr03-00
-	module "jtodev_eastus2_dev_appgate_edge_subnet_nsg_nsr_allow_icmp" {
-		source            = "github.com/cantrellcloud/tfaz-nsr"
-		#to_provision     = local.provision_nsr03-00
-		nsr_name = "Allow_ICMP"
-		rg_name = module.jtodev_eastus2_dev_appgate_rg.rg_name
-		network_security_group_name = module.jtodev_eastus2_dev_appgate_edge_subnet_nsg.nsg_name
-
-		# security rule
-		security_rule_access = "Allow"
-		security_rule_description = "Allow ICMP"
-		security_rule_destination_address_prefix = "*"
-		#security_rule_destination_address_prefixes = []
-		security_rule_destination_application_security_group_ids = []
-		security_rule_destination_port_range = "*"
-		#security_rule_destination_port_ranges = []
-		security_rule_direction = "Inbound"
-		security_rule_priority = 100
-		security_rule_protocol = "ICMP"
-		#security_rule_source_address_prefix = ""
-		security_rule_source_address_prefixes = [
-			"144.129.196.130"
-		]
-		security_rule_source_application_security_group_ids = []
-		security_rule_source_port_range = "*"
-		#security_rule_source_port_ranges = []
-	}
-
-		# nsr03-00_outputs
-		output "jtodev_eastus2_dev_appgate_edge_subnet_nsg_nsr_allow_icmp_id" {
-			value = module.jtodev_eastus2_dev_appgate_edge_subnet_nsg_nsr_allow_icmp.nsr_id
-		}
-
-	# nsr03-01
-	module "jtodev_eastus2_dev_appgate_edge_subnet_nsg_nsr_port_3389" {
-		source            = "github.com/cantrellcloud/tfaz-nsr"
-		#to_provision     = local.provision_nsr03-01
-		nsr_name = "Port_3389"
-		rg_name = module.jtodev_eastus2_dev_appgate_rg.rg_name
-		network_security_group_name = module.jtodev_eastus2_dev_appgate_edge_subnet_nsg.nsg_name
-
-		# security rule
-		security_rule_access = "Allow"
-		security_rule_description = "Allow TCP3389"
-		security_rule_destination_address_prefix = "*"
-		#security_rule_destination_address_prefixes = []
-		security_rule_destination_application_security_group_ids = []
-		security_rule_destination_port_range = "3389"
-		#security_rule_destination_port_ranges = []
-		security_rule_direction = "Inbound"
-		security_rule_priority = 101
-		security_rule_protocol = "TCP"
-		#security_rule_source_address_prefix = ""
-		security_rule_source_address_prefixes = [
-			"144.129.196.130"
-		]
-		security_rule_source_application_security_group_ids = []
-		security_rule_source_port_range = "*"
-		#security_rule_source_port_ranges = []
-	}
-
-		# nsr03-01_outputs
-		output "jtodev_eastus2_dev_appgate_edge_subnet_nsg_nsr_port_3389_id" {
-			value = module.jtodev_eastus2_dev_appgate_edge_subnet_nsg_nsr_port_3389.nsr_id
-		}
-
-	# nsr03-02
-	module "jtodev_eastus2_dev_appgate_edge_subnet_nsg_nsr_port_443" {
-		source            = "github.com/cantrellcloud/tfaz-nsr"
-		#to_provision     = local.provision_nsr03-02
-		nsr_name = "Port_443"
-		rg_name = module.jtodev_eastus2_dev_appgate_rg.rg_name
-		network_security_group_name = module.jtodev_eastus2_dev_appgate_edge_subnet_nsg.nsg_name
-
-		# security rule
-		security_rule_access = "Allow"
-		security_rule_description = "Allow TCP443"
-		security_rule_destination_address_prefix = "*"
-		/*security_rule_destination_address_prefixes = [
-			"172.16.200.20",
-			"172.16.200.23",
-			"172.16.200.24"
-		]*/
-		security_rule_destination_application_security_group_ids = []
-		security_rule_destination_port_range = "443"
-		#security_rule_destination_port_ranges = []
-		security_rule_direction = "Inbound"
-		security_rule_priority = 102
-		security_rule_protocol = "TCP"
-		security_rule_source_address_prefix = "*"
-		/*security_rule_source_address_prefixes = [
-			"144.129.196.130"
-		]*/
-		security_rule_source_application_security_group_ids = []
-		security_rule_source_port_range = "*"
-		#security_rule_source_port_ranges = []
-	}
-
-		# nsr03-02_outputs
-		output "jtodev_eastus2_dev_appgate_edge_subnet_nsg_nsr_port_443_id" {
-			value = module.jtodev_eastus2_dev_appgate_edge_subnet_nsg_nsr_port_443.nsr_id
-		}
-
-	# nsr03-03
-	module "jtodev_eastus2_dev_appgate_edge_subnet_nsg_nsr_port_22" {
-		source            = "github.com/cantrellcloud/tfaz-nsr"
-		#to_provision     = local.provision_nsr03-03
-		nsr_name = "Port_22"
-		rg_name = module.jtodev_eastus2_dev_appgate_rg.rg_name
-		network_security_group_name = module.jtodev_eastus2_dev_appgate_edge_subnet_nsg.nsg_name
-
-		# security rule
-		security_rule_access = "Allow"
-		security_rule_description = "Allow TCP22"
-		security_rule_destination_address_prefix = "*"
-		/*security_rule_destination_address_prefixes = [
-			"172.16.200.6",
-			"172.16.200.7",
-			"172.16.200.25",
-			"172.16.200.30",
-			"172.16.200.40",
-			"172.16.200.41",
-			"172.16.200.42",
-			"172.16.200.43"
-		]*/
-		security_rule_destination_application_security_group_ids = []
-		security_rule_destination_port_range = "22"
-		#security_rule_destination_port_ranges = []
-		security_rule_direction = "Inbound"
-		security_rule_priority = 103
-		security_rule_protocol = "TCP"
-		#security_rule_source_address_prefix = ""
-		security_rule_source_address_prefixes = [
-			"144.129.196.130"
-		]
-		security_rule_source_application_security_group_ids = []
-		security_rule_source_port_range = "*"
-		#security_rule_source_port_ranges = []
-	}
-
-		# nsr03-03_outputs
-		output "jtodev_eastus2_dev_appgate_edge_subnet_nsg_nsr_port_22_id" {
-			value = module.jtodev_eastus2_dev_appgate_edge_subnet_nsg_nsr_port_22.nsr_id
+		output "jtodev_eastus2_dev_appgate_gw01_subnet_nsg_nsr_port_443_id" {
+			value = module.jtodev_eastus2_dev_appgate_gw01_subnet_nsg_nsr_port_443.nsr_id
 		}
 
 #--------------------------------------------------------------------------------
 #
 # Public IPs
 #
-# appgate_prod_publicip
-module "jtodev_eastus2_dev_appgate_prod_publicip" {
+# appgate_ctrl_publicip
+module "jtodev_eastus2_dev_appgate_ctrl_publicip" {
     source            = "github.com/cantrellcloud/tfaz-publicip"
     #to_provision     = local.provision_jtodevdc01_publicip
     rg_location       = module.jtodev_eastus2_dev_appgate_rg.rg_location
@@ -753,28 +313,28 @@ module "jtodev_eastus2_dev_appgate_prod_publicip" {
 		"Project"         = "Zero Trust Demo"
 	}
 
-    publicip_name              = "jtodev_eastus2_dev_appgate_prod_publicip"
+    publicip_name              = "jtodev_eastus2_dev_appgate_ctrl_publicip"
     publicip_allocation_method = "Static"
     publicip_sku               = "Basic"
-    publicip_domain_name_label = "jtodev-appgate-prod"
+    publicip_domain_name_label = "sdpctrl01"
 }
 
-#appgate_prod_publicip_outputs
-    output "jtodev_eastus2_dev_appgate_prod_publicip_id" {
-        value = module.jtodev_eastus2_dev_appgate_prod_publicip.publicip_id
+#appgate_ctrl_publicip_outputs
+    output "jtodev_eastus2_dev_appgate_ctrl_publicip_id" {
+        value = module.jtodev_eastus2_dev_appgate_ctrl_publicip.publicip_id
     }
-    output "jtodev_eastus2_dev_appgate_prod_publicip_name" {
-        value = module.jtodev_eastus2_dev_appgate_prod_publicip.publicip_name
+    output "jtodev_eastus2_dev_appgate_ctrl_publicip_name" {
+        value = module.jtodev_eastus2_dev_appgate_ctrl_publicip.publicip_name
     }
-    output "jtodev_eastus2_dev_appgate_prod_publicip_domain_name_label" {
-        value = module.jtodev_eastus2_dev_appgate_prod_publicip.publicip_domain_name_label
+    output "jtodev_eastus2_dev_appgate_ctrl_publicip_domain_name_label" {
+        value = module.jtodev_eastus2_dev_appgate_ctrl_publicip.publicip_domain_name_label
     }
 
 
 #--------------------------------------------------------------------------------
 
-# appgate_edge_publicip
-module "jtodev_eastus2_dev_appgate_edge_publicip" {
+# appgate_gw01_publicip
+module "jtodev_eastus2_dev_appgate_gw01_publicip" {
     source            = "github.com/cantrellcloud/tfaz-publicip"
     #to_provision     = local.provision_jtodevdc01_publicip
     rg_location       = module.jtodev_eastus2_dev_appgate_rg.rg_location
@@ -789,56 +349,21 @@ module "jtodev_eastus2_dev_appgate_edge_publicip" {
 		"Project"         = "Zero Trust Demo"
 	}
 
-    publicip_name              = "jtodev_eastus2_dev_appgate_edge_publicip"
+    publicip_name              = "jtodev_eastus2_dev_appgate_gw01_publicip"
     publicip_allocation_method = "Static"
     publicip_sku               = "Basic"
-    publicip_domain_name_label = "jtodev-appgate-edge"
+    publicip_domain_name_label = "sdpaze2gw01"
 }
 
-#appgate_edge_publicip_outputs
-    output "jtodev_eastus2_dev_appgate_edge_publicip_id" {
-        value = module.jtodev_eastus2_dev_appgate_edge_publicip.publicip_id
+#appgate_gw01_publicip_outputs
+    output "jtodev_eastus2_dev_appgate_gw01_publicip_id" {
+        value = module.jtodev_eastus2_dev_appgate_gw01_publicip.publicip_id
     }
-    output "jtodev_eastus2_dev_appgate_edge_publicip_name" {
-        value = module.jtodev_eastus2_dev_appgate_edge_publicip.publicip_name
+    output "jtodev_eastus2_dev_appgate_gw01_publicip_name" {
+        value = module.jtodev_eastus2_dev_appgate_gw01_publicip.publicip_name
     }
-    output "jtodev_eastus2_dev_appgate_edge_publicip_domain_name_label" {
-        value = module.jtodev_eastus2_dev_appgate_edge_publicip.publicip_domain_name_label
-    }
-
-#--------------------------------------------------------------------------------
-
-# appgate_web_publicip
-module "jtodev_eastus2_dev_appgate_web_publicip" {
-    source            = "github.com/cantrellcloud/tfaz-publicip"
-    #to_provision     = local.provision_jtodevdc01_publicip
-    rg_location       = module.jtodev_eastus2_dev_appgate_rg.rg_location
-    rg_name           = module.jtodev_eastus2_dev_appgate_rg.rg_name
-	rg_tags               = {
-		"ManagementGroup" = "MPG A&E EastUS2",
-		"Environment"     = "Dev",
-		"AutomatedBy"     = "Terraform",
-		"Note1"           = "Do not manually change",
-		"POCName"         = "ronc@mindpointgroup.com",
-		"POCPhone"        = "843.330.6769",
-		"Project"         = "Zero Trust Demo"
-	}
-
-    publicip_name              = "jtodev_eastus2_dev_appgate_web_publicip"
-    publicip_allocation_method = "Static"
-    publicip_sku               = "Basic"
-    publicip_domain_name_label = "jtodev-appgate-web"
-}
-
-#appgate_web_publicip_outputs
-    output "jtodev_eastus2_dev_appgate_web_publicip_id" {
-        value = module.jtodev_eastus2_dev_appgate_web_publicip.publicip_id
-    }
-    output "jtodev_eastus2_dev_appgate_web_publicip_name" {
-        value = module.jtodev_eastus2_dev_appgate_web_publicip.publicip_name
-    }
-    output "jtodev_eastus2_dev_appgate_web_publicip_domain_name_label" {
-        value = module.jtodev_eastus2_dev_appgate_web_publicip.publicip_domain_name_label
+    output "jtodev_eastus2_dev_appgate_gw01_publicip_domain_name_label" {
+        value = module.jtodev_eastus2_dev_appgate_gw01_publicip.publicip_domain_name_label
     }
 
 #--------------------------------------------------------------------------------
@@ -927,7 +452,7 @@ module "jtodev_eastus2_dev_appgate_web_publicip" {
 
         ip_configuration_name                          = "ipconfig01"
         ip_configuration_private_ip_address_version    = "IPv4"
-        ip_configuration_subnet_id                     = module.jtodev_eastus2_dev_appgate_edge_subnet.subnet_id
+        ip_configuration_subnet_id                     = module.jtodev_eastus2_dev_appgate_gw02_subnet.subnet_id
         ip_configuration_private_ip_address_allocation = "Static"
         ip_configuration_private_ip_address            = "172.16.201.68"
         ip_configuration_public_ip_address_id          = module.jtodev_eastus2_dev_appgate01_publicip.publicip_id
@@ -953,7 +478,7 @@ module "jtodev_eastus2_dev_appgate_web_publicip" {
 
         ip_configuration_name                          = "ipconfig01"
         ip_configuration_private_ip_address_version    = "IPv4"
-        ip_configuration_subnet_id                     = module.jtodev_eastus2_dev_appgate_prod_subnet.subnet_id
+        ip_configuration_subnet_id                     = module.jtodev_eastus2_dev_appgate_ctrl_subnet.subnet_id
         ip_configuration_private_ip_address_allocation = "Static"
         ip_configuration_private_ip_address            = "172.16.201.28"
         ip_configuration_public_ip_address_id          = null # module.jtodev_eastus2_dev_appgate01_publicip.publicip_id
