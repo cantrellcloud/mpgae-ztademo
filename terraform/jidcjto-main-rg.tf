@@ -18,7 +18,7 @@ terraform {
     resource_group_name  = "mpgae_eastus2_prod_rg"
     storage_account_name = "mpgaeeastus2prodgeneral"
     container_name       = "tfstates"
-    key                  = "ztadev.dev.tfstate"
+    key                  = "jto.dev.tfstate"
 	tenant_id            = "5889ef41-a0dc-46e1-9f62-a1ecdcc5e8c1"
 	subscription_id      = "919946d0-8cae-4e2d-9430-e33602bddf9c"
   }
@@ -42,7 +42,8 @@ provider "azurerm" {
 # LOCALS
 
 locals {
-	localgw01_gateway_address = "144.129.196.130" # to-ztadev_cotpa_localgw
+	localgw01_gateway_address = "144.129.196.130" # to-jtodev_cotpa_localgw
+
 }
 
 #================================================================================
@@ -50,13 +51,13 @@ locals {
 # RESOURCE GROUPS
 
 # rg01
-module "ztadev_eastus2_dev_rg" {
+module "jtodev_eastus2_dev_rg" {
     source = "github.com/cantrellcloud/tfaz-rg/"
-	rg_name = "ztadev_eastus2_dev_rg"
+	rg_name = "jtodev_eastus2_dev_rg"
 	rg_location = "eastus2"
 	rg_tags = {
 		"ManagementGroup" = "MPG A&E EastUS2",
-		"Environment" = "Dev",
+		"Environment" = "JTODev",
 		"AutomatedBy" = "Terraform",
 		"Note1" = "Do not manually change",
 		"POCName" = "ronc@mindpointgroup.com",
@@ -66,21 +67,21 @@ module "ztadev_eastus2_dev_rg" {
 }
 
 	# rg01_outputs
-	output "ztadev_eastus2_dev_rg_name" {
-		value = module.ztadev_eastus2_dev_rg.rg_name
+	output "jtodev_eastus2_dev_rg_name" {
+		value = module.jtodev_eastus2_dev_rg.rg_name
 	}
-	output "ztadev_eastus2_dev_rg_location" {
-		value = module.ztadev_eastus2_dev_rg.rg_location
+	output "jtodev_eastus2_dev_rg_location" {
+		value = module.jtodev_eastus2_dev_rg.rg_location
 	}
 
 # rg02
-module "ztadev_eastus2_dev_appsvcplan_rg" {
+module "jtodev_eastus2_dev_appsvcplan_rg" {
     source = "github.com/cantrellcloud/tfaz-rg/"
-	rg_name = "ztadev_eastus2_dev_appsvcplan_rg"
+	rg_name = "jtodev_eastus2_dev_appsvcplan_rg"
 	rg_location = "eastus2"
 	rg_tags = {
 		"ManagementGroup" = "MPG A&E EastUS2",
-		"Environment" = "Dev",
+		"Environment" = "JTODev",
 		"AutomatedBy" = "Terraform",
 		"Note1" = "Do not manually change",
 		"POCName" = "ronc@mindpointgroup.com",
@@ -90,21 +91,21 @@ module "ztadev_eastus2_dev_appsvcplan_rg" {
 }
 
 	# rg02_outputs
-	output "ztadev_eastus2_dev_appsvcplan_rg_name" {
-		value = module.ztadev_eastus2_dev_appsvcplan_rg.rg_name
+	output "jtodev_eastus2_dev_appsvcplan_rg_name" {
+		value = module.jtodev_eastus2_dev_appsvcplan_rg.rg_name
 	}
-	output "ztadev_eastus2_dev_appsvcplan_rg_location" {
-		value = module.ztadev_eastus2_dev_appsvcplan_rg.rg_location
+	output "jtodev_eastus2_dev_appsvcplan_rg_location" {
+		value = module.jtodev_eastus2_dev_appsvcplan_rg.rg_location
 	}
 
 # rg03
-module "ztadev_eastus_dev_rg" {
+module "jtodev_eastus_dev_rg" {
     source = "github.com/cantrellcloud/tfaz-rg/"
-	rg_name = "ztadev_eastus_dev_rg"
+	rg_name = "jtodev_eastus_dev_rg"
 	rg_location = "eastus"
 	rg_tags = {
 		"ManagementGroup" = "MPG A&E EastUS2",
-		"Environment" = "Dev",
+		"Environment" = "JTODev",
 		"AutomatedBy" = "Terraform",
 		"Note1" = "Do not manually change",
 		"POCName" = "ronc@mindpointgroup.com",
@@ -114,21 +115,21 @@ module "ztadev_eastus_dev_rg" {
 }
 
 	# rg03_outputs
-	output "ztadev_eastus_dev_rg_name" {
-		value = module.ztadev_eastus_dev_rg.rg_name
+	output "jtodev_eastus_dev_rg_name" {
+		value = module.jtodev_eastus_dev_rg.rg_name
 	}
-	output "ztadev_eastus_dev_rg_location" {
-		value = module.ztadev_eastus_dev_rg.rg_location
+	output "jtodev_eastus_dev_rg_location" {
+		value = module.jtodev_eastus_dev_rg.rg_location
 	}
 
 # rg04
-module "ztadev_westus_dev_rg" {
+module "jtodev_westus_dev_rg" {
     source = "github.com/cantrellcloud/tfaz-rg/"
-	rg_name = "ztadev_westus_dev_rg"
+	rg_name = "jtodev_westus_dev_rg"
 	rg_location = "westus"
 	rg_tags = {
 		"ManagementGroup" = "MPG A&E westus2",
-		"Environment" = "Dev",
+		"Environment" = "JTODev",
 		"AutomatedBy" = "Terraform",
 		"Note1" = "Do not manually change",
 		"POCName" = "ronc@mindpointgroup.com",
@@ -138,21 +139,21 @@ module "ztadev_westus_dev_rg" {
 }
 
 	# rg04_outputs
-	output "ztadev_westus_dev_rg_name" {
-		value = module.ztadev_westus_dev_rg.rg_name
+	output "jtodev_westus_dev_rg_name" {
+		value = module.jtodev_westus_dev_rg.rg_name
 	}
-	output "ztadev_westus_dev_rg_location" {
-		value = module.ztadev_westus_dev_rg.rg_location
+	output "jtodev_westus_dev_rg_location" {
+		value = module.jtodev_westus_dev_rg.rg_location
 	}
 
 # rg05
-module "ztadev_westus2_dev_rg" {
+module "jtodev_westus2_dev_rg" {
     source = "github.com/cantrellcloud/tfaz-rg/"
-	rg_name = "ztadev_westus2_dev_rg"
+	rg_name = "jtodev_westus2_dev_rg"
 	rg_location = "westus2"
 	rg_tags = {
 		"ManagementGroup" = "MPG A&E westus22",
-		"Environment" = "Dev",
+		"Environment" = "JTODev",
 		"AutomatedBy" = "Terraform",
 		"Note1" = "Do not manually change",
 		"POCName" = "ronc@mindpointgroup.com",
@@ -162,11 +163,11 @@ module "ztadev_westus2_dev_rg" {
 }
 
 	# rg05_outputs
-	output "ztadev_westus2_dev_rg_name" {
-		value = module.ztadev_westus2_dev_rg.rg_name
+	output "jtodev_westus2_dev_rg_name" {
+		value = module.jtodev_westus2_dev_rg.rg_name
 	}
-	output "ztadev_westus2_dev_rg_location" {
-		value = module.ztadev_westus2_dev_rg.rg_location
+	output "jtodev_westus2_dev_rg_location" {
+		value = module.jtodev_westus2_dev_rg.rg_location
 	}
 
 #================================================================================
@@ -174,12 +175,12 @@ module "ztadev_westus2_dev_rg" {
 # STORAGE ACCOUNTS
 
 # storage01
-module "ztadev_eastus2_dev_general_storage" {
+module "jtodev_eastus2_dev_general_storage" {
 	source = "github.com/cantrellcloud/tfaz-storage"
 	#to_provision = local.provision_storage01
-	rg_location = module.ztadev_eastus2_dev_rg.rg_location
-	rg_name = module.ztadev_eastus2_dev_rg.rg_name
-	storage_name = "ztadeveastus2devgeneral"
+	rg_location = module.jtodev_eastus2_dev_rg.rg_location
+	rg_name = module.jtodev_eastus2_dev_rg.rg_name
+	storage_name = "jtodeveastus2devgeneral"
 	account_tier = "Standard"
 	account_replication_type = "GRS"
 	enable_https_traffic_only = true
@@ -187,7 +188,7 @@ module "ztadev_eastus2_dev_general_storage" {
 	access_tier = "hot"
 	rg_tags = {
 		"ManagementGroup" = "MPG A&E EastUS2",
-		"Environment" = "Dev",
+		"Environment" = "JTODev",
 		"AutomatedBy" = "Terraform",
 		"Note1" = "Do not manually change",
 		"POCName" = "ronc@mindpointgroup.com",
@@ -198,40 +199,40 @@ module "ztadev_eastus2_dev_general_storage" {
 }
 
 	# storage01_outputs
-	output "ztadev_eastus2_dev_general_storage_id" {
-		value = module.ztadev_eastus2_dev_general_storage.storage_id
+	output "jtodev_eastus2_dev_general_storage_id" {
+		value = module.jtodev_eastus2_dev_general_storage.storage_id
 	}
-	output "ztadev_eastus2_dev_general_storage_name" {
-		value = module.ztadev_eastus2_dev_general_storage.storage_name
+	output "jtodev_eastus2_dev_general_storage_name" {
+		value = module.jtodev_eastus2_dev_general_storage.storage_name
 	}
-	output "ztadev_eastus2_dev_general_storage_pri_location" {
-		value = module.ztadev_eastus2_dev_general_storage.storage_pri_location
+	output "jtodev_eastus2_dev_general_storage_pri_location" {
+		value = module.jtodev_eastus2_dev_general_storage.storage_pri_location
 	}
-	output "ztadev_eastus2_dev_general_storage_sec_location" {
-		value = module.ztadev_eastus2_dev_general_storage.storage_sec_location
+	output "jtodev_eastus2_dev_general_storage_sec_location" {
+		value = module.jtodev_eastus2_dev_general_storage.storage_sec_location
 	}
-	output "ztadev_eastus2_dev_general_storage_pri_blob_endpoint" {
-		value = module.ztadev_eastus2_dev_general_storage.storage_pri_blob_endpoint
+	output "jtodev_eastus2_dev_general_storage_pri_blob_endpoint" {
+		value = module.jtodev_eastus2_dev_general_storage.storage_pri_blob_endpoint
 	}
-	output "ztadev_eastus2_dev_general_storage_sec_blob_endpoint" {
-		value = module.ztadev_eastus2_dev_general_storage.storage_sec_blob_endpoint
+	output "jtodev_eastus2_dev_general_storage_sec_blob_endpoint" {
+		value = module.jtodev_eastus2_dev_general_storage.storage_sec_blob_endpoint
 	}
-	output "ztadev_eastus2_dev_general_storage_pri_access_key" {
-		value = module.ztadev_eastus2_dev_general_storage.storage_pri_access_key
+	output "jtodev_eastus2_dev_general_storage_pri_access_key" {
+		value = module.jtodev_eastus2_dev_general_storage.storage_pri_access_key
 		sensitive = true
 	}
-	output "ztadev_eastus2_dev_general_storage_pri_connect_string" {
-		value = module.ztadev_eastus2_dev_general_storage.storage_pri_connect_string
+	output "jtodev_eastus2_dev_general_storage_pri_connect_string" {
+		value = module.jtodev_eastus2_dev_general_storage.storage_pri_connect_string
 		sensitive = true
 	}
 
 # storage02
-module "ztadev_eastus_dev_logs_storage" {
+module "jtodev_eastus_dev_logs_storage" {
 	source = "github.com/cantrellcloud/tfaz-storage"
 	#to_provision = local.provision_storage01
-	rg_location = module.ztadev_eastus_dev_rg.rg_location
-	rg_name = module.ztadev_eastus_dev_rg.rg_name
-	storage_name = "ztadeveastusdevlogs"
+	rg_location = module.jtodev_eastus_dev_rg.rg_location
+	rg_name = module.jtodev_eastus_dev_rg.rg_name
+	storage_name = "jtodeveastusdevlogs"
 	account_tier = "Standard"
 	account_replication_type = "GRS"
 	enable_https_traffic_only = true
@@ -239,7 +240,7 @@ module "ztadev_eastus_dev_logs_storage" {
 	access_tier = "hot"
 	rg_tags = {
 		"ManagementGroup" = "MPG A&E EastUS",
-		"Environment" = "Dev",
+		"Environment" = "JTODev",
 		"AutomatedBy" = "Terraform",
 		"Note1" = "Do not manually change",
 		"POCName" = "ronc@mindpointgroup.com",
@@ -249,29 +250,29 @@ module "ztadev_eastus_dev_logs_storage" {
 }
 
 	# storage02_outputs
-	output "ztadev_eastus_dev_logs_storage_id" {
-		value = module.ztadev_eastus_dev_logs_storage.storage_id
+	output "jtodev_eastus_dev_logs_storage_id" {
+		value = module.jtodev_eastus_dev_logs_storage.storage_id
 	}
-	output "ztadev_eastus_dev_logs_storage_name" {
-		value = module.ztadev_eastus_dev_logs_storage.storage_name
+	output "jtodev_eastus_dev_logs_storage_name" {
+		value = module.jtodev_eastus_dev_logs_storage.storage_name
 	}
-	output "ztadev_eastus_dev_logs_storage_pri_location" {
-		value = module.ztadev_eastus_dev_logs_storage.storage_pri_location
+	output "jtodev_eastus_dev_logs_storage_pri_location" {
+		value = module.jtodev_eastus_dev_logs_storage.storage_pri_location
 	}
-	output "ztadev_eastus_dev_logs_storage_sec_location" {
-		value = module.ztadev_eastus_dev_logs_storage.storage_sec_location
+	output "jtodev_eastus_dev_logs_storage_sec_location" {
+		value = module.jtodev_eastus_dev_logs_storage.storage_sec_location
 	}
-	output "ztadev_eastus_dev_logs_storage_pri_blob_endpoint" {
-		value = module.ztadev_eastus_dev_logs_storage.storage_pri_blob_endpoint
+	output "jtodev_eastus_dev_logs_storage_pri_blob_endpoint" {
+		value = module.jtodev_eastus_dev_logs_storage.storage_pri_blob_endpoint
 	}
-	output "ztadev_eastus_dev_logs_storage_sec_blob_endpoint" {
-		value = module.ztadev_eastus_dev_logs_storage.storage_sec_blob_endpoint
+	output "jtodev_eastus_dev_logs_storage_sec_blob_endpoint" {
+		value = module.jtodev_eastus_dev_logs_storage.storage_sec_blob_endpoint
 	}
-	output "ztadev_eastus_dev_logs_storage_pri_access_key" {
-		value = module.ztadev_eastus_dev_logs_storage.storage_pri_access_key
+	output "jtodev_eastus_dev_logs_storage_pri_access_key" {
+		value = module.jtodev_eastus_dev_logs_storage.storage_pri_access_key
 		sensitive = true
 	}
-	output "ztadev_eastus_dev_logs_storage_pri_connect_string" {
-		value = module.ztadev_eastus_dev_logs_storage.storage_pri_connect_string
+	output "jtodev_eastus_dev_logs_storage_pri_connect_string" {
+		value = module.jtodev_eastus_dev_logs_storage.storage_pri_connect_string
 		sensitive = true
 	}
