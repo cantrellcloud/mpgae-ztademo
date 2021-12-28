@@ -262,7 +262,7 @@ module "jtodev_eastus2_dev_jtodevspl01_vmnix" {
 	}
 
 	vmnix_name = "jtodev-spl01"
-    size                  = "Standard_D2s_v3"
+    size                  = "Standard_D4s_v3"
     admin_username        = "adminlocal"
     admin_password        = "Password#1Password#1"
 
@@ -280,18 +280,6 @@ module "jtodev_eastus2_dev_jtodevspl01_vmnix" {
     #version   = "latest"
 }
 
-    # jtodevspl01_publicip
-/*    module "jtodev_eastus2_dev_jtodevspl01_publicip" {
-        source            = "github.com/cantrellcloud/tfaz-publicip"
-        #to_provision     = local.provision_jtodevspl01_publicip
-        rg_location       = module.jtodev_eastus2_dev_rg.rg_location
-        rg_name           = module.jtodev_eastus2_dev_rg.rg_name
-        publicip_name     = "jtodev_eastus2_dev_jtodevspl01_publicip"
-        allocation_method = "Static"
-        sku               = "Standard"
-        domain_name_label = "jtodev-spl01"
-    }
-*/
     # jtodevspl01_netinf
     module "jtodev_eastus2_dev_jtodevspl01_netinf" {
         source = "github.com/cantrellcloud/tfaz-netinf"
@@ -373,17 +361,6 @@ module "jtodev_eastus2_dev_jtodevspl01_vmnix" {
         value = module.jtodev_eastus2_dev_jtodevspl01_vmnix.vmnix_public_ip_address
     }
 
-    #jtodevspl01_publicip
-/*    output "jtodev_eastus2_dev_jtodevspl01_publicip_id" {
-        value = module.jtodev_eastus2_dev_jtodevspl01_publicip.publicip_id
-    }
-    output "jtodev_eastus2_dev_jtodevspl01_publicip_name" {
-        value = module.jtodev_eastus2_dev_jtodevspl01_publicip.publicip_name
-    }
-    output "jtodev_eastus2_dev_jtodevspl01_publicip_domain_name_label" {
-        value = module.jtodev_eastus2_dev_jtodevspl01_publicip.publicip_domain_name_label
-    }
-*/
 	# jtodevspl01_netinf_outputs
 	output "jtodev_eastus2_dev_jtodevspl01_netinf_id" {
 		value = module.jtodev_eastus2_dev_jtodevspl01_netinf.netinf_id
