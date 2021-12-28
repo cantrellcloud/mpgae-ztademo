@@ -3,14 +3,14 @@
 # LOCAL NETWORK GATEWAYS
 
 # localgw01
-module "jtodev_eastus2_dev_cotpa_localgw" {
+module "ztadev_eastus2_dev_cotpa_localgw" {
 	source = "github.com/cantrellcloud/tfaz-localgw"
 	#to_provision = local.provision_localgw01
-	rg_location = module.jtodev_eastus2_dev_rg.rg_location
-	rg_name = module.jtodev_eastus2_dev_rg.rg_name
+	rg_location = module.ztadev_eastus2_dev_rg.rg_location
+	rg_name = module.ztadev_eastus2_dev_rg.rg_name
 	rg_tags = {
 		"ManagementGroup" = "MPG A&E EastUS2",
-		"Environment" = "JTODev",
+		"Environment" = "Dev",
 		"AutomatedBy" = "Terraform",
 		"Note1" = "Do not manually change",
 		"POCName" = "ronc@mindpointgroup.com",
@@ -18,7 +18,7 @@ module "jtodev_eastus2_dev_cotpa_localgw" {
 		"Project" = "Zero Trust Demo"
 	}
 
-	localgw_name = "jtodev_eastus2_dev-cotpa_localgw"
+	localgw_name = "ztadev_eastus2_dev-cotpa_localgw"
 	gateway_address = local.localgw01_gateway_address
 
 	# ENTER NETWORK IDs OF LOCAL NET FOR ROUTING 
@@ -32,9 +32,9 @@ module "jtodev_eastus2_dev_cotpa_localgw" {
 }
 
 # localgw01_outputs
-    output "jtodev_eastus2_dev_cotpa_localgw_id" {
-        value = module.jtodev_eastus2_dev_cotpa_localgw.localgw_id
+    output "ztadev_eastus2_dev_cotpa_localgw_id" {
+        value = module.ztadev_eastus2_dev_cotpa_localgw.localgw_id
     }
-    output "jtodev_eastus2_dev_cotpa_localgw_name" {
-        value = module.jtodev_eastus2_dev_cotpa_localgw.localgw_name
+    output "ztadev_eastus2_dev_cotpa_localgw_name" {
+        value = module.ztadev_eastus2_dev_cotpa_localgw.localgw_name
     }
