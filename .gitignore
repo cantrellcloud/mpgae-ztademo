@@ -30,3 +30,4 @@ override.tf.json
 #
 # !example_override.tf
 terraform/.terraform.lock.hcl
+terraform/.terraform.lock.hcl
