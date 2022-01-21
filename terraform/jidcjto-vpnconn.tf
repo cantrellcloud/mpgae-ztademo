@@ -3,7 +3,7 @@
 # VPN CONNECTIONS
 
 # vpncon01
-/*module "jtodev_eastus2_dev_cotpa_vpncon" {
+module "jtodev_eastus2_dev_cotpa_vpncon" {
 	source = "github.com/cantrellcloud/tfaz-vpncon"
 	#to_provision = local.provision_vpncon01
     rg_location           = module.jtodev_eastus2_dev_rg.rg_location
@@ -32,4 +32,3 @@
     output "jtodev_eastus2_dev_cotpa_vpncon_name" {
         value = module.jtodev_eastus2_dev_cotpa_vpncon.vpncon_name
     }
-*/

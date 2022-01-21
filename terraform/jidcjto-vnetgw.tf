@@ -117,9 +117,9 @@ module "jtodev_eastus2_dev_vnetgw" {
 		EOF
 */
 	#bgp_settings
-		vnetgw_bgp_settings_asn = 65515
-		vnetgw_bgp_settings_peer_weight = 0
-		vnetgw_bgp_settings_peering_addresses = "172.16.200.254"
+		/*vnetgw_bgp_settings_asn = null #65515
+		vnetgw_bgp_settings_peer_weight = null #0
+		vnetgw_bgp_settings_peering_addresses = null #"172.16.200.254"*/
 		 
 }
 

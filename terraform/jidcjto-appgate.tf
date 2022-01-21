@@ -102,6 +102,84 @@ module "jtodev_eastus2_dev_appgate2eastus2_dev_vnet_peer" {
 	peer_allow_gateway_transit = false
 }
 
+#peer02a
+module "jtodev_westus2_dev2eastus2_dev_appgate_vnet_peer" {
+	source = "github.com/cantrellcloud/tfaz-peer"
+	#to_provision = local.provision_peer01
+	rg_name = module.jtodev_westus2_dev_rg.rg_name
+	peer_name = "westus2_dev2eastus2_dev_appgate_peer"
+	from_vnet_name = module.jtodev_westus2_dev_vnet.vnet_name
+	to_vnet_id = module.jtodev_eastus2_dev_appgate_vnet.vnet_id
+	peer_allow_virtual_network_access = true
+	peer_allow_forwarded_traffic = true
+	peer_allow_gateway_transit = false
+}
+
+#peer02b
+module "jtodev_eastus2_dev_appgate2westus2_dev_vnet_peer" {
+	source = "github.com/cantrellcloud/tfaz-peer"
+	#to_provision = local.provision_peer01
+	rg_name = module.jtodev_eastus2_dev_appgate_rg.rg_name
+	peer_name = "eastus2_devappgate2westus2_dev_peer"
+	from_vnet_name =  module.jtodev_eastus2_dev_appgate_vnet.vnet_name
+	to_vnet_id = module.jtodev_westus2_dev_vnet.vnet_id
+	peer_allow_virtual_network_access = true
+	peer_allow_forwarded_traffic = true
+	peer_allow_gateway_transit = false
+}
+
+#peer03a
+module "jtodev_westus_dev2eastus2_dev_appgate_vnet_peer" {
+	source = "github.com/cantrellcloud/tfaz-peer"
+	#to_provision = local.provision_peer01
+	rg_name = module.jtodev_westus_dev_rg.rg_name
+	peer_name = "westus_dev2eastus2_dev_appgate_peer"
+	from_vnet_name = module.jtodev_westus_dev_vnet.vnet_name
+	to_vnet_id = module.jtodev_eastus2_dev_appgate_vnet.vnet_id
+	peer_allow_virtual_network_access = true
+	peer_allow_forwarded_traffic = true
+	peer_allow_gateway_transit = false
+}
+
+#peer03b
+module "jtodev_eastus2_dev_appgate2westus_dev_vnet_peer" {
+	source = "github.com/cantrellcloud/tfaz-peer"
+	#to_provision = local.provision_peer01
+	rg_name = module.jtodev_eastus2_dev_appgate_rg.rg_name
+	peer_name = "eastus2_devappgate2westus_dev_peer"
+	from_vnet_name =  module.jtodev_eastus2_dev_appgate_vnet.vnet_name
+	to_vnet_id = module.jtodev_westus_dev_vnet.vnet_id
+	peer_allow_virtual_network_access = true
+	peer_allow_forwarded_traffic = true
+	peer_allow_gateway_transit = false
+}
+
+#peer04a
+module "jtodev_eastus_dev2eastus2_dev_appgate_vnet_peer" {
+	source = "github.com/cantrellcloud/tfaz-peer"
+	#to_provision = local.provision_peer01
+	rg_name = module.jtodev_eastus_dev_rg.rg_name
+	peer_name = "eastus_dev2eastus2_dev_appgate_peer"
+	from_vnet_name = module.jtodev_eastus_dev_vnet.vnet_name
+	to_vnet_id = module.jtodev_eastus2_dev_appgate_vnet.vnet_id
+	peer_allow_virtual_network_access = true
+	peer_allow_forwarded_traffic = true
+	peer_allow_gateway_transit = false
+}
+
+#peer04b
+module "jtodev_eastus2_dev_appgate2eastus_dev_vnet_peer" {
+	source = "github.com/cantrellcloud/tfaz-peer"
+	#to_provision = local.provision_peer01
+	rg_name = module.jtodev_eastus2_dev_appgate_rg.rg_name
+	peer_name = "eastus2_devappgate2eastus_dev_peer"
+	from_vnet_name =  module.jtodev_eastus2_dev_appgate_vnet.vnet_name
+	to_vnet_id = module.jtodev_eastus_dev_vnet.vnet_id
+	peer_allow_virtual_network_access = true
+	peer_allow_forwarded_traffic = true
+	peer_allow_gateway_transit = false
+}
+
 #--------------------------------------------------------------------------------
 #
 # Network Subnets
