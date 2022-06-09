@@ -2,11 +2,11 @@
 #
 # Azure Users
 
-data "azuread_users" "users" {
+/*data "azuread_users" "users" {
     for_each = {for user in local.users : user.UPN => user }
     return_all = true
 }
-
+*/
 # user01
 /*module "jtodev_eastus2_dev_azaduser_jtodevadmin" {
 	source = "github.com/cantrellcloud/tfaz-azaduser"
