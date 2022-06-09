@@ -27,7 +27,7 @@ module "jtodev_eastus_dev_loganalyticswrkspc" {
 	loganalyticswrkspc_daily_quota_gb                    = null
 	loganalyticswrkspc_internet_ingestion_enabled        = true
 	loganalyticswrkspc_internet_query_enabled            = true
-	loganalyticswrkspc_reservation_capcity_in_gb_per_day = null
+	loganalyticswrkspc_reservation_capacity_in_gb_per_day = null
 }
 
 #loganalyticswrkspc_outputs
