@@ -104,6 +104,41 @@ module "jtodev_eastus2_dev_jtodevdc01_vmwin" {
         write_accelerator_enabled = "false"
     }
 
+    # jtodevdc01_adbackup_manageddisk
+    module "jtodev_eastus2_dev_jtodevdc01_adbackup_manageddisk" {
+        source = "github.com/cantrellcloud/tfaz-manageddisk"
+        #to_provision = local.provision_jtodevdc01_adbackup_manageddisk
+        rg_location = module.jtodev_eastus2_dev_rg.rg_location
+        rg_name = module.jtodev_eastus2_dev_rg.rg_name
+        manageddisk_name = "jtodevdc01_adbackup_manageddisk"
+
+        storage_account_type   = "Standard_LRS"
+        create_option          = "Empty"
+        disk_size_gb           = "128"
+        #disk_encryption_set_id = 
+        #disk_iops_read_write   = 
+        #disk_mbps_read_write   = 
+        #encryption_settings    = 
+        #image_reference_id     = 
+        #os_type                = 
+        #source_resource_id     = 
+        #source_uri             = 
+        #storage_account_id     = 
+        #zones                  = 
+    }
+
+    #jtodevdc01_adbackup_datadiskattach
+    module "jtodev_eastus2_dev_jtodevdc01_adbackup_datadiskattach" {
+        source = "github.com/cantrellcloud/tfaz-datadiskattach"
+        #to_provision = local.provision_jtodevdc01_adbackup_datadiskattach
+        managed_disk_id = module.jtodev_eastus2_dev_jtodevdc01_adbackup_manageddisk.manageddisk_id
+        virtual_machine_id = module.jtodev_eastus2_dev_jtodevdc01_vmwin.vmwin_id
+        lun = 20
+        caching = "ReadWrite"
+        create_option   = "Attach"
+        write_accelerator_enabled = "false"
+    }
+
     # jtodevdc01_outputs
     output "jtodev_eastus2_dev_jtodevdc01_vmwin_id" {
         value = module.jtodev_eastus2_dev_jtodevdc01_vmwin.vmwin_id
@@ -149,6 +184,19 @@ module "jtodev_eastus2_dev_jtodevdc01_vmwin" {
 	# jtodevdc01_datadiskattach_outputs
     output "jtodev_eastus2_dev_jtodevdc01_sysvol_datadiskattach_id" {
 		value = module.jtodev_eastus2_dev_jtodevdc01_sysvol_datadiskattach.datadiskattach_id
+	}
+
+    # jtodevdc01_adbackup_manageddisk_outputs
+	output "jtodev_eastus2_dev_jtodevdc01_adbackup_manageddisk_id" {
+		value = module.jtodev_eastus2_dev_jtodevdc01_adbackup_manageddisk.manageddisk_id
+	}
+	output "jtodev_eastus2_dev_jtodevdc01_adbackup_manageddisk_name" {
+		value = module.jtodev_eastus2_dev_jtodevdc01_adbackup_manageddisk.manageddisk_name
+	}
+
+	# jtodevdc01_adbackup_datadiskattach_outputs
+    output "jtodev_eastus2_dev_jtodevdc01_adbackup_datadiskattach_id" {
+		value = module.jtodev_eastus2_dev_jtodevdc01_adbackup_datadiskattach.datadiskattach_id
 	}
 
 #########################################################################################
@@ -250,6 +298,41 @@ module "jtodev_eastus2_dev_jtodevdc02_vmwin" {
         write_accelerator_enabled = "false"
     }
 
+    # jtodevdc02_adbackup_manageddisk
+    module "jtodev_eastus2_dev_jtodevdc02_adbackup_manageddisk" {
+        source = "github.com/cantrellcloud/tfaz-manageddisk"
+        #to_provision = local.provision_jtodevdc02_adbackup_manageddisk
+        rg_location = module.jtodev_eastus2_dev_rg.rg_location
+        rg_name = module.jtodev_eastus2_dev_rg.rg_name
+        manageddisk_name = "jtodevdc02_adbackup_manageddisk"
+
+        storage_account_type   = "Standard_LRS"
+        create_option          = "Empty"
+        disk_size_gb           = "128"
+        #disk_encryption_set_id = 
+        #disk_iops_read_write   = 
+        #disk_mbps_read_write   = 
+        #encryption_settings    = 
+        #image_reference_id     = 
+        #os_type                = 
+        #source_resource_id     = 
+        #source_uri             = 
+        #storage_account_id     = 
+        #zones                  = 
+    }
+
+    #jtodevdc02_adbackup_datadiskattach
+    module "jtodev_eastus2_dev_jtodevdc02_adbackup_datadiskattach" {
+        source = "github.com/cantrellcloud/tfaz-datadiskattach"
+        #to_provision = local.provision_jtodevdc02_adbackup_datadiskattach
+        managed_disk_id = module.jtodev_eastus2_dev_jtodevdc02_adbackup_manageddisk.manageddisk_id
+        virtual_machine_id = module.jtodev_eastus2_dev_jtodevdc02_vmwin.vmwin_id
+        lun = 20
+        caching = "ReadWrite"
+        create_option   = "Attach"
+        write_accelerator_enabled = "false"
+    }
+
     # jtodevdc02_outputs
     output "jtodev_eastus2_dev_jtodevdc02_vmwin_id" {
         value = module.jtodev_eastus2_dev_jtodevdc02_vmwin.vmwin_id
@@ -295,6 +378,19 @@ module "jtodev_eastus2_dev_jtodevdc02_vmwin" {
 	# jtodevdc02_datadiskattach_outputs
     output "jtodev_eastus2_dev_jtodevdc02_sysvol_datadiskattach_id" {
 		value = module.jtodev_eastus2_dev_jtodevdc02_sysvol_datadiskattach.datadiskattach_id
+	}
+
+    # jtodevdc02_adbackup_manageddisk_outputs
+	output "jtodev_eastus2_dev_jtodevdc02_adbackup_manageddisk_id" {
+		value = module.jtodev_eastus2_dev_jtodevdc02_adbackup_manageddisk.manageddisk_id
+	}
+	output "jtodev_eastus2_dev_jtodevdc02_adbackup_manageddisk_name" {
+		value = module.jtodev_eastus2_dev_jtodevdc02_adbackup_manageddisk.manageddisk_name
+	}
+
+	# jtodevdc02_adbackup_datadiskattach_outputs
+    output "jtodev_eastus2_dev_jtodevdc02_adbackup_datadiskattach_id" {
+		value = module.jtodev_eastus2_dev_jtodevdc02_adbackup_datadiskattach.datadiskattach_id
 	}
 
 #########################################################################################
