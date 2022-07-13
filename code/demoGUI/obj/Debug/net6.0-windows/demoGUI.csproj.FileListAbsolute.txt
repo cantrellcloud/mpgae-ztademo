@@ -19,3 +19,4 @@ D:\GitHub\mpgae-ztademo\code\demoGUI\obj\Debug\net6.0-windows\refint\demoGUI.dll
 D:\GitHub\mpgae-ztademo\code\demoGUI\obj\Debug\net6.0-windows\demoGUI.pdb
 D:\GitHub\mpgae-ztademo\code\demoGUI\obj\Debug\net6.0-windows\demoGUI.genruntimeconfig.cache
 D:\GitHub\mpgae-ztademo\code\demoGUI\obj\Debug\net6.0-windows\ref\demoGUI.dll
+D:\GitHub\mpgae-ztademo\code\demoGUI\obj\Debug\net6.0-windows\del_departmentNumber.g.cs

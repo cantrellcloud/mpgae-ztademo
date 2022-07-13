@@ -1,3 +1,7 @@
+#===========================================================================
+# Initialize
+
+Clear-Host
 $xamlFile = 'D:\GitHub\mpgae-ztademo\code\demoGUI.xaml'
 $inputXML = Get-Content -Path $xamlFile -Raw
 $inputXML = $inputXML -replace 'mc:Ignorable="d"','' -replace "x:N",'N' -replace '^<Win.*', '<Window'
@@ -14,58 +18,80 @@ catch{
     throw
 }
  
+
 #===========================================================================
-# Load XAML Objects In PowerShell
-#===========================================================================
+# Load XAML
   
 $xaml.SelectNodes("//*[@Name]") | ForEach-Object{"trying item $($_.Name)";
-    try {Set-Variable -Name "WPF$($_.Name)" -Value $Form.FindName($_.Name) -ErrorAction Stop}
+    try {Set-Variable -Name "form_$($_.Name)" -Value $Form.FindName($_.Name) -ErrorAction Stop}
     catch{throw}
     }
  
 Function Get-FormVariables{
 if ($global:ReadmeDisplay -ne $true){Write-host "If you need to reference this display again, run Get-FormVariables" -ForegroundColor Yellow;$global:ReadmeDisplay=$true}
 write-host "Found the following interactable elements from our form" -ForegroundColor Cyan
-get-variable WPF*
+get-variable form_*
 }
  
 Get-FormVariables
- 
-#===========================================================================
-# Use this space to add code to the various form elements in your GUI
-#===========================================================================
 
-Function Get-DiskInfo {
-    param($computername =$env:COMPUTERNAME)
-     
-    Get-WMIObject Win32_logicaldisk -ComputerName $computername | 
-      Select-Object @{Name='ComputerName';Ex={$computername}},`
-              @{Name=‘Drive Letter‘;Expression={$_.DeviceID}},`
-              @{Name=‘Drive Label’;Expression={$_.VolumeName}},`
-              @{Name=‘Size(MB)’;Expression={[int]($_.Size / 1MB)}},`
-              @{Name=‘FreeSpace%’;Expression={[math]::Round($_.FreeSpace / $_.Size,2)*100}}
-            }
-    $WPFtextBox.Text = $env:COMPUTERNAME
-    $WPFbutton.Add_Click({
-        Get-DiskInfo -computername $WPFtextBox.Text | % {$WPFlistView.AddChild($_)}
-    })
-     
-#Reference 
- 
-#Adding items to a dropdown/combo box
-    #$vmpicklistView.items.Add([pscustomobject]@{'VMName'=($_).Name;Status=$_.Status;Other="Yes"})
-     
-#Setting the text of a text box to the current PC name    
-    #$WPFtextBox.Text = $env:COMPUTERNAME
-     
-#Adding code to a button, so that when clicked, it pings a system
-# $WPFbutton.Add_Click({ Test-connection -count 1 -ComputerName $WPFtextBox.Text
-# })
+
 #===========================================================================
-# Shows the form
+# Main Code
+
+#initialize global variables
+$Global:UserPrincipalName = $null
+$Global:SamAccountName    = $null
+$Global:DepartmentNumber  = $null
+
+#close the form
+$form_btn_closeMainWindow.Add_Click({$form.Close()})
+
+#find entity clicked
+$form_box_findEntity.Text = "charles.cantrell@cantrelloffice.cloud"
+$form_btn_findEntity.Add_Click({
+    
+    #find entity properties
+    $entityProperties = @(
+        'UserPrincipalName',
+        'SamAccountName',
+        'DepartmentNumber'
+    )
+    $entity = Get-ADUser -Filter 'UserPrincipalName -eq $form_box_findEntity.Text' -Properties $entityProperties | Select-Object $entityProperties
+
+<#
+    Write-Host "================================================"
+    Write-Host "UPN_to_Update     = " $form_box_findEntity.Text
+    Write-Host "userPrincipalName = " $entity.UserPrincipalName
+    Write-Host "sAMMAccountName   = " $entity.SamAccountName
+    Write-Host "departmentNumber  = " $entity.DepartmentNumber
+#>
+
+    $form_box_UserPrincipalName.Text = $entity.UserPrincipalName
+    $form_box_SAMAccountName.Text    = $entity.SamAccountName
+
+    if ($entity.DepartmentNumber -eq $Null) {
+        $form_box_departmentNumber.Text = "None Found"
+    }
+    else {
+        $form_box_departmentNumber.text = $entity.DepartmentNumber
+    }
+
+    #return variables
+    $Global:UserPrincipalName = $entity.UserPrincipalName
+    $Global:SamAccountName    = $entity.SamAccountName
+    $Global:DepartmentNumber  = $entity.DepartmentNumber
+})
+
+#delete departmentnumber clicked
+$form_btn_del_departmentNumber.Add_Click({
+    Write-Host "departmentNumber  = " $Global:DepartmentNumber
+
+    $Global:DepartmentNumber | Out-GridView -Title "Delete departmentNumber Attribute" -OutputMode Multiple
+
+    #return variables
+})
+
 #===========================================================================
-write-host "To show the form, run the following" -ForegroundColor Cyan
-'$Form.ShowDialog() | out-null'
- 
+# Show the form
 $Form.ShowDialog() | out-null
- 

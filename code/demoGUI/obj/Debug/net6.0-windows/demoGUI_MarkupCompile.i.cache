@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 D:\GitHub\mpgae-ztademo\code\demoGUI\App.xaml
-11407045341
+2276538820
 
 5527703496
 194-97651837
-MainWindow.xaml;
+del_departmentNumber.xaml;MainWindow.xaml;
 
-False
+True
 

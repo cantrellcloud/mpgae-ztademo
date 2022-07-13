@@ -5,26 +5,28 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:demoGUI"
         mc:Ignorable="d"
-        Title="MPG ZTA Demo Control" Height="500" Width="700">
+        Title="MPG ZTA Attribute Editor" Height="345" Width="540">
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="5*"/>
-        </Grid.ColumnDefinitions>
-        <TextBox HorizontalAlignment="Left" Margin="10,131,0,0" TextWrapping="Wrap" Text="UPN to Update" VerticalAlignment="Top" Width="120"/>
-        <TextBox HorizontalAlignment="Left" Margin="10,154,0,0" TextWrapping="Wrap" Text="Attribute to Update" VerticalAlignment="Top" Width="120"/>
-        <TextBlock HorizontalAlignment="Left" Margin="110,12,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="95" Width="240"><Run Text="MindPoint Group Zero Trust Architecture"/><LineBreak/><Run Text="Demo Control GUI"/><LineBreak/><Run/><LineBreak/><Run Text="Use this tool to update the attributes of a user to demonstrate entitlement provisioning."/><LineBreak/><Run/></TextBlock>
-        <Button Content="Close" HorizontalAlignment="Left" Margin="657,454,0,0" VerticalAlignment="Top" Click="Button_Click"/>
-        <ListView d:ItemsSource="{d:SampleData ItemCount=5}" Margin="10,231,229,35">
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn Header="Drive Letter" Width="100"/>
-                    <GridViewColumn Header="Drive Label" Width="150"/>
-                    <GridViewColumn Header="Size(MB)" Width="100"/>
-                    <GridViewColumn Header="Free Space %" Width="100"/>
-                </GridView>
-            </ListView.View>
-        </ListView>
-        <Image HorizontalAlignment="Left" Height="100" Margin="10,10,0,0" VerticalAlignment="Top" Width="100" Source="/logo-mpg.jpg"/>
+        <TextBlock HorizontalAlignment="Left" Margin="110,12,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="95" Width="240"><Run Text="MindPoint Group Zero Trust Architecture"/><LineBreak/><Run Text="Attribute Editor"/><LineBreak/><Run/><LineBreak/><Run Text="Use this tool to update the attributes of user and non-user entities that demonstrates entitlement provisioning."/><LineBreak/><Run/></TextBlock>
+
+        <Label Content="Enter Entity UPN" HorizontalAlignment="Left" Margin="10,120,0,0" VerticalAlignment="Top" Width="165" Height="25"/>
+        <TextBox x:Name="box_findEntity" HorizontalAlignment="Left" Margin="180,120,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="255" Height="25"/>
+        <Button x:Name="btn_findEntity" Content="Find" HorizontalAlignment="Left" Margin="440,120,0,0" VerticalAlignment="Top" Height="25" Width="35"/>
+
+        <Label Content="userPrincipalName" HorizontalAlignment="Left" Margin="10,160,0,0" VerticalAlignment="Top" Width="165" Height="25"/>
+        <TextBox x:Name="box_UserPrincipalName" HorizontalAlignment="Left" Margin="180,160,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="255" Height="25"/>
+
+        <Label Content="sAAMAccountName" HorizontalAlignment="Left" Margin="10,190,0,0" VerticalAlignment="Top" Width="165" Height="25"/>
+        <TextBox x:Name="box_SAMAccountName" HorizontalAlignment="Left" Margin="180,190,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="255" Height="25"/>
+
+        <Label Content="departmentNumber" HorizontalAlignment="Left" Margin="10,220,0,0" VerticalAlignment="Top" Width="165" Height="25"/>
+        <TextBox x:Name="box_departmentNumber" HorizontalAlignment="Left" Margin="180,220,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="255" Height="25"/>
+        <Button x:Name="btn_add_departmentNumber" Content="Add" HorizontalAlignment="Left" Margin="440,220,0,0" VerticalAlignment="Top" Height="25" Width="35"/>
+        <Button x:Name="btn_del_departmentNumber" Content="Delete" HorizontalAlignment="Left" Margin="480,220,0,0" VerticalAlignment="Top" Height="25" Width="40"/>
+
+        <Button x:Name="btn_closeMainWindow" Content="Close" HorizontalAlignment="Left" Margin="440,270,0,0" VerticalAlignment="Top" Height="25" Width="35"/>
+
+        <Image HorizontalAlignment="Left" Height="100" Margin="10,10,0,0" VerticalAlignment="Top" Width="100" Source="D:\GitHub\mpgae-ztademo\code\images\logo-mpg.jpg"/>
 
     </Grid>
 </Window>
