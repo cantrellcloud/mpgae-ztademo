@@ -38,7 +38,7 @@ module "jtodev_eastus2_dev_appsvcplan01" {
         value = module.jtodev_eastus2_dev_appsvcplan01.appsvcplan_maximum_number_of_workers
     }
 
-    #ztaconfig    # JTODEv ZTA Config UI
+/*    #ztaconfig    # JTODEv ZTA Config UI
     module "jtodev_eastus2_dev_appsvcplan01_ztaconfig_appsvc" {
         source = "github.com/cantrellcloud/tfaz-appsvc"
         #to_provision = local.provision_ztaconfig
@@ -94,7 +94,7 @@ module "jtodev_eastus2_dev_appsvcplan01" {
         output "jtodev_eastus2_dev_appsvcplan01_ztaconfig_appsvc_identity" {
             value = module.jtodev_eastus2_dev_appsvcplan01_ztaconfig_appsvc.appsvc_identity
         }
-
+*/
     #jtodevzta    # JTODev Web Site
     module "jtodev_eastus2_dev_appsvcplan01_jtodevzta_appsvc" {
         source = "github.com/cantrellcloud/tfaz-appsvc"

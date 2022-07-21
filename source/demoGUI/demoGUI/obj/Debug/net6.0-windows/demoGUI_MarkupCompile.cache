@@ -1,20 +1,20 @@
 ﻿demoGUI
-1.0.0.0
+
 
 winexe
 C#
 .cs
-d:\GitHub\mpgae-ztademo\code\demoGUI\obj\Debug\net6.0-windows\
+D:\GitHub\mpgae-ztademo\source\demoGUI\demoGUI\obj\Debug\net6.0-windows\
 demoGUI
 none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
-d:\GitHub\mpgae-ztademo\code\demoGUI\App.xaml
+D:\GitHub\mpgae-ztademo\source\demoGUI\demoGUI\App.xaml
 2276538820
 
-5527703496
+3-1233169557
 1942007414746
 del_departmentNumber.xaml;MainWindow.xaml;
 
-True
+False
 

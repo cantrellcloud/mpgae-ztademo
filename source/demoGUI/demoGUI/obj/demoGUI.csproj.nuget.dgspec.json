@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "D:\\GitHub\\mpgae-ztademo\\code\\demoGUI\\demoGUI.csproj": {}
+    "D:\\GitHub\\mpgae-ztademo\\source\\demoGUI\\demoGUI\\demoGUI.csproj": {}
   },
   "projects": {
-    "D:\\GitHub\\mpgae-ztademo\\code\\demoGUI\\demoGUI.csproj": {
+    "D:\\GitHub\\mpgae-ztademo\\source\\demoGUI\\demoGUI\\demoGUI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\GitHub\\mpgae-ztademo\\code\\demoGUI\\demoGUI.csproj",
+        "projectUniqueName": "D:\\GitHub\\mpgae-ztademo\\source\\demoGUI\\demoGUI\\demoGUI.csproj",
         "projectName": "demoGUI",
-        "projectPath": "D:\\GitHub\\mpgae-ztademo\\code\\demoGUI\\demoGUI.csproj",
+        "projectPath": "D:\\GitHub\\mpgae-ztademo\\source\\demoGUI\\demoGUI\\demoGUI.csproj",
         "packagesPath": "C:\\Users\\Charles.Cantrell\\.nuget\\packages\\",
-        "outputPath": "D:\\GitHub\\mpgae-ztademo\\code\\demoGUI\\obj\\",
+        "outputPath": "D:\\GitHub\\mpgae-ztademo\\source\\demoGUI\\demoGUI\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "E:\\ProgramData\\VisualStudio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
           "C:\\Users\\Charles.Cantrell\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

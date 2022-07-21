@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "bYwijb/J84cs2pByioQOz7M6puN6rLucM1iD7TUnLRQY6l+STPw8eGg62w0k11WdDWP3lT+RbXPyLlfWJsFMVw==",
+  "dgSpecHash": "QfY986b/7VhYq5dwRVgALDioz9zETp6JtbxZiBjyIZDxgeMG63RZGUCF4R8dG3Fqv2pLMI29jNo56COvv3dl+A==",
   "success": true,
-  "projectFilePath": "D:\\GitHub\\mpgae-ztademo\\code\\demoGUI\\demoGUI.csproj",
+  "projectFilePath": "D:\\GitHub\\mpgae-ztademo\\source\\demoGUI\\demoGUI\\demoGUI.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }
