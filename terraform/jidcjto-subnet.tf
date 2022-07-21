@@ -93,6 +93,23 @@ module "jtodev_eastus2_dev_azure_bastion_subnet" {
 			value = module.jtodev_eastus2_dev_azure_bastion_subnet.subnet_name
 		}
 
+# subnet06
+module "jtodev_eastus2_dev_appsvc_subnet" {
+	source = "github.com/cantrellcloud/tfaz-subnet"
+	#to_provision = local.provision_subnet06
+	rg_name = module.jtodev_eastus2_dev_rg.rg_name
+	subnet_name = "jtodev_eastus2_dev_appsvc_subnet"
+	vnet_name = module.jtodev_eastus2_dev_vnet.vnet_name
+	subnet_prefixes = ["172.16.200.192/27"]
+}
+		#subnet04
+		output "jtodev_eastus2_dev_appsvc_subnet_id" {
+			value = module.jtodev_eastus2_dev_appsvc_subnet.subnet_id
+		}
+		output "jtodev_eastus2_dev_appsvc_subnet_name" {
+			value = module.jtodev_eastus2_dev_appsvc_subnet.subnet_name
+		}
+
 # subnet11
 module "jtodev_eastus_dev_prod_subnet" {
 	source = "github.com/cantrellcloud/tfaz-subnet"

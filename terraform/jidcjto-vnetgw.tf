@@ -36,7 +36,7 @@ module "jtodev_eastus2_dev_vnetgw" {
 		]
 		vnetgw_vpn_client_configuration_vpn_client_protocols = [
 			"SSTP",
-			"IKEv2"
+			"IkeV2"
 		]
 		#root_certificate
 		vnetgw_root_certificate_name = "COCLOUD-ROOTCantrell_Cloud_Certificate_Authority"

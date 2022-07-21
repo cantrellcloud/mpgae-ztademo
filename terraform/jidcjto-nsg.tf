@@ -39,13 +39,13 @@ module "jtodev_eastus2_dev_prod_subnet_nsg" {
 	module "jtodev_eastus2_dev_prod_subnet_nsg_nsr_allow_icmp" {
 		source            = "github.com/cantrellcloud/tfaz-nsr"
 		#to_provision     = local.provision_nsr01-00
-		nsr_name = "Allow_ICMP"
+		nsr_name = "Allow_Icmp"
 		rg_name = module.jtodev_eastus2_dev_rg.rg_name
 		network_security_group_name = module.jtodev_eastus2_dev_prod_subnet_nsg.nsg_name
 
 		# security rule
 		security_rule_access = "Allow"
-		security_rule_description = "Allow ICMP"
+		security_rule_description = "Allow Icmp"
 		security_rule_destination_address_prefix = "*"
 		#security_rule_destination_address_prefixes = []
 		security_rule_destination_application_security_group_ids = []
@@ -53,7 +53,7 @@ module "jtodev_eastus2_dev_prod_subnet_nsg" {
 		#security_rule_destination_port_ranges = []
 		security_rule_direction = "Inbound"
 		security_rule_priority = 100
-		security_rule_protocol = "ICMP"
+		security_rule_protocol = "Icmp"
 		#security_rule_source_address_prefix = ""
 		security_rule_source_address_prefixes = [
 			"144.129.196.130"
@@ -82,7 +82,7 @@ module "jtodev_eastus2_dev_prod_subnet_nsg" {
 
 		# security rule
 		security_rule_access = "Allow"
-		security_rule_description = "Allow TCP3389"
+		security_rule_description = "Allow Tcp3389"
 		security_rule_destination_address_prefix = "*"
 		#security_rule_destination_address_prefixes = []
 		security_rule_destination_application_security_group_ids = []
@@ -90,7 +90,7 @@ module "jtodev_eastus2_dev_prod_subnet_nsg" {
 		#security_rule_destination_port_ranges = []
 		security_rule_direction = "Inbound"
 		security_rule_priority = 101
-		security_rule_protocol = "TCP"
+		security_rule_protocol = "Tcp"
 		#security_rule_source_address_prefix = ""
 		security_rule_source_address_prefixes = [
 			"144.129.196.130"
@@ -119,7 +119,7 @@ module "jtodev_eastus2_dev_prod_subnet_nsg" {
 
 		# security rule
 		security_rule_access = "Allow"
-		security_rule_description = "Allow TCP443"
+		security_rule_description = "Allow Tcp443"
 		#security_rule_destination_address_prefix = ""
 		security_rule_destination_address_prefixes = [
 			"172.16.200.20",
@@ -131,7 +131,7 @@ module "jtodev_eastus2_dev_prod_subnet_nsg" {
 		#security_rule_destination_port_ranges = []
 		security_rule_direction = "Inbound"
 		security_rule_priority = 102
-		security_rule_protocol = "TCP"
+		security_rule_protocol = "Tcp"
 		security_rule_source_address_prefix = "*"
 		#security_rule_source_address_prefixes = [
 		#	"144.129.196.130"
@@ -160,7 +160,7 @@ module "jtodev_eastus2_dev_prod_subnet_nsg" {
 
 		# security rule
 		security_rule_access = "Allow"
-		security_rule_description = "Allow TCP80"
+		security_rule_description = "Allow Tcp80"
 		#security_rule_destination_address_prefix = ""
 		security_rule_destination_address_prefixes = [
 			"172.16.200.25"
@@ -170,7 +170,7 @@ module "jtodev_eastus2_dev_prod_subnet_nsg" {
 		#security_rule_destination_port_ranges = []
 		security_rule_direction = "Inbound"
 		security_rule_priority = 103
-		security_rule_protocol = "TCP"
+		security_rule_protocol = "Tcp"
 		#security_rule_source_address_prefix = ""
 		security_rule_source_address_prefixes = [
 			"144.129.196.130"
@@ -198,7 +198,7 @@ module "jtodev_eastus2_dev_prod_subnet_nsg" {
 
 		# security rule
 		security_rule_access = "Allow"
-		security_rule_description = "Allow TCP58080"
+		security_rule_description = "Allow Tcp58080"
 		#security_rule_destination_address_prefix = ""
 		security_rule_destination_address_prefixes = [
 			"172.16.200.22",
@@ -212,7 +212,7 @@ module "jtodev_eastus2_dev_prod_subnet_nsg" {
 		#security_rule_destination_port_ranges = []
 		security_rule_direction = "Inbound"
 		security_rule_priority = 104
-		security_rule_protocol = "TCP"
+		security_rule_protocol = "Tcp"
 		#security_rule_source_address_prefix = ""
 		security_rule_source_address_prefixes = [
 			"144.129.196.130"
@@ -241,7 +241,7 @@ module "jtodev_eastus2_dev_prod_subnet_nsg" {
 
 		# security rule
 		security_rule_access = "Allow"
-		security_rule_description = "Allow TCP1433"
+		security_rule_description = "Allow Tcp1433"
 		#security_rule_destination_address_prefix = ""
 		security_rule_destination_address_prefixes = [
 			"172.16.200.20"
@@ -251,7 +251,7 @@ module "jtodev_eastus2_dev_prod_subnet_nsg" {
 		#security_rule_destination_port_ranges = []
 		security_rule_direction = "Inbound"
 		security_rule_priority = 105
-		security_rule_protocol = "TCP"
+		security_rule_protocol = "Tcp"
 		#security_rule_source_address_prefix = ""
 		security_rule_source_address_prefixes = [
 			"144.129.196.130"
@@ -280,7 +280,7 @@ module "jtodev_eastus2_dev_prod_subnet_nsg" {
 
 		# security rule
 		security_rule_access = "Allow"
-		security_rule_description = "Allow TCP22"
+		security_rule_description = "Allow Tcp22"
 		#security_rule_destination_address_prefix = ""
 		security_rule_destination_address_prefixes = [
 			"172.16.200.6",
@@ -297,7 +297,7 @@ module "jtodev_eastus2_dev_prod_subnet_nsg" {
 		#security_rule_destination_port_ranges = []
 		security_rule_direction = "Inbound"
 		security_rule_priority = 106
-		security_rule_protocol = "TCP"
+		security_rule_protocol = "Tcp"
 		#security_rule_source_address_prefix = ""
 		security_rule_source_address_prefixes = [
 			"144.129.196.130"
@@ -326,7 +326,7 @@ module "jtodev_eastus2_dev_prod_subnet_nsg" {
 
 		# security rule
 		security_rule_access = "Allow"
-		security_rule_description = "Allow TCP3306"
+		security_rule_description = "Allow Tcp3306"
 		#security_rule_destination_address_prefix = ""
 		security_rule_destination_address_prefixes = [
 			"172.16.200.25"
@@ -336,7 +336,7 @@ module "jtodev_eastus2_dev_prod_subnet_nsg" {
 		#security_rule_destination_port_ranges = []
 		security_rule_direction = "Inbound"
 		security_rule_priority = 107
-		security_rule_protocol = "TCP"
+		security_rule_protocol = "Tcp"
 		#security_rule_source_address_prefix = ""
 		security_rule_source_address_prefixes = [
 			"144.129.196.130"
@@ -365,7 +365,7 @@ module "jtodev_eastus2_dev_prod_subnet_nsg" {
 
 		# security rule
 		security_rule_access = "Allow"
-		security_rule_description = "Allow TCP8080"
+		security_rule_description = "Allow Tcp8080"
 		#security_rule_destination_address_prefix = ""
 		security_rule_destination_address_prefixes = [
 			"172.16.200.22",
@@ -381,7 +381,7 @@ module "jtodev_eastus2_dev_prod_subnet_nsg" {
 		#security_rule_destination_port_ranges = []
 		security_rule_direction = "Inbound"
 		security_rule_priority = 108
-		security_rule_protocol = "TCP"
+		security_rule_protocol = "Tcp"
 		security_rule_source_address_prefix = "*"
 		/*security_rule_source_address_prefixes = [
 			"144.129.196.130"
@@ -410,7 +410,7 @@ module "jtodev_eastus2_dev_prod_subnet_nsg" {
 
 		# security rule
 		security_rule_access = "Allow"
-		security_rule_description = "Allow TCP8081"
+		security_rule_description = "Allow Tcp8081"
 		#security_rule_destination_address_prefix = ""
 		security_rule_destination_address_prefixes = [
 			"172.16.200.22",
@@ -421,7 +421,7 @@ module "jtodev_eastus2_dev_prod_subnet_nsg" {
 		#security_rule_destination_port_ranges = []
 		security_rule_direction = "Inbound"
 		security_rule_priority = 109
-		security_rule_protocol = "TCP"
+		security_rule_protocol = "Tcp"
 		#security_rule_source_address_prefix = "*"
 		security_rule_source_address_prefixes = [
 			"144.129.196.130"
@@ -450,7 +450,7 @@ module "jtodev_eastus2_dev_prod_subnet_nsg" {
 
 		# security rule
 		security_rule_access = "Allow"
-		security_rule_description = "Allow TCP8443"
+		security_rule_description = "Allow Tcp8443"
 		#security_rule_destination_address_prefix = ""
 		security_rule_destination_address_prefixes = [
 			"172.16.200.20"
@@ -460,7 +460,7 @@ module "jtodev_eastus2_dev_prod_subnet_nsg" {
 		#security_rule_destination_port_ranges = []
 		security_rule_direction = "Inbound"
 		security_rule_priority = 110
-		security_rule_protocol = "TCP"
+		security_rule_protocol = "Tcp"
 		#security_rule_source_address_prefix = "*"
 		security_rule_source_address_prefixes = [
 			"144.129.196.130"
@@ -489,7 +489,7 @@ module "jtodev_eastus2_dev_prod_subnet_nsg" {
 
 		# security rule
 		security_rule_access = "Allow"
-		security_rule_description = "Allow TCP389"
+		security_rule_description = "Allow Tcp389"
 		#security_rule_destination_address_prefix = ""
 		security_rule_destination_address_prefixes = [
 			"172.16.200.11",
@@ -500,7 +500,7 @@ module "jtodev_eastus2_dev_prod_subnet_nsg" {
 		#security_rule_destination_port_ranges = []
 		security_rule_direction = "Inbound"
 		security_rule_priority = 111
-		security_rule_protocol = "TCP"
+		security_rule_protocol = "Tcp"
 		#security_rule_source_address_prefix = "*"
 		security_rule_source_address_prefixes = [
 			"144.129.196.130"
@@ -529,7 +529,7 @@ module "jtodev_eastus2_dev_prod_subnet_nsg" {
 
 		# security rule
 		security_rule_access = "Allow"
-		security_rule_description = "Allow TCP25"
+		security_rule_description = "Allow Tcp25"
 		#security_rule_destination_address_prefix = ""
 		security_rule_destination_address_prefixes = [
 			"172.16.200.24"
@@ -539,7 +539,7 @@ module "jtodev_eastus2_dev_prod_subnet_nsg" {
 		#security_rule_destination_port_ranges = []
 		security_rule_direction = "Inbound"
 		security_rule_priority = 112
-		security_rule_protocol = "TCP"
+		security_rule_protocol = "Tcp"
 		security_rule_source_address_prefix = "*"
 		#security_rule_source_address_prefixes = [
 		#	"144.129.196.130"
@@ -568,7 +568,7 @@ module "jtodev_eastus2_dev_prod_subnet_nsg" {
 
 		# security rule
 		security_rule_access = "Allow"
-		security_rule_description = "Allow TCP/UDP53"
+		security_rule_description = "Allow Tcp/UDP53"
 		#security_rule_destination_address_prefix = ""
 		security_rule_destination_address_prefixes = [
 			"172.16.200.11",
@@ -632,13 +632,13 @@ module "jtodev_eastus2_dev_edge_subnet_nsg" {
 	module "jtodev_eastus2_dev_edge_subnet_nsg_nsr_allow_icmp" {
 		source            = "github.com/cantrellcloud/tfaz-nsr"
 		#to_provision     = local.provision_nsr01-00
-		nsr_name = "Allow_ICMP"
+		nsr_name = "Allow_Icmp"
 		rg_name = module.jtodev_eastus2_dev_rg.rg_name
 		network_security_group_name = module.jtodev_eastus2_dev_edge_subnet_nsg.nsg_name
 
 		# security rule
 		security_rule_access = "Allow"
-		security_rule_description = "Allow ICMP"
+		security_rule_description = "Allow Icmp"
 		security_rule_destination_address_prefix = "*"
 		#security_rule_destination_address_prefixes = []
 		security_rule_destination_application_security_group_ids = []
@@ -646,7 +646,7 @@ module "jtodev_eastus2_dev_edge_subnet_nsg" {
 		#security_rule_destination_port_ranges = []
 		security_rule_direction = "Inbound"
 		security_rule_priority = 100
-		security_rule_protocol = "ICMP"
+		security_rule_protocol = "Icmp"
 		#security_rule_source_address_prefix = ""
 		security_rule_source_address_prefixes = [
 			"144.129.196.130"
@@ -675,7 +675,7 @@ module "jtodev_eastus2_dev_edge_subnet_nsg" {
 
 		# security rule
 		security_rule_access = "Allow"
-		security_rule_description = "Allow TCP3389"
+		security_rule_description = "Allow Tcp3389"
 		security_rule_destination_address_prefix = "*"
 		#security_rule_destination_address_prefixes = []
 		security_rule_destination_application_security_group_ids = []
@@ -683,7 +683,7 @@ module "jtodev_eastus2_dev_edge_subnet_nsg" {
 		#security_rule_destination_port_ranges = []
 		security_rule_direction = "Inbound"
 		security_rule_priority = 101
-		security_rule_protocol = "TCP"
+		security_rule_protocol = "Tcp"
 		#security_rule_source_address_prefix = ""
 		security_rule_source_address_prefixes = [
 			"144.129.196.130"
@@ -712,7 +712,7 @@ module "jtodev_eastus2_dev_edge_subnet_nsg" {
 
 		# security rule
 		security_rule_access = "Allow"
-		security_rule_description = "Allow TCP443"
+		security_rule_description = "Allow Tcp443"
 		#security_rule_destination_address_prefix = ""
 		security_rule_destination_address_prefixes = [
 			"172.16.200.70",
@@ -724,7 +724,7 @@ module "jtodev_eastus2_dev_edge_subnet_nsg" {
 		#security_rule_destination_port_ranges = []
 		security_rule_direction = "Inbound"
 		security_rule_priority = 102
-		security_rule_protocol = "TCP"
+		security_rule_protocol = "Tcp"
 		security_rule_source_address_prefix = "*"
 		#security_rule_source_address_prefixes = [
 		#	"144.129.196.130"
@@ -753,7 +753,7 @@ module "jtodev_eastus2_dev_edge_subnet_nsg" {
 
 		# security rule
 		security_rule_access = "Allow"
-		security_rule_description = "Allow TCP80"
+		security_rule_description = "Allow Tcp80"
 		#security_rule_destination_address_prefix = ""
 		security_rule_destination_address_prefixes = [
 			"172.16.200.70",
@@ -765,7 +765,7 @@ module "jtodev_eastus2_dev_edge_subnet_nsg" {
 		#security_rule_destination_port_ranges = []
 		security_rule_direction = "Inbound"
 		security_rule_priority = 103
-		security_rule_protocol = "TCP"
+		security_rule_protocol = "Tcp"
 		security_rule_source_address_prefix = "*"
 		#security_rule_source_address_prefixes = [
 		#	"144.129.196.130"
@@ -794,7 +794,7 @@ module "jtodev_eastus2_dev_edge_subnet_nsg" {
 
 		# security rule
 		security_rule_access = "Allow"
-		security_rule_description = "Allow TCP58080"
+		security_rule_description = "Allow Tcp58080"
 		#security_rule_destination_address_prefix = ""
 		security_rule_destination_address_prefixes = [
 			"172.16.200.22",
@@ -808,7 +808,7 @@ module "jtodev_eastus2_dev_edge_subnet_nsg" {
 		#security_rule_destination_port_ranges = []
 		security_rule_direction = "Inbound"
 		security_rule_priority = 104
-		security_rule_protocol = "TCP"
+		security_rule_protocol = "Tcp"
 		#security_rule_source_address_prefix = ""
 		security_rule_source_address_prefixes = [
 			"144.129.196.130"
@@ -837,7 +837,7 @@ module "jtodev_eastus2_dev_edge_subnet_nsg" {
 
 		# security rule
 		security_rule_access = "Allow"
-		security_rule_description = "Allow TCP1433"
+		security_rule_description = "Allow Tcp1433"
 		#security_rule_destination_address_prefix = ""
 		security_rule_destination_address_prefixes = [
 			"172.16.200.20"
@@ -847,7 +847,7 @@ module "jtodev_eastus2_dev_edge_subnet_nsg" {
 		#security_rule_destination_port_ranges = []
 		security_rule_direction = "Inbound"
 		security_rule_priority = 105
-		security_rule_protocol = "TCP"
+		security_rule_protocol = "Tcp"
 		#security_rule_source_address_prefix = ""
 		security_rule_source_address_prefixes = [
 			"144.129.196.130"
@@ -876,7 +876,7 @@ module "jtodev_eastus2_dev_edge_subnet_nsg" {
 
 		# security rule
 		security_rule_access = "Allow"
-		security_rule_description = "Allow TCP22"
+		security_rule_description = "Allow Tcp22"
 		#security_rule_destination_address_prefix = ""
 		security_rule_destination_address_prefixes = [
 			"172.16.200.70",
@@ -888,7 +888,7 @@ module "jtodev_eastus2_dev_edge_subnet_nsg" {
 		#security_rule_destination_port_ranges = []
 		security_rule_direction = "Inbound"
 		security_rule_priority = 106
-		security_rule_protocol = "TCP"
+		security_rule_protocol = "Tcp"
 		#security_rule_source_address_prefix = ""
 		security_rule_source_address_prefixes = [
 			"144.129.196.130"
@@ -917,7 +917,7 @@ module "jtodev_eastus2_dev_edge_subnet_nsg" {
 
 		# security rule
 		security_rule_access = "Allow"
-		security_rule_description = "Allow TCP3306"
+		security_rule_description = "Allow Tcp3306"
 		#security_rule_destination_address_prefix = ""
 		security_rule_destination_address_prefixes = [
 			"172.16.200.25"
@@ -927,7 +927,7 @@ module "jtodev_eastus2_dev_edge_subnet_nsg" {
 		#security_rule_destination_port_ranges = []
 		security_rule_direction = "Inbound"
 		security_rule_priority = 107
-		security_rule_protocol = "TCP"
+		security_rule_protocol = "Tcp"
 		#security_rule_source_address_prefix = ""
 		security_rule_source_address_prefixes = [
 			"144.129.196.130"
@@ -952,7 +952,7 @@ module "jtodev_eastus2_dev_edge_subnet_nsg" {
 
 		# security rule
 		security_rule_access = "Allow"
-		security_rule_description = "Allow TCP8080"
+		security_rule_description = "Allow Tcp8080"
 		#security_rule_destination_address_prefix = ""
 		security_rule_destination_address_prefixes = [
 			"172.16.200.22",
@@ -968,7 +968,7 @@ module "jtodev_eastus2_dev_edge_subnet_nsg" {
 		#security_rule_destination_port_ranges = []
 		security_rule_direction = "Inbound"
 		security_rule_priority = 108
-		security_rule_protocol = "TCP"
+		security_rule_protocol = "Tcp"
 		security_rule_source_address_prefix = "*"
 		/*security_rule_source_address_prefixes = [
 			"144.129.196.130"
@@ -997,7 +997,7 @@ module "jtodev_eastus2_dev_edge_subnet_nsg" {
 
 		# security rule
 		security_rule_access = "Allow"
-		security_rule_description = "Allow TCP8081"
+		security_rule_description = "Allow Tcp8081"
 		#security_rule_destination_address_prefix = ""
 		security_rule_destination_address_prefixes = [
 			"172.16.200.22",
@@ -1008,7 +1008,7 @@ module "jtodev_eastus2_dev_edge_subnet_nsg" {
 		#security_rule_destination_port_ranges = []
 		security_rule_direction = "Inbound"
 		security_rule_priority = 109
-		security_rule_protocol = "TCP"
+		security_rule_protocol = "Tcp"
 		#security_rule_source_address_prefix = "*"
 		security_rule_source_address_prefixes = [
 			"144.129.196.130"
@@ -1037,7 +1037,7 @@ module "jtodev_eastus2_dev_edge_subnet_nsg" {
 
 		# security rule
 		security_rule_access = "Allow"
-		security_rule_description = "Allow TCP8443"
+		security_rule_description = "Allow Tcp8443"
 		#security_rule_destination_address_prefix = ""
 		security_rule_destination_address_prefixes = [
 			"172.16.200.70",
@@ -1049,7 +1049,7 @@ module "jtodev_eastus2_dev_edge_subnet_nsg" {
 		#security_rule_destination_port_ranges = []
 		security_rule_direction = "Inbound"
 		security_rule_priority = 110
-		security_rule_protocol = "TCP"
+		security_rule_protocol = "Tcp"
 		#security_rule_source_address_prefix = "*"
 		security_rule_source_address_prefixes = [
 			"144.129.196.130"
@@ -1079,7 +1079,7 @@ module "jtodev_eastus2_dev_edge_subnet_nsg" {
 
 		# security rule
 		security_rule_access = "Allow"
-		security_rule_description = "Allow TCP389"
+		security_rule_description = "Allow Tcp389"
 		#security_rule_destination_address_prefix = ""
 		security_rule_destination_address_prefixes = [
 			"172.16.200.11"
@@ -1089,7 +1089,7 @@ module "jtodev_eastus2_dev_edge_subnet_nsg" {
 		#security_rule_destination_port_ranges = []
 		security_rule_direction = "Inbound"
 		security_rule_priority = 111
-		security_rule_protocol = "TCP"
+		security_rule_protocol = "Tcp"
 		#security_rule_source_address_prefix = "*"
 		security_rule_source_address_prefixes = [
 			"144.129.196.130"
@@ -1117,7 +1117,7 @@ module "jtodev_eastus2_dev_edge_subnet_nsg" {
 
 		# security rule
 		security_rule_access = "Allow"
-		security_rule_description = "Allow TCP25"
+		security_rule_description = "Allow Tcp25"
 		#security_rule_destination_address_prefix = ""
 		security_rule_destination_address_prefixes = [
 			"172.16.200.24"
@@ -1127,7 +1127,7 @@ module "jtodev_eastus2_dev_edge_subnet_nsg" {
 		#security_rule_destination_port_ranges = []
 		security_rule_direction = "Inbound"
 		security_rule_priority = 112
-		security_rule_protocol = "TCP"
+		security_rule_protocol = "Tcp"
 		security_rule_source_address_prefix = "*"
 		#security_rule_source_address_prefixes = [
 		#	"144.129.196.130"
@@ -1174,13 +1174,13 @@ module "jtodev_eastus2_dev_web_subnet_nsg" {
 	module "jtodev_eastus2_dev_web_subnet_nsg_nsr_allow_icmp" {
 		source            = "github.com/cantrellcloud/tfaz-nsr"
 		#to_provision     = local.provision_nsr01-00
-		nsr_name = "Allow_ICMP"
+		nsr_name = "Allow_Icmp"
 		rg_name = module.jtodev_eastus2_dev_rg.rg_name
 		network_security_group_name = module.jtodev_eastus2_dev_web_subnet_nsg.nsg_name
 
 		# security rule
 		security_rule_access = "Allow"
-		security_rule_description = "Allow ICMP"
+		security_rule_description = "Allow Icmp"
 		security_rule_destination_address_prefix = "*"
 		#security_rule_destination_address_prefixes = []
 		security_rule_destination_application_security_group_ids = []
@@ -1188,7 +1188,7 @@ module "jtodev_eastus2_dev_web_subnet_nsg" {
 		#security_rule_destination_port_ranges = []
 		security_rule_direction = "Inbound"
 		security_rule_priority = 100
-		security_rule_protocol = "ICMP"
+		security_rule_protocol = "Icmp"
 		#security_rule_source_address_prefix = ""
 		security_rule_source_address_prefixes = [
 			"144.129.196.130"
@@ -1213,7 +1213,7 @@ module "jtodev_eastus2_dev_web_subnet_nsg" {
 
 		# security rule
 		security_rule_access = "Allow"
-		security_rule_description = "Allow TCP3389"
+		security_rule_description = "Allow Tcp3389"
 		security_rule_destination_address_prefix = "*"
 		#security_rule_destination_address_prefixes = []
 		security_rule_destination_application_security_group_ids = []
@@ -1221,7 +1221,7 @@ module "jtodev_eastus2_dev_web_subnet_nsg" {
 		#security_rule_destination_port_ranges = []
 		security_rule_direction = "Inbound"
 		security_rule_priority = 101
-		security_rule_protocol = "TCP"
+		security_rule_protocol = "Tcp"
 		#security_rule_source_address_prefix = ""
 		security_rule_source_address_prefixes = [
 			"144.129.196.130"
@@ -1246,7 +1246,7 @@ module "jtodev_eastus2_dev_web_subnet_nsg" {
 
 		# security rule
 		security_rule_access = "Allow"
-		security_rule_description = "Allow TCP443"
+		security_rule_description = "Allow Tcp443"
 		#security_rule_destination_address_prefix = ""
 		security_rule_destination_address_prefixes = [
 			"172.16.200.41",
@@ -1257,7 +1257,7 @@ module "jtodev_eastus2_dev_web_subnet_nsg" {
 		#security_rule_destination_port_ranges = []
 		security_rule_direction = "Inbound"
 		security_rule_priority = 102
-		security_rule_protocol = "TCP"
+		security_rule_protocol = "Tcp"
 		security_rule_source_address_prefix = "*"
 		#security_rule_source_address_prefixes = [
 		#	"144.129.196.130"
@@ -1282,7 +1282,7 @@ module "jtodev_eastus2_dev_web_subnet_nsg" {
 
 		# security rule
 		security_rule_access = "Allow"
-		security_rule_description = "Allow TCP22"
+		security_rule_description = "Allow Tcp22"
 		#security_rule_destination_address_prefix = ""
 		security_rule_destination_address_prefixes = [
 			"172.16.200.41",
@@ -1293,7 +1293,7 @@ module "jtodev_eastus2_dev_web_subnet_nsg" {
 		#security_rule_destination_port_ranges = []
 		security_rule_direction = "Inbound"
 		security_rule_priority = 106
-		security_rule_protocol = "TCP"
+		security_rule_protocol = "Tcp"
 		#security_rule_source_address_prefix = ""
 		security_rule_source_address_prefixes = [
 			"144.129.196.130"
@@ -1320,7 +1320,7 @@ module "jtodev_eastus2_dev_web_subnet_nsg" {
 
 		# security rule
 		security_rule_access = "Allow"
-		security_rule_description = "Allow TCP80"
+		security_rule_description = "Allow Tcp80"
 		#security_rule_destination_address_prefix = ""
 		security_rule_destination_address_prefixes = [
 			"172.16.200.41",
@@ -1331,7 +1331,7 @@ module "jtodev_eastus2_dev_web_subnet_nsg" {
 		#security_rule_destination_port_ranges = []
 		security_rule_direction = "Inbound"
 		security_rule_priority = 103
-		security_rule_protocol = "TCP"
+		security_rule_protocol = "Tcp"
 		security_rule_source_address_prefix = "*"
 		/*security_rule_source_address_prefixes = [
 			"144.129.196.130"
@@ -1344,4 +1344,61 @@ module "jtodev_eastus2_dev_web_subnet_nsg" {
 		# nsr03-04_outputs
 		output "jtodev_eastus2_dev_web_subnet_nsg_nsr_port_80_id" {
 			value = module.jtodev_eastus2_dev_web_subnet_nsg_nsr_port_80.nsr_id
+		}
+
+# nsg04
+module "jtodev_eastus2_dev_appsvc_subnet_nsg" {
+	source            = "github.com/cantrellcloud/tfaz-nsg"
+	#to_provision     = local.provision_nsg04
+	rg_location       = module.jtodev_eastus2_dev_rg.rg_location
+	rg_name           = module.jtodev_eastus2_dev_rg.rg_name
+	nsg_name          = "jtodev_eastus2_dev_appsvc_subnet_nsg"
+
+}
+
+	# nsg04_outputs
+	output "jtodev_eastus2_dev_appsvc_subnet_nsg_id" {
+		value = module.jtodev_eastus2_dev_appsvc_subnet_nsg.nsg_id
+	}
+	output "jtodev_eastus2_dev_appsvc_subnet_nsg_name" {
+		value = module.jtodev_eastus2_dev_appsvc_subnet_nsg.nsg_name
+	}
+
+	# nsgassoc
+	resource "azurerm_subnet_network_security_group_association" "jtodev_eastus2_dev_appsvc_subnet_nsgassoc" {
+		subnet_id = module.jtodev_eastus2_dev_appsvc_subnet.subnet_id
+		network_security_group_id = module.jtodev_eastus2_dev_appsvc_subnet_nsg.nsg_id
+	}
+
+	# nsr04-00
+	module "jtodev_eastus2_dev_appsvc_subnet_nsg_nsr_allow_icmp" {
+		source            = "github.com/cantrellcloud/tfaz-nsr"
+		#to_provision     = local.provision_nsr01-00
+		nsr_name = "Allow_Icmp"
+		rg_name = module.jtodev_eastus2_dev_rg.rg_name
+		network_security_group_name = module.jtodev_eastus2_dev_appsvc_subnet_nsg.nsg_name
+
+		# security rule
+		security_rule_access = "Allow"
+		security_rule_description = "Allow Icmp"
+		security_rule_destination_address_prefix = "*"
+		#security_rule_destination_address_prefixes = []
+		security_rule_destination_application_security_group_ids = []
+		security_rule_destination_port_range = "*"
+		#security_rule_destination_port_ranges = []
+		security_rule_direction = "Inbound"
+		security_rule_priority = 100
+		security_rule_protocol = "Icmp"
+		#security_rule_source_address_prefix = ""
+		security_rule_source_address_prefixes = [
+			"144.129.196.130"
+		]
+		security_rule_source_application_security_group_ids = []
+		security_rule_source_port_range = "*"
+		#security_rule_source_port_ranges = []
+	}
+
+		# nsr04-00_outputs
+		output "jtodev_eastus2_dev_appsvc_subnet_nsg_nsr_allow_icmp_id" {
+			value = module.jtodev_eastus2_dev_appsvc_subnet_nsg_nsr_allow_icmp.nsr_id
 		}

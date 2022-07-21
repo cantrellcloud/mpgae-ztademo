@@ -11,7 +11,7 @@ terraform {
 	required_providers {
 		azurerm = {
 			source = "hashicorp/azurerm"
-			version = ">= 2.87.0"
+			version = ">= 3.14.0"
 		}
 	}
 	backend "azurerm" {
@@ -184,8 +184,8 @@ module "jtodev_eastus2_dev_general_storage" {
 	account_tier = "Standard"
 	account_replication_type = "GRS"
 	enable_https_traffic_only = true
-	allow_blob_public_access = true
-	access_tier = "hot"
+	#allow_blob_public_access = true
+	access_tier = "Hot"
 	rg_tags = {
 		"ManagementGroup" = "MPG A&E EastUS2",
 		"Environment" = "JTODev",
@@ -236,8 +236,8 @@ module "jtodev_eastus_dev_logs_storage" {
 	account_tier = "Standard"
 	account_replication_type = "GRS"
 	enable_https_traffic_only = true
-	allow_blob_public_access = true
-	access_tier = "hot"
+	#allow_blob_public_access = true
+	access_tier = "Hot"
 	rg_tags = {
 		"ManagementGroup" = "MPG A&E EastUS",
 		"Environment" = "JTODev",

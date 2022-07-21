@@ -283,7 +283,7 @@ module "jtodev_eastus2_dev_appgate_ctrl_subnet_nsg" {
 
 		# security rule
 		security_rule_access = "Allow"
-		security_rule_description = "Allow TCP443"
+		security_rule_description = "Allow Tcp443"
 		security_rule_destination_address_prefix = "*"
 		/*security_rule_destination_address_prefixes = [
 			"172.16.200.20",
@@ -295,7 +295,7 @@ module "jtodev_eastus2_dev_appgate_ctrl_subnet_nsg" {
 		#security_rule_destination_port_ranges = []
 		security_rule_direction = "Inbound"
 		security_rule_priority = 102
-		security_rule_protocol = "TCP"
+		security_rule_protocol = "Tcp"
 		security_rule_source_address_prefix = "*"
 		/*security_rule_source_address_prefixes = [
 			"144.129.196.130"
@@ -344,7 +344,7 @@ module "jtodev_eastus2_dev_appgate_gw01_subnet_nsg" {
 
 		# security rule
 		security_rule_access = "Allow"
-		security_rule_description = "Allow TCP443"
+		security_rule_description = "Allow Tcp443"
 		security_rule_destination_address_prefix = "*"
 		/*security_rule_destination_address_prefixes = [
 			"172.16.200.20",
@@ -356,7 +356,7 @@ module "jtodev_eastus2_dev_appgate_gw01_subnet_nsg" {
 		#security_rule_destination_port_ranges = []
 		security_rule_direction = "Inbound"
 		security_rule_priority = 102
-		security_rule_protocol = "TCP"
+		security_rule_protocol = "Tcp"
 		security_rule_source_address_prefix = "*"
 		/*security_rule_source_address_prefixes = [
 			"144.129.196.130"
