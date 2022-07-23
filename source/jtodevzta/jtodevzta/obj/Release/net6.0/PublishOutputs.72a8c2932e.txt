@@ -1,7 +1,0 @@
-D:\GitHub\mpgae-ztademo\source\jtodevzta\jtodevzta\obj\Release\net6.0\PubTmp\Out\jtodevzta.exe
-D:\GitHub\mpgae-ztademo\source\jtodevzta\jtodevzta\obj\Release\net6.0\PubTmp\Out\appsettings.Development.json
-D:\GitHub\mpgae-ztademo\source\jtodevzta\jtodevzta\obj\Release\net6.0\PubTmp\Out\appsettings.json
-D:\GitHub\mpgae-ztademo\source\jtodevzta\jtodevzta\obj\Release\net6.0\PubTmp\Out\jtodevzta.dll
-D:\GitHub\mpgae-ztademo\source\jtodevzta\jtodevzta\obj\Release\net6.0\PubTmp\Out\jtodevzta.deps.json
-D:\GitHub\mpgae-ztademo\source\jtodevzta\jtodevzta\obj\Release\net6.0\PubTmp\Out\jtodevzta.runtimeconfig.json
-D:\GitHub\mpgae-ztademo\source\jtodevzta\jtodevzta\obj\Release\net6.0\PubTmp\Out\jtodevzta.pdb

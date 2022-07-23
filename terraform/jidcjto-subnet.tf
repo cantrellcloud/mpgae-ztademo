@@ -100,6 +100,7 @@ module "jtodev_eastus2_dev_appsvc_subnet" {
 	rg_name = module.jtodev_eastus2_dev_rg.rg_name
 	subnet_name = "jtodev_eastus2_dev_appsvc_subnet"
 	vnet_name = module.jtodev_eastus2_dev_vnet.vnet_name
+	subnet_enforce_private_link_endpoint_network_policies = true
 	subnet_prefixes = ["172.16.200.192/27"]
 }
 		#subnet04
