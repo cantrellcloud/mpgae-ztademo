@@ -32,9 +32,11 @@ module "jtodev_eastus2_dev_appsvc_ztaconfig" {
     #source_control_branch   = null
 
     appsvc_app_settings = {
-        "WEBSITES_ENABLE_APP_SERVICE_STORAGE" = "false"/*,
-        "MICROSOFT_PROVIDER_AUTHENTICATION_SECRET" = "OJv8Q~bjNVa4DsecIDvg7bseR-Y4JyluAOMeNc2z"*/
+        "WEBSITES_ENABLE_APP_SERVICE_STORAGE" = "false",
+        "WEBSITE_NODE_DEFAULT_VERSION" = "6.9.1"
     }
+
+    identity_type = "SystemAssigned"
 
     #connection_string
     connection_string_name  = "ztaconfigdb"
