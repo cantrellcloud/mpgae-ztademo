@@ -4,9 +4,20 @@ module "jtodev_eastus2_dev_staticsite_onboardsdp" {
     #to_provision = local.provision_staticsite_onboardsdp
     rg_location = module.jtodev_eastus2_dev_appsvcplan_rg.rg_location
     rg_name = module.jtodev_eastus2_dev_appsvcplan_rg.rg_name
+    rg_tags = {
+        "Management Group" = "MPG A&E EastUS2",
+		"Environment" = "JTODev",
+		"AutomatedBy" = "Terraform",
+		"Note1" = "Do not manually change",
+		"POCName" = "ronc@mindpointgroup.com",
+		"POCPhone" = "843.330.6769",
+		"Project" = "Zero Trust Demo"
+	}
+
     staticsite_name = "onboardsdp"
-    staticsite_sku_size = "Free"
-    staticsite_sku_tier = "Free"
+    staticsite_sku_size = "Standard"
+    staticsite_sku_tier = "Standard"
+    staticsite_identity_type = "SystemAssigned"
 }
 
     #staticsite_onboardsdp_outputs
