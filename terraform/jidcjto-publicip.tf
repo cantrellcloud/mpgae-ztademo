@@ -9,7 +9,7 @@
 #
 # vnetgw_publicip
 module "jtodev_eastus2_dev_vnetgw_publicip" {
-    source            = "github.com/cantrellcloud/tfaz-publicip"
+    source            = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-publicip"
     #to_provision     = local.provision_jtodevdc01_publicip
     rg_location       = module.jtodev_eastus2_dev_rg.rg_location
     rg_name           = module.jtodev_eastus2_dev_rg.rg_name

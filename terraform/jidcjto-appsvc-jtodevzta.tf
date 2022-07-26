@@ -1,6 +1,6 @@
 # jtodevzta     # JTODev ZTA Home
 module "jtodev_eastus2_dev_appsvc_jtodevzta" {
-    source = "github.com/cantrellcloud/tfaz-appsvc"
+    source = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-appsvc"
     #to_provision = local.provision_jtodevzta
     rg_location = module.jtodev_eastus2_dev_appsvcplan_rg.rg_location
     rg_name = module.jtodev_eastus2_dev_appsvcplan_rg.rg_name

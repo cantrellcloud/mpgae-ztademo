@@ -6,7 +6,7 @@
 
 # vnet01
 module "jtodev_eastus2_dev_vnet" {
-	source = "github.com/cantrellcloud/tfaz-vnet"
+	source = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-vnet"
 	#to_provision = local.provision_vnet01
 	rg_location = module.jtodev_eastus2_dev_rg.rg_location
 	rg_name = module.jtodev_eastus2_dev_rg.rg_name
@@ -48,7 +48,7 @@ output "jtodev_eastus2_dev_vnet_name" {
 
 # vnet02
 module "jtodev_eastus_dev_vnet" {
-	source = "github.com/cantrellcloud/tfaz-vnet"
+	source = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-vnet"
 	#to_provision = local.provision_vnet02
 	rg_location = module.jtodev_eastus_dev_rg.rg_location
 	rg_name = module.jtodev_eastus_dev_rg.rg_name
@@ -90,7 +90,7 @@ output "jtodev_eastus_dev_vnet_name" {
 
 # vnet03
 module "jtodev_westus_dev_vnet" {
-	source = "github.com/cantrellcloud/tfaz-vnet"
+	source = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-vnet"
 	#to_provision = local.provision_vnet02
 	rg_location = module.jtodev_westus_dev_rg.rg_location
 	rg_name = module.jtodev_westus_dev_rg.rg_name
@@ -132,7 +132,7 @@ output "jtodev_westus_dev_vnet_name" {
 
 # vnet04
 module "jtodev_westus2_dev_vnet" {
-	source = "github.com/cantrellcloud/tfaz-vnet"
+	source = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-vnet"
 	#to_provision = local.provision_vnet02
 	rg_location = module.jtodev_westus2_dev_rg.rg_location
 	rg_name = module.jtodev_westus2_dev_rg.rg_name
@@ -174,7 +174,7 @@ output "jtodev_westus2_dev_vnet_name" {
 
 #peer01a
 module "jtodev_eastus2_dev2eastus_dev_vnet_peer" {
-	source = "github.com/cantrellcloud/tfaz-peer"
+	source = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-peer"
 	#to_provision = local.provision_peer01
 	rg_name = module.jtodev_eastus2_dev_rg.rg_name
 	peer_name = "eastus2_dev2eastus_dev_peer"
@@ -187,7 +187,7 @@ module "jtodev_eastus2_dev2eastus_dev_vnet_peer" {
 
 #peer01b
 module "jtodev_eastus_dev2eastus2_dev_vnet_peer" {
-	source = "github.com/cantrellcloud/tfaz-peer"
+	source = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-peer"
 	#to_provision = local.provision_peer01
 	rg_name = module.jtodev_eastus_dev_rg.rg_name
 	peer_name = "eastus_dev2eastus2_dev_peer"
@@ -200,7 +200,7 @@ module "jtodev_eastus_dev2eastus2_dev_vnet_peer" {
 
 #peer2a
 module "jtodev_eastus2_dev2westus_dev_vnet_peer" {
-	source = "github.com/cantrellcloud/tfaz-peer"
+	source = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-peer"
 	#to_provision = local.provision_peer02
 	rg_name = module.jtodev_eastus2_dev_rg.rg_name
 	peer_name = "eastus2_dev2westus_dev_peer"
@@ -213,7 +213,7 @@ module "jtodev_eastus2_dev2westus_dev_vnet_peer" {
 
 #peer2b
 module "jtodev_westus_dev2eastus2_dev_vnet_peer" {
-	source = "github.com/cantrellcloud/tfaz-peer"
+	source = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-peer"
 	#to_provision = local.provision_peer02
 	rg_name = module.jtodev_westus_dev_rg.rg_name
 	peer_name = "westus_dev2eastus2_dev_peer"
@@ -226,7 +226,7 @@ module "jtodev_westus_dev2eastus2_dev_vnet_peer" {
 
 #peer3a
 module "jtodev_eastus2_dev2westus2_dev_vnet_peer" {
-	source = "github.com/cantrellcloud/tfaz-peer"
+	source = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-peer"
 	#to_provision = local.provision_peer02
 	rg_name = module.jtodev_eastus2_dev_rg.rg_name
 	peer_name = "eastus2_dev2westus2_dev_peer"
@@ -239,7 +239,7 @@ module "jtodev_eastus2_dev2westus2_dev_vnet_peer" {
 
 #peer3b
 module "jtodev_westus2_dev2eastus2_dev_vnet_peer" {
-	source = "github.com/cantrellcloud/tfaz-peer"
+	source = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-peer"
 	#to_provision = local.provision_peer02
 	rg_name = module.jtodev_westus2_dev_rg.rg_name
 	peer_name = "westus2_dev2eastus2_dev_peer"

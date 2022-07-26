@@ -9,7 +9,7 @@
 #
 # nsg01
 module "jtodev_eastus2_dev_prod_subnet_nsg" {
-	source            = "github.com/cantrellcloud/tfaz-nsg"
+	source            = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-nsg"
 	#to_provision     = local.provision_nsg01
 	rg_location       = module.jtodev_eastus2_dev_rg.rg_location
 	rg_name           = module.jtodev_eastus2_dev_rg.rg_name
@@ -37,7 +37,7 @@ module "jtodev_eastus2_dev_prod_subnet_nsg" {
 
 	# nsr01-00
 	module "jtodev_eastus2_dev_prod_subnet_nsg_nsr_allow_icmp" {
-		source            = "github.com/cantrellcloud/tfaz-nsr"
+		source            = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-nsr"
 		#to_provision     = local.provision_nsr01-00
 		nsr_name = "Allow_Icmp"
 		rg_name = module.jtodev_eastus2_dev_rg.rg_name
@@ -74,7 +74,7 @@ module "jtodev_eastus2_dev_prod_subnet_nsg" {
 
 	# nsr01-01
 	module "jtodev_eastus2_dev_prod_subnet_nsg_nsr_port_3389" {
-		source            = "github.com/cantrellcloud/tfaz-nsr"
+		source            = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-nsr"
 		#to_provision     = local.provision_nsr01-01
 		nsr_name = "Port_3389"
 		rg_name = module.jtodev_eastus2_dev_rg.rg_name
@@ -111,7 +111,7 @@ module "jtodev_eastus2_dev_prod_subnet_nsg" {
 
 	# nsr01-02
 	module "jtodev_eastus2_dev_prod_subnet_nsg_nsr_port_443" {
-		source            = "github.com/cantrellcloud/tfaz-nsr"
+		source            = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-nsr"
 		#to_provision     = local.provision_nsr01-02
 		nsr_name = "Port_443"
 		rg_name = module.jtodev_eastus2_dev_rg.rg_name
@@ -152,7 +152,7 @@ module "jtodev_eastus2_dev_prod_subnet_nsg" {
 
 /*	# nsr01-03
 	module "jtodev_eastus2_dev_prod_subnet_nsg_nsr_port_80" {
-		source            = "github.com/cantrellcloud/tfaz-nsr"
+		source            = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-nsr"
 		#to_provision     = local.provision_nsr01-03
 		nsr_name = "Port_80"
 		rg_name = module.jtodev_eastus2_dev_rg.rg_name
@@ -190,7 +190,7 @@ module "jtodev_eastus2_dev_prod_subnet_nsg" {
 
 	# nsr01-04
 	module "jtodev_eastus2_dev_prod_subnet_nsg_nsr_port_58080" {
-		source            = "github.com/cantrellcloud/tfaz-nsr"
+		source            = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-nsr"
 		#to_provision     = local.provision_nsr01-04
 		nsr_name = "Port_58080"
 		rg_name = module.jtodev_eastus2_dev_rg.rg_name
@@ -233,7 +233,7 @@ module "jtodev_eastus2_dev_prod_subnet_nsg" {
 
 	# nsr01-05
 	module "jtodev_eastus2_dev_prod_subnet_nsg_nsr_port_1433" {
-		source            = "github.com/cantrellcloud/tfaz-nsr"
+		source            = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-nsr"
 		#to_provision     = local.provision_nsr01-05
 		nsr_name = "Port_1433"
 		rg_name = module.jtodev_eastus2_dev_rg.rg_name
@@ -272,7 +272,7 @@ module "jtodev_eastus2_dev_prod_subnet_nsg" {
 
 	# nsr01-06
 	module "jtodev_eastus2_dev_prod_subnet_nsg_nsr_port_22" {
-		source            = "github.com/cantrellcloud/tfaz-nsr"
+		source            = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-nsr"
 		#to_provision     = local.provision_nsr01-06
 		nsr_name = "Port_22"
 		rg_name = module.jtodev_eastus2_dev_rg.rg_name
@@ -318,7 +318,7 @@ module "jtodev_eastus2_dev_prod_subnet_nsg" {
 
 /*	# nsr01-07
 	module "jtodev_eastus2_dev_prod_subnet_nsg_nsr_port_3306" {
-		source            = "github.com/cantrellcloud/tfaz-nsr"
+		source            = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-nsr"
 		#to_provision     = local.provision_nsr01-07
 		nsr_name = "Port_3306"
 		rg_name = module.jtodev_eastus2_dev_rg.rg_name
@@ -357,7 +357,7 @@ module "jtodev_eastus2_dev_prod_subnet_nsg" {
 
 	# nsr01-08
 	module "jtodev_eastus2_dev_prod_subnet_nsg_nsr_port_8080" {
-		source            = "github.com/cantrellcloud/tfaz-nsr"
+		source            = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-nsr"
 		#to_provision     = local.provision_nsr01-08
 		nsr_name = "Port_8080"
 		rg_name = module.jtodev_eastus2_dev_rg.rg_name
@@ -402,7 +402,7 @@ module "jtodev_eastus2_dev_prod_subnet_nsg" {
 
 # nsr01-09
 	module "jtodev_eastus2_dev_prod_subnet_nsg_nsr_port_8081" {
-		source            = "github.com/cantrellcloud/tfaz-nsr"
+		source            = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-nsr"
 		#to_provision     = local.provision_nsr01-09
 		nsr_name = "Port_8081"
 		rg_name = module.jtodev_eastus2_dev_rg.rg_name
@@ -442,7 +442,7 @@ module "jtodev_eastus2_dev_prod_subnet_nsg" {
 
 	# nsr01-10
 	module "jtodev_eastus2_dev_prod_subnet_nsg_nsr_port_8443" {
-		source            = "github.com/cantrellcloud/tfaz-nsr"
+		source            = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-nsr"
 		#to_provision     = local.provision_nsr01-10
 		nsr_name = "Port_8443"
 		rg_name = module.jtodev_eastus2_dev_rg.rg_name
@@ -481,7 +481,7 @@ module "jtodev_eastus2_dev_prod_subnet_nsg" {
 
 	# nsr01-11
 	module "jtodev_eastus2_dev_prod_subnet_nsg_nsr_port_389" {
-		source            = "github.com/cantrellcloud/tfaz-nsr"
+		source            = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-nsr"
 		#to_provision     = local.provision_nsr01-11
 		nsr_name = "Port_389"
 		rg_name = module.jtodev_eastus2_dev_rg.rg_name
@@ -521,7 +521,7 @@ module "jtodev_eastus2_dev_prod_subnet_nsg" {
 
 	# nsr01-12
 	module "jtodev_eastus2_dev_prod_subnet_nsg_nsr_port_25" {
-		source            = "github.com/cantrellcloud/tfaz-nsr"
+		source            = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-nsr"
 		#to_provision     = local.provision_nsr01-12
 		nsr_name = "Port_25"
 		rg_name = module.jtodev_eastus2_dev_rg.rg_name
@@ -560,7 +560,7 @@ module "jtodev_eastus2_dev_prod_subnet_nsg" {
 
 	# nsr01-13
 	module "jtodev_eastus2_dev_prod_subnet_nsg_nsr_port_53" {
-		source            = "github.com/cantrellcloud/tfaz-nsr"
+		source            = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-nsr"
 		#to_provision     = local.provision_nsr01-12
 		nsr_name = "Port_53"
 		rg_name = module.jtodev_eastus2_dev_rg.rg_name
@@ -602,7 +602,7 @@ module "jtodev_eastus2_dev_prod_subnet_nsg" {
 
 # nsg02
 module "jtodev_eastus2_dev_edge_subnet_nsg" {
-	source            = "github.com/cantrellcloud/tfaz-nsg"
+	source            = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-nsg"
 	#to_provision     = local.provision_nsg02
 	rg_location       = module.jtodev_eastus2_dev_rg.rg_location
 	rg_name           = module.jtodev_eastus2_dev_rg.rg_name
@@ -630,7 +630,7 @@ module "jtodev_eastus2_dev_edge_subnet_nsg" {
 
 	# nsr02-00
 	module "jtodev_eastus2_dev_edge_subnet_nsg_nsr_allow_icmp" {
-		source            = "github.com/cantrellcloud/tfaz-nsr"
+		source            = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-nsr"
 		#to_provision     = local.provision_nsr01-00
 		nsr_name = "Allow_Icmp"
 		rg_name = module.jtodev_eastus2_dev_rg.rg_name
@@ -667,7 +667,7 @@ module "jtodev_eastus2_dev_edge_subnet_nsg" {
 /*
 	# nsr02-01
 	module "jtodev_eastus2_dev_edge_subnet_nsg_nsr_port_3389" {
-		source            = "github.com/cantrellcloud/tfaz-nsr"
+		source            = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-nsr"
 		#to_provision     = local.provision_nsr02-01
 		nsr_name = "Port_3389"
 		rg_name = module.jtodev_eastus2_dev_rg.rg_name
@@ -704,7 +704,7 @@ module "jtodev_eastus2_dev_edge_subnet_nsg" {
 
 	# nsr02-02
 	module "jtodev_eastus2_dev_edge_subnet_nsg_nsr_port_443" {
-		source            = "github.com/cantrellcloud/tfaz-nsr"
+		source            = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-nsr"
 		#to_provision     = local.provision_nsr02-02
 		nsr_name = "Port_443"
 		rg_name = module.jtodev_eastus2_dev_rg.rg_name
@@ -745,7 +745,7 @@ module "jtodev_eastus2_dev_edge_subnet_nsg" {
 
 	# nsr02-03
 	module "jtodev_eastus2_dev_edge_subnet_nsg_nsr_port_80" {
-		source            = "github.com/cantrellcloud/tfaz-nsr"
+		source            = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-nsr"
 		#to_provision     = local.provision_nsr02-03
 		nsr_name = "Port_80"
 		rg_name = module.jtodev_eastus2_dev_rg.rg_name
@@ -786,7 +786,7 @@ module "jtodev_eastus2_dev_edge_subnet_nsg" {
 
 	# nsr02-04
 /*	module "jtodev_eastus2_dev_edge_subnet_nsg_nsr_port_58080" {
-		source            = "github.com/cantrellcloud/tfaz-nsr"
+		source            = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-nsr"
 		#to_provision     = local.provision_nsr02-04
 		nsr_name = "Port_58080"
 		rg_name = module.jtodev_eastus2_dev_rg.rg_name
@@ -829,7 +829,7 @@ module "jtodev_eastus2_dev_edge_subnet_nsg" {
 
 	# nsr02-05
 	module "jtodev_eastus2_dev_edge_subnet_nsg_nsr_port_1433" {
-		source            = "github.com/cantrellcloud/tfaz-nsr"
+		source            = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-nsr"
 		#to_provision     = local.provision_nsr02-05
 		nsr_name = "Port_1433"
 		rg_name = module.jtodev_eastus2_dev_rg.rg_name
@@ -868,7 +868,7 @@ module "jtodev_eastus2_dev_edge_subnet_nsg" {
 
 	# nsr02-06
 	module "jtodev_eastus2_dev_edge_subnet_nsg_nsr_port_22" {
-		source            = "github.com/cantrellcloud/tfaz-nsr"
+		source            = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-nsr"
 		#to_provision     = local.provision_nsr02-06
 		nsr_name = "Port_22"
 		rg_name = module.jtodev_eastus2_dev_rg.rg_name
@@ -909,7 +909,7 @@ module "jtodev_eastus2_dev_edge_subnet_nsg" {
 /*
 	# nsr02-07
 	module "jtodev_eastus2_dev_edge_subnet_nsg_nsr_port_3306" {
-		source            = "github.com/cantrellcloud/tfaz-nsr"
+		source            = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-nsr"
 		#to_provision     = local.provision_nsr02-07
 		nsr_name = "Port_3306"
 		rg_name = module.jtodev_eastus2_dev_rg.rg_name
@@ -944,7 +944,7 @@ module "jtodev_eastus2_dev_edge_subnet_nsg" {
 
 	# nsr02-08
 	module "jtodev_eastus2_dev_edge_subnet_nsg_nsr_port_8080" {
-		source            = "github.com/cantrellcloud/tfaz-nsr"
+		source            = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-nsr"
 		#to_provision     = local.provision_nsr02-08
 		nsr_name = "Port_8080"
 		rg_name = module.jtodev_eastus2_dev_rg.rg_name
@@ -989,7 +989,7 @@ module "jtodev_eastus2_dev_edge_subnet_nsg" {
 
 # nsr02-09
 	module "jtodev_eastus2_dev_edge_subnet_nsg_nsr_port_8081" {
-		source            = "github.com/cantrellcloud/tfaz-nsr"
+		source            = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-nsr"
 		#to_provision     = local.provision_nsr02-09
 		nsr_name = "Port_8081"
 		rg_name = module.jtodev_eastus2_dev_rg.rg_name
@@ -1029,7 +1029,7 @@ module "jtodev_eastus2_dev_edge_subnet_nsg" {
 
 /*	# nsr02-10
 	module "jtodev_eastus2_dev_edge_subnet_nsg_nsr_port_8443" {
-		source            = "github.com/cantrellcloud/tfaz-nsr"
+		source            = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-nsr"
 		#to_provision     = local.provision_nsr02-10
 		nsr_name = "Port_8443"
 		rg_name = module.jtodev_eastus2_dev_rg.rg_name
@@ -1071,7 +1071,7 @@ module "jtodev_eastus2_dev_edge_subnet_nsg" {
 /*
 	# nsr02-11
 	module "jtodev_eastus2_dev_edge_subnet_nsg_nsr_port_389" {
-		source            = "github.com/cantrellcloud/tfaz-nsr"
+		source            = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-nsr"
 		#to_provision     = local.provision_nsr02-11
 		nsr_name = "Port_389"
 		rg_name = module.jtodev_eastus2_dev_rg.rg_name
@@ -1109,7 +1109,7 @@ module "jtodev_eastus2_dev_edge_subnet_nsg" {
 
 	# nsr02-12
 	module "jtodev_eastus2_dev_edge_subnet_nsg_nsr_port_25" {
-		source            = "github.com/cantrellcloud/tfaz-nsr"
+		source            = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-nsr"
 		#to_provision     = local.provision_nsr02-12
 		nsr_name = "Port_25"
 		rg_name = module.jtodev_eastus2_dev_rg.rg_name
@@ -1148,7 +1148,7 @@ module "jtodev_eastus2_dev_edge_subnet_nsg" {
 
 # nsg03
 module "jtodev_eastus2_dev_web_subnet_nsg" {
-	source            = "github.com/cantrellcloud/tfaz-nsg"
+	source            = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-nsg"
 	#to_provision     = local.provision_nsg03
 	rg_location       = module.jtodev_eastus2_dev_rg.rg_location
 	rg_name           = module.jtodev_eastus2_dev_rg.rg_name
@@ -1172,7 +1172,7 @@ module "jtodev_eastus2_dev_web_subnet_nsg" {
 
 	# nsr03-00
 	module "jtodev_eastus2_dev_web_subnet_nsg_nsr_allow_icmp" {
-		source            = "github.com/cantrellcloud/tfaz-nsr"
+		source            = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-nsr"
 		#to_provision     = local.provision_nsr01-00
 		nsr_name = "Allow_Icmp"
 		rg_name = module.jtodev_eastus2_dev_rg.rg_name
@@ -1205,7 +1205,7 @@ module "jtodev_eastus2_dev_web_subnet_nsg" {
 
 	# nsr03-01
 	module "jtodev_eastus2_dev_web_subnet_nsg_nsr_port_3389" {
-		source            = "github.com/cantrellcloud/tfaz-nsr"
+		source            = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-nsr"
 		#to_provision     = local.provision_nsr01-01
 		nsr_name = "Port_3389"
 		rg_name = module.jtodev_eastus2_dev_rg.rg_name
@@ -1238,7 +1238,7 @@ module "jtodev_eastus2_dev_web_subnet_nsg" {
 
 	# nsr03-02
 	module "jtodev_eastus2_dev_web_subnet_nsg_nsr_port_443" {
-		source            = "github.com/cantrellcloud/tfaz-nsr"
+		source            = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-nsr"
 		#to_provision     = local.provision_nsr01-02
 		nsr_name = "Port_443"
 		rg_name = module.jtodev_eastus2_dev_rg.rg_name
@@ -1274,7 +1274,7 @@ module "jtodev_eastus2_dev_web_subnet_nsg" {
 
 	# nsr03-03
 	module "jtodev_eastus2_dev_web_subnet_nsg_nsr_port_22" {
-		source            = "github.com/cantrellcloud/tfaz-nsr"
+		source            = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-nsr"
 		#to_provision     = local.provision_nsr01-06
 		nsr_name = "Port_22"
 		rg_name = module.jtodev_eastus2_dev_rg.rg_name
@@ -1312,7 +1312,7 @@ module "jtodev_eastus2_dev_web_subnet_nsg" {
 
 	# nsr03-04
 	module "jtodev_eastus2_dev_web_subnet_nsg_nsr_port_80" {
-		source            = "github.com/cantrellcloud/tfaz-nsr"
+		source            = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-nsr"
 		#to_provision     = local.provision_nsr03-04
 		nsr_name = "Port_80"
 		rg_name = module.jtodev_eastus2_dev_rg.rg_name
@@ -1348,7 +1348,7 @@ module "jtodev_eastus2_dev_web_subnet_nsg" {
 
 # nsg04
 module "jtodev_eastus2_dev_appsvc_subnet_nsg" {
-	source            = "github.com/cantrellcloud/tfaz-nsg"
+	source            = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-nsg"
 	#to_provision     = local.provision_nsg04
 	rg_location       = module.jtodev_eastus2_dev_rg.rg_location
 	rg_name           = module.jtodev_eastus2_dev_rg.rg_name
@@ -1372,7 +1372,7 @@ module "jtodev_eastus2_dev_appsvc_subnet_nsg" {
 
 	# nsr04-00
 	module "jtodev_eastus2_dev_appsvc_subnet_nsg_nsr_allow_icmp" {
-		source            = "github.com/cantrellcloud/tfaz-nsr"
+		source            = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-nsr"
 		#to_provision     = local.provision_nsr01-00
 		nsr_name = "Allow_Icmp"
 		rg_name = module.jtodev_eastus2_dev_rg.rg_name

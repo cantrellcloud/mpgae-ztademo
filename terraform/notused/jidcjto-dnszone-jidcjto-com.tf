@@ -1,6 +1,6 @@
 # zone01
 module "jtodev_eastus2_dev_dnszone_jidcjto_com" {
-	source        = "github.com/cantrellcloud/tfaz-dnszone"
+	source        = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-dnszone"
 	#to_provision = local.provision_zone01
 	rg_name       = module.jtodev_eastus2_dev_appsvcplan_rg.rg_name
 	dnszone_name  = "jitdjto.com"

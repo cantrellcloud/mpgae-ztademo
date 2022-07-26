@@ -9,7 +9,7 @@
 #
 # bastion01
 module "jtodev_eastus2_dev_jtodev_bast01_bastion" {
-	source = "github.com/cantrellcloud/tfaz-bastions"
+	source = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-bastions"
 	#to_provision = local.provision_bastion01
 	rg_location = module.jtodev_eastus2_dev_rg.rg_location
 	rg_name = module.jtodev_eastus2_dev_rg.rg_name
@@ -31,7 +31,7 @@ module "jtodev_eastus2_dev_jtodev_bast01_bastion" {
 
     # jtodev_bast01_publicip
     module "jtodev_eastus2_dev_jtodev_bast01_publicip" {
-        source            = "github.com/cantrellcloud/tfaz-publicip"
+        source            = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-publicip"
         #to_provision     = local.provision_jtodev_bast01_publicip
         rg_location       = module.jtodev_eastus2_dev_rg.rg_location
         rg_name           = module.jtodev_eastus2_dev_rg.rg_name

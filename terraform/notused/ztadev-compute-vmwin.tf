@@ -9,7 +9,7 @@
 #
 # ztadevdc01
 module "ztadev_eastus2_dev_ztadevdc01_vmwin" {
-	source = "github.com/cantrellcloud/tfaz-vmwin"
+	source = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-vmwin"
 	#to_provision = local.provision_vmwin01
 	rg_location = module.ztadev_eastus2_dev_rg.rg_location
 	rg_name = module.ztadev_eastus2_dev_rg.rg_name
@@ -45,7 +45,7 @@ module "ztadev_eastus2_dev_ztadevdc01_vmwin" {
 
     # ztadevdc01_netinf
     module "ztadev_eastus2_dev_ztadevdc01_netinf" {
-        source = "github.com/cantrellcloud/tfaz-netinf"
+        source = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-netinf"
         #to_provision = local.provision_ztadevdc01_netinf
         rg_location = module.ztadev_eastus2_dev_rg.rg_location
         rg_name = module.ztadev_eastus2_dev_rg.rg_name
@@ -71,7 +71,7 @@ module "ztadev_eastus2_dev_ztadevdc01_vmwin" {
 
     # ztadevdc01_manageddisk
     module "ztadev_eastus2_dev_ztadevdc01_sysvol_manageddisk" {
-        source = "github.com/cantrellcloud/tfaz-manageddisk"
+        source = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-manageddisk"
         #to_provision = local.provision_ztadevdc01_manageddisk
         rg_location = module.ztadev_eastus2_dev_rg.rg_location
         rg_name = module.ztadev_eastus2_dev_rg.rg_name
@@ -94,7 +94,7 @@ module "ztadev_eastus2_dev_ztadevdc01_vmwin" {
 
     #ztadevdc01_datadiskattach
     module "ztadev_eastus2_dev_ztadevdc01_sysvol_datadiskattach" {
-        source = "github.com/cantrellcloud/tfaz-datadiskattach"
+        source = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-datadiskattach"
         #to_provision = local.provision_ztadevdc01_sysvol_datadiskattach
         managed_disk_id = module.ztadev_eastus2_dev_ztadevdc01_sysvol_manageddisk.manageddisk_id
         virtual_machine_id = module.ztadev_eastus2_dev_ztadevdc01_vmwin.vmwin_id
@@ -155,7 +155,7 @@ module "ztadev_eastus2_dev_ztadevdc01_vmwin" {
 
 # ztadevdc02
 module "ztadev_eastus2_dev_ztadevdc02_vmwin" {
-	source = "github.com/cantrellcloud/tfaz-vmwin"
+	source = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-vmwin"
 	#to_provision = local.provision_vmwin01
 	rg_location = module.ztadev_eastus2_dev_rg.rg_location
 	rg_name = module.ztadev_eastus2_dev_rg.rg_name
@@ -191,7 +191,7 @@ module "ztadev_eastus2_dev_ztadevdc02_vmwin" {
 
     # ztadevdc02_netinf
     module "ztadev_eastus2_dev_ztadevdc02_netinf" {
-        source = "github.com/cantrellcloud/tfaz-netinf"
+        source = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-netinf"
         #to_provision = local.provision_ztadevdc02_netinf
         rg_location = module.ztadev_eastus2_dev_rg.rg_location
         rg_name = module.ztadev_eastus2_dev_rg.rg_name
@@ -217,7 +217,7 @@ module "ztadev_eastus2_dev_ztadevdc02_vmwin" {
 
     # ztadevdc02_manageddisk
     module "ztadev_eastus2_dev_ztadevdc02_sysvol_manageddisk" {
-        source = "github.com/cantrellcloud/tfaz-manageddisk"
+        source = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-manageddisk"
         #to_provision = local.provision_ztadevdc02_manageddisk
         rg_location = module.ztadev_eastus2_dev_rg.rg_location
         rg_name = module.ztadev_eastus2_dev_rg.rg_name
@@ -240,7 +240,7 @@ module "ztadev_eastus2_dev_ztadevdc02_vmwin" {
 
     #ztadevdc02_datadiskattach
     module "ztadev_eastus2_dev_ztadevdc02_sysvol_datadiskattach" {
-        source = "github.com/cantrellcloud/tfaz-datadiskattach"
+        source = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-datadiskattach"
         #to_provision = local.provision_ztadevdc02_sysvol_datadiskattach
         managed_disk_id = module.ztadev_eastus2_dev_ztadevdc02_sysvol_manageddisk.manageddisk_id
         virtual_machine_id = module.ztadev_eastus2_dev_ztadevdc02_vmwin.vmwin_id
@@ -301,7 +301,7 @@ module "ztadev_eastus2_dev_ztadevdc02_vmwin" {
 
 # ztadevsubca01
 module "ztadev_eastus2_dev_ztadevsubca01_vmwin" {
-	source = "github.com/cantrellcloud/tfaz-vmwin"
+	source = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-vmwin"
 	#to_provision = local.provision_vmwin03
 	rg_location = module.ztadev_eastus2_dev_rg.rg_location
 	rg_name = module.ztadev_eastus2_dev_rg.rg_name
@@ -337,7 +337,7 @@ module "ztadev_eastus2_dev_ztadevsubca01_vmwin" {
 
    # ztadevsubca01_netinf
     module "ztadev_eastus2_dev_ztadevsubca01_netinf" {
-        source = "github.com/cantrellcloud/tfaz-netinf"
+        source = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-netinf"
         #to_provision = local.provision_ztadevsubca01_netinf
         rg_location = module.ztadev_eastus2_dev_rg.rg_location
         rg_name = module.ztadev_eastus2_dev_rg.rg_name
@@ -400,7 +400,7 @@ module "ztadev_eastus2_dev_ztadevsubca01_vmwin" {
 /*
 # ztadevwks01
 module "ztadev_eastus2_dev_ztadevwks01_vmwin" {
-	source = "github.com/cantrellcloud/tfaz-vmwin"
+	source = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-vmwin"
 	#to_provision = local.provision_vmwin02
 	rg_location = module.ztadev_eastus2_dev_rg.rg_location
 	rg_name = module.ztadev_eastus2_dev_rg.rg_name
@@ -436,7 +436,7 @@ module "ztadev_eastus2_dev_ztadevwks01_vmwin" {
 
     # ztadevwks01_netinf
     module "ztadev_eastus2_dev_ztadevwks01_netinf" {
-        source = "github.com/cantrellcloud/tfaz-netinf"
+        source = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-netinf"
         #to_provision = local.provision_ztadevwks01_netinf
         rg_location = module.ztadev_eastus2_dev_rg.rg_location
         rg_name = module.ztadev_eastus2_dev_rg.rg_name
@@ -498,7 +498,7 @@ module "ztadev_eastus2_dev_ztadevwks01_vmwin" {
 
 # ztadevweb01
 module "ztadev_eastus2_dev_ztadevweb01_vmwin" {
-	source = "github.com/cantrellcloud/tfaz-vmwin"
+	source = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-vmwin"
 	#to_provision = local.provision_vmwin03
 	rg_location = module.ztadev_eastus2_dev_rg.rg_location
 	rg_name = module.ztadev_eastus2_dev_rg.rg_name
@@ -534,7 +534,7 @@ module "ztadev_eastus2_dev_ztadevweb01_vmwin" {
 
    # ztadevweb01_netinf
     module "ztadev_eastus2_dev_ztadevweb01_netinf" {
-        source = "github.com/cantrellcloud/tfaz-netinf"
+        source = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-netinf"
         #to_provision = local.provision_ztadevweb01_netinf
         rg_location = module.ztadev_eastus2_dev_rg.rg_location
         rg_name = module.ztadev_eastus2_dev_rg.rg_name
@@ -596,7 +596,7 @@ module "ztadev_eastus2_dev_ztadevweb01_vmwin" {
 
 # ztadevsp01
 module "ztadev_eastus2_dev_ztadevsp01_vmwin" {
-	source = "github.com/cantrellcloud/tfaz-vmwin"
+	source = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-vmwin"
 	#to_provision = local.provision_vmwin05
 	rg_location = module.ztadev_eastus2_dev_rg.rg_location
 	rg_name = module.ztadev_eastus2_dev_rg.rg_name
@@ -632,7 +632,7 @@ module "ztadev_eastus2_dev_ztadevsp01_vmwin" {
 
     # ztadevsp01_netinf
     module "ztadev_eastus2_dev_ztadevsp01_netinf" {
-        source = "github.com/cantrellcloud/tfaz-netinf"
+        source = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-netinf"
         #to_provision = local.provision_ztadevsp01_netinf
         rg_location = module.ztadev_eastus2_dev_rg.rg_location
         rg_name = module.ztadev_eastus2_dev_rg.rg_name
@@ -694,7 +694,7 @@ module "ztadev_eastus2_dev_ztadevsp01_vmwin" {
 
 # ztadevex01
 module "ztadev_eastus2_dev_ztadevex01_vmwin" {
-	source = "github.com/cantrellcloud/tfaz-vmwin"
+	source = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-vmwin"
 	#to_provision = local.provision_vmwin06
 	rg_location = module.ztadev_eastus2_dev_rg.rg_location
 	rg_name = module.ztadev_eastus2_dev_rg.rg_name
@@ -730,7 +730,7 @@ module "ztadev_eastus2_dev_ztadevex01_vmwin" {
 
     # ztadevex01_netinf
     module "ztadev_eastus2_dev_ztadevex01_netinf" {
-        source = "github.com/cantrellcloud/tfaz-netinf"
+        source = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-netinf"
         #to_provision = local.provision_ztadevex01_netinf
         rg_location = module.ztadev_eastus2_dev_rg.rg_location
         rg_name = module.ztadev_eastus2_dev_rg.rg_name
@@ -756,7 +756,7 @@ module "ztadev_eastus2_dev_ztadevex01_vmwin" {
 
     # ztadevex01_manageddisk
     module "ztadev_eastus2_dev_ztadevex01_mbdatabase_manageddisk" {
-        source = "github.com/cantrellcloud/tfaz-manageddisk"
+        source = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-manageddisk"
         #to_provision = local.provision_ztadevex01_manageddisk
         rg_location = module.ztadev_eastus2_dev_rg.rg_location
         rg_name = module.ztadev_eastus2_dev_rg.rg_name
@@ -779,7 +779,7 @@ module "ztadev_eastus2_dev_ztadevex01_vmwin" {
 
     #ztadevex01_datadiskattach
     module "ztadev_eastus2_dev_ztadevex01_mbdatabase_datadiskattach" {
-        source = "github.com/cantrellcloud/tfaz-datadiskattach"
+        source = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-datadiskattach"
         #to_provision = local.provision_ztadevex01_mbdatabase_datadiskattach
         managed_disk_id = module.ztadev_eastus2_dev_ztadevex01_mbdatabase_manageddisk.manageddisk_id
         virtual_machine_id = module.ztadev_eastus2_dev_ztadevex01_vmwin.vmwin_id
@@ -840,7 +840,7 @@ module "ztadev_eastus2_dev_ztadevex01_vmwin" {
 
 # ztadevwks08
 module "ztadev_eastus_dev_ztadevwks08_vmwin" {
-	source = "github.com/cantrellcloud/tfaz-vmwin"
+	source = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-vmwin"
 	#to_provision = local.provision_vmwin08
 	rg_location = module.ztadev_eastus_dev_rg.rg_location
 	rg_name = module.ztadev_eastus_dev_rg.rg_name
@@ -876,7 +876,7 @@ module "ztadev_eastus_dev_ztadevwks08_vmwin" {
 
     # ztadevwks08_netinf
     module "ztadev_eastus_dev_ztadevwks08_netinf" {
-        source = "github.com/cantrellcloud/tfaz-netinf"
+        source = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-netinf"
         #to_provision = local.provision_ztadevwks08_netinf
         rg_location = module.ztadev_eastus_dev_rg.rg_location
         rg_name = module.ztadev_eastus_dev_rg.rg_name
@@ -938,7 +938,7 @@ module "ztadev_eastus_dev_ztadevwks08_vmwin" {
 
 # ztadevwks09
 module "ztadev_westus_dev_ztadevwks09_vmwin" {
-	source = "github.com/cantrellcloud/tfaz-vmwin"
+	source = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-vmwin"
 	#to_provision = local.provision_vmwin09
 	rg_location = module.ztadev_westus_dev_rg.rg_location
 	rg_name = module.ztadev_westus_dev_rg.rg_name
@@ -974,7 +974,7 @@ module "ztadev_westus_dev_ztadevwks09_vmwin" {
 
     # ztadevwks09_netinf
     module "ztadev_westus_dev_ztadevwks09_netinf" {
-        source = "github.com/cantrellcloud/tfaz-netinf"
+        source = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-netinf"
         #to_provision = local.provision_ztadevwks09_netinf
         rg_location = module.ztadev_westus_dev_rg.rg_location
         rg_name = module.ztadev_westus_dev_rg.rg_name
@@ -1036,7 +1036,7 @@ module "ztadev_westus_dev_ztadevwks09_vmwin" {
 
 # ztadevwks10
 module "ztadev_westus2_dev_ztadevwks10_vmwin" {
-	source = "github.com/cantrellcloud/tfaz-vmwin"
+	source = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-vmwin"
 	#to_provision = local.provision_vmwin10
 	rg_location = module.ztadev_westus2_dev_rg.rg_location
 	rg_name = module.ztadev_westus2_dev_rg.rg_name
@@ -1071,7 +1071,7 @@ module "ztadev_westus2_dev_ztadevwks10_vmwin" {
 }
     # ztadevwks10_netinf
     module "ztadev_westus2_dev_ztadevwks10_netinf" {
-        source = "github.com/cantrellcloud/tfaz-netinf"
+        source = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-netinf"
         #to_provision = local.provision_ztadevwks10_netinf
         rg_location = module.ztadev_westus2_dev_rg.rg_location
         rg_name = module.ztadev_westus2_dev_rg.rg_name

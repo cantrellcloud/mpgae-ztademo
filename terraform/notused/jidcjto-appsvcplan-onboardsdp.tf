@@ -1,6 +1,6 @@
 # appsvcplan_onboardsdp
 module "jtodev_eastus2_dev_appsvcplan_onboardsdp" {
-	source = "github.com/cantrellcloud/tfaz-appsvcplan"
+	source = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-appsvcplan"
 	#to_provision = local.provision_appsvcplan_onboardsdp
 	rg_location = module.jtodev_eastus2_dev_appsvcplan_rg.rg_location
 	rg_name = module.jtodev_eastus2_dev_appsvcplan_rg.rg_name

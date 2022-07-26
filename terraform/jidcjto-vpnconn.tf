@@ -4,7 +4,7 @@
 
 # vpncon01
 module "jtodev_eastus2_dev_cotpa_vpncon" {
-	source = "github.com/cantrellcloud/tfaz-vpncon"
+	source = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-vpncon"
 	#to_provision = local.provision_vpncon01
     rg_location           = module.jtodev_eastus2_dev_rg.rg_location
     rg_name               = module.jtodev_eastus2_dev_rg.rg_name

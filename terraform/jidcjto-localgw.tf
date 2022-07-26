@@ -4,7 +4,7 @@
 
 # localgw01
 module "jtodev_eastus2_dev_cotpa_localgw" {
-	source = "github.com/cantrellcloud/tfaz-localgw"
+	source = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-localgw"
 	#to_provision = local.provision_localgw01
 	rg_location = module.jtodev_eastus2_dev_rg.rg_location
 	rg_name = module.jtodev_eastus2_dev_rg.rg_name

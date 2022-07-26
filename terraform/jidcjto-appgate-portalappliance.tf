@@ -8,7 +8,7 @@
 #
 # appgate_portal_subnet01
 module "jtodev_eastus2_dev_appgate_portal_subnet" {
-	source = "github.com/cantrellcloud/tfaz-subnet"
+	source = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-subnet"
 	#to_provision = local.provision_subnet01
 	rg_name = module.jtodev_eastus2_dev_appgate_rg.rg_name
 	subnet_name = "jtodev_eastus2_dev_appgate_portal_subnet"
@@ -33,7 +33,7 @@ module "jtodev_eastus2_dev_appgate_portal_subnet" {
 #
 # appgate_portal_nsg01
 module "jtodev_eastus2_dev_appgate_portal_subnet_nsg" {
-	source            = "github.com/cantrellcloud/tfaz-nsg"
+	source            = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-nsg"
 	#to_provision     = local.provision_appgate_nsg01
 	rg_location       = module.jtodev_eastus2_dev_appgate_rg.rg_location
 	rg_name           = module.jtodev_eastus2_dev_appgate_rg.rg_name
@@ -57,7 +57,7 @@ module "jtodev_eastus2_dev_appgate_portal_subnet_nsg" {
 
 	# appgate_portal_nsr01-02
 	module "jtodev_eastus2_dev_appgate_portal_subnet_nsg_nsr_port_443" {
-		source            = "github.com/cantrellcloud/tfaz-nsr"
+		source            = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-nsr"
 		#to_provision     = local.provision_nsr01-02
 		nsr_name = "Port_443"
 		rg_name = module.jtodev_eastus2_dev_appgate_rg.rg_name
@@ -98,7 +98,7 @@ module "jtodev_eastus2_dev_appgate_portal_subnet_nsg" {
 #
 # appgate_portal_publicip
 module "jtodev_eastus2_dev_appgate_portal_publicip" {
-    source            = "github.com/cantrellcloud/tfaz-publicip"
+    source            = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-publicip"
     #to_provision     = local.provision_jtodevdc01_publicip
     rg_location       = module.jtodev_eastus2_dev_appgate_rg.rg_location
     rg_name           = module.jtodev_eastus2_dev_appgate_rg.rg_name

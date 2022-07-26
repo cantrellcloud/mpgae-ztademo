@@ -10,7 +10,7 @@
 # keyvault01
 data "azurerm_client_config" "current" {}
 module "jtodev_eastus2_dev_keyvault" {
-	source = "github.com/cantrellcloud/tfaz-keyvault"
+	source = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-keyvault"
 	#to_provision = local.provision_keyvault01
 	rg_location = module.jtodev_eastus2_dev_rg.rg_location
 	rg_name = module.jtodev_eastus2_dev_rg.rg_name
@@ -52,7 +52,7 @@ module "jtodev_eastus2_dev_keyvault" {
 #
 # keyvault01_accecsspolicy01
 module "jtodev_eastus2_dev_terraformsp_keyvaultaccesspolicy" {
-	source = "github.com/cantrellcloud/tfaz-keyvaultaccesspolicy"
+	source = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-keyvaultaccesspolicy"
 	#to_provision = local.provision_keyvaultaccesspolicy01
     key_vault_access_policy_key_vault_id            = module.jtodev_eastus2_dev_keyvault.keyvault_id
     #key_vault_access_policy_tenant_id               = data.azurerm_client_config.current.tenant_id
@@ -127,7 +127,7 @@ module "jtodev_eastus2_dev_terraformsp_keyvaultaccesspolicy" {
 
 # keyvault01_accecsspolicy01
 module "jtodev_eastus2_dev_ztademokeyadmins_keyvaultaccesspolicy" {
-	source = "github.com/cantrellcloud/tfaz-keyvaultaccesspolicy"
+	source = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-keyvaultaccesspolicy"
 	#to_provision = local.provision_keyvaultaccesspolicy01
     key_vault_access_policy_key_vault_id            = module.jtodev_eastus2_dev_keyvault.keyvault_id
     #key_vault_access_policy_tenant_id               = data.azurerm_client_config.current.tenant_id
@@ -206,7 +206,7 @@ module "jtodev_eastus2_dev_ztademokeyadmins_keyvaultaccesspolicy" {
 #
 # keyvault01_key01
 module "jtodev_eastus2_dev_vmnix_keyvaultkey" {
-	source = "github.com/cantrellcloud/tfaz-keyvaultkey"
+	source = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-keyvaultkey"
 	#to_provision = local.provision_keyvaultkey01
     keyvaultkey_name         = "vmnixkeyvaultkey"
     keyvaultkey_key_vault_id = module.jtodev_eastus2_dev_keyvault.keyvault_id

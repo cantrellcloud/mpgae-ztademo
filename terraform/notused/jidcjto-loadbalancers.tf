@@ -6,7 +6,7 @@
 
 # lb01
 module "jtodev_eastus2_dev_ztcontroller_private_lb" {
-	source            = "github.com/cantrellcloud/tfaz-lb"
+	source            = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-lb"
 	#to_provision     = local.provision_lb01
 	rg_location       = module.jtodev_eastus2_dev_rg.rg_location
 	rg_name           = module.jtodev_eastus2_dev_rg.rg_name
@@ -41,7 +41,7 @@ module "jtodev_eastus2_dev_ztcontroller_private_lb" {
 
 	#lbbackendaddresspool01
 	module "jtodev_eastus2_dev_ztcontroller_private_lb_lbbackendaddresspool_private" {
-		source                     = "github.com/cantrellcloud/tfaz-lbbackendaddresspool"
+		source                     = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-lbbackendaddresspool"
 		#to_provision              = local.provision_lbbackendaddresspool01
 		lbbackendaddresspool_lb_id = module.jtodev_eastus2_dev_ztcontroller_private_lb.lb_id
 		lbbackendaddresspool_name  = "jtodev_eastus2_dev_ztcontroller_private_lb_lbbackendaddresspool_private"
@@ -66,7 +66,7 @@ module "jtodev_eastus2_dev_ztcontroller_private_lb" {
 
 		#lbbackendaddresspooladdress01
 		module "jtodev_eastus2_dev_ztcontroller_private_lb_lbbackendaddresspooladdress_01" {
-			source        = "github.com/cantrellcloud/tfaz-lbbackendaddresspooladdress"
+			source        = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-lbbackendaddresspooladdress"
 			#to_provis ion = local.provision_lbbackendaddresspooladdress01
 			lb_backendaddresspooladdress_backend_address_pool_id = module.jtodev_eastus2_dev_ztcontroller_private_lb_lbbackendaddresspool_private.lbbackendaddresspool_id
 			lb_backendaddresspooladdress_name  = "jtodev_eastus2_dev_ztcontroller_private_lb_lbbackendaddresspooladdress_01"
@@ -85,7 +85,7 @@ module "jtodev_eastus2_dev_ztcontroller_private_lb" {
 
 		#lbbackendaddresspooladdress02
 		module "jtodev_eastus2_dev_ztcontroller_private_lb_lbbackendaddresspooladdress_02" {
-			source        = "github.com/cantrellcloud/tfaz-lbbackendaddresspooladdress"
+			source        = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-lbbackendaddresspooladdress"
 			#to_provis ion = local.provision_lbbackendaddresspooladdress02
 			lb_backendaddresspooladdress_backend_address_pool_id = module.jtodev_eastus2_dev_ztcontroller_private_lb_lbbackendaddresspool_private.lbbackendaddresspool_id
 			lb_backendaddresspooladdress_name  = "jtodev_eastus2_dev_ztcontroller_private_lb_lbbackendaddresspooladdress_02"
@@ -104,7 +104,7 @@ module "jtodev_eastus2_dev_ztcontroller_private_lb" {
 
 		#lbbackendaddresspooladdress03
 		module "jtodev_eastus2_dev_ztcontroller_private_lb_lbbackendaddresspooladdress_03" {
-			source        = "github.com/cantrellcloud/tfaz-lbbackendaddresspooladdress"
+			source        = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-lbbackendaddresspooladdress"
 			#to_provis ion = local.provision_lbbackendaddresspooladdress03
 			lb_backendaddresspooladdress_backend_address_pool_id = module.jtodev_eastus2_dev_ztcontroller_private_lb_lbbackendaddresspool_private.lbbackendaddresspool_id
 			lb_backendaddresspooladdress_name  = "jtodev_eastus2_dev_ztcontroller_private_lb_lbbackendaddresspooladdress_03"
@@ -123,7 +123,7 @@ module "jtodev_eastus2_dev_ztcontroller_private_lb" {
 
 		#lbprobe01
 		module "jtodev_eastus2_dev_ztcontroller_private_lb_lbprobe_8080" {
-			source               = "github.com/cantrellcloud/tfaz-lbprobe"
+			source               = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-lbprobe"
 			#to_provision        = local.provision_lbprobe01
 			rg_name              = module.jtodev_eastus2_dev_rg.rg_name
 			lbprobe_lb_id        = module.jtodev_eastus2_dev_ztcontroller_private_lb.lb_id
@@ -144,7 +144,7 @@ module "jtodev_eastus2_dev_ztcontroller_private_lb" {
 
 		#lbrule01
 		module "jtodev_eastus2_dev_ztcontroller_private_lb_lbrule_8080" {
-			source                                = "github.com/cantrellcloud/tfaz-lbrule"
+			source                                = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-lbrule"
 			#to_provision                         = local.provision_lbrule01
 			rg_name                               = module.jtodev_eastus2_dev_rg.rg_name
 			lbrule_name                           = "jtodev_eastus2_dev_ztcontroller_private_lb_lbrule_8080"
@@ -168,7 +168,7 @@ module "jtodev_eastus2_dev_ztcontroller_private_lb" {
 
 		#lbprobe02
 		module "jtodev_eastus2_dev_ztcontroller_private_lb_lbprobe_58080" {
-			source               = "github.com/cantrellcloud/tfaz-lbprobe"
+			source               = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-lbprobe"
 			#to_provision        = local.provision_lbprobe02
 			rg_name              = module.jtodev_eastus2_dev_rg.rg_name
 			lbprobe_lb_id        = module.jtodev_eastus2_dev_ztcontroller_private_lb.lb_id
@@ -189,7 +189,7 @@ module "jtodev_eastus2_dev_ztcontroller_private_lb" {
 
 		#lbrule02
 		module "jtodev_eastus2_dev_ztcontroller_private_lb_lbrule_58080" {
-			source                                = "github.com/cantrellcloud/tfaz-lbrule"
+			source                                = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-lbrule"
 			#to_provision                         = local.provision_lbrule02
 			rg_name                               = module.jtodev_eastus2_dev_rg.rg_name
 			lbrule_name                           = "jtodev_eastus2_dev_ztcontroller_private_lb_lbrule_58080"
@@ -216,7 +216,7 @@ module "jtodev_eastus2_dev_ztcontroller_private_lb" {
 
 # lb02
 module "jtodev_eastus2_dev_ztcontroller_public_lb" {
-	source            = "github.com/cantrellcloud/tfaz-lb"
+	source            = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-lb"
 	#to_provision     = local.provision_lb02
 	rg_location       = module.jtodev_eastus2_dev_rg.rg_location
 	rg_name           = module.jtodev_eastus2_dev_rg.rg_name
@@ -251,7 +251,7 @@ module "jtodev_eastus2_dev_ztcontroller_public_lb" {
 
     # lb02_publicip
     module "jtodev_eastus2_dev_ztcontroller_public_lb_publicip" {
-        source            = "github.com/cantrellcloud/tfaz-publicip"
+        source            = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-publicip"
         #to_provision     = local.provision_publicip01
         rg_location       = module.jtodev_eastus2_dev_rg.rg_location
         rg_name           = module.jtodev_eastus2_dev_rg.rg_name
@@ -274,7 +274,7 @@ module "jtodev_eastus2_dev_ztcontroller_public_lb" {
 
 	#lbbackendaddresspool01
 	module "jtodev_eastus2_dev_ztcontroller_public_lb_lbbackendaddresspool" {
-		source                     = "github.com/cantrellcloud/tfaz-lbbackendaddresspool"
+		source                     = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-lbbackendaddresspool"
 		#to_provision              = local.provision_lbbackendaddresspool01
 		lbbackendaddresspool_lb_id = module.jtodev_eastus2_dev_ztcontroller_public_lb.lb_id
 		lbbackendaddresspool_name  = "jtodev_eastus2_dev_ztcontroller_public_lb_lbbackendaddresspool"
@@ -299,7 +299,7 @@ module "jtodev_eastus2_dev_ztcontroller_public_lb" {
 
 		#lbbackendaddresspooladdress01
 		module "jtodev_eastus2_dev_ztcontroller_public_lb_lbbackendaddresspooladdress_01" {
-			source        = "github.com/cantrellcloud/tfaz-lbbackendaddresspooladdress"
+			source        = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-lbbackendaddresspooladdress"
 			#to_provis ion = local.provision_lbbackendaddresspooladdress01
 			lb_backendaddresspooladdress_backend_address_pool_id = module.jtodev_eastus2_dev_ztcontroller_public_lb_lbbackendaddresspool.lbbackendaddresspool_id
 			lb_backendaddresspooladdress_name  = "jtodev_eastus2_dev_ztcontroller_public_lb_lbbackendaddresspooladdress_01"
@@ -318,7 +318,7 @@ module "jtodev_eastus2_dev_ztcontroller_public_lb" {
 
 		#lbbackendaddresspooladdress02
 		module "jtodev_eastus2_dev_ztcontroller_public_lb_lbbackendaddresspooladdress_02" {
-			source        = "github.com/cantrellcloud/tfaz-lbbackendaddresspooladdress"
+			source        = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-lbbackendaddresspooladdress"
 			#to_provis ion = local.provision_lbbackendaddresspooladdress02
 			lb_backendaddresspooladdress_backend_address_pool_id = module.jtodev_eastus2_dev_ztcontroller_public_lb_lbbackendaddresspool.lbbackendaddresspool_id
 			lb_backendaddresspooladdress_name  = "jtodev_eastus2_dev_ztcontroller_public_lb_lbbackendaddresspooladdress_02"
@@ -337,7 +337,7 @@ module "jtodev_eastus2_dev_ztcontroller_public_lb" {
 
 		#lbbackendaddresspooladdress03
 		module "jtodev_eastus2_dev_ztcontroller_public_lb_lbbackendaddresspooladdress_03" {
-			source        = "github.com/cantrellcloud/tfaz-lbbackendaddresspooladdress"
+			source        = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-lbbackendaddresspooladdress"
 			#to_provis ion = local.provision_lbbackendaddresspooladdress03
 			lb_backendaddresspooladdress_backend_address_pool_id = module.jtodev_eastus2_dev_ztcontroller_public_lb_lbbackendaddresspool.lbbackendaddresspool_id
 			lb_backendaddresspooladdress_name  = "jtodev_eastus2_dev_ztcontroller_public_lb_lbbackendaddresspooladdress_03"
@@ -356,7 +356,7 @@ module "jtodev_eastus2_dev_ztcontroller_public_lb" {
 
 		#lbprobe01
 		module "jtodev_eastus2_dev_ztcontroller_public_lb_lbprobe_8080" {
-			source               = "github.com/cantrellcloud/tfaz-lbprobe"
+			source               = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-lbprobe"
 			#to_provision        = local.provision_lbprobe01
 			rg_name              = module.jtodev_eastus2_dev_rg.rg_name
 			lbprobe_lb_id        = module.jtodev_eastus2_dev_ztcontroller_public_lb.lb_id
@@ -377,7 +377,7 @@ module "jtodev_eastus2_dev_ztcontroller_public_lb" {
 
 		#lbrule01
 		module "jtodev_eastus2_dev_ztcontroller_public_lb_lbrule_8080" {
-			source                                = "github.com/cantrellcloud/tfaz-lbrule"
+			source                                = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-lbrule"
 			#to_provision                         = local.provision_lbrule01
 			rg_name                               = module.jtodev_eastus2_dev_rg.rg_name
 			lbrule_name                           = "jtodev_eastus2_dev_ztcontroller_public_lb_lbrule_8080"
@@ -401,7 +401,7 @@ module "jtodev_eastus2_dev_ztcontroller_public_lb" {
 
 		#lbprobe02
 		module "jtodev_eastus2_dev_ztcontroller_public_lbprobe_58080" {
-			source               = "github.com/cantrellcloud/tfaz-lbprobe"
+			source               = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-lbprobe"
 			#to_provision        = local.provision_lbprobe02
 			rg_name              = module.jtodev_eastus2_dev_rg.rg_name
 			lbprobe_lb_id        = module.jtodev_eastus2_dev_ztcontroller_public_lb.lb_id
@@ -422,7 +422,7 @@ module "jtodev_eastus2_dev_ztcontroller_public_lb" {
 
 		#lbrule02
 		module "jtodev_eastus2_dev_ztcontroller_public_lb_lbrule_58080" {
-			source                                = "github.com/cantrellcloud/tfaz-lbrule"
+			source                                = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-lbrule"
 			#to_provision                         = local.provision_lbrule02
 			rg_name                               = module.jtodev_eastus2_dev_rg.rg_name
 			lbrule_name                           = "jtodev_eastus2_dev_ztcontroller_public_lb_lbrule_58080"

@@ -9,7 +9,7 @@
 #
 # vmnix01
 module "jtodev_eastus2_dev_jtodevnix01_vmnix" {
-	source = "github.com/cantrellcloud/tfaz-vmnix"
+	source = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-vmnix"
 	#to_provision = local.provision_vmnix01
 	rg_location = module.jtodev_eastus2_dev_rg.rg_location
 	rg_name = module.jtodev_eastus2_dev_rg.rg_name
@@ -44,7 +44,7 @@ module "jtodev_eastus2_dev_jtodevnix01_vmnix" {
 
     # jtodevnix01_publicip
 /*    module "jtodev_eastus2_dev_jtodevnix01_publicip" {
-        source            = "github.com/cantrellcloud/tfaz-publicip"
+        source            = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-publicip"
         #to_provision     = local.provision_jtodevnix01_publicip
         rg_location       = module.jtodev_eastus2_dev_rg.rg_location
         rg_name           = module.jtodev_eastus2_dev_rg.rg_name
@@ -56,7 +56,7 @@ module "jtodev_eastus2_dev_jtodevnix01_vmnix" {
 */
     # jtodevnix01_netinf
     module "jtodev_eastus2_dev_jtodevnix01_netinf" {
-        source = "github.com/cantrellcloud/tfaz-netinf"
+        source = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-netinf"
         #to_provision = local.provision_jtodevnix01_netinf
         rg_location = module.jtodev_eastus2_dev_rg.rg_location
         rg_name = module.jtodev_eastus2_dev_rg.rg_name
@@ -127,7 +127,7 @@ module "jtodev_eastus2_dev_jtodevnix01_vmnix" {
 
 # vmnix02
 module "jtodev_eastus2_dev_jtodevnix02_vmnix" {
-	source = "github.com/cantrellcloud/tfaz-vmnix"
+	source = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-vmnix"
 	#to_provision = local.provision_vmnix02
 	rg_location = module.jtodev_eastus2_dev_rg.rg_location
 	rg_name = module.jtodev_eastus2_dev_rg.rg_name
@@ -162,7 +162,7 @@ module "jtodev_eastus2_dev_jtodevnix02_vmnix" {
 
     # jtodevnix02_publicip
 /*    module "jtodev_eastus2_dev_jtodevnix02_publicip" {
-        source            = "github.com/cantrellcloud/tfaz-publicip"
+        source            = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-publicip"
         #to_provision     = local.provision_jtodevnix02_publicip
         rg_location       = module.jtodev_eastus2_dev_rg.rg_location
         rg_name           = module.jtodev_eastus2_dev_rg.rg_name
@@ -174,7 +174,7 @@ module "jtodev_eastus2_dev_jtodevnix02_vmnix" {
 */
     # jtodevnix02_netinf
     module "jtodev_eastus2_dev_jtodevnix02_netinf" {
-        source = "github.com/cantrellcloud/tfaz-netinf"
+        source = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-netinf"
         #to_provision = local.provision_jtodevnix02_netinf
         rg_location = module.jtodev_eastus2_dev_rg.rg_location
         rg_name = module.jtodev_eastus2_dev_rg.rg_name
@@ -247,7 +247,7 @@ module "jtodev_eastus2_dev_jtodevnix02_vmnix" {
 # ** ZTA Demo Splunk Server  **
 # **      Do not delete      **
 module "jtodev_eastus2_dev_jtodevspl01_vmnix" {
-	source = "github.com/cantrellcloud/tfaz-vmnix"
+	source = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-vmnix"
 	#to_provision = local.provision_vmnix02
 	rg_location = module.jtodev_eastus2_dev_rg.rg_location
 	rg_name = module.jtodev_eastus2_dev_rg.rg_name
@@ -282,7 +282,7 @@ module "jtodev_eastus2_dev_jtodevspl01_vmnix" {
 
     # jtodevspl01_netinf
     module "jtodev_eastus2_dev_jtodevspl01_netinf" {
-        source = "github.com/cantrellcloud/tfaz-netinf"
+        source = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-netinf"
         #to_provision = local.provision_jtodevspl01_netinf
         rg_location = module.jtodev_eastus2_dev_rg.rg_location
         rg_name = module.jtodev_eastus2_dev_rg.rg_name
@@ -308,7 +308,7 @@ module "jtodev_eastus2_dev_jtodevspl01_vmnix" {
 
     # jtodevspl01_manageddisk
     module "jtodev_eastus2_dev_jtodevspl01_data01_manageddisk" {
-        source = "github.com/cantrellcloud/tfaz-manageddisk"
+        source = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-manageddisk"
         #to_provision = local.provision_jtodevspl01_manageddisk
         rg_location = module.jtodev_eastus2_dev_rg.rg_location
         rg_name = module.jtodev_eastus2_dev_rg.rg_name
@@ -331,7 +331,7 @@ module "jtodev_eastus2_dev_jtodevspl01_vmnix" {
 
     #jtodevspl01_datadiskattach
     module "jtodev_eastus2_dev_jtodevspl01_data01_datadiskattach" {
-        source = "github.com/cantrellcloud/tfaz-datadiskattach"
+        source = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-datadiskattach"
         #to_provision = local.provision_jtodevspl01_data01_datadiskattach
         managed_disk_id = module.jtodev_eastus2_dev_jtodevspl01_data01_manageddisk.manageddisk_id
         virtual_machine_id = module.jtodev_eastus2_dev_jtodevspl01_vmnix.vmnix_id

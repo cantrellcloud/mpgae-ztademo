@@ -10,7 +10,7 @@
 
 # zpc01
 module "jtodev_eastus2_dev_ztpc01_vmnix" {
-	source = "github.com/cantrellcloud/tfaz-vmnix"
+	source = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-vmnix"
 	#to_provision = local.provision_vmnix02
 	rg_location = module.jtodev_eastus2_dev_rg.rg_location
 	rg_name = module.jtodev_eastus2_dev_rg.rg_name
@@ -36,7 +36,7 @@ module "jtodev_eastus2_dev_ztpc01_vmnix" {
 
     # ztpc01_publicip
 /*    module "jtodev_eastus2_dev_ztpc01_publicip" {
-        source            = "github.com/cantrellcloud/tfaz-publicip"
+        source            = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-publicip"
         #to_provision     = local.provision_ztpc01_publicip
         rg_location       = module.jtodev_eastus2_dev_rg.rg_location
         rg_name           = module.jtodev_eastus2_dev_rg.rg_name
@@ -48,7 +48,7 @@ module "jtodev_eastus2_dev_ztpc01_vmnix" {
 */
     # ztpc01_netinf
     module "jtodev_eastus2_dev_ztpc01_netinf" {
-        source = "github.com/cantrellcloud/tfaz-netinf"
+        source = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-netinf"
         #to_provision = local.provision_ztpc01_netinf
         rg_location = module.jtodev_eastus2_dev_rg.rg_location
         rg_name = module.jtodev_eastus2_dev_rg.rg_name
@@ -109,7 +109,7 @@ module "jtodev_eastus2_dev_ztpc01_vmnix" {
 
 # ztpc02
 module "jtodev_eastus2_dev_ztpc02_vmnix" {
-	source = "github.com/cantrellcloud/tfaz-vmnix"
+	source = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-vmnix"
 	#to_provision = local.provision_vmnix03
 	rg_location = module.jtodev_eastus2_dev_rg.rg_location
 	rg_name = module.jtodev_eastus2_dev_rg.rg_name
@@ -135,7 +135,7 @@ module "jtodev_eastus2_dev_ztpc02_vmnix" {
 
     # ztpc02_publicip
 /*    module "jtodev_eastus2_dev_ztpc02_publicip" {
-        source            = "github.com/cantrellcloud/tfaz-publicip"
+        source            = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-publicip"
         #to_provision     = local.provision_ztpc02_publicip
         rg_location       = module.jtodev_eastus2_dev_rg.rg_location
         rg_name           = module.jtodev_eastus2_dev_rg.rg_name
@@ -147,7 +147,7 @@ module "jtodev_eastus2_dev_ztpc02_vmnix" {
 */
     # ztpc02_netinf
     module "jtodev_eastus2_dev_ztpc02_netinf" {
-        source = "github.com/cantrellcloud/tfaz-netinf"
+        source = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-netinf"
         #to_provision = local.provision_ztpc02_netinf
         rg_location = module.jtodev_eastus2_dev_rg.rg_location
         rg_name = module.jtodev_eastus2_dev_rg.rg_name
@@ -208,7 +208,7 @@ module "jtodev_eastus2_dev_ztpc02_vmnix" {
 
 # ztpc03
 module "jtodev_eastus2_dev_ztpc03_vmnix" {
-	source = "github.com/cantrellcloud/tfaz-vmnix"
+	source = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-vmnix"
 	#to_provision = local.provision_vmnix04
 	rg_location = module.jtodev_eastus2_dev_rg.rg_location
 	rg_name = module.jtodev_eastus2_dev_rg.rg_name
@@ -234,7 +234,7 @@ module "jtodev_eastus2_dev_ztpc03_vmnix" {
 
     # ztpc03_publicip
 /*    module "jtodev_eastus2_dev_ztpc03_publicip" {
-        source            = "github.com/cantrellcloud/tfaz-publicip"
+        source            = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-publicip"
         #to_provision     = local.provision_ztpc03_publicip
         rg_location       = module.jtodev_eastus2_dev_rg.rg_location
         rg_name           = module.jtodev_eastus2_dev_rg.rg_name
@@ -246,7 +246,7 @@ module "jtodev_eastus2_dev_ztpc03_vmnix" {
 */
     # ztpc03_netinf
     module "jtodev_eastus2_dev_ztpc03_netinf" {
-        source = "github.com/cantrellcloud/tfaz-netinf"
+        source = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-netinf"
         #to_provision = local.provision_ztpc03_netinf
         rg_location = module.jtodev_eastus2_dev_rg.rg_location
         rg_name = module.jtodev_eastus2_dev_rg.rg_name

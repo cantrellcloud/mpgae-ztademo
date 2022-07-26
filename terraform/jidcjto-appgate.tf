@@ -8,7 +8,7 @@
 #
 # appgate_rg01
 module "jtodev_eastus2_dev_appgate_rg" {
-    source = "github.com/cantrellcloud/tfaz-rg/"
+    source = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-rg/"
 	rg_name = "jtodev_eastus2_dev_appgate_rg"
 	rg_location = "eastus2"
 	rg_tags = {
@@ -36,7 +36,7 @@ module "jtodev_eastus2_dev_appgate_rg" {
 #
 # appgate_vnet01
 module "jtodev_eastus2_dev_appgate_vnet" {
-	source = "github.com/cantrellcloud/tfaz-vnet"
+	source = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-vnet"
 	#to_provision = local.provision_vnet01
 	rg_location = module.jtodev_eastus2_dev_appgate_rg.rg_location
 	rg_name = module.jtodev_eastus2_dev_appgate_rg.rg_name
@@ -78,7 +78,7 @@ output "jtodev_eastus2_dev_appgate_vnet_name" {
 
 #peer01a
 module "jtodev_eastus2_dev2eastus2_dev_appgate_vnet_peer" {
-	source = "github.com/cantrellcloud/tfaz-peer"
+	source = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-peer"
 	#to_provision = local.provision_peer01
 	rg_name = module.jtodev_eastus2_dev_rg.rg_name
 	peer_name = "eastus2_dev2eastus2_dev_appgate_peer"
@@ -91,7 +91,7 @@ module "jtodev_eastus2_dev2eastus2_dev_appgate_vnet_peer" {
 
 #peer01b
 module "jtodev_eastus2_dev_appgate2eastus2_dev_vnet_peer" {
-	source = "github.com/cantrellcloud/tfaz-peer"
+	source = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-peer"
 	#to_provision = local.provision_peer01
 	rg_name = module.jtodev_eastus2_dev_appgate_rg.rg_name
 	peer_name = "eastus2_devappgate2eastus2_dev_peer"
@@ -104,7 +104,7 @@ module "jtodev_eastus2_dev_appgate2eastus2_dev_vnet_peer" {
 
 #peer02a
 module "jtodev_westus2_dev2eastus2_dev_appgate_vnet_peer" {
-	source = "github.com/cantrellcloud/tfaz-peer"
+	source = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-peer"
 	#to_provision = local.provision_peer01
 	rg_name = module.jtodev_westus2_dev_rg.rg_name
 	peer_name = "westus2_dev2eastus2_dev_appgate_peer"
@@ -117,7 +117,7 @@ module "jtodev_westus2_dev2eastus2_dev_appgate_vnet_peer" {
 
 #peer02b
 module "jtodev_eastus2_dev_appgate2westus2_dev_vnet_peer" {
-	source = "github.com/cantrellcloud/tfaz-peer"
+	source = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-peer"
 	#to_provision = local.provision_peer01
 	rg_name = module.jtodev_eastus2_dev_appgate_rg.rg_name
 	peer_name = "eastus2_devappgate2westus2_dev_peer"
@@ -130,7 +130,7 @@ module "jtodev_eastus2_dev_appgate2westus2_dev_vnet_peer" {
 
 #peer03a
 module "jtodev_westus_dev2eastus2_dev_appgate_vnet_peer" {
-	source = "github.com/cantrellcloud/tfaz-peer"
+	source = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-peer"
 	#to_provision = local.provision_peer01
 	rg_name = module.jtodev_westus_dev_rg.rg_name
 	peer_name = "westus_dev2eastus2_dev_appgate_peer"
@@ -143,7 +143,7 @@ module "jtodev_westus_dev2eastus2_dev_appgate_vnet_peer" {
 
 #peer03b
 module "jtodev_eastus2_dev_appgate2westus_dev_vnet_peer" {
-	source = "github.com/cantrellcloud/tfaz-peer"
+	source = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-peer"
 	#to_provision = local.provision_peer01
 	rg_name = module.jtodev_eastus2_dev_appgate_rg.rg_name
 	peer_name = "eastus2_devappgate2westus_dev_peer"
@@ -156,7 +156,7 @@ module "jtodev_eastus2_dev_appgate2westus_dev_vnet_peer" {
 
 #peer04a
 module "jtodev_eastus_dev2eastus2_dev_appgate_vnet_peer" {
-	source = "github.com/cantrellcloud/tfaz-peer"
+	source = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-peer"
 	#to_provision = local.provision_peer01
 	rg_name = module.jtodev_eastus_dev_rg.rg_name
 	peer_name = "eastus_dev2eastus2_dev_appgate_peer"
@@ -169,7 +169,7 @@ module "jtodev_eastus_dev2eastus2_dev_appgate_vnet_peer" {
 
 #peer04b
 module "jtodev_eastus2_dev_appgate2eastus_dev_vnet_peer" {
-	source = "github.com/cantrellcloud/tfaz-peer"
+	source = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-peer"
 	#to_provision = local.provision_peer01
 	rg_name = module.jtodev_eastus2_dev_appgate_rg.rg_name
 	peer_name = "eastus2_devappgate2eastus_dev_peer"
@@ -186,7 +186,7 @@ module "jtodev_eastus2_dev_appgate2eastus_dev_vnet_peer" {
 #
 # subnet01
 module "jtodev_eastus2_dev_appgate_ctrl_subnet" {
-	source = "github.com/cantrellcloud/tfaz-subnet"
+	source = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-subnet"
 	#to_provision = local.provision_subnet01
 	rg_name = module.jtodev_eastus2_dev_appgate_rg.rg_name
 	subnet_name = "jtodev_eastus2_dev_appgate_ctrl_subnet"
@@ -205,7 +205,7 @@ module "jtodev_eastus2_dev_appgate_ctrl_subnet" {
 #
 # subnet02
 module "jtodev_eastus2_dev_appgate_subnetgw_subnet" {
-	source = "github.com/cantrellcloud/tfaz-subnet"
+	source = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-subnet"
 	#to_provision = local.provision_subnet02
 	rg_name = module.jtodev_eastus2_dev_appgate_rg.rg_name
 	subnet_name = "GatewaySubnet"
@@ -225,7 +225,7 @@ module "jtodev_eastus2_dev_appgate_subnetgw_subnet" {
 #
 # subnet03
 module "jtodev_eastus2_dev_appgate_gw01_subnet" {
-	source = "github.com/cantrellcloud/tfaz-subnet"
+	source = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-subnet"
 	#to_provision = local.provision_subnet03
 	rg_name = module.jtodev_eastus2_dev_appgate_rg.rg_name
 	subnet_name = "jtodev_eastus2_dev_appgate_gw01_subnet"
@@ -251,7 +251,7 @@ module "jtodev_eastus2_dev_appgate_gw01_subnet" {
 #
 # appgate_nsg01
 module "jtodev_eastus2_dev_appgate_ctrl_subnet_nsg" {
-	source            = "github.com/cantrellcloud/tfaz-nsg"
+	source            = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-nsg"
 	#to_provision     = local.provision_appgate_nsg01
 	rg_location       = module.jtodev_eastus2_dev_appgate_rg.rg_location
 	rg_name           = module.jtodev_eastus2_dev_appgate_rg.rg_name
@@ -275,7 +275,7 @@ module "jtodev_eastus2_dev_appgate_ctrl_subnet_nsg" {
 
 	# nsr01-02
 	module "jtodev_eastus2_dev_appgate_ctrl_subnet_nsg_nsr_port_443" {
-		source            = "github.com/cantrellcloud/tfaz-nsr"
+		source            = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-nsr"
 		#to_provision     = local.provision_nsr01-02
 		nsr_name = "Port_443"
 		rg_name = module.jtodev_eastus2_dev_appgate_rg.rg_name
@@ -312,7 +312,7 @@ module "jtodev_eastus2_dev_appgate_ctrl_subnet_nsg" {
 
 # appgate_nsg02
 module "jtodev_eastus2_dev_appgate_gw01_subnet_nsg" {
-	source            = "github.com/cantrellcloud/tfaz-nsg"
+	source            = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-nsg"
 	#to_provision     = local.provision_appgate_nsg02
 	rg_location       = module.jtodev_eastus2_dev_appgate_rg.rg_location
 	rg_name           = module.jtodev_eastus2_dev_appgate_rg.rg_name
@@ -336,7 +336,7 @@ module "jtodev_eastus2_dev_appgate_gw01_subnet_nsg" {
 
 	# nsr02-02
 	module "jtodev_eastus2_dev_appgate_gw01_subnet_nsg_nsr_port_443" {
-		source            = "github.com/cantrellcloud/tfaz-nsr"
+		source            = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-nsr"
 		#to_provision     = local.provision_nsr02-02
 		nsr_name = "Port_443"
 		rg_name = module.jtodev_eastus2_dev_appgate_rg.rg_name
@@ -377,7 +377,7 @@ module "jtodev_eastus2_dev_appgate_gw01_subnet_nsg" {
 #
 # appgate_ctrl_publicip
 module "jtodev_eastus2_dev_appgate_ctrl_publicip" {
-    source            = "github.com/cantrellcloud/tfaz-publicip"
+    source            = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-publicip"
     #to_provision     = local.provision_jtodevdc01_publicip
     rg_location       = module.jtodev_eastus2_dev_appgate_rg.rg_location
     rg_name           = module.jtodev_eastus2_dev_appgate_rg.rg_name
@@ -413,7 +413,7 @@ module "jtodev_eastus2_dev_appgate_ctrl_publicip" {
 
 # appgate_gw01_publicip
 module "jtodev_eastus2_dev_appgate_gw01_publicip" {
-    source            = "github.com/cantrellcloud/tfaz-publicip"
+    source            = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-publicip"
     #to_provision     = local.provision_jtodevdc01_publicip
     rg_location       = module.jtodev_eastus2_dev_appgate_rg.rg_location
     rg_name           = module.jtodev_eastus2_dev_appgate_rg.rg_name
@@ -450,7 +450,7 @@ module "jtodev_eastus2_dev_appgate_gw01_publicip" {
 #
 # appgate_vmnix01
 /*module "jtodev_eastus2_dev_appgate01_vmnix" {
-	source = "github.com/cantrellcloud/tfaz-vmnix"
+	source = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-vmnix"
 	#to_provision = local.provision_vmnix01
     rg_location       = module.jtodev_eastus2_dev_appgate_rg.rg_location
     rg_name           = module.jtodev_eastus2_dev_appgate_rg.rg_name
@@ -490,7 +490,7 @@ module "jtodev_eastus2_dev_appgate_gw01_publicip" {
 
     # appgate01_publicip
     module "jtodev_eastus2_dev_appgate01_publicip" {
-        source                     = "github.com/cantrellcloud/tfaz-publicip"
+        source                     = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-publicip"
         #to_provision              = local.provision_appgate01_publicip
 	    rg_location                = module.jtodev_eastus2_dev_appgate_rg.rg_location
     	rg_name                    = module.jtodev_eastus2_dev_appgate_rg.rg_name
@@ -512,7 +512,7 @@ module "jtodev_eastus2_dev_appgate_gw01_publicip" {
 
     # appgate01_netinf01
     module "jtodev_eastus2_dev_appgate01_netinf01" {
-        source = "github.com/cantrellcloud/tfaz-netinf"
+        source = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-netinf"
         #to_provision = local.provision_appgate01_netinf01
         rg_location       = module.jtodev_eastus2_dev_appgate_rg.rg_location
 	    rg_name           = module.jtodev_eastus2_dev_appgate_rg.rg_name
@@ -538,7 +538,7 @@ module "jtodev_eastus2_dev_appgate_gw01_publicip" {
 
     # appgate01_netinf02
     module "jtodev_eastus2_dev_appgate01_netinf02" {
-        source = "github.com/cantrellcloud/tfaz-netinf"
+        source = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-netinf"
         #to_provision = local.provision_appgate01_netinf02
 	    rg_location       = module.jtodev_eastus2_dev_appgate_rg.rg_location
     	rg_name           = module.jtodev_eastus2_dev_appgate_rg.rg_name

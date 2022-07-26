@@ -1,6 +1,6 @@
 # appsvcplan_ztaconfig
 module "jtodev_eastus2_dev_appsvcplan_ztaconfig" {
-	source = "github.com/cantrellcloud/tfaz-appsvcplan"
+	source = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-appsvcplan"
 	#to_provision = local.provision_appsvcplan_ztaconfig
 	rg_location = module.jtodev_eastus2_dev_appsvcplan_rg.rg_location
 	rg_name = module.jtodev_eastus2_dev_appsvcplan_rg.rg_name

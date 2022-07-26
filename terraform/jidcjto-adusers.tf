@@ -9,7 +9,7 @@
 */
 # user01
 /*module "jtodev_eastus2_dev_azaduser_jtodevadmin" {
-	source = "github.com/cantrellcloud/tfaz-azaduser"
+	source = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-azaduser"
 	#to_provision = local.provision_user01
     azaduser_user_principal_name = "jtodevadmin@mpgaejtodev.onmicrosoft.com"
     azaduser_display_name        = "JTODev Admin"

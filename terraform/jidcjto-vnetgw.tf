@@ -4,7 +4,7 @@
 
 # vpngw01
 module "jtodev_eastus2_dev_vnetgw" {
-	source                = "github.com/cantrellcloud/tfaz-vnetgw"
+	source                = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-vnetgw"
     rg_location           = module.jtodev_eastus2_dev_rg.rg_location
     rg_name               = module.jtodev_eastus2_dev_rg.rg_name
 	rg_tags               = {

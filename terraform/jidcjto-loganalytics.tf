@@ -7,7 +7,7 @@
 #
 # loganalyticswrkspc
 module "jtodev_eastus_dev_loganalyticswrkspc" {
-	source = "github.com/cantrellcloud/tfaz-loganalyticswrkspc"
+	source = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-loganalyticswrkspc"
 	#to_provision = local.provision_loganalyticswrkspc
 	rg_location = module.jtodev_eastus_dev_rg.rg_location
 	rg_name = module.jtodev_eastus_dev_rg.rg_name

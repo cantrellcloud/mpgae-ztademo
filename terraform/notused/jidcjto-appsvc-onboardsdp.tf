@@ -1,6 +1,6 @@
 #onboardsdp    # JTODEv ZTA Onboard SDP
 module "jtodev_eastus2_dev_appsvc_onboardsdp" {
-    source = "github.com/cantrellcloud/tfaz-appsvc"
+    source = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-appsvc"
     #to_provision = local.provision_onboardsdp
     rg_location = module.jtodev_eastus2_dev_appsvcplan_rg.rg_location
     rg_name = module.jtodev_eastus2_dev_appsvcplan_rg.rg_name

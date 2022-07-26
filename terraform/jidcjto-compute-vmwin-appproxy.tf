@@ -9,7 +9,7 @@
 #
 # jtodevproxy01
 module "jtodev_eastus2_dev_jtodevproxy01_vmwin" {
-	source = "github.com/cantrellcloud/tfaz-vmwin"
+	source = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-vmwin"
 	#to_provision = local.provision_vmwin01
 	rg_location = module.jtodev_eastus2_dev_rg.rg_location
 	rg_name = module.jtodev_eastus2_dev_rg.rg_name
@@ -45,7 +45,7 @@ module "jtodev_eastus2_dev_jtodevproxy01_vmwin" {
 
     # jtodevproxy01_netinf
     module "jtodev_eastus2_dev_jtodevproxy01_netinf" {
-        source = "github.com/cantrellcloud/tfaz-netinf"
+        source = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-netinf"
         #to_provision = local.provision_jtodevproxy01_netinf
         rg_location = module.jtodev_eastus2_dev_rg.rg_location
         rg_name = module.jtodev_eastus2_dev_rg.rg_name
@@ -107,7 +107,7 @@ module "jtodev_eastus2_dev_jtodevproxy01_vmwin" {
 
 # jtodevproxy02
 module "jtodev_eastus2_dev_jtodevproxy02_vmwin" {
-	source = "github.com/cantrellcloud/tfaz-vmwin"
+	source = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-vmwin"
 	#to_provision = local.provision_vmwin01
 	rg_location = module.jtodev_eastus2_dev_rg.rg_location
 	rg_name = module.jtodev_eastus2_dev_rg.rg_name
@@ -143,7 +143,7 @@ module "jtodev_eastus2_dev_jtodevproxy02_vmwin" {
 
     # jtodevproxy02_netinf
     module "jtodev_eastus2_dev_jtodevproxy02_netinf" {
-        source = "github.com/cantrellcloud/tfaz-netinf"
+        source = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-netinf"
         #to_provision = local.provision_jtodevproxy02_netinf
         rg_location = module.jtodev_eastus2_dev_rg.rg_location
         rg_name = module.jtodev_eastus2_dev_rg.rg_name

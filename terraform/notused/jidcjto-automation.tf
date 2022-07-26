@@ -7,7 +7,7 @@
 #
 # autoaccount
 module "jtodev_eastus_dev_autoaccount" {
-	source = "github.com/cantrellcloud/tfaz-autoaccount"
+	source = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-autoaccount"
 	#to_provision = local.provision_autoaccount
 	rg_location = module.jtodev_eastus_dev_rg.rg_location
 	rg_name = module.jtodev_eastus_dev_rg.rg_name
@@ -47,7 +47,7 @@ output "jtodev_eastus_dev_autoaccount_dsc_secondary_access_key" {
 
 #autoschedule01
 module "jtodev_eastus_dev_autoschedule_shutdown_vm_daily" {
-	source = "github.com/cantrellcloud/tfaz-autoschedule"
+	source = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-autoschedule"
 	#to_provision = local.provision_autoschedule_01
 	rg_name = module.jtodev_eastus_dev_rg.rg_name
 

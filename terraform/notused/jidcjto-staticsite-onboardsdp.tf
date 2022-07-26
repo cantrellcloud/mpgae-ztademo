@@ -1,6 +1,6 @@
 # staticsite_onboardsdp     # JTODev ZTA Onboard SDP site
 module "jtodev_eastus2_dev_staticsite_onboardsdp" {
-    source = "github.com/cantrellcloud/tfaz-staticsite"
+    source = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-staticsite"
     #to_provision = local.provision_staticsite_onboardsdp
     rg_location = module.jtodev_eastus2_dev_appsvcplan_rg.rg_location
     rg_name = module.jtodev_eastus2_dev_appsvcplan_rg.rg_name
@@ -39,7 +39,7 @@ module "jtodev_eastus2_dev_staticsite_onboardsdp" {
 
 # staticsitecustomdomain_jidcjto_com     # jidcjto.com static site custom domain
 module "jtodev_eastus2_dev_staticsitecustomdomain_jidcjto_com" {
-    source = "github.com/cantrellcloud/tfaz-staticsitecustomdomain"
+    source = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-staticsitecustomdomain"
     #to_provision = local.provision_staticsitecustomdomain_jidcjto_com
     staticsitecustomdomain_domain_name = "onboardsdp.${module.jtodev_eastus2_dev_dnszone_jidcjto_com.dnszone_name}"
     staticsitecustomdomain_static_site_id = module.jtodev_eastus2_dev_staticsite_onboardsdp.staticsite_id
@@ -51,7 +51,7 @@ module "jtodev_eastus2_dev_staticsitecustomdomain_jidcjto_com" {
 
 # dnscnamerecord_onboardsdp
 module "jtodev_eastus2_dev_dnscnamerecord_onboardsdp" {
-    source = "github.com/cantrellcloud/tfaz-dnscnamerecord"
+    source = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-dnscnamerecord"
     #to_provision = local.provision_dnscnamerecord_onboardsdp
     dnscnamerecord_name      = "onboardsdp"
     dnscnamerecord_zone_name = module.jtodev_eastus2_dev_dnszone_jidcjto_com.dnszone_name
@@ -62,7 +62,7 @@ module "jtodev_eastus2_dev_dnscnamerecord_onboardsdp" {
 
 # dnstxtrecord_onboardsdp
 module "jtodev_eastus2_dev_dnstxtrecord_onboardsdp" {
-    source = "github.com/cantrellcloud/tfaz-dnstxtrecord"
+    source = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-dnstxtrecord"
     #to_provision = local.provision_dnstxtrecord_onboardsdp
     dnstxtrecord_name      = "_dnsauth.onboardsdp"
     dnstxtrecord_zone_name = module.jtodev_eastus2_dev_dnszone_jidcjto_com.dnszone_name

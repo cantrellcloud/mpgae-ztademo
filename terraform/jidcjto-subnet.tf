@@ -8,7 +8,7 @@
 #
 # subnet01
 module "jtodev_eastus2_dev_prod_subnet" {
-	source = "github.com/cantrellcloud/tfaz-subnet"
+	source = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-subnet"
 	#to_provision = local.provision_subnet01
 	rg_name = module.jtodev_eastus2_dev_rg.rg_name
 	subnet_name = "jtodev_eastus2_dev_prod_subnet"
@@ -25,7 +25,7 @@ module "jtodev_eastus2_dev_prod_subnet" {
 
 # subnet02
 module "jtodev_eastus2_dev_subnetgw_subnet" {
-	source = "github.com/cantrellcloud/tfaz-subnet"
+	source = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-subnet"
 	#to_provision = local.provision_subnet02
 	rg_name = module.jtodev_eastus2_dev_rg.rg_name
 	subnet_name = "GatewaySubnet"
@@ -43,7 +43,7 @@ module "jtodev_eastus2_dev_subnetgw_subnet" {
 
 # subnet03
 module "jtodev_eastus2_dev_web_subnet" {
-	source = "github.com/cantrellcloud/tfaz-subnet"
+	source = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-subnet"
 	#to_provision = local.provision_subnet03
 	rg_name = module.jtodev_eastus2_dev_rg.rg_name
 	subnet_name = "jtodev_eastus2_dev_web_subnet"
@@ -61,7 +61,7 @@ module "jtodev_eastus2_dev_web_subnet" {
 
 # subnet04
 module "jtodev_eastus2_dev_edge_subnet" {
-	source = "github.com/cantrellcloud/tfaz-subnet"
+	source = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-subnet"
 	#to_provision = local.provision_subnet04
 	rg_name = module.jtodev_eastus2_dev_rg.rg_name
 	subnet_name = "jtodev_eastus2_dev_edge_subnet"
@@ -78,7 +78,7 @@ module "jtodev_eastus2_dev_edge_subnet" {
 
 # subnet05
 module "jtodev_eastus2_dev_azure_bastion_subnet" {
-	source = "github.com/cantrellcloud/tfaz-subnet"
+	source = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-subnet"
 	#to_provision = local.provision_subnet05
 	rg_name = module.jtodev_eastus2_dev_rg.rg_name
 	subnet_name = "AzureBastionSubnet"
@@ -95,7 +95,7 @@ module "jtodev_eastus2_dev_azure_bastion_subnet" {
 
 # subnet06
 module "jtodev_eastus2_dev_appsvc_subnet" {
-	source = "github.com/cantrellcloud/tfaz-subnet"
+	source = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-subnet"
 	#to_provision = local.provision_subnet06
 	rg_name = module.jtodev_eastus2_dev_rg.rg_name
 	subnet_name = "jtodev_eastus2_dev_appsvc_subnet"
@@ -113,7 +113,7 @@ module "jtodev_eastus2_dev_appsvc_subnet" {
 
 # subnet11
 module "jtodev_eastus_dev_prod_subnet" {
-	source = "github.com/cantrellcloud/tfaz-subnet"
+	source = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-subnet"
 	#to_provision = local.provision_subnet11
 	rg_name = module.jtodev_eastus_dev_rg.rg_name
 	subnet_name = "jtodev_eastus_dev_prod_subnet"
@@ -130,7 +130,7 @@ module "jtodev_eastus_dev_prod_subnet" {
 
 # subnet12
 module "jtodev_eastus_dev_subnetgw_subnet" {
-	source = "github.com/cantrellcloud/tfaz-subnet"
+	source = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-subnet"
 	#to_provision = local.provision_subnet12
 	rg_name = module.jtodev_eastus_dev_rg.rg_name
 	subnet_name = "GatewaySubnet"
@@ -148,7 +148,7 @@ module "jtodev_eastus_dev_subnetgw_subnet" {
 
 # subnet13
 /*module "jtodev_eastus_dev_web_subnet" {
-	source = "github.com/cantrellcloud/tfaz-subnet"
+	source = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-subnet"
 	#to_provision = local.provision_subnet13
 	rg_name = module.jtodev_eastus_dev_rg.rg_name
 	subnet_name = "jtodev_eastus_dev_web_subnet"
@@ -166,7 +166,7 @@ module "jtodev_eastus_dev_subnetgw_subnet" {
 
 # subnet14
 module "jtodev_eastus_dev_edge_subnet" {
-	source = "github.com/cantrellcloud/tfaz-subnet"
+	source = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-subnet"
 	#to_provision = local.provision_subnet14
 	rg_name = module.jtodev_eastus_dev_rg.rg_name
 	subnet_name = "jtodev_eastus_dev_edge_subnet"
@@ -183,7 +183,7 @@ module "jtodev_eastus_dev_edge_subnet" {
 
 # subnet15
 module "jtodev_eastus_dev_azure_bastion_subnet" {
-	source = "github.com/cantrellcloud/tfaz-subnet"
+	source = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-subnet"
 	#to_provision = local.provision_subnet15
 	rg_name = module.jtodev_eastus_dev_rg.rg_name
 	subnet_name = "AzureBastionSubnet"
@@ -201,7 +201,7 @@ module "jtodev_eastus_dev_azure_bastion_subnet" {
 
 # subnet31
 module "jtodev_westus2_dev_prod_subnet" {
-	source = "github.com/cantrellcloud/tfaz-subnet"
+	source = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-subnet"
 	#to_provision = local.provision_subnet31
 	rg_name = module.jtodev_westus2_dev_rg.rg_name
 	subnet_name = "jtodev_westus2_dev_prod_subnet"
@@ -218,7 +218,7 @@ module "jtodev_westus2_dev_prod_subnet" {
 
 # subnet32
 module "jtodev_westus2_dev_subnetgw_subnet" {
-	source = "github.com/cantrellcloud/tfaz-subnet"
+	source = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-subnet"
 	#to_provision = local.provision_subnet32
 	rg_name = module.jtodev_westus2_dev_rg.rg_name
 	subnet_name = "GatewaySubnet"
@@ -236,7 +236,7 @@ module "jtodev_westus2_dev_subnetgw_subnet" {
 
 # subnet33
 module "jtodev_westus2_dev_web_subnet" {
-	source = "github.com/cantrellcloud/tfaz-subnet"
+	source = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-subnet"
 	#to_provision = local.provision_subnet33
 	rg_name = module.jtodev_westus2_dev_rg.rg_name
 	subnet_name = "jtodev_westus2_dev_web_subnet"
@@ -254,7 +254,7 @@ module "jtodev_westus2_dev_web_subnet" {
 
 # subnet34
 module "jtodev_westus2_dev_edge_subnet" {
-	source = "github.com/cantrellcloud/tfaz-subnet"
+	source = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-subnet"
 	#to_provision = local.provision_subnet34
 	rg_name = module.jtodev_westus2_dev_rg.rg_name
 	subnet_name = "jtodev_westus2_dev_edge_subnet"
@@ -271,7 +271,7 @@ module "jtodev_westus2_dev_edge_subnet" {
 
 # subnet35
 module "jtodev_westus2_dev_azure_bastion_subnet" {
-	source = "github.com/cantrellcloud/tfaz-subnet"
+	source = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-subnet"
 	#to_provision = local.provision_subnet35
 	rg_name = module.jtodev_westus2_dev_rg.rg_name
 	subnet_name = "AzureBastionSubnet"
@@ -288,7 +288,7 @@ module "jtodev_westus2_dev_azure_bastion_subnet" {
 
 # subnet41
 module "jtodev_westus_dev_prod_subnet" {
-	source = "github.com/cantrellcloud/tfaz-subnet"
+	source = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-subnet"
 	#to_provision = local.provision_subnet41
 	rg_name = module.jtodev_westus_dev_rg.rg_name
 	subnet_name = "jtodev_westus_dev_prod_subnet"
@@ -305,7 +305,7 @@ module "jtodev_westus_dev_prod_subnet" {
 
 # subnet42
 module "jtodev_westus_dev_subnetgw_subnet" {
-	source = "github.com/cantrellcloud/tfaz-subnet"
+	source = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-subnet"
 	#to_provision = local.provision_subnet42
 	rg_name = module.jtodev_westus_dev_rg.rg_name
 	subnet_name = "GatewaySubnet"
@@ -323,7 +323,7 @@ module "jtodev_westus_dev_subnetgw_subnet" {
 
 # subnet43
 module "jtodev_westus_dev_web_subnet" {
-	source = "github.com/cantrellcloud/tfaz-subnet"
+	source = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-subnet"
 	#to_provision = local.provision_subnet43
 	rg_name = module.jtodev_westus_dev_rg.rg_name
 	subnet_name = "jtodev_westus_dev_web_subnet"
@@ -341,7 +341,7 @@ module "jtodev_westus_dev_web_subnet" {
 
 # subnet44
 module "jtodev_westus_dev_edge_subnet" {
-	source = "github.com/cantrellcloud/tfaz-subnet"
+	source = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-subnet"
 	#to_provision = local.provision_subnet44
 	rg_name = module.jtodev_westus_dev_rg.rg_name
 	subnet_name = "jtodev_westus_dev_edge_subnet"
@@ -358,7 +358,7 @@ module "jtodev_westus_dev_edge_subnet" {
 
 # subnet45
 module "jtodev_westus_dev_azure_bastion_subnet" {
-	source = "github.com/cantrellcloud/tfaz-subnet"
+	source = "github.com/MindPointGroup/mpgae-tf-azurerm-modules/tfaz-subnet"
 	#to_provision = local.provision_subnet45
 	rg_name = module.jtodev_westus_dev_rg.rg_name
 	subnet_name = "AzureBastionSubnet"
