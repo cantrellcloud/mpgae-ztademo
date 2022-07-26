@@ -35,6 +35,8 @@ module "jtodev_eastus2_dev_appsvc_jtodevzta" {
         "WEBSITES_ENABLE_APP_SERVICE_STORAGE" = "false"
     }
 
+    identity_type = "SystemAssigned"
+
     #connection_string
     connection_string_name  = "jtodevztadb"
     connection_string_type  = "MySQL"

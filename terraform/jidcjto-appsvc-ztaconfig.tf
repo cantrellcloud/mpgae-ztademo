@@ -33,7 +33,8 @@ module "jtodev_eastus2_dev_appsvc_ztaconfig" {
 
     appsvc_app_settings = {
         "WEBSITES_ENABLE_APP_SERVICE_STORAGE" = "false",
-        "WEBSITE_NODE_DEFAULT_VERSION" = "6.9.1"
+        "WEBSITE_NODE_DEFAULT_VERSION" = "6.9.1",
+        "MICROSOFT_PROVIDER_AUTHENTICATION_SECRET" = "dma8Q~bRp-Zco_PNM1bwT8vJjiqbpWiNzuZPxcQV"
     }
 
     identity_type = "SystemAssigned"
